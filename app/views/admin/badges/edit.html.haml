@@ -3,4 +3,11 @@
 = form_for [ :admin, @badge ] do |f|
   = render 'form', f: f
 
+  %h3 Users
+  = hidden_field_tag "badge[user_ids][]", nil
+
+  - User.all.each do |user|
+    = check_box_tag "badge[user_ids][]", user.id, @badge.user_ids.include?(user.id), id: dom_id(user)
+    = label_tag dom_id(user), user.name
+
   = f.submit

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409190145) do
+ActiveRecord::Schema.define(version: 20140409215024) do
 
   create_table "achievables", force: true do |t|
     t.string   "name"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 20140409190145) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "achievables_users", force: true do |t|
+    t.integer "achievable_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|
