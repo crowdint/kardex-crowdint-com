@@ -34,6 +34,7 @@ end
 
 gem 'bootstrap-sass'
 gem 'bootstrap-form'
+gem 'carrierwave'
 gem 'crowdint_auth', path: '../crowdint_auth'
 gem 'devise'
 gem 'haml-rails'

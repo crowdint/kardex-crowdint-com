@@ -33,7 +33,7 @@ class Admin::BadgesController < Admin::BaseController
 
   private
   def badge
-    params.require(:badge).permit(:name, :description, user_ids: [])
+    params.require(:badge).permit(:name, :description, :image, user_ids: [])
   end
 
   def load_badge
