@@ -32,6 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'bootstrap-sass'
 gem 'crowdint_auth', path: '../crowdint_auth'
 gem 'devise'
 gem 'haml-rails'
