@@ -38,6 +38,7 @@ gem 'carrierwave'
 gem 'crowdint_auth', path: '../crowdint_auth'
 gem 'devise'
 gem 'haml-rails'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'rspec-rails'
