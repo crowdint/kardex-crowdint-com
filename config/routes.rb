@@ -8,6 +8,8 @@ KardexCrowdintCom::Application.routes.draw do
       controllers: { omniauth_callbacks: 'crowdint_auth/omniauth_callbacks' }
 
   namespace :admin do
-    resources :achievables
+    root to: "achievables#index"
+
+    resources :badges, except: :show
   end
 end

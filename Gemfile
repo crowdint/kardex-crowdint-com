@@ -33,6 +33,7 @@ group :doc do
 end
 
 gem 'bootstrap-sass'
+gem 'bootstrap-form'
 gem 'crowdint_auth', path: '../crowdint_auth'
 gem 'devise'
 gem 'haml-rails'

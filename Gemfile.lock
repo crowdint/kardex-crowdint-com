@@ -35,6 +35,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     bcrypt (3.1.7)
+    bootstrap-form (3.0.0)
+      actionpack (> 3.2)
+      railties (> 3.2)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
     builder (3.1.4)
@@ -165,6 +168,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-form
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   crowdint_auth!
