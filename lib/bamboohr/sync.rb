@@ -13,8 +13,10 @@ module BambooHR
         user.name = data["displayName"]
         user.email = data["workEmail"]
         user.department = data["department"]
-        user.password = generate_password
-        user.password_confirmation = user.password
+        unless user.persisted?
+          user.password = generate_password
+          user.password_confirmation = user.password
+        end
 
         user.save
       end
