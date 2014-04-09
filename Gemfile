@@ -32,11 +32,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'bamboohr', github: 'crowdint/bamboohr'
 gem 'bootstrap-sass'
 gem 'bootstrap-form'
 gem 'carrierwave'
 gem 'crowdint_auth', path: '../crowdint_auth'
 gem 'devise'
+gem 'figaro'
 gem 'haml-rails'
 gem 'mini_magick'
 
