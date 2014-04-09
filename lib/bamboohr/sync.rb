@@ -8,7 +8,7 @@ module BambooHR
     end
 
     def self.create_user(data)
-      if data["workEmail"]
+      if importable?(data)
         user = User.find_by_email(data["workEmail"]) || User.new
         user.name = data["displayName"]
         user.email = data["workEmail"]
@@ -31,6 +31,10 @@ module BambooHR
         @client.subdomain = ENV['BAMBOO_SUBDOMAIN']
       end
       @client
+    end
+
+    def self.importable?(data)
+      data["workEmail"]
     end
   end
 end
