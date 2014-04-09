@@ -44,6 +44,7 @@ gem 'figaro'
 gem 'fog'
 gem 'haml-rails'
 gem 'mini_magick'
+gem 'unicorn'
 
 group :development, :test do
   gem 'rspec-rails'
