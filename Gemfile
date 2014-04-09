@@ -39,6 +39,7 @@ gem 'carrierwave'
 gem 'crowdint_auth', path: '../crowdint_auth'
 gem 'devise'
 gem 'figaro'
+gem 'fog'
 gem 'haml-rails'
 gem 'mini_magick'
 
