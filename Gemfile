@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
@@ -36,7 +38,7 @@ gem 'bamboohr', github: 'crowdint/bamboohr'
 gem 'bootstrap-sass'
 gem 'bootstrap-form'
 gem 'carrierwave'
-gem 'crowdint_auth', path: '../crowdint_auth'
+gem 'crowdint_auth', '0.1.3'
 gem 'devise'
 gem 'figaro'
 gem 'fog'
