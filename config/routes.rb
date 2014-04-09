@@ -7,7 +7,8 @@ KardexCrowdintCom::Application.routes.draw do
   devise_for :users,
       controllers: { omniauth_callbacks: 'crowdint_auth/omniauth_callbacks' }
 
-  resources :users
+  root to: "users#index"
+  resources :users, only: :show
 
   namespace :admin do
     root to: "achievables#index"

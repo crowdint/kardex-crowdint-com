@@ -3,4 +3,5 @@
 = form_for [ :admin, @badge ] do |f|
   = render 'form', f: f
 
-  = f.submit
+  .clear
+    = f.submit 'Create', class: 'btn btn-primary'
