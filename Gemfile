@@ -47,6 +47,7 @@ gem 'unicorn'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'webmock'
   gem 'vcr'
 end
+
+gem 'webmock', group: :test
