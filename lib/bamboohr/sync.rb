@@ -8,11 +8,13 @@ module BambooHR
     end
 
     def self.create_user(data)
+      p data
       if importable?(data)
         user = User.find_by_email(data["workEmail"]) || User.new
         user.name = data["displayName"]
         user.email = data["workEmail"]
         user.department = data["department"]
+        user.picture_url = data["photoUrl"]
         unless user.persisted?
           user.password = generate_password
           user.password_confirmation = user.password

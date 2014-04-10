@@ -1,6 +1,10 @@
-%h1= @user.name
-
-%h2 Badges
-
 .row
-  = render partial: 'badge', collection: @user.badges
+  .col-sm-2
+    = image_tag @user.picture_url
+  .col-sm-10
+    %h1= @user.name
+
+    %h2 Badges
+
+    .row
+      = render partial: 'badge', collection: @user.badges
