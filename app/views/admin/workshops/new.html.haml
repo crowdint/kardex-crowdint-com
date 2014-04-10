@@ -1,0 +1,6 @@
+%h1 New Workshop
+
+= form_for [:admin, @workshop] do |f|
+  = render 'form', f: f
+
+  = f.submit 'Create', class: 'btn btn-primary'

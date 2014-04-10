@@ -55,6 +55,6 @@ class Admin::AchievablesController < Admin::BaseController
   end
 
   def index_path
-    call("admin_#{resource_name.pluralize}_path")
+    send("admin_#{resource_name.pluralize}_path")
   end
 end

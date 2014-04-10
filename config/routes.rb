@@ -14,5 +14,6 @@ KardexCrowdintCom::Application.routes.draw do
     root to: "main#index"
 
     resources :badges, except: :show
+    resources :workshops, except: :show
   end
 end

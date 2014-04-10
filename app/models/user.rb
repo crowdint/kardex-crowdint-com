@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :badges,
       association_foreign_key: 'achievable_id',
       join_table:              'achievables_users'
+
+  has_and_belongs_to_many :workshops,
+      association_foreign_key: 'achievable_id',
+      join_table:              'achievables_users'
 end
