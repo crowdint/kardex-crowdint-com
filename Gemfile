@@ -39,7 +39,7 @@ gem 'bootstrap-form'
 gem 'carrierwave'
 gem 'crowdint_auth', '0.1.3'
 gem 'devise'
-gem 'figaro'
+gem 'figaro', github: 'laserlemon/figaro'
 gem 'fog'
 gem 'haml-rails'
 gem 'mini_magick'
@@ -47,4 +47,6 @@ gem 'unicorn'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'webmock'
+  gem 'vcr'
 end
