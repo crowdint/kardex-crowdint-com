@@ -11,7 +11,7 @@ KardexCrowdintCom::Application.routes.draw do
   resources :users, only: :show
 
   namespace :admin do
-    root to: "achievables#index"
+    root to: "main#index"
 
     resources :badges, except: :show
   end
