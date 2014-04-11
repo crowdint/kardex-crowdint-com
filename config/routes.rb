@@ -8,7 +8,7 @@ KardexCrowdintCom::Application.routes.draw do
       controllers: { omniauth_callbacks: 'crowdint_auth/omniauth_callbacks' }
 
   root to: "users#index"
-  resources :users, only: :show
+  get ':id', to: 'users#show', as: 'user'
 
   namespace :admin do
     root to: "main#index"
