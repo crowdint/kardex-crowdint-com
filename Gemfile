@@ -43,6 +43,7 @@ gem 'figaro', github: 'laserlemon/figaro'
 gem 'fog'
 gem 'haml-rails'
 gem 'mini_magick'
+gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'unicorn'
 
 group :development, :test do
