@@ -45,7 +45,7 @@ You can either specify the formatting when using the `rspec` command:
 
 ## Metrics Tools
 ### Using Rails Best Practices
-  $ rails_best_practices
+  	$ rails_best_practices
 
 ## Run Application
 
