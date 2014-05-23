@@ -50,4 +50,12 @@ group :development, :test do
   gem 'vcr'
 end
 
-gem 'webmock', group: :test
+group :development do
+  gem 'capybara', '~> 2.2.1'
+  gem 'capybara-webkit', '~> 1.1.0'
+end
+
+group :test do
+  gem 'poltergeist', '~> 1.5.0'
+  gem 'webmock'
+end
