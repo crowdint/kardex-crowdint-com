@@ -43,6 +43,10 @@ You can either specify the formatting when using the `rspec` command:
 
     rspec --format NyanCatFormatter
 
+## Metrics Tools
+### Using Rails Best Practices
+  $ rails_best_practices
+
 ## Run Application
 
 	$ rails server
