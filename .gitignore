@@ -21,6 +21,4 @@ public/uploads
 config/database.yml
 
 # ignore coverage from simplecov
-coverage/
-coverage/*.json
-coverage/*.html
+coverage

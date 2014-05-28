@@ -27,6 +27,9 @@ group :doc do
 end
 
 group :development, :test do
+  gem 'annotate', ">=2.6.0"
+  gem 'pry-nav'
+  gem 'pry-rails', '~> 0.3.2',  require: false
   gem 'rspec-rails'
   gem 'vcr'
 end
@@ -38,6 +41,8 @@ group :development do
 end
 
 group :test do
+  gem 'fabrication'
+  gem 'faker'
   gem 'nyan-cat-formatter'
   gem 'poltergeist', '~> 1.5.0'
   gem 'webmock'

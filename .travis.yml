@@ -3,8 +3,10 @@ rvm:
   - 2.1.2
 bundler_args: '--without development'
 before_script:
-  - "psql -c 'create database wdt_test;' -U postgres"
+  - "psql -c 'create database kardex_test;' -U postgres"
   - 'cp config/database.example.yml config/database.yml'
-  - 'RAILS_ENV=test bundle exec rake db:migrate >> /dev/null 2>&1'
+  - 'RAILS_ENV=test bundle exec rake db:migrate'
+  - "export BAMBOO_API_KEY=API_TOKEN RAILS_ENV=test"
+  - "export BAMBOO_SUBDOMAIN=crowdint RAILS_ENV=test"
 script:
   - 'RAILS_ENV=test bundle exec rake'
