@@ -1,4 +1,3 @@
-travis-lint
 language: ruby
 rvm:
   - 2.1.2
