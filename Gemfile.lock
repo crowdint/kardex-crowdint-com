@@ -47,6 +47,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
+    annotate (2.6.3)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (4.0.2)
     awesome_print (1.2.0)
     bcrypt (3.1.7)
@@ -280,6 +283,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate (>= 2.6.0)
   bamboohr!
   bootstrap-form
   bootstrap-sass
