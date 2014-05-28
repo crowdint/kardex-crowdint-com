@@ -102,6 +102,8 @@ GEM
     excon (0.32.1)
     execjs (2.0.2)
     fabrication (2.11.2)
+    faker (1.3.0)
+      i18n (~> 0.5)
     fog (1.21.0)
       fog-brightbox
       fog-core (~> 1.21, >= 1.21.1)
@@ -295,6 +297,7 @@ DEPENDENCIES
   crowdint_auth (= 0.1.3)
   devise
   fabrication
+  faker
   figaro!
   fog
   haml-rails
