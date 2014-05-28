@@ -4,18 +4,15 @@ Kardex Crowd Interactive
 This application should be the all-in-one services for all crowd members.
 
 ## Ruby version
-	ruby '2.1.0'
+	ruby '2.1.2'
 
 ## System dependencies
 	'rails', '4.0.4'
-
-	'pg'
 
 ## Configuration
 	$ git clone git@github.com:crowdint/kardex-crowdint-com.git
 	$ cd kardex-crowdint-com
 	$ bundle install
-
 
 ## Database creation
 	$ rake db:create
@@ -23,8 +20,8 @@ This application should be the all-in-one services for all crowd members.
 
 ## Database initialization
 ### Bamboohr Initialization
-	$ export 'BAMBOO_API_KEY'='generated_bamboohr_api_key'
-	$ export 'BAMBOO_SUBDOMAIN'='crowdint'
+	$ export BAMBOO_API_KEY=generated_bamboohr_api_key
+	$ export BAMBOO_SUBDOMAIN'=crowdint
 	$ rake bamboo:sync_users 
 
 ## How to run the test suite
@@ -32,10 +29,16 @@ This application should be the all-in-one services for all crowd members.
 	$ rake db:migrate RAILS_ENV=test
 	
 ### Prepare your bamboohr rake task for test
-	$ export 'BAMBOO_API_KEY'='API_TOKEN' RAILS_ENV=test
-	$ export 'BAMBOO_SUBDOMAIN'='crowdint' RAILS_ENV=test
+	$ export BAMBOO_API_KEY=API_TOKEN RAILS_ENV=test
+	$ export BAMBOO_SUBDOMAIN=crowdint RAILS_ENV=test
 ### Using Rspec and Rspec Capybara
 	$ bundle exec rspec spec/
+
+### SimpleCov
+
+After running your test suite just do next:
+
+  $ open coverage/index.html
 
 ### Using  Nyan Cat
 
