@@ -39,6 +39,7 @@ group :development do
 end
 
 group :test do
+  gem 'fabrication'
   gem 'nyan-cat-formatter'
   gem 'poltergeist', '~> 1.5.0'
   gem 'webmock'

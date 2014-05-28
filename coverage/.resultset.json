@@ -48,6 +48,19 @@
         null
       ],
       "/Users/Velazquez/Projects/Crowdint/kardex-crowdint-com/spec/models/achievable_spec.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         1,
         null,
         1,
@@ -55,6 +68,19 @@
         null
       ],
       "/Users/Velazquez/Projects/Crowdint/kardex-crowdint-com/app/models/achievable.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         1,
         1,
         null,
@@ -123,6 +149,31 @@
         null
       ],
       "/Users/Velazquez/Projects/Crowdint/kardex-crowdint-com/spec/models/user_spec.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         1,
         null,
         1,
@@ -130,6 +181,6 @@
         null
       ]
     },
-    "timestamp": 1401288643
+    "timestamp": 1401297216
   }
 }
