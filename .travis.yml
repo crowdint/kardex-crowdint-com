@@ -1,9 +1,10 @@
+travis-lint
 language: ruby
 rvm:
   - 2.1.2
 bundler_args: '--without development'
 before_script:
-  - "psql -c 'create database wdt_test;' -U postgres"
+  - "psql -c 'create database kardex_test;' -U postgres"
   - 'cp config/database.example.yml config/database.yml'
   - 'RAILS_ENV=test bundle exec rake db:migrate'
 script:
