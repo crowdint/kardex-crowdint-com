@@ -40,8 +40,8 @@ Status](https://travis-ci.org/crowdint/kardex-crowdint-com.svg?branch=master)](h
 ### SimpleCov
 
 After running your test suite just do next:
-
-  $ open coverage/index.html
+	
+	$ open coverage/index.html
 
 ### Using  Nyan Cat
 
