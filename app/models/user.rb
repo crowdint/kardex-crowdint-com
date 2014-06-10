@@ -38,7 +38,9 @@ class User < ActiveRecord::Base
       association_foreign_key: 'achievable_id',
       join_table:              'achievables_users'
 
-  has_many :positions
+  has_and_belongs_to_many :skills
+
+  has_and_belongs_to_many :positions
 
   def to_param
     "#{id}-#{name.parameterize}"
