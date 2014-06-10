@@ -7,8 +7,8 @@
     %h2 Badges
 
     .row
-      = render partial: 'badge', collection: @user.badges
+      = render @user.badges
 
     %h2 workshops
 
-    = render partial: 'workshop', collection: @user.workshops
+    = render @user.workshops
