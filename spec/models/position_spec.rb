@@ -12,5 +12,11 @@
 require 'spec_helper'
 
 describe Position do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do 
+    subject { Fabricate(:position) }
+  end
+
+  it 'is invalid without name' do 
+    subject.should have(1).errors_on(:name)
+  end
 end

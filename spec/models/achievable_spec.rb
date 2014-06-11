@@ -18,7 +18,7 @@ describe Achievable do
     subject { Fabricate(:achivable) }
   end
 
-  it 'is invalid without first name' do 
+  it 'is invalid without name' do 
     subject.should have(1).errors_on(:name)
   end
 end
