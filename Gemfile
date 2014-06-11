@@ -46,5 +46,6 @@ group :test do
   gem 'nyan-cat-formatter'
   gem 'poltergeist', '~> 1.5.0'
   gem 'webmock'
+  gem 'shoulda-matchers'
   gem 'simplecov', :require => false
 end

@@ -45,4 +45,10 @@ describe User do
   it 'is valid department' do
     expect(subject).to have(0).errors_on(:department)
   end
+
+  it { should have_and_belong_to_many(:achievables) }
+
+  it { should have_and_belong_to_many(:positions) }
+
+  it { should have_and_belong_to_many(:skills) }
 end

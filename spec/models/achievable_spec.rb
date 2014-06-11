@@ -19,6 +19,6 @@ describe Achievable do
   end
 
   it 'is invalid without name' do 
-    expect(subject).to have(1).errors_on(:name)
+    expect(subject).to validate_presence_of(:name)
   end
 end

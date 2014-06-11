@@ -28,6 +28,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :trackable, :omniauthable
 
+  has_and_belongs_to_many :skills,
+      join_table:              'skills_users'
+
+  has_and_belongs_to_many :positions,
+      join_table:              'positions_users'
+
   has_and_belongs_to_many :achievables
 
   has_and_belongs_to_many :badges,
@@ -37,10 +43,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :workshops,
       association_foreign_key: 'achievable_id',
       join_table:              'achievables_users'
-
-  has_and_belongs_to_many :skills
-
-  has_and_belongs_to_many :positions
 
   def to_param
     "#{id}-#{name.parameterize}"
