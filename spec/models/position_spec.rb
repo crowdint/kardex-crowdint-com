@@ -17,6 +17,6 @@ describe Position do
   end
 
   it 'is invalid without name' do 
-    subject.should have(1).errors_on(:name)
+    expect(subject).to have(1).errors_on(:name)
   end
 end
