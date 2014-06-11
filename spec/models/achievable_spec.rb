@@ -14,5 +14,11 @@
 require 'spec_helper'
 
 describe Achievable do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do 
+    subject { Fabricate(:achivable) }
+  end
+
+  it 'is invalid without first name' do 
+    subject.should have(1).errors_on(:name)
+  end
 end
