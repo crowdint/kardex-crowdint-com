@@ -11,5 +11,11 @@
 require 'spec_helper'
 
 describe Skill do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do 
+    subject { Fabricate(:skill) }
+  end
+
+  it 'valid fabrication' do 
+    expect(subject).to have(0).errors_on(:name)
+  end
 end
