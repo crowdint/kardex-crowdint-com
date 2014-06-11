@@ -26,5 +26,23 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    subject { Fabricate(:user) }
+  end
+
+  it 'is valid name' do
+    expect(subject).to have(0).errors_on(:name)
+  end
+
+  it 'is valid email' do
+    expect(subject).to have(0).errors_on(:email)
+  end
+
+  it 'is valid password' do
+    expect(subject).to have(0).errors_on(:password)
+  end
+
+  it 'is valid department' do
+    expect(subject).to have(0).errors_on(:department)
+  end
 end
