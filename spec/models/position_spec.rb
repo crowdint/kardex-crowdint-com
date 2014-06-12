@@ -1,21 +1,19 @@
 # == Schema Information
 #
-# Table name: achievables
+# Table name: positions
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)
-#  description :text
-#  type        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  image       :string(255)
+#  description :string(255)
+#  image_url   :string(255)
+#  user_id     :integer
 #
 
 require 'spec_helper'
 
-describe Achievable do
+describe Position do
   before do 
-    subject { Fabricate(:achivable) }
+    subject { Fabricate(:position) }
   end
 
   it { should have_and_belong_to_many(:users) }

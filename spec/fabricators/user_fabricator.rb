@@ -23,28 +23,9 @@
 #  picture_url            :string(255)
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :trackable, :omniauthable
-
-  has_and_belongs_to_many :skills,
-      join_table:              'skills_users'
-
-  has_and_belongs_to_many :positions,
-      join_table:              'positions_users'
-
-  has_and_belongs_to_many :achievables
-
-  has_and_belongs_to_many :badges,
-      association_foreign_key: 'achievable_id',
-      join_table:              'achievables_users'
-
-  has_and_belongs_to_many :workshops,
-      association_foreign_key: 'achievable_id',
-      join_table:              'achievables_users'
-
-  def to_param
-    "#{id}-#{name.parameterize}"
-  end
+Fabricator :user do
+  name { Faker::Name.name }
+  email { Faker::Internet.email }
+  password { Faker::Internet.password }
+  department { Faker::Commerce.department }
 end

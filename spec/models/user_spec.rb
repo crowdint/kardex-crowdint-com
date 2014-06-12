@@ -26,5 +26,21 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    subject { Fabricate(:user) }
+  end
+
+  it { should have_and_belong_to_many(:achievables) }
+
+  it { should have_and_belong_to_many(:positions) }
+
+  it { should have_and_belong_to_many(:skills) }
+
+  it {  expect(subject).not_to validate_presence_of(:name) }
+
+  it { expect(subject).not_to validate_presence_of(:email) }
+
+  it { expect(subject).not_to validate_presence_of(:password) }
+
+  it { expect(subject).not_to validate_presence_of(:department) }
 end
