@@ -21,4 +21,6 @@ describe Achievable do
   it 'is invalid without name' do 
     expect(subject).to validate_presence_of(:name)
   end
+
+  it { should have_and_belong_to_many(:users) }
 end
