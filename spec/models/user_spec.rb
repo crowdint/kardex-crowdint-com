@@ -30,25 +30,17 @@ describe User do
     subject { Fabricate(:user) }
   end
 
-  it 'name is not mandatory' do
-    expect(subject).not_to validate_presence_of(:name)
-  end
-
-  it 'email is not mandatory' do
-    expect(subject).not_to validate_presence_of(:email)
-  end
-
-  it 'password is not mandatory' do
-    expect(subject).not_to validate_presence_of(:password)
-  end
-
-  it 'department is not mandatory' do
-    expect(subject).not_to validate_presence_of(:department)
-  end
-
   it { should have_and_belong_to_many(:achievables) }
 
   it { should have_and_belong_to_many(:positions) }
 
   it { should have_and_belong_to_many(:skills) }
+
+  it {  expect(subject).not_to validate_presence_of(:name) }
+
+  it { expect(subject).not_to validate_presence_of(:email) }
+
+  it { expect(subject).not_to validate_presence_of(:password) }
+
+  it { expect(subject).not_to validate_presence_of(:department) }
 end

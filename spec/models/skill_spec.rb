@@ -15,9 +15,7 @@ describe Skill do
     subject { Fabricate(:skill) }
   end
 
-  it 'valid fabrication' do 
-    expect(subject).to have(0).errors_on(:name)
-  end
-
   it { should have_and_belong_to_many(:users) }
+
+  it { expect(subject).not_to validate_presence_of(:name) }
 end
