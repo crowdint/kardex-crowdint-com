@@ -18,4 +18,6 @@ describe Skill do
   it 'valid fabrication' do 
     expect(subject).to have(0).errors_on(:name)
   end
+
+  it { should have_and_belong_to_many(:users) }
 end

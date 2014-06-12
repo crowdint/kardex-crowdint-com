@@ -30,20 +30,20 @@ describe User do
     subject { Fabricate(:user) }
   end
 
-  it 'is valid name' do
-    expect(subject).to have(0).errors_on(:name)
+  it 'name is not mandatory' do
+    expect(subject).not_to validate_presence_of(:name)
   end
 
-  it 'is valid email' do
-    expect(subject).to have(0).errors_on(:email)
+  it 'email is not mandatory' do
+    expect(subject).not_to validate_presence_of(:email)
   end
 
-  it 'is valid password' do
-    expect(subject).to have(0).errors_on(:password)
+  it 'password is not mandatory' do
+    expect(subject).not_to validate_presence_of(:password)
   end
 
-  it 'is valid department' do
-    expect(subject).to have(0).errors_on(:department)
+  it 'department is not mandatory' do
+    expect(subject).not_to validate_presence_of(:department)
   end
 
   it { should have_and_belong_to_many(:achievables) }
