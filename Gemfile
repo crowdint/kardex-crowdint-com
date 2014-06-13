@@ -36,7 +36,7 @@ end
 
 group :development do
   gem 'capybara', '~> 2.2.1'
-  gem 'capybara-webkit', '~> 1.1.0'
+  gem 'selenium-webdriver'
   gem 'rails_best_practices'
 end
 
