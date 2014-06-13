@@ -28,4 +28,5 @@ Fabricator :user do
   email { Faker::Internet.email }
   password { Faker::Internet.password }
   department { Faker::Commerce.department }
+  bio { Faker::Lorem.sentence(6) }
 end

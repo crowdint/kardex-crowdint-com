@@ -32,11 +32,11 @@ describe User do
 
   it { should have_and_belong_to_many(:achievables) }
 
-  it { should have_and_belong_to_many(:positions) }
+  it { should have_one(:position) }
 
   it { should have_and_belong_to_many(:skills) }
 
-  it {  expect(subject).not_to validate_presence_of(:name) }
+  it { expect(subject).not_to validate_presence_of(:name) }
 
   it { expect(subject).not_to validate_presence_of(:email) }
 

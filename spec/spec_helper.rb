@@ -26,6 +26,8 @@ VCR.configure do |c|
 
   #c.filter_sensitive_data('API_TOKEN') { '552dd8d56d0447dc888a10e3df073e5847510377' }
   c.configure_rspec_metadata!
+
+  c.ignore_localhost = true
 end
 
 RSpec.configure do |config|
@@ -55,8 +57,4 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-
-  # Configure javascript driver
-  driver = ENV['DEFAULT_DRIVER'] || 'webkit'
-  Capybara.javascript_driver = driver.to_sym
 end

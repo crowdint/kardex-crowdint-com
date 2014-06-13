@@ -3,12 +3,11 @@
     = image_tag @user.picture_url
   .col-sm-10
     %h1= @user.name
-
-    %h2 Badges
-
-    .row
-      = render @user.badges
-
-    %h2 workshops
-
-    = render @user.workshops
+    %h2 Biography
+    %p= @user.bio
+    %h2 Positions
+    %p= @user.position
+    %h2 Skills
+    %ul
+      - @user.skills.each do |skill|
+        %li= skill.name

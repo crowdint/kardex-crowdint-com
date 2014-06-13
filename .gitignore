@@ -22,3 +22,7 @@ config/database.yml
 
 # ignore coverage from simplecov
 coverage
+
+# ignore personal configuration files
+.ruby-version
+.ruby-gemset
