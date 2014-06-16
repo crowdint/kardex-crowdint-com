@@ -15,6 +15,7 @@ gem 'fog'
 gem 'haml-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
+gem 'lol_dba'
 gem 'mini_magick'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
@@ -28,16 +29,13 @@ end
 
 group :development, :test do
   gem 'annotate', ">=2.6.0"
+  gem 'capybara', '~> 2.2.1'
   gem 'pry-nav'
   gem 'pry-rails', '~> 0.3.2',  require: false
-  gem 'rspec-rails'
-  gem 'vcr'
-end
-
-group :development do
-  gem 'capybara', '~> 2.2.1'
-  gem 'selenium-webdriver'
   gem 'rails_best_practices'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'vcr'
 end
 
 group :test do
@@ -46,6 +44,7 @@ group :test do
   gem 'nyan-cat-formatter'
   gem 'poltergeist', '~> 1.5.0'
   gem 'webmock'
+  gem 'rack_session_access'
   gem 'shoulda-matchers'
   gem 'simplecov', :require => false
 end
