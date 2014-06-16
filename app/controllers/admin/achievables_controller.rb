@@ -1,5 +1,5 @@
 class Admin::AchievablesController < Admin::BaseController
-  before_filter :load_object, if: -> { params[:id] }
+  before_action :load_object, if: -> { params[:id] }
 
   respond_to :html
 

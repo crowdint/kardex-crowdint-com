@@ -33,4 +33,7 @@ KardexCrowdintCom::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Using this for to set a rack session for capybara
+  config.middleware.use RackSessionAccess::Middleware
 end
