@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :get_user, except: :index
   respond_to :html
 
   def index
@@ -7,16 +8,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     respond_with @user
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     @user.update_attributes(user_params)
     if @user.save
       respond_with @user
@@ -29,5 +27,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :bio, :position_id, skill_ids: [])
+  end
+
+  def get_user
+    @user = User.find(params[:id])
   end
 end

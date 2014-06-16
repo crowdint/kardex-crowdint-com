@@ -6,7 +6,7 @@
     %h2 Biography
     %p= @user.bio
     %h2 Position
-    %p= @user.position.name unless @user.position.nil?
+    %p= position
     %h2 Skills
     %ul
       - @user.skills.each do |skill|
