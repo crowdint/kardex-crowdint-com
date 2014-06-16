@@ -12,11 +12,11 @@
 require 'spec_helper'
 
 describe Position do
-  before do 
+  before do
     subject { Fabricate(:position) }
   end
 
-  it { should belong_to(:user) }
+  it { should have_many(:users) }
 
   it { expect(subject).to validate_presence_of(:name) }
 end
