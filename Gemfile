@@ -29,16 +29,13 @@ end
 
 group :development, :test do
   gem 'annotate', ">=2.6.0"
+  gem 'capybara', '~> 2.2.1'
   gem 'pry-nav'
   gem 'pry-rails', '~> 0.3.2',  require: false
-  gem 'rspec-rails'
-  gem 'vcr'
-end
-
-group :development do
-  gem 'capybara', '~> 2.2.1'
-  gem 'selenium-webdriver'
   gem 'rails_best_practices'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'vcr'
 end
 
 group :test do
