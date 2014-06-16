@@ -1,6 +1,8 @@
 language: ruby
 rvm:
   - 2.1.2
+before_install:
+  - gem install selenium-webdriver
 bundler_args: '--without development'
 before_script:
   - "psql -c 'create database kardex_test;' -U postgres"
