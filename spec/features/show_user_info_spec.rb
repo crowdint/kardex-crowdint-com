@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 feature "Signing in" do
-
   let!(:user) { Fabricate(:user) }
 
   background do
     Capybara.current_driver = :selenium
-    visit user_omniauth_authorize_path(:google_apps)
+    visit root_path
   end
 
   scenario "Signing in with incorrect credentials" do
