@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/crowdint/kardex-crowdint-com.png?label=ready&title=Ready)](https://waffle.io/crowdint/kardex-crowdint-com)
 Kardex Crowd Interactive
 ===
 
