@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @position = @user.position
     respond_with @user
   end
 

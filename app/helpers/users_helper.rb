@@ -1,5 +1,5 @@
 module UsersHelper
   def position
-    @user.position.name unless @user.position.nil?
+    @position.name unless @position.nil?
   end
 end
