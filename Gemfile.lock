@@ -19,6 +19,16 @@ GIT
   specs:
     slack-notifier (0.5.0)
 
+GIT
+  remote: git://github.com/zalapeach/badges_engine.git
+  revision: c1a66e32ca9dd9e8c350444d7c40cdc2d3322e0f
+  branch: feature/badges-CRUD
+  specs:
+    badges_engine (0.0.1)
+      haml-rails
+      jquery-rails
+      rails (~> 4.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -314,6 +324,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.6.0)
+  badges_engine!
   bamboohr!
   bootstrap-form
   bootstrap-sass
