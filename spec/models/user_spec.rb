@@ -32,7 +32,7 @@ describe User do
 
   it { should have_and_belong_to_many(:achievables) }
 
-  it { should have_one(:position) }
+  it { should belong_to(:position) }
 
   it { should have_and_belong_to_many(:skills) }
 

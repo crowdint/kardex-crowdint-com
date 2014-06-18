@@ -5,9 +5,14 @@
     %h1= @user.name
     %h2 Biography
     %p= @user.bio
-    %h2 Positions
-    %p= @user.position
+    %h2 Position
+    %p= position
     %h2 Skills
     %ul
       - @user.skills.each do |skill|
         %li= skill.name
+.row
+  .col-sm-12
+    = link_to 'Back to users', users_path
+    |
+    = link_to 'Edit user', edit_user_path(@user)

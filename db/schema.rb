@@ -46,13 +46,10 @@ ActiveRecord::Schema.define(version: 20140618185958) do
   end
 
   create_table "positions", force: true do |t|
-    t.string  "name"
-    t.string  "description"
-    t.string  "image_url"
-    t.integer "user_id"
+    t.string "name"
+    t.string "description"
+    t.string "image_url"
   end
-
-  add_index "positions", ["user_id"], name: "index_positions_on_user_id", using: :btree
 
   create_table "skills", force: true do |t|
     t.string   "name"
@@ -88,9 +85,11 @@ ActiveRecord::Schema.define(version: 20140618185958) do
     t.string   "department"
     t.string   "picture_url"
     t.text     "bio"
+    t.integer  "position_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["position_id"], name: "index_users_on_position_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
