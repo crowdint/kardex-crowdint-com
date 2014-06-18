@@ -7,7 +7,6 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'simplecov'
-require 'rack_session_access/capybara'
 
 # Initialize SimpleCov
 SimpleCov.start
@@ -20,6 +19,21 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
+# Mocking auth for Omniauth
+Capybara.default_host = 'http://localhost:3000'
+
+OmniAuth.configure do |config|
+  config.test_mode = true
+  config.add_mock(:default, {
+    :info => {
+                :email => 'foobar@crowdint.com',
+                :name => 'foo',
+                :password => 'qwerty123'
+             }
+  })
+end
+
+# VCR configuration
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/support/vcr_cassettes'
   c.hook_into :webmock # or :fakeweb
@@ -61,4 +75,7 @@ RSpec.configure do |config|
 
   # Use devise helpers
   config.include Devise::TestHelpers, type: :controller
+
+  # Including support helpers modules
+  config.include FeatureHelpers, type: :feature
 end

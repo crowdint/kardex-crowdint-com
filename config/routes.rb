@@ -16,5 +16,5 @@ KardexCrowdintCom::Application.routes.draw do
     resources :workshops, except: :show
   end
 
-  get ':id', to: 'users#show', as: 'user'
+  resources :users, except: [:new, :create, :destroy]
 end

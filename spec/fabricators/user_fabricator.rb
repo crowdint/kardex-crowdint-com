@@ -25,7 +25,7 @@
 
 Fabricator :user do
   name { Faker::Name.name }
-  email { Faker::Internet.email }
+  email {  |attrs| "#{ attrs[:name].to_s.parameterize }@crowdint.com" }
   password { Faker::Internet.password }
   department { Faker::Commerce.department }
   bio { Faker::Lorem.sentence(6) }
