@@ -9,10 +9,11 @@ KardexCrowdintCom::Application.routes.draw do
 
   root to: "users#index"
 
+  mount BadgesEngine::Engine, at: '/admin'
+
   namespace :admin do
     root to: "main#index"
 
-    resources :badges, except: :show
     resources :workshops, except: :show
   end
 

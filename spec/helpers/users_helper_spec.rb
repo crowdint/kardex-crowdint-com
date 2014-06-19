@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'UsersHelper' do
+describe UsersHelper do
   describe '#position' do
     it 'returns the name of the position' do
       @position = Fabricate(:position)

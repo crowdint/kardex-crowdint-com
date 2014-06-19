@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616054959) do
+ActiveRecord::Schema.define(version: 20140618185958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20140616054959) do
 
   add_index "achievables_users", ["achievable_id", "user_id"], name: "index_achievables_users_on_achievable_id_and_user_id", using: :btree
   add_index "achievables_users", ["user_id", "achievable_id"], name: "index_achievables_users_on_user_id_and_achievable_id", using: :btree
+
+  create_table "badges_engine_badges", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.text     "description"
+    t.integer  "level"
+    t.string   "award"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "positions", force: true do |t|
     t.string "name"

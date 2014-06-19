@@ -4,7 +4,6 @@ defaults: &defaults
   timeout: 5000
   host: localhost
 
-
 development:
   database: kardex
   <<: *defaults
