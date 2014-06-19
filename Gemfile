@@ -23,8 +23,7 @@ gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'badges_engine',
-  github: 'zalapeach/badges_engine',
-  branch: 'feature/badges-CRUD'
+  github: 'zalapeach/badges_engine'
 
 group :doc do
   gem 'sdoc', require: false
@@ -36,7 +35,7 @@ group :development, :test do
   gem 'pry-nav'
   gem 'pry-rails', '~> 0.3.2',  require: false
   gem 'rails_best_practices'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.14.2'
   gem 'selenium-webdriver'
   gem 'vcr'
 end
