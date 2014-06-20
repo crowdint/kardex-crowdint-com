@@ -7,6 +7,7 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'simplecov'
+require 'database_cleaner'
 
 # Initialize SimpleCov
 SimpleCov.start
@@ -33,6 +34,11 @@ OmniAuth.configure do |config|
              }
   })
 end
+
+# Database cleaner
+DatabaseCleaner.strategy = :truncation
+
+DatabaseCleaner.clean
 
 # VCR configuration
 VCR.configure do |c|

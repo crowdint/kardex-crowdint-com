@@ -32,6 +32,7 @@ end
 group :development, :test do
   gem 'annotate', ">=2.6.0"
   gem 'capybara', '~> 2.2.1'
+  gem 'database_cleaner'
   gem 'pry-nav'
   gem 'pry-rails', '~> 0.3.2',  require: false
   gem 'rails_best_practices'
