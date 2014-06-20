@@ -9,12 +9,10 @@ feature 'badges' do
     BadgesEngine::Badge.destroy_all
   end
 
-  # This test is failing, for some extrange reason in the
-  # browser find a record while in the console doesn't exists
-  xscenario 'creating a badge' do
+  scenario 'creating a badge' do
     visit badges_engine.badges_path
     click_link 'New Badge'
-    fill_in 'Name', with: 'Dummy Badge'
+    fill_in 'Name', with: Faker::Name.name
     fill_in 'Description', with: Faker::Lorem.paragraph
     fill_in 'Level', with: 1
     click_button 'Create Badge'
