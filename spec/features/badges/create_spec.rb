@@ -12,7 +12,7 @@ feature 'badges' do
   scenario 'creating a badge' do
     visit badges_engine.badges_path
     click_link 'New Badge'
-    fill_in 'Name', with: Faker::Name.name
+    fill_in 'Name', with: Faker::Lorem.word
     fill_in 'Description', with: Faker::Lorem.paragraph
     fill_in 'Level', with: 1
     click_button 'Create Badge'
