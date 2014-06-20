@@ -23,7 +23,8 @@ gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'badges_engine',
-  github: 'zalapeach/badges_engine'
+  github: 'zalapeach/badges_engine',
+  branch: 'feature/awards-CRUD'
 
 group :doc do
   gem 'sdoc', require: false
