@@ -11,6 +11,9 @@ KardexCrowdintCom::Application.routes.draw do
 
   get "users/index"
 
+  resources :users, except: [:new, :create, :destroy]
+  resources :badge_proposals, only: [:new, :create]
+
   mount BadgesEngine::Engine, at: '/admin'
 
   namespace :admin do
@@ -18,6 +21,4 @@ KardexCrowdintCom::Application.routes.draw do
 
     resources :workshops, except: :show
   end
-
-  resources :users, except: [:new, :create, :destroy]
 end

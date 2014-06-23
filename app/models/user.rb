@@ -43,6 +43,8 @@ class User < ActiveRecord::Base
       association_foreign_key: 'achievable_id',
       join_table:              'achievables_users'
 
+  has_many :badge_proposals
+
   def to_param
     "#{id}-#{name.parameterize}"
   end

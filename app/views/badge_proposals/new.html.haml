@@ -1,0 +1,31 @@
+%h1 Propose a badge
+= form_for @badge_proposal do |f|
+  .row
+    - if @badge_proposal.errors.any?
+      %h2
+        = pluralize(@badge_proposal.errors.count, 'error')
+        prohibited this field to be saved.
+      %ul
+        - @badge_proposal.errors.full_messages.each do |message|
+          %li= message
+  .row
+    .col-sm-2
+      = f.label :badge_id, 'Badge'
+    .col-sm-10
+      = f.collection_select :badge_id,
+        BadgesEngine::Badge.all, :id, :name,
+        prompt: 'Select a badge'
+  .row
+    .col-sm-2
+      = f.label :user_id
+    .col-sm-10
+      = f.collection_select :user_id, User.all, :id,
+        :name, prompt: 'Select a user'
+  .row
+    .col-sm-2
+      = f.label :why
+    .col-sm-10
+      = f.text_area :why
+  .row
+    .col-sm-12
+      = f.submit

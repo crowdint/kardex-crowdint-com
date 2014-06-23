@@ -2,7 +2,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-#require 'rspec/autorun'
+require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
@@ -85,4 +85,8 @@ RSpec.configure do |config|
 
   # Including support helpers modules
   config.include FeatureHelpers, type: :feature
+
+  config.before(:each, type: :feature) do
+    Capybara.current_driver = :selenium
+  end
 end
