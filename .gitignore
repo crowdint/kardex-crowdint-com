@@ -22,6 +22,8 @@ config/database.yml
 
 # ignore coverage from simplecov
 coverage
+coverage/.last_run.json
+/coverage/.last_run.json
 
 # ignore personal configuration files
 .ruby-version

@@ -6,6 +6,7 @@ feature "User Authentication" do
   end
 
   scenario "User is able to signing successfully" do
+    visit users_index_path
     expect(page).to have_content 'Users'
   end
 end

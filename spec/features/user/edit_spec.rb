@@ -3,6 +3,7 @@ require 'spec_helper'
 feature "Edit user profile information" do
   background do
     login_with_oauth
+    visit users_index_path
     click_link('Edit', match: :first)
   end
 
