@@ -1,3 +1,14 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+header {
+  height: 250px;
+  text-align: center;
+}
+
+h1 { text-align: center; }
+
+.google-sign-in {
+  margin-left: 490px;
+  width: 200px;
+}
