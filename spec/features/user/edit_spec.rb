@@ -4,6 +4,7 @@ feature "Edit user profile information" do
   background do
     Capybara.current_driver = :selenium
     login_with_oauth
+    visit users_index_path
     click_link('Edit', match: :first)
   end
 
