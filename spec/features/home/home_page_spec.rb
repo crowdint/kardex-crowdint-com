@@ -6,6 +6,7 @@ feature 'Home' do
     visit root_path
   end
 
+  # FIXME asap after DEMO
   xscenario 'User can see welcome message' do
     expect(page).to have_content 'WELCOME TO KARDEX'
   end
