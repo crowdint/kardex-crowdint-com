@@ -2,7 +2,6 @@ require 'spec_helper'
 
 feature "Edit user profile information" do
   background do
-    Capybara.current_driver = :selenium
     login_with_oauth
     click_link('Edit', match: :first)
   end

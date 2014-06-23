@@ -2,7 +2,6 @@ require 'spec_helper'
 
 feature "User Authentication" do
   background do
-    Capybara.current_driver = :selenium
     login_with_oauth
   end
 
