@@ -2,7 +2,6 @@ require 'spec_helper'
 
 feature 'Awards' do
   background do
-    Capybara.current_driver = :selenium
     login_with_oauth
     user = User.first
     user.update_attributes(is_admin: true)

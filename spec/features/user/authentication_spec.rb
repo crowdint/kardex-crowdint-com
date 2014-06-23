@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 feature "User Authentication" do
-  background do
-    login_with_oauth
-  end
+  background { login_with_oauth }
 
   scenario "User is able to signing successfully" do
     visit users_index_path

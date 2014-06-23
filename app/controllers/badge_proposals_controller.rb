@@ -6,7 +6,7 @@ class BadgeProposalsController < ApplicationController
   def create
     @badge_proposal = BadgeProposal.new(badge_proposal_params)
     if @badge_proposal.save
-      redirect_to root_path, notice: 'Badge proposal sended successfully'
+      redirect_to root_path, notice: 'Badge proposal sent successfully'
     else
       render :new
     end
