@@ -9,6 +9,17 @@ header {
 h1 { text-align: center; }
 
 .google-sign-in {
-  margin-left: 490px;
-  width: 200px;
+  border: 1px solid;
+  border-radius: 6px;
+  margin-left: 460px;
+  width: 242px;
+  img {
+    margin-left: 5px;
+    position: relative;
+    top: 15px;
+  }
+  a {
+    margin-left: 5px;
+  }
+  p { margin-left: 60px; }
 }
