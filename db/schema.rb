@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620180913) do
+ActiveRecord::Schema.define(version: 20140624024603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140620180913) do
     t.datetime "updated_at"
   end
 
+  add_index "badge_proposals", ["badge_id"], name: "index_badge_proposals_on_badge_id", using: :btree
   add_index "badge_proposals", ["user_id"], name: "index_badge_proposals_on_user_id", using: :btree
 
   create_table "badges_engine_awards", force: true do |t|
