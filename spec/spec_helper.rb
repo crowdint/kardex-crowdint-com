@@ -82,6 +82,7 @@ RSpec.configure do |config|
 
   # Use devise helpers
   config.include Devise::TestHelpers, type: :controller
+  config.extend ControllerMacros, type: :controller
 
   # Including support helpers modules
   config.include FeatureHelpers, type: :feature
