@@ -3,14 +3,7 @@ require 'spec_helper'
 describe BadgeProposalsController do
   login_user
 
-  def valid_attributes
-    {
-      badge_id: badge.id,
-      user_id: user.id,
-      why: Faker::Lorem.paragraph
-    }
-  end
-
+  let(:valid_attributes) { Fabricate.attributes_for(:badge_proposal) }
   let(:badge_proposal) { Fabricate :badge_proposal }
   let(:user) { Fabricate :user }
   let(:badge) { Fabricate :badge }
