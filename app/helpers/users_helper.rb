@@ -10,4 +10,12 @@ module UsersHelper
       google_apps_sign_in_path
     end
   end
+
+  def logo_redirect_url
+    if root_path and user_signed_in?
+      user_path(current_user)
+    else
+      root_path
+    end
+  end
 end
