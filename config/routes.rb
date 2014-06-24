@@ -18,7 +18,5 @@ KardexCrowdintCom::Application.routes.draw do
 
   namespace :admin do
     root to: "main#index"
-
-    resources :workshops, except: :show
   end
 end
