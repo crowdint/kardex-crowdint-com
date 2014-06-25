@@ -1,5 +1,5 @@
 KardexCrowdintCom::Application.routes.draw do
-  root to: "home#index"
+  root "home#index"
 
   devise_scope :user do
     get 'google_apps_sign_in',
@@ -17,6 +17,8 @@ KardexCrowdintCom::Application.routes.draw do
   mount BadgesEngine::Engine, at: '/admin'
 
   namespace :admin do
-    root to: "main#index"
+    root "main#index"
+
+    resources :nominee_list, only: [:create, :new]
   end
 end
