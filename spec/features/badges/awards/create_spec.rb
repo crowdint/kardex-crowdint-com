@@ -3,9 +3,6 @@ require 'spec_helper'
 feature 'Awards' do
   background do
     login_with_oauth
-    user = User.first
-    user.update_attributes(is_admin: true)
-    BadgesEngine::Badge.destroy_all
   end
 
   scenario 'Creating a award' do

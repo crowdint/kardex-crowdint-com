@@ -3,9 +3,6 @@ require 'spec_helper'
 feature 'Awards edit' do
   background do
     login_with_oauth
-    user = User.first
-    user.update_attributes(is_admin: true)
-    BadgesEngine::Badge.destroy_all
   end
 
   scenario 'edit a badge' do

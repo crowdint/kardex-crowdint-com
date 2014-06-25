@@ -5,9 +5,6 @@ feature 'Propose a badge' do
 
   background do
     login_with_oauth
-    user = User.first
-    user.update_attributes(is_admin: true)
-    BadgesEngine::Badge.destroy_all
   end
 
   scenario 'User proposing a badge to another user' do
