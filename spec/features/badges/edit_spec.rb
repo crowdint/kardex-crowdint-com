@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 feature 'badges' do
-  background do
-    login_with_oauth
-  end
+  background { login_with_oauth }
 
   scenario 'edit a badge' do
     visit badges_engine.badges_path

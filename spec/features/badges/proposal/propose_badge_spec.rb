@@ -3,9 +3,7 @@ require 'spec_helper'
 feature 'Propose a badge' do
   let(:user) { User.first }
 
-  background do
-    login_with_oauth
-  end
+  background { login_with_oauth }
 
   scenario 'User proposing a badge to another user' do
     visit users_path

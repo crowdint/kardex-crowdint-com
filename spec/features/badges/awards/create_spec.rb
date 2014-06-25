@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 feature 'Awards' do
-  background do
-    login_with_oauth
-  end
+  background { login_with_oauth }
 
   scenario 'Creating a award' do
     visit badges_engine.awards_path
