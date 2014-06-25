@@ -1,20 +1,21 @@
-.row
-  .col-sm-2
-    = image_tag @user.picture_url
-  .col-sm-10
-    %h1= @user.name
-    %h2 Biography
-    %p= @user.bio
-    %h2 Position
-    %p= position
-    %h2 Skills
-    %ul
-      - @user.skills.each do |skill|
-        %li= skill.name
-.row
-  .col-sm-12
-    = link_to 'Back to users', users_path
-    |
-    = link_to 'Edit user', edit_user_path(@user)
-    |
-    = link_to 'Propose a Badge', new_badge_proposal_path
+%aside#user-show
+  .row.square-box
+    .profile-picture
+      = image_tag @user.picture_url
+    .user-info
+      %h3= @user.name
+      %h3 Biography
+      %p= @user.bio
+      %h3 Position
+      %p= position
+      %h3 Skills
+      %ul
+        - @user.skills.each do |skill|
+          %li= skill.name
+  .row
+    .col-sm-12
+      = link_to 'Back to users', users_path
+      |
+      = link_to 'Edit user', edit_user_path(@user)
+      |
+      = link_to 'Propose a Badge', new_badge_proposal_path

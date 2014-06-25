@@ -1,0 +1,17 @@
+#user-show {
+  .square-box {
+    background: grey;
+    width: 250px;
+    .profile-picture img {
+      border-radius: 80px;
+      bottom: 90px;
+      left: 50px;
+      position: relative;
+    }
+    .user-info {
+      margin: -98px 0 0 22px;
+      text-align: center;
+      width: 200px;
+    }
+  }
+}
