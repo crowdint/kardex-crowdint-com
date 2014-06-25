@@ -1,12 +1,7 @@
 require 'spec_helper'
 
 feature 'Awards edit' do
-  background do
-    login_with_oauth
-    user = User.first
-    user.update_attributes(is_admin: true)
-    BadgesEngine::Badge.destroy_all
-  end
+  background { login_with_oauth }
 
   scenario 'edit a badge' do
     visit badges_engine.awards_path
