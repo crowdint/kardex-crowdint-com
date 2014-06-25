@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 feature 'value' do
-  background do
-    login_with_oauth
-  end
+  background { login_with_oauth }
 
   scenario 'creating a value' do
     visit badges_engine.values_path
