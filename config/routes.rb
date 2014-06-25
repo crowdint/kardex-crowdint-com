@@ -19,6 +19,6 @@ KardexCrowdintCom::Application.routes.draw do
   namespace :admin do
     root "main#index"
 
-    resources :nominee_list, only: [:create, :new]
+    resources :nominee_lists, only: [:create, :new]
   end
 end

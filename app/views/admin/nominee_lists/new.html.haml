@@ -1,6 +1,6 @@
 %h1 Create new Nominee list
 = form_for @nominee_list,
-  url: admin_nominee_list_index_path(@nominee_list) do |f|
+  url: admin_nominee_lists_path(@nominee_list) do |f|
   .row
     - if @nominee_list.errors.any?
       %h2

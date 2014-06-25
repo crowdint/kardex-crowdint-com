@@ -1,4 +1,4 @@
-class Admin::NomineeListController < Admin::BaseController
+class Admin::NomineeListsController < Admin::BaseController
   def new
     @nominee_list = NomineeList.new
   end
