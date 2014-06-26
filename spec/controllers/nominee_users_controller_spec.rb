@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe BadgeProposalsController do
-  let(:valid_attributes) { Fabricate.attributes_for(:badge_proposal) }
-  let(:badge_proposal) { Fabricate :badge_proposal }
+describe NomineeUsersController do
+  let(:valid_attributes) { Fabricate.attributes_for(:nominee_user) }
+  let(:nominee_user) { Fabricate :nominee_user }
   let(:badge) { Fabricate :badge }
 
   login_admin
@@ -27,14 +27,14 @@ describe BadgeProposalsController do
       end
 
       it "redirects to user show" do
-        post :create, { badge_proposal: valid_attributes }
+        post :create, { nominee_user: valid_attributes }
         expect(response).to redirect_to user_path(subject.current_user)
       end
     end
 
     context 'when is invalid' do
       it 'should not redirect to badges to new' do
-        post :create, { badge_proposal: { badge_id: ''} }
+        post :create, { nominee_user: { badge_id: ''} }
 
         expect(response).to render_template 'new'
       end

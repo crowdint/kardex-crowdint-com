@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625000241) do
+ActiveRecord::Schema.define(version: 20140626155942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,17 +34,6 @@ ActiveRecord::Schema.define(version: 20140625000241) do
 
   add_index "achievables_users", ["achievable_id", "user_id"], name: "index_achievables_users_on_achievable_id_and_user_id", using: :btree
   add_index "achievables_users", ["user_id", "achievable_id"], name: "index_achievables_users_on_user_id_and_achievable_id", using: :btree
-
-  create_table "badge_proposals", force: true do |t|
-    t.integer  "badge_id"
-    t.integer  "user_id"
-    t.string   "why"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "badge_proposals", ["badge_id"], name: "index_badge_proposals_on_badge_id", using: :btree
-  add_index "badge_proposals", ["user_id"], name: "index_badge_proposals_on_user_id", using: :btree
 
   create_table "badges_engine_awards", force: true do |t|
     t.string   "title"
@@ -84,6 +73,17 @@ ActiveRecord::Schema.define(version: 20140625000241) do
     t.integer "nominee_list_id", null: false
     t.integer "user_id",         null: false
   end
+
+  create_table "nominee_users", force: true do |t|
+    t.integer  "badge_id"
+    t.integer  "user_id"
+    t.string   "why"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "nominee_users", ["badge_id"], name: "index_nominee_users_on_badge_id", using: :btree
+  add_index "nominee_users", ["user_id"], name: "index_nominee_users_on_user_id", using: :btree
 
   create_table "positions", force: true do |t|
     t.string "name"
