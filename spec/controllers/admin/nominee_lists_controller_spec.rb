@@ -4,7 +4,7 @@ describe Admin::NomineeListsController do
   let(:badge) { Fabricate(:badge) }
   let(:valid_nominee_list) { Fabricate.attributes_for(:nominee_list) }
 
-  login_as(Fabricate :user, is_admin: true)
+  login_admin
 
   describe '#new' do
     before { get :new }

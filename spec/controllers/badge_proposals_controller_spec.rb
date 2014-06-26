@@ -5,7 +5,7 @@ describe BadgeProposalsController do
   let(:badge_proposal) { Fabricate :badge_proposal }
   let(:badge) { Fabricate :badge }
 
-  login_as(Fabricate :user)
+  login_admin
 
    describe '#New' do
     before { get :new }
