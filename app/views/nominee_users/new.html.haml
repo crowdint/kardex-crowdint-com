@@ -1,12 +1,12 @@
 %h1 Propose a badge
-= form_for @badge_proposal do |f|
+= form_for @nominee_user do |f|
   .row
-    - if @badge_proposal.errors.any?
+    - if @nominee_user.errors.any?
       %h2
-        = pluralize(@badge_proposal.errors.count, 'error')
+        = pluralize(@nominee_user.errors.count, 'error')
         prohibited this field to be saved.
       %ul
-        - @badge_proposal.errors.full_messages.each do |message|
+        - @nominee_user.errors.full_messages.each do |message|
           %li= message
   .row
     .col-sm-2

@@ -4,8 +4,8 @@ class NomineeUsersController < ApplicationController
   end
 
   def create
-    @nominee_user = NomineeUser.new(badge_proposal_params)
-    if @badge_proposal.save
+    @nominee_user = NomineeUser.new(nominee_user_params)
+    if @nominee_user.save
       redirect_to user_path(current_user), notice: 'Nomination sent successfully'
     else
       render :new

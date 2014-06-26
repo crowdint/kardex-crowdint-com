@@ -12,7 +12,7 @@ KardexCrowdintCom::Application.routes.draw do
   get "users/index"
 
   resources :users, except: [:new, :create, :destroy]
-  resources :badge_proposals, only: [:new, :create]
+  resources :nominee_users, only: [:new, :create]
 
   mount BadgesEngine::Engine, at: '/admin'
 
