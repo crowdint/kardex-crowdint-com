@@ -1,4 +1,4 @@
-class BadgeProposal < ActiveRecord::Base
+class NomineeUser < ActiveRecord::Base
   validates :user_id, presence: true
   validates :badge_id, presence: true
   validates :why, presence: true
