@@ -1,0 +1,29 @@
+%h1 Create new Nominee list
+= form_for @nominee_list,
+  url: admin_nominee_lists_path(@nominee_list) do |f|
+  .row
+    - if @nominee_list.errors.any?
+      %h2
+        = pluralize(@nominee_list.errors.count, 'error')
+        prohibited this field to be saved
+      %ul
+        - @nominee_list.errors.full_messages.each do |message|
+          %li= message
+
+  .row
+    .col-sm-2
+      = f.label :badge_id
+    .col-sm-10
+      = f.collection_select :badge_id, BadgesEngine::Badge.all,
+        :id, :name, prompt: 'Select a badge'
+  .row
+    .col-sm-2
+      = f.label :users
+    .col-sm-10
+      = f.collection_check_boxes :user_ids, User.all, :id, :name do |b|
+        %div
+          = b.check_box
+          = b.label
+  .row
+    .col-sm-12
+      = f.submit

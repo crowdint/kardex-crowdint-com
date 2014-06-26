@@ -1,17 +1,14 @@
 require 'spec_helper'
 
 describe BadgeProposalsController do
-  login_user
-
   let(:valid_attributes) { Fabricate.attributes_for(:badge_proposal) }
   let(:badge_proposal) { Fabricate :badge_proposal }
-  let(:user) { Fabricate :user }
   let(:badge) { Fabricate :badge }
 
-   describe "Get '#New'" do
-    before do
-      get :new
-    end
+  login_admin
+
+   describe '#New' do
+    before { get :new }
 
     it 'responds successfully with an HTTP 200 status code' do
       expect(response).to be_success
@@ -19,7 +16,7 @@ describe BadgeProposalsController do
     end
 
     it 'renders the new template' do
-      expect(response).to render_template("new")
+      expect(response).to render_template :new
     end
   end
 
