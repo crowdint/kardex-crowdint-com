@@ -1,0 +1,8 @@
+%h1= @nominee_list.badge.name
+%h3 Nominees
+%table.table.table-striped
+  %tbody
+    - @nominee_list.users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.email
