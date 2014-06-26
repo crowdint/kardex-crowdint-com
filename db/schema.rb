@@ -11,29 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626155942) do
+ActiveRecord::Schema.define(version: 20140626174146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "achievables", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image"
-  end
-
-  add_index "achievables", ["id", "type"], name: "index_achievables_on_id_and_type", using: :btree
-
-  create_table "achievables_users", force: true do |t|
-    t.integer "achievable_id"
-    t.integer "user_id"
-  end
-
-  add_index "achievables_users", ["achievable_id", "user_id"], name: "index_achievables_users_on_achievable_id_and_user_id", using: :btree
-  add_index "achievables_users", ["user_id", "achievable_id"], name: "index_achievables_users_on_user_id_and_achievable_id", using: :btree
 
   create_table "badges_engine_awards", force: true do |t|
     t.string   "title"

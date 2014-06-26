@@ -6,7 +6,6 @@ describe User do
   it { expect(user).to be_valid }
 
   describe 'relationships' do
-    it { expect(user).to have_and_belong_to_many(:achievables) }
     it { expect(user).to have_and_belong_to_many(:nominee_lists) }
     it { expect(user).to belong_to(:position) }
     it { expect(user).to have_and_belong_to_many(:skills) }

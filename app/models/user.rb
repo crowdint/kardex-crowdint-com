@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
 
   belongs_to :position
 
-  has_and_belongs_to_many :achievables
-
   has_and_belongs_to_many :nominee_lists
 
   has_and_belongs_to_many :badges,
