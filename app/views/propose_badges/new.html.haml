@@ -1,0 +1,37 @@
+%h1 Propose a badge
+= form_for @propose_badge do |f|
+  .row
+    - if @propose_badge.errors.any?
+      %h2
+        = pluralize(@propose_badge.errors.count , 'error')
+        prohibted this field to be saved
+      %ul
+        - @propose_badge.errors.full_messages.each do |message|
+          %li= message
+  .row
+    .col-sm-2
+      = f.label :name
+    .col-sm-10
+      = f.text_field :name
+  .row
+    .col-sm-2
+      = f.label :value_id
+    .col-sm-10
+      = f.collection_select :value_id, BadgesEngine::Value.all,
+        :id, :name, prompt: 'Support Value'
+  .row
+    .col-sm-2
+      = f.label :description
+    .col-sm-10
+      = f.text_area :description
+  .row
+    .col-sm-12
+      %input#users{ type: 'checkbox' }
+      %label{ for: 'users' } Propose users to this badge
+  .row
+    .col-sm-12
+      %input#user{ type: 'text' }
+      = link_to 'Agregar', '#'
+  .row
+    .col-sm-12
+      = f.submit
