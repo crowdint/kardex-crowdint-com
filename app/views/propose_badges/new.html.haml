@@ -25,13 +25,13 @@
     .col-sm-10
       = f.text_area :description
   .row
-    .col-sm-12
-      %input#users{ type: 'checkbox' }
-      %label{ for: 'users' } Propose users to this badge
-  .row
-    .col-sm-12
-      %input#user{ type: 'text' }
-      = link_to 'Agregar', '#'
+    .col-sm-2
+      = f.label :users
+    .col-sm-10
+      = f.collection_check_boxes :user_ids, User.all, :id, :name do |b|
+        %div
+          = b.check_box
+          = b.label
   .row
     .col-sm-12
       = f.submit

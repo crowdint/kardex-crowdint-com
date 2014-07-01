@@ -4,7 +4,12 @@ class ProposeBadgesController < ApplicationController
   end
 
   def create
-    render :new
+    @propose_badge = ProposeBadge.new(propose_badge_params)
+    if @propose_badge.save
+      redirect_to user_path(current_user), notice: 'Badge proposal sent successfully'
+    else
+      render :new
+    end
   end
 
   private

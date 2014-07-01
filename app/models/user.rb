@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :nominee_lists
 
+  has_and_belongs_to_many :propose_badges
+
   has_many :nominee_users
 
   def to_param
