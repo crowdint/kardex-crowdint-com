@@ -27,14 +27,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def user_names
-    @users = User.select(:name, :id)
-    respond_to do |format|
-      format.html
-      format.json { render json: @users }
-    end
-  end
-
   private
 
   def user_params

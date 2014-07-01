@@ -6,8 +6,6 @@ KardexCrowdintCom::Application.routes.draw do
         to: "crowdint_auth/omniauth_callbacks#google_apps_sign_in"
   end
 
-  get '/users/user_names', to: 'users#user_names', as: 'user_names'
-
   devise_for :users,
       controllers: { omniauth_callbacks: 'crowdint_auth/omniauth_callbacks' }
 
