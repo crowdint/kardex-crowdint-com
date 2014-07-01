@@ -4,7 +4,7 @@ class ProposeBadgesController < ApplicationController
   end
 
   def create
-    binding.pry
+    render :new
   end
 
   private
