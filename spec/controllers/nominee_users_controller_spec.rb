@@ -7,7 +7,7 @@ describe NomineeUsersController do
 
   login_admin
 
-   describe '#New' do
+   describe '#new' do
     before { get :new }
 
     it 'responds successfully with an HTTP 200 status code' do

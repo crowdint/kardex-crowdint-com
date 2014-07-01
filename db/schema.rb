@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627181235) do
+ActiveRecord::Schema.define(version: 20140701190145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,14 @@ ActiveRecord::Schema.define(version: 20140627181235) do
   end
 
   add_index "propose_badges", ["value_id"], name: "index_propose_badges_on_value_id", using: :btree
+
+  create_table "propose_badges_users", id: false, force: true do |t|
+    t.integer "propose_badge_id", null: false
+    t.integer "user_id",          null: false
+  end
+
+  add_index "propose_badges_users", ["propose_badge_id"], name: "index_propose_badges_users_on_propose_badge_id", using: :btree
+  add_index "propose_badges_users", ["user_id"], name: "index_propose_badges_users_on_user_id", using: :btree
 
   create_table "skills", force: true do |t|
     t.string   "name"
