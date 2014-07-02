@@ -1,11 +1,14 @@
 require 'spec_helper'
 
 feature 'Level' do
+  let!(:badge) { Fabricate(:badge) }
+
   background { login_with_oauth }
 
   scenario 'Creating a level for a badge' do
     visit badges_engine.levels_path
     click_link 'New level'
+    select badge.name, from: 'Badge'
     fill_in 'Tier', with: Random.rand(4)
     fill_in 'Badge alias', with: Faker::Lorem.word
     click_button 'Create Level'
