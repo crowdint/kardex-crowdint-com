@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git://github.com/zalapeach/badges_engine.git
-  revision: c04958f9b0086d04a298e268711d53881bd9b19b
+  revision: 2b117c374929de124b82d7d670002a5a525763b8
   specs:
     badges_engine (0.0.1)
       haml-rails
