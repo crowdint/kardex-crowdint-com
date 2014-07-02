@@ -8,7 +8,6 @@ feature 'badges' do
     click_link 'New Badge'
     fill_in 'Name', with: Faker::Lorem.word
     fill_in 'Description', with: Faker::Lorem.paragraph
-    fill_in 'Level', with: 1
     click_button 'Create Badge'
     expect(page).to have_content 'Badge was successfully created.'
     click_link 'Edit'
