@@ -14,6 +14,7 @@ KardexCrowdintCom::Application.routes.draw do
   resources :users, except: [:new, :create, :destroy]
   resources :nominee_users, only: [:new, :create]
   resources :nominee_lists, only: [:index, :show]
+  resources :propose_badges, only: [:new, :create]
 
   mount BadgesEngine::Engine, at: '/admin'
 

@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
-  before_action :get_user, except: :index
+  before_action :get_user, except: [:index, :user_names]
   respond_to :html
 
   def index
     @users = User.order(:name)
-    respond_with @users
+    respond_to do |format|
+      format.html
+      format.json { render json: @users }
+    end
   end
 
   def show
