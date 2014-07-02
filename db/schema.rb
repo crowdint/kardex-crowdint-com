@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702152013) do
+ActiveRecord::Schema.define(version: 20140702184826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,10 +58,15 @@ ActiveRecord::Schema.define(version: 20140702152013) do
     t.datetime "updated_at"
   end
 
+  add_index "nominee_lists", ["badge_id"], name: "index_nominee_lists_on_badge_id", using: :btree
+
   create_table "nominee_lists_users", id: false, force: true do |t|
     t.integer "nominee_list_id", null: false
     t.integer "user_id",         null: false
   end
+
+  add_index "nominee_lists_users", ["nominee_list_id", "user_id"], name: "index_nominee_lists_users_on_nominee_list_id_and_user_id", using: :btree
+  add_index "nominee_lists_users", ["user_id", "nominee_list_id"], name: "index_nominee_lists_users_on_user_id_and_nominee_list_id", using: :btree
 
   create_table "nominee_users", force: true do |t|
     t.integer  "badge_id"
