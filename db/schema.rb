@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626174146) do
+ActiveRecord::Schema.define(version: 20140702152013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20140626174146) do
     t.string   "name"
     t.string   "image"
     t.text     "description"
-    t.integer  "level"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "award_id"
@@ -36,6 +35,14 @@ ActiveRecord::Schema.define(version: 20140626174146) do
 
   add_index "badges_engine_badges", ["award_id"], name: "index_badges_engine_badges_on_award_id", using: :btree
   add_index "badges_engine_badges", ["value_id"], name: "index_badges_engine_badges_on_value_id", using: :btree
+
+  create_table "badges_engine_levels", force: true do |t|
+    t.integer  "badge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "tier"
+    t.string   "badge_alias"
+  end
 
   create_table "badges_engine_values", force: true do |t|
     t.string   "name"
