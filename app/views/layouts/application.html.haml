@@ -6,7 +6,7 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
+    = render 'shared/header'
+    = notice
     .container
-      = notice
-      = render 'shared/header'
       = yield

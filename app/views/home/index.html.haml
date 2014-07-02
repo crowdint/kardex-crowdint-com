@@ -1,5 +1,11 @@
-%h1 WELCOME TO KARDEX
+%h1.welcome
+  Welcome to
+  .welcome-image
 .google-sign-in
-  = image_tag 'sign-in-icon.png'
-  =link_to 'Sign in', redirect_url
-  %p to your Crowdint account
+  = image_tag 'sign-in-icon.png', class: 'google-sign-in-image'
+  %p.google-sign-in-info
+    = link_to 'SIGN IN', redirect_url
+    WITH YOUR
+    %strong CROWDINT ACCOUNT
+  .google-sign-in-decorator
+= link_to '', 'www.crowdint.com'
