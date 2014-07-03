@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  helper_method :email_admins
+
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!
+
+  private
+
+  def email_admins
+    @admins ||= User.admins.pluck(:email)
+  end
 end
