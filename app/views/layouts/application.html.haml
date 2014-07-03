@@ -6,7 +6,13 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    .container
-      = notice
-      = render 'shared/header'
-      = yield
+    = render 'shared/header'
+    = notice
+    #content
+      .container
+        = yield
+    %footer#footer
+      .container
+        %ul
+          %li= link_to '', 'http://www.crowdint.com', class: 'crowdint-logo'
+          %li.culture-logo

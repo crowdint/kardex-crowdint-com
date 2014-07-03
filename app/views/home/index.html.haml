@@ -1,5 +1,12 @@
-%h1 WELCOME TO KARDEX
+= stylesheet_link_tag 'sections/home/welcome'
+%h1.welcome
+  Welcome to
+  .welcome-image
 .google-sign-in
-  = image_tag 'sign-in-icon.png'
-  =link_to 'Sign in', redirect_url
-  %p to your Crowdint account
+  .google-sign-in-image
+  %p.google-sign-in-info
+    = link_to redirect_url do
+      Sign in with your
+      %strong crowdint account
+  .google-sign-in-decorator
+= link_to '', 'http://www.crowdint.com', class: 'crowdint-logo'
