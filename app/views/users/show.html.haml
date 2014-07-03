@@ -3,13 +3,13 @@
     .profile-picture
       = image_tag @user.picture_url
     .user-info
-      %h3= @user.name
-      %h3 Biography
-      %p= @user.bio
-      %h3 Position
-      %p= position
-      %h3 Skills
-      %ul
+      %h3.name= @user.name
+      %p.position= position
+      %hr
+      %h3.title Summary
+      %p.summary-info= @user.bio
+      %h3.title Skills
+      %ul.nav
         - @user.skills.each do |skill|
           %li= skill.name
   .row
