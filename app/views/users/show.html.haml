@@ -12,14 +12,13 @@
       %ul.nav
         - @user.skills.each do |skill|
           %li= skill.name
-  .row
-    .col-sm-12
-      = link_to 'Back to users', users_path
-      |
-      = link_to 'Edit user', edit_user_path(@user)
-      |
-      = link_to 'Nominate a user', new_nominee_user_path
-      |
-      = link_to 'Nominate list', nominee_lists_path
-      |
-      = link_to 'Propose a badge', new_propose_badge_path
+  .navi.account
+    = link_to 'Back to users', users_path
+    |
+    = link_to 'Edit user', edit_user_path(@user)
+    |
+    = link_to 'Nominate a user', new_nominee_user_path
+    |
+    = link_to 'Nominate list', nominee_lists_path
+    |
+    = link_to 'Propose a badge', new_propose_badge_path
