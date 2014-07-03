@@ -6,9 +6,11 @@
       %h3.name= @user.name
       %p.position= position
       %hr
-      %h3.title Summary
       .title-summary-image
+      %h3.title Summary
       %p.summary-info= @user.bio
+      %hr
+      .title-skills-image
       %h3.title Skills
       %ul.nav
         - @user.skills.each do |skill|
