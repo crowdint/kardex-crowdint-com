@@ -7,7 +7,9 @@ class ProposeBadgesController < ApplicationController
     @propose_badge = ProposeBadge.new(propose_badge_params)
     if @propose_badge.save
       redirect_to user_path(current_user), notice: 'Badge proposal sent successfully'
-      ProposeBadgeMailer.badge_proposal(@propose_badge, current_user, email_admins)
+      ProposeBadgeMailer.badge_proposal_notification(
+        @propose_badge, current_user, admin_emails
+      )
     else
       render :new
     end

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :email_admins
+  helper_method :admin_emails
 
   protect_from_forgery with: :exception
 
@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def email_admins
+  def admin_emails
     @admins ||= User.admins.pluck(:email)
   end
 end
