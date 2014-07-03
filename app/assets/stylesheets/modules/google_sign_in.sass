@@ -9,7 +9,7 @@
   width: 300px
 
 .google-sign-in-image
-  background: $gray image_url('sprite-badges.png') -15px -960px no-repeat
+  background: $gray image_url('sprite-badges.png') -15px -964px no-repeat
   display: block
   float: left
   height: 72px
@@ -18,11 +18,16 @@
 
 .google-sign-in-info
   color: black
-  padding: 15px 0px 15px 97px
+  padding: 20px 0px 15px 97px
+  line-height: 16px
   text-align: left
   font-size: 14px
   a
     color: black
+    &:hover
+      color: $orange
+      transition: color 0.5s
+      text-decoration: none
 
 .google-sign-in-decorator
   background: image_url('sprite-badges.png') -18px -874px
