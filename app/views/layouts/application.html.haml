@@ -2,11 +2,18 @@
 %html
   %head
     %title KardexCrowdintCom
+    %link{href: "http://fonts.googleapis.com/css?family=Droid+Serif|Roboto:300,500,400", rel: "stylesheet", type: "text/css"}
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
     = render 'shared/header'
     = notice
-    .container
-      = yield
+    #content
+      .container
+        = yield
+    %footer#footer
+      .container
+        %ul
+          %li= link_to '', 'http://www.crowdint.com', class: 'crowdint-logo'
+          %li.culture-logo
