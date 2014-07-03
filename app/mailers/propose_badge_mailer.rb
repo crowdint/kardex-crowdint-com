@@ -1,12 +1,12 @@
 class ProposeBadgeMailer < ActionMailer::Base
   helper ProposeBadgesHelper
 
-  def badge_proposal(propose_badge, user, email_admins)
+  def badge_proposal_notification(propose_badge, user, admin_emails)
     @user = user
     @badge_proposal = propose_badge
     mail(
-      from: user,
-      to: email_admins,
+      from: @user.email,
+      to: admin_emails,
       subject: 'A new badge was proposed!'
     )
   end
