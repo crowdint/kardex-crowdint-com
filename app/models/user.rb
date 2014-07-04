@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :nominee_users
 
+  scope :admins, ->{ where(is_admin: true) }
+
   def to_param
     "#{id}-#{name.parameterize}"
   end
