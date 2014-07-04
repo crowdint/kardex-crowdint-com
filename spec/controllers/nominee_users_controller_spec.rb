@@ -22,14 +22,9 @@ describe NomineeUsersController do
 
   describe '#create' do
     context 'when success' do
-      it "should have a current_user" do
-        subject.current_user.should_not be_nil
-      end
+      before{ post :create, nominee_user: valid_attributes }
 
-      it "redirects to user show" do
-        post :create, { nominee_user: valid_attributes }
-        expect(response).to redirect_to user_path(subject.current_user)
-      end
+      it { expect(response).to redirect_to user_path(subject.current_user) }
     end
 
     context 'when is invalid' do
