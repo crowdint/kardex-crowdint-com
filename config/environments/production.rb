@@ -33,4 +33,5 @@ KardexCrowdintCom::Application.configure do
     password: ENV['MANDRILL_PASSWORD'],
     domain: ['kardex.crowdint.com', 'kardex-crowdint-com.herokuapp.com'],
     authentication: :plain
+  }
 end
