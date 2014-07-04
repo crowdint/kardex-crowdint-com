@@ -1,6 +1,7 @@
 #user-show .square-box
   background: #fff
-  height: 360px
+  height: 356px
+  max-height: 388px
   width: 250px
 
   .profile-picture img
@@ -13,13 +14,31 @@
     margin: -98px 0 0 22px
     text-align: center
     width: 200px
+    .admin-btn
+      background: #d44928
+      border: none
+      bottom: 12px
+      color: #fff
+      height: 40px
+      position: relative
+      width: 200px
+      padding: 5px 56px
+      font-weight: 100
+
     hr
       display: block
       height: 1px
       border: 0
-      border-top: 1px solid #eea39c
-      margin: 1em 0
       padding: 0
+    .small-bar
+      margin: 1em 0
+    .big-bar
+      margin: 1em 0 1em -22px
+      width: 250px
+    .color-bar
+      border-top: 1px solid #eea39c
+    .color-bar-light
+      border-top: 1px solid #f3d0ce
     .name
       color: #282928
       font-family: 'Droid Serif', serif
@@ -40,25 +59,46 @@
       color: #aa392d
       font-family: 'Roboto'
       font-size: 14px
-      font-style: normal
       font-weight: 500
       text-align: left
-    .title-summary-image
+      a
+        bottom: 6px
+        color: #aa392d
+        font-weight: 200
+        position: relative
+    .title-summary-ico
       background: url(/assets/sprite-badges.png) -24px -450px
       float: left
       height: 30px
       margin: 0 5px 0 0
       width: 30px
-    .title-skills-image
+    .title-skills-ico
       background: url(/assets/sprite-badges.png) -24px -403px
       float: left
       height: 30px
       margin: 0 5px 0 0
       width: 30px
+    .title-account-ico
+      background: url(/assets/sprite-badges.png) -24px -536px
+      float: left
+      height: 30px
+      margin: -8px 5px 0 0
+      width: 30px
+    .bottom-flag-corner
+      background: url(/assets/sprite-badges.png) -85px -720px
+      bottom: 51px
+      float: left
+      height: 67px
+      left: 177px
+      margin: 0 5px 0 0
+      position: relative
+      width: 60px
     .nav > li
       border-right: 1px solid #282928
+      font-family: 'Roboto'
       color: #282928
       float: left
+      font-size: 12px
       margin-right: 10px
       padding-right: 10px
       &:last-child
