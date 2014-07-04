@@ -1,4 +1,3 @@
-= stylesheet_link_tag 'sections/user/dashboard'
 %aside#user-show
   .row.square-box
     .profile-picture
@@ -8,17 +7,17 @@
       .position= position
       %hr.big-bar.color-bar
       = link_to_admin
-      .title-summary-ico
+      .summary-ico
       %h3.title Summary
       .summary-info= @user.bio
       %hr.small-bar.color-bar
-      .title-skills-ico
+      .skills-ico
       %h3.title Skills
       %ul.nav
         - @user.skills.each do |skill|
           %li= skill.name
       %hr.big-bar.color-bar-light
-      .title-account-ico
+      .account-ico
       %h3.title
         =link_to 'Account', edit_user_path(@user)
       .bottom-flag-corner

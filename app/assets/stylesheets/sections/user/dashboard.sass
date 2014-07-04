@@ -1,12 +1,24 @@
+// Extend::Inheritance
+.ico-commons
+  float: left
+  height: 30px
+  margin: 0 5px 0 0
+  width: 30px
+
+.roboto-commons
+  font-family: 'Roboto'
+  font-size: 14px
+
+// User profile show
 #user-show .square-box
-  background: #fff
+  background: $white
   height: 356px
   max-height: 388px
   width: 250px
 
   .profile-picture img
     border-radius: 80px
-    border: 3px solid #fff
+    border: 3px solid $white
     bottom: 90px
     left: 50px
     position: relative
@@ -17,10 +29,10 @@
     width: 200px
 
     .admin-btn
-      background: #d44928
+      background: $orange
       border: none
       bottom: 12px
-      color: #fff
+      color: $white
       font-weight: 100
       height: 40px
       padding: 5px 56px
@@ -41,62 +53,52 @@
       width: 250px
 
     .color-bar
-      border-top: 1px solid #eea39c
+      border-top: 1px solid $pink
 
     .color-bar-light
-      border-top: 1px solid #f3d0ce
+      border-top: 1px solid $pink-light
 
     .name
-      color: #282928
+      color: $gray-dark
       font-family: 'Droid Serif', serif
       font-size: 18px
       font-style: normal
       font-weight: bold
 
     .position
-      color: #282928
-      font-family: 'Roboto'
-      font-size: 14px
+      @extend .roboto-commons
+      color: $gray-dark
       font-style: normal
       margin-top: -8px
 
     .summary-info
-      font-family: 'Roboto'
+      @extend .roboto-commons
       font-size: 12px
       text-align: justify
 
     .title
-      color: #aa392d
-      font-family: 'Roboto'
-      font-size: 14px
+      @extend .roboto-commons
+      color: $orange
       font-weight: 500
       text-align: left
       a
         bottom: 6px
-        color: #aa392d
+        color: $orange
         font-weight: 200
         position: relative
 
-    .title-summary-ico
+    .summary-ico
+      @extend .ico-commons
       background: url(/assets/sprite-badges.png) -24px -450px
-      float: left
-      height: 30px
-      margin: 0 5px 0 0
-      width: 30px
 
-    .title-skills-ico
+    .skills-ico
+      @extend .ico-commons
       background: url(/assets/sprite-badges.png) -24px -403px
-      float: left
-      height: 30px
-      margin: 0 5px 0 0
-      width: 30px
 
-    .title-account-ico
+    .account-ico
+      @extend .ico-commons
       background: url(/assets/sprite-badges.png) -24px -536px
-      float: left
-      height: 30px
       margin: -8px 5px 0 0
-      width: 30px
 
     .bottom-flag-corner
       background: url(/assets/sprite-badges.png) -85px -720px
@@ -109,10 +111,10 @@
       width: 60px
 
     .nav > li
-      border-right: 1px solid #282928
-      color: #282928
+      border-right: 1px solid $gray-dark
+      color: $gray-dark
       float: left
-      font-family: 'Roboto'
+      @extend .roboto-commons
       font-size: 12px
       margin-right: 10px
       padding-right: 10px
