@@ -37,11 +37,10 @@ ActiveRecord::Schema.define(version: 20140702184826) do
   add_index "badges_engine_badges", ["value_id"], name: "index_badges_engine_badges_on_value_id", using: :btree
 
   create_table "badges_engine_levels", force: true do |t|
-    t.string   "tier"
-    t.text     "description"
     t.integer  "badge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tier"
     t.string   "badge_alias"
   end
 
