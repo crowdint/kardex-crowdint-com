@@ -9,7 +9,7 @@ class NomineeUsersController < ApplicationController
       redirect_to user_path(current_user), notice: 'Nomination sent successfully'
       NominateUserMailer.nominate_user_notification(
         @nominee_user, current_user, admin_emails
-      )
+      ).deliver
     else
       render :new
     end
