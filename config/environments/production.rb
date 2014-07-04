@@ -31,7 +31,7 @@ KardexCrowdintCom::Application.configure do
     address: 'smtp.mandrillapp.com',
     user_name: ENV['MANDRILL_USERNAME'],
     password: ENV['MANDRILL_APIKEY'],
-    domain: 'kardex.crowdint.com',
+    domain: 'heroku.com',
     authentication: :plain
   }
 end
