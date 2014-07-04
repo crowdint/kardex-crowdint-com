@@ -10,7 +10,7 @@ feature 'Home' do
   scenario 'User can sign in' do
     login_with_oauth
     click_link 'Sign in'
-    expect(page).to have_content 'Biography'
+    expect(page).to have_content 'Summary'
   end
 
   scenario 'User click on logo from landing page without login' do
@@ -21,6 +21,6 @@ feature 'Home' do
   scenario 'User click on logo from landing page logged in' do
     login_with_oauth
     click_link('Sign in')
-    expect(page).to have_content 'Biography'
+    expect(page).to have_content 'Summary'
   end
 end
