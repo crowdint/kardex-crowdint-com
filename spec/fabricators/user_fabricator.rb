@@ -5,3 +5,7 @@ Fabricator :user do
   department { Faker::Commerce.department }
   bio { Faker::Lorem.sentence(6) }
 end
+
+Fabricator :admin, from: :user do
+  is_admin true
+end
