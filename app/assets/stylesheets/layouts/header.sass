@@ -1,9 +1,31 @@
-.header
+= header($height)
   background: $pink
   border-bottom: 1px solid $white
-  height: 332px
+  height: $height
   position: relative
   width: 100%
+
+.header-home
+  +header(332px)
+  .circle
+    left: 50%
+    top: 87%
+
+.header-dashboards
+  +header(200px)
+  .circle
+    left: 50%
+    top: 40%
+  .header-vertical-line
+    background: $pink-light
+    height: 80px
+    margin: 0 auto
+    width: 2px
+  .welcome-image
+    margin-top: 90px
+
+.header-default
+  +header(100px)
 
 .header-right
   border-left: 1px solid $pink-light
