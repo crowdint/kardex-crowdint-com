@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :get_user, except: [:index, :user_names]
   respond_to :html
+  layout 'dashboards'
 
   def index
     @users = User.order(:name)
