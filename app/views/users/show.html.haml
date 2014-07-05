@@ -1,29 +1,51 @@
-%aside#user-show
-  .row.square-box
-    .profile-picture
-      = image_tag @user.picture_url
-    .user-info
-      %h3.name= @user.name
-      .position= position
-      %hr.big-bar.color-bar
-      = link_to_admin
-      .summary-ico
-      %h3.title Summary
-      .summary-info= @user.bio
-      %hr.small-bar.color-bar
-      .skills-ico
-      %h3.title Skills
-      %ul.nav
-        - @user.skills.each do |skill|
-          %li= skill.name
-      %hr.big-bar.color-bar-light
-      .account-ico
-      %h3.title
-        =link_to 'Account', edit_user_path(@user)
-      .bottom-flag-corner
-      .account
-        = link_to 'Nominate a user', new_nominee_user_path
-        |
-        = link_to 'Nominate list', nominee_lists_path
-        |
-        = link_to 'Propose a badge', new_propose_badge_path
+.row
+  %aside.col-md-3
+    .span3
+      .profile-picture
+        = image_tag @user.picture_url
+      .user-info
+        %h3.name= @user.name
+        .position= position
+        %hr.big-bar.color-bar
+        = link_to_admin
+        .summary-ico
+        %h3.title Summary
+        .summary-info= @user.bio
+        %hr.small-bar.color-bar
+        .skills-ico
+        %h3.title Skills
+        %ul.nav
+          - @user.skills.each do |skill|
+            %li= skill.name
+        %hr.big-bar.color-bar-light
+        .account-ico
+        %h3.title
+          =link_to 'Account', edit_user_path(@user)
+        .bottom-flag-corner
+        .account
+          = link_to 'Nominate a user', new_nominee_user_path
+          |
+          = link_to 'Nominate list', nominee_lists_path
+          |
+          = link_to 'Propose a badge', new_propose_badge_path
+  %section.badges.col-md-9
+    .row
+      %header.badges-header-container
+        %h3.badges-header
+          %span.badges-header-image
+          %span.badges-title My Badges
+        %ul.badges-menu
+          %li= link_to 'Check all my badges', '#', class: 'badges-check-personal'
+          %li= link_to 'Check all badges', '#', class: 'badges-check-all'
+    .row
+      .badges-all
+        - badges = BadgesEngine::Badge.all
+        - badges.all.each do |badge|
+          .badge-info
+            = image_tag 'no-image.svg'
+            .badge-name
+              = badge.name
+    .row
+      %footer.badges-footer
+        %p Displaying my last 10 badges
+        .badges-footer-icon
