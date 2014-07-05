@@ -27,18 +27,52 @@
   float: right
   margin: 30px
   li
-    display: inline-block
     border-right: 1px solid $gray-light
+    float: left
     padding: 0 15px
     &:last-child
       border: none
 
 .badges-check-all
+  color: $yellow
   font-size: 1em
   font-weight: 400
-  color: $yellow
 
 .badges-check-personal
+  color: $orange-dark
   font-size: 1em
   font-weight: 400
-  color: $orange-dark
+
+.badges-all
+  border-top: 1px solid $white
+  overflow: auto
+
+.badge-info
+  border-bottom: 1px solid $white
+  border-right: 1px solid $white
+  float: left
+  text-align: center
+  width: 20%
+  &:nth-of-type(5)
+    border-right: none
+
+.badge-name
+  padding: 5px 0
+
+.badges-footer
+  background: image_url('sprite-badges.png') -15px -650px no-repeat
+  border-top: 1px solid $pink-50
+  color: $gray-light
+  font-size: 0.9em
+  padding: 16px
+  position: relative
+  text-align: center
+
+.badges-footer-icon
+  background: image_url('sprite-badges.png') -29px -720px no-repeat
+  display: inline-block
+  position: absolute
+  width: 55px
+  height: 60px
+  top: -4px
+  right: -9px
