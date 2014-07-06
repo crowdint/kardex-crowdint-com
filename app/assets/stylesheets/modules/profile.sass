@@ -1,0 +1,91 @@
+=roboto-commons
+  font-family: 'Roboto'
+  font-size: 14px
+
+=ico-commons
+  float: left
+  height: 30px
+  margin: -5px 5px 0 0
+  width: 30px
+
+.profile
+  background: $white
+
+.profile-image
+  border-radius: 80px
+  border: 3px solid $white
+  bottom: 90px
+  left: 50px
+  position: relative
+
+.profile-info-main
+  margin: -98px 0 0 22px
+  text-align: center
+  width: 200px
+
+.profile-name
+  color: $gray-dark
+  font-family: 'Droid Serif', serif
+  font-size: 18px
+  font-style: normal
+  font-weight: bold
+  margin: 17px 0 10px
+
+.profile-position
+  +roboto-commons
+  color: $gray-dark
+  font-style: normal
+  margin-top: -8px
+
+.profile-admin
+  background: $orange
+  color: $white
+  display: inline-block
+  font-weight: 100
+  margin: -2px 0 0 32px
+  padding: 5px 56px
+
+.profile-separator
+  border-top: 1px solid $pink-25
+  margin-bottom: 0
+  &.light
+    border-top: 1px solid $pink-100
+
+.profile-info
+  margin: 25px auto 0
+  text-align: center
+  width: 200px
+
+.profile-summary-ico
+  +ico-commons
+  background: image_url('sprite-badges.png') -24px -450px no-repeat
+
+.profile-title
+  +roboto-commons
+  color: $orange
+  font-size: 14px
+  margin-bottom: 15px
+  text-align: left
+
+.profile-summary
+  font-size: 12px
+  text-align: left
+  overflow: auto
+
+.profile-skill
+  +roboto-commons
+  border-right: 1px solid $gray-dark
+  color: $gray-dark
+  float: left
+  font-size: 12px
+  margin-right: 10px
+  padding-right: 10px
+  &:last-child
+    border-right: none
+
+.profile-account
+  @extend .profile-title
+  font-weight: 300
+  padding-bottom: 30px
+  a
+    color: $orange
