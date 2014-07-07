@@ -20,10 +20,16 @@
     = link_to "Back to my profile Dasboard", logo_redirect_url
   .mid-flag-corner
 .admin-settings-control
-  %ul.nav
-    %li= link_to 'Users', admin_users_path
-    %li= link_to 'Badges', '#'
-    %li= link_to 'Kiitos', '#'
-    %li= link_to 'English', '#'
-    %li= link_to 'Codeschool', '#'
-    %li= link_to 'Workshops', '#'
+  %nav.navbar.navbar-default
+    .container-fluid
+      %ul.nav
+        %li
+          = link_to admin_users_path do
+            %p Users
+            .user-admin-icon
+            .carpet-down
+        %li
+          = link_to '#' do
+            %p Badges
+            .badge-admin-icon
+            .carpet-down
