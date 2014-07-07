@@ -9,7 +9,7 @@ feature 'Create a nominee list' do
     login_with_oauth
   end
 
-  scenario 'creating a nominee list' do
+  xscenario 'creating a nominee list' do
     user = User.first
     visit admin_root_path
     click_link 'Create nominee list'

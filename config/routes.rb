@@ -9,9 +9,7 @@ KardexCrowdintCom::Application.routes.draw do
   devise_for :users,
       controllers: { omniauth_callbacks: 'crowdint_auth/omniauth_callbacks' }
 
-  get "users/index"
-
-  resources :users, except: [:new, :create, :destroy]
+  resources :users, except: [:new, :create, :destroy, :index]
   resources :nominee_users, only: [:new, :create]
   resources :nominee_lists, only: [:index, :show]
   resources :propose_badges, only: [:new, :create]
@@ -20,6 +18,9 @@ KardexCrowdintCom::Application.routes.draw do
 
   namespace :admin do
     root "main#index"
+    resource :users do 
+      get :index
+    end
 
     resources :nominee_lists, only: [:create, :new]
   end

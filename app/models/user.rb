@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     association_foreign_key: 'badge_id'
 
   has_many :nominee_users
+  
+  scope :admins, -> { where(is_admin: true) }
+
+  delegate :name, to: :position, prefix:true, allow_nil: true
 
   scope :admins, ->{ where(is_admin: true) }
 

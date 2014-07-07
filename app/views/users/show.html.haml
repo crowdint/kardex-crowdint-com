@@ -4,7 +4,7 @@
       = image_tag @user.picture_url, class: 'profile-image'
       .profile-info-main
         %h3.profile-name= @user.name
-        .profile-position= position
+        .profile-position= current_user.position_name
       %hr.profile-separator
       = link_to_admin
       .profile-info
@@ -28,7 +28,7 @@
         %p.profile-summary
           %strong= @user.department
           %br
-          = position
+          = current_user.position_name
       %hr.profile-separator.light
       .profile-info
         %h3.profile-account
