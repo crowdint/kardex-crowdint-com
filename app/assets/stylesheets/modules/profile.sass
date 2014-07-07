@@ -2,7 +2,8 @@
   font-family: 'Roboto'
   font-size: 14px
 
-=ico-commons
+=profile-ico($background-y)
+  background: image_url('sprite-badges.png') -24px $background-y no-repeat
   float: left
   height: 30px
   margin: -5px 5px 0 0
@@ -55,10 +56,21 @@
   margin: 25px auto 0
   text-align: center
   width: 200px
+  &:last-child
+    position: relative
+    margin: 15px auto 0
 
-.profile-summary-ico
-  +ico-commons
-  background: image_url('sprite-badges.png') -24px -450px no-repeat
+.profile-ico-summary
+  +profile-ico(-450px)
+
+.profile-ico-skills
+  +profile-ico(-404px)
+
+.profile-ico-position
+  +profile-ico(-495px)
+
+.profile-ico-account
+  +profile-ico(-538px)
 
 .profile-title
   +roboto-commons
@@ -86,6 +98,14 @@
 .profile-account
   @extend .profile-title
   font-weight: 300
-  padding-bottom: 30px
+  padding-bottom: 18px
   a
     color: $orange
+
+.profile-footer-icon
+  background: image_url('sprite-badges.png') -90px -720px no-repeat
+  height: 60px
+  position: absolute
+  right: -41px
+  top: -20px
+  width: 55px
