@@ -5,7 +5,9 @@
         %h3.badges-header
           %span.badges-header-image
           %span.badges-title All badges
-        %span.badges-count 102/200 Badges earned
+        %span.badges-count
+          = badge_totals
+          Badges earned
         %ul.badges-menu
           %li= link_to 'Back to my Badges', '#', class: 'badges-first-link'
           %li
