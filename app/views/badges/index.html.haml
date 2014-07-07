@@ -6,7 +6,7 @@
           %span.badges-header-image
           %span.badges-title All badges
         %span.badges-count
-          = badge_totals
+          = badge_totals(current_user)
           Badges earned
         %ul.badges-menu
           %li= link_to 'Back to my Badges', '#', class: 'badges-first-link'
