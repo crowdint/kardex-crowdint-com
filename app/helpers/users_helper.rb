@@ -24,4 +24,12 @@ module UsersHelper
       link_to "Admin Power", admin_root_path, class: 'profile-admin'
     end
   end
+
+  def show_badges
+    if @badges.empty?
+      'You don\'t have badges... yet!'
+    else
+      render partial: 'badge', collection: @badges
+    end
+  end
 end

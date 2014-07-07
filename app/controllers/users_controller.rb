@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @badges = @user.badges.last(10)
     @position = @user.position
     respond_with @user
   end

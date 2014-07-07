@@ -56,13 +56,10 @@
         .badges-header-decorator
     .row
       .badges-all
-        - badges = BadgesEngine::Badge.all
-        - badges.all.each do |badge|
-          .badge-info
-            = image_tag 'no-image.svg'
-            .badge-name
-              = badge.name
+        = show_badges
     .row
       %footer.badges-footer
-        %p Displaying my last 10 badges
+        %p
+          Displaying my last
+          = pluralize(@badges.size, 'badge')
         .badges-footer-icon
