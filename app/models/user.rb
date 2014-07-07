@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :propose_badges
 
   has_many :nominee_users
+  
+  scope :admins, -> { where(is_admin: true) }
+
+  delegate :name, to: :position, prefix:true, allow_nil: true
 
   def to_param
     "#{id}-#{name.parameterize}"

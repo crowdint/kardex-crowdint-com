@@ -1,6 +1,6 @@
 module UsersHelper
-  def position
-    @position.name unless @position.nil?
+  def profile_picture
+    image_tag current_user.picture_url
   end
 
   def redirect_url
