@@ -1,13 +1,5 @@
-%h1 Admin manager
+= content_for :user_details do
+  = render partial: 'shared/user_details'
 
-= link_to 'Users', users_path
-|
-= link_to 'Badges', badges_engine.badges_path
-|
-= link_to 'Levels', badges_engine.levels_path
-|
-= link_to 'Awards', badges_engine.awards_path
-|
-= link_to 'Values', badges_engine.values_path
-|
-= link_to 'Create nominee list', new_admin_nominee_list_path
+= content_for :actions do
+  = render partial: 'shared/actions'

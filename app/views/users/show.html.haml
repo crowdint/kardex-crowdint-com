@@ -4,7 +4,7 @@
       = image_tag @user.picture_url
     .user-info
       %h3.name= @user.name
-      .position= position
+      .position= @user.position_name
       %hr.big-bar.color-bar
       = link_to_admin
       .summary-ico
