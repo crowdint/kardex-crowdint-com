@@ -21,7 +21,7 @@ module UsersHelper
 
   def link_to_admin
     if current_user.is_admin?
-      link_to "Admin Power", admin_root_path, class: 'profile-admin'
+      link_to "Admin Power", admin_users_path, class: 'profile-admin'
     end
   end
 
