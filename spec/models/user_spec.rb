@@ -20,4 +20,18 @@ describe User do
     it { expect(user).not_to validate_presence_of(:password) }
     it { expect(user).not_to validate_presence_of(:department) }
   end
+
+  describe 'position name' do
+    context 'When data is valid' do
+      before do
+       user.create_position(name: 'Intern')
+      end
+
+      it{ expect(user.position_name).to eq "Intern" }
+    end
+
+    context 'When data is not valid' do
+      it{ expect(user.position_name).to be_nil }
+    end
+  end
 end
