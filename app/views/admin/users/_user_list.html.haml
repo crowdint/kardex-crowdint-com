@@ -1,5 +1,12 @@
-%h1 Users
+.admin-users-list
+  %header
+    %h1 Manage Users
 
-%table.table.table-striped
-  %tbody
-    = render partial: 'shared/user', collection: @users
+
+  %table.table
+    %tbody
+      %tr
+        %th Name    
+        %th Role
+        %th Manage Module
+      = render partial: 'shared/user', collection: @users
