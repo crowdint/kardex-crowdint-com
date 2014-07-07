@@ -53,6 +53,7 @@
         %ul.badges-menu
           %li= link_to 'Check all my badges', '#', class: 'badges-check-personal'
           %li= link_to 'Check all badges', '#', class: 'badges-check-all'
+        .badges-header-decorator
     .row
       .badges-all
         - badges = BadgesEngine::Badge.all
