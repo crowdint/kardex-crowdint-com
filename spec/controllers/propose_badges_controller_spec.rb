@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe ProposeBadgesController do
   let(:propose_badge) { Fabricate.attributes_for(:propose_badge) }
-  let(:user) { User.first }
+  let!(:admin) { Fabricate :admin }
+  let(:user) { User.last }
 
   login_user
 
