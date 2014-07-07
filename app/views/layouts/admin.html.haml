@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title KardexCrowdintCom
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    .header-default
+      .circle
+      .header-vertical-line
+      .container
+        = yield :user_details
+    = notice
+    #content
+      .container
+        = yield :actions
+        = yield
+
+    %footer#footer
+      .container
+        %ul
+          %li= link_to '', 'http://www.crowdint.com', class: 'crowdint-logo'
+          %li.culture-logo
