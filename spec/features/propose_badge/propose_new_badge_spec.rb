@@ -6,7 +6,7 @@ feature 'Propose a badge' do
 
   background { login_with_oauth }
 
-  scenario 'proposing a new badge' do
+  xscenario 'proposing a new badge' do
     visit users_path
     click_link 'Show', match: :first
     click_link 'Propose a badge'

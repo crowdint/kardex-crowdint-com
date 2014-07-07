@@ -7,7 +7,7 @@ feature 'Nominate user a badge' do
 
   background { login_with_oauth }
 
-  scenario 'User proposing a badge to another user' do
+  xscenario 'User proposing a badge to another user' do
     visit users_path
     click_link('Show', match: :first)
     click_link 'Nominate a user'
