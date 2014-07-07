@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Nominate user a badge' do
   let(:user) { User.first }
+  let!(:admin) { Fabricate :admin }
   let!(:badge) { Fabricate(:badge) }
 
   background { login_with_oauth }

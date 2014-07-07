@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+    %title A new badge was proposed!
+  %body
+    %p
+      The user
+      = @user.name
+      has sent you a new badge proposal. This is the information of the new badge:
+    %ul
+      %li
+        Name:
+        = @badge_proposal.name
+      %li
+        Value:
+        = value_name(@badge_proposal.value)
+      %li
+        Description:
+        = @badge_proposal.description
+    %p Selected users:
+    %ul
+      - @badge_proposal.users.each do |user|
+        %li= user.name

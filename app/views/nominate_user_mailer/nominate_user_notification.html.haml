@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+    %title A user was nominated!
+  %body
+    %p
+      The user
+      = user_name(@nominated_user.user)
+      has been nominated to win a badge. This is the information of the
+      nomination:
+    %ul
+      %li
+        Badge:
+        = badge_name(@nominated_user.badge)
+      %li
+        Why:
+        = @nominated_user.why

@@ -7,6 +7,9 @@ class NomineeUsersController < ApplicationController
     @nominee_user = NomineeUser.new(nominee_user_params)
     if @nominee_user.save
       redirect_to user_path(current_user), notice: 'Nomination sent successfully'
+      NominateUserMailer.nominate_user_notification(
+        @nominee_user, current_user, admin_emails
+      ).deliver
     else
       render :new
     end

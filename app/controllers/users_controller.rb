@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :get_user, except: [:index, :user_names]
   respond_to :html
+  layout 'dashboards'
 
   def index
     @users = User.order(:name)
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @badges = @user.badges.last(10)
     @position = @user.position
     respond_with @user
   end
