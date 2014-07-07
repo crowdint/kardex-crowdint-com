@@ -13,12 +13,15 @@ KardexCrowdintCom::Application.routes.draw do
   resources :nominee_users, only: [:new, :create]
   resources :nominee_lists, only: [:index, :show]
   resources :propose_badges, only: [:new, :create]
+  resources :badges, only: :index
+
+  match 'badges/query', to: 'badges#query', via: :get
 
   mount BadgesEngine::Engine, at: '/admin'
 
   namespace :admin do
     root "main#index"
-    resource :users do 
+    resource :users do
       get :index
     end
 
