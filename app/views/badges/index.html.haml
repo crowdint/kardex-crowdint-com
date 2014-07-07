@@ -11,7 +11,24 @@
           %li
             = link_to 'Back to my Dashboard', user_path(current_user),
               class: 'badges-last-link'
-        .badges-header-decorator
+          .badges-header-decorator
+      %section
+        .search
+          %p.search-info
+            %span.search-earned-ico
+            %span.search-earned Earned
+          = form_tag(badges_query_path, method: :get, class: 'search-form') do
+            = label_tag :search, 'Search', class: 'search-form-label'
+            = text_field_tag :search, params[:search],
+              class: 'search-form-control'
+            = label_tag :sort, 'Sort by:', class: 'search-form-label'
+            = text_field_tag :sort, params[:search],
+              class: 'search-form-control'
+          %p.search-proposals
+            = link_to 'Nominate someone', '#',
+              class: 'search-proposals-nominate'
+            = link_to 'Propose a badge', '#',
+              class: 'search-proposals-propose'
       %section
         .badges-all
           - @badges.each do |badge|
