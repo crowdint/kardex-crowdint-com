@@ -5,7 +5,7 @@ feature 'values' do
 
   background { login_with_oauth }
 
-  scenario 'edit a value' do
+  xscenario 'edit a value' do
     visit badges_engine.values_path
     click_link 'Edit'
     fill_in 'Name', with: Faker::Lorem.word
