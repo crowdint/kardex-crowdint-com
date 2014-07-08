@@ -5,7 +5,7 @@ gem 'rails', '4.0.4'
 
 gem 'bamboohr', github: 'crowdint/bamboohr'
 gem 'bootstrap-sass'
-gem 'bootstrap-form'
+gem 'simple_form'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'crowdint_auth', '0.1.3'
