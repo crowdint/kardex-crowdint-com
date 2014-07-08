@@ -1,0 +1,19 @@
+=simple_form_for(@badge, url: admin_badges_path(@badge), html:{multipart: true}) do |f|
+  = render partial: 'shared/errors', locals: { resource: @badge }
+  .col-sm-3
+    = image_tag ''
+    %p Browse Images
+    .field
+      = f.input :image
+  .col-sm-9
+    .field
+      = f.input :name
+    .field
+      = f.input :description
+    .field
+      = f.input :award_id, collection: BadgesEngine::Award.all, value_method: :id, label_method: :title, prompt: 'Select an Award'
+    .field
+      = f.input :value_id, collection: BadgesEngine::Value.all, value_method: :id, label_method: :name, prompt: 'Select a Value'
+    .actions
+      = f.submit 'Save', class: 'btn'
+
