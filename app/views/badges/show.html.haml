@@ -1,0 +1,45 @@
+.row
+  .col-md-12
+    .span12.badges
+      %header.badges-header-container
+        %h3.badges-header
+          %span.badges-header-image
+          %span.badges-title Badge details
+        %span.badges-count= @badge.name
+        %ul.badges-menu
+          %li
+            = link_to 'Back to my Badges', badges_user_path(current_user),
+              class: 'badges-first-link'
+          %li.last
+            = link_to 'Back to my Dashboard', user_path(current_user),
+              class: 'badges-last-link'
+          .badges-header-decorator
+      %section
+        .search
+          %p.search-info
+            %span.search-earned-ico
+            %span.search-earned Earned
+          = form_tag(badges_query_path, method: :get, class: 'search-form') do
+            = label_tag :search, 'Search', class: 'search-form-label'
+            = text_field_tag :search, params[:search],
+              class: 'search-form-control'
+            = label_tag :sort, 'Sort by:', class: 'search-form-label'
+            = text_field_tag :sort, params[:search],
+              class: 'search-form-control'
+          %p.search-proposals
+            = link_to 'Nominate someone', new_nominee_user_path,
+              class: 'search-proposals-nominate'
+            = link_to 'Propose a badge', new_propose_badge_path,
+              class: 'search-proposals-propose'
+.row
+  .col-md-3
+    %aside.span3.badge-sidebar
+      - @badges.each do |badge|
+        %div{ class: current_badge(badge) }
+          .col-md-2.badge-sidebar-image
+            .span2
+              = image_tag 'no-image.svg'
+          .col-md-10.badge-sidebar-name
+            .span10
+              = badge.name
+              %span.search-earned-ico
