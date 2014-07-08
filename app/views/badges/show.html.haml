@@ -34,12 +34,4 @@
 .row
   .col-md-3
     %aside.span3.badge-sidebar
-      - @badges.each do |badge|
-        %div{ class: current_badge(badge) }
-          .col-md-2.badge-sidebar-image
-            .span2
-              = image_tag 'no-image.svg'
-          .col-md-10.badge-sidebar-name
-            .span10
-              = badge.name
-              %span.search-earned-ico
+      = render partial: 'badge', collection: @badges

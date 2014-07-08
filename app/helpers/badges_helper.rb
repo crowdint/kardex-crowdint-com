@@ -10,4 +10,8 @@ module BadgesHelper
       'row badge-sidebar-badge'
     end
   end
+
+  def owned_badge?(badge)
+    'search-earned-ico' if current_user.badges.include?(badge)
+  end
 end
