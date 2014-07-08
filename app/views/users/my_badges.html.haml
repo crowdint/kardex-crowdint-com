@@ -29,11 +29,7 @@
               class: 'search-proposals-propose'
       %section
         .badges-all
-          - @badges.each do |badge|
-            .badge-info-6-col
-              = image_tag 'no-image.svg'
-              .badge-name
-                = badge.name
+          = show_badges
       %footer.badges-footer-separator
         %p
           Total
