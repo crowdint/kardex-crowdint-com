@@ -1,12 +1,23 @@
 require 'spec_helper'
 
 describe BadgesController do
+  let(:badge) { Fabricate :badge }
+
   login_user
 
   describe '#index' do
-    before { get :index }
+    let(:action) { :index }
 
-    it { expect(response).to be_success }
-    it { expect(response).to render_template :index }
+    before { get action }
+
+    it_should_behave_like 'success rendering'
+  end
+
+  describe '#show' do
+    let(:action) { :show }
+
+    before { get action, id: badge.id }
+
+    it_should_behave_like 'success rendering'
   end
 end

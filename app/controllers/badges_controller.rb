@@ -1,8 +1,12 @@
 class BadgesController < ApplicationController
+  before_action :get_badges, except: :query
   layout 'dashboards'
 
   def index
-    @badges = BadgesEngine::Badge.all
+  end
+
+  def show
+    @badge = BadgesEngine::Badge.find(params[:id])
   end
 
   def query
@@ -13,5 +17,11 @@ class BadgesController < ApplicationController
     else
       @user + BadgesEngine::Badges.all
     end
+  end
+
+  private
+
+  def get_badges
+    @badges = BadgesEngine::Badge.all
   end
 end

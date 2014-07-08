@@ -16,7 +16,7 @@ KardexCrowdintCom::Application.routes.draw do
   resources :nominee_users, only: [:new, :create]
   resources :nominee_lists, only: [:index, :show]
   resources :propose_badges, only: [:new, :create]
-  resources :badges, only: :index
+  resources :badges, only: [:index, :show]
 
   match 'badges/query', to: 'badges#query', via: :get
 
