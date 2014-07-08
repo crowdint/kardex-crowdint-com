@@ -1,0 +1,7 @@
+.nested-fields
+  .col-sm-6
+    .col-sm-6
+      = f.input :tier, collection: 1..5
+    .col-sm-6
+      = f.input :badge_alias
+  = link_to_remove_association "x", f

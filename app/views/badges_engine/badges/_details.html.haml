@@ -1,0 +1,8 @@
+%td{ colspan: 5}
+  = image_tag badge.image_url
+  = badge.name
+  = link_to 'Edit badge', badges_engine.edit_badge_path(badge)
+  = badge.description
+  = badge.award.title unless badge.award.nil?
+  = badge.value.name unless badge.value.nil?
+  = render badge.levels
