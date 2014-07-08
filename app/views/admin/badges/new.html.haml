@@ -1,9 +1,0 @@
-= content_for :user_details do
-  = render partial: 'shared/user_details'
-= content_for :actions do
-  = render partial: 'shared/actions'
-
-= render partial: 'badges_list', locals: { badges: @badges }
-.col-sm-12
-  = render 'form'
-  = link_to 'Back', admin_badges_path
