@@ -29,6 +29,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def my_badges
+    @badges = @user.badges
+  end
+
   private
 
   def user_params

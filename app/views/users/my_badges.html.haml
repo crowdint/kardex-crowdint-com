@@ -4,23 +4,17 @@
       %header.badges-header-container
         %h3.badges-header
           %span.badges-header-image
-          %span.badges-title All badges
+          %span.badges-title All my badges
         %span.badges-count
-          = badge_totals(current_user)
-          Badges earned
+          = pluralize(@badges.size, 'Badge')
         %ul.badges-menu
-          %li
-            = link_to 'Back to my Badges', badges_user_path(current_user),
-              class: 'badges-first-link'
+          %li= link_to 'Back to my Dashboard', user_path(@user), class: 'badges-first-link'
           %li.last
-            = link_to 'Back to my Dashboard', user_path(current_user),
+            = link_to 'Check all badges', badges_path,
               class: 'badges-last-link'
           .badges-header-decorator
       %section
         .search
-          %p.search-info
-            %span.search-earned-ico
-            %span.search-earned Earned
           = form_tag(badges_query_path, method: :get, class: 'search-form') do
             = label_tag :search, 'Search', class: 'search-form-label'
             = text_field_tag :search, params[:search],
@@ -43,5 +37,5 @@
       %footer.badges-footer-separator
         %p
           Total
-          = pluralize(@badges.size, 'badge')
+          = pluralize(@badges.size, 'Badge')
         .badges-footer-icon
