@@ -14,6 +14,7 @@ class Admin::BadgesController < Admin::BaseController
 
   def new
     @badge = BadgesEngine::Badge.new
+    @badge.levels.build
   end
 
   def edit
@@ -45,7 +46,11 @@ class Admin::BadgesController < Admin::BaseController
   def badge_params
     params.require(:badge).permit(
       :name, :image, :description,
-      :award_id, :value_id)
+      :award_id, :value_id,
+      levels_attributes: [
+        :tier, :badges_alias, :badge_id
+      ]
+    )
   end
 
 

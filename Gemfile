@@ -6,6 +6,7 @@ gem 'rails', '4.0.4'
 gem 'bamboohr', github: 'crowdint/bamboohr'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem "cocoon"
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'crowdint_auth', '0.1.3'
@@ -23,7 +24,8 @@ gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'badges_engine',
-  github: 'zalapeach/badges_engine'
+  path: '../badges_engine'
+  #github: 'zalapeach/badges_engine'
 
 group :doc do
   gem 'sdoc', require: false

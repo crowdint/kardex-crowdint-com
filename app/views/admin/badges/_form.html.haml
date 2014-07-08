@@ -14,6 +14,11 @@
       = f.input :award_id, collection: BadgesEngine::Award.all, value_method: :id, label_method: :title, prompt: 'Select an Award'
     .field
       = f.input :value_id, collection: BadgesEngine::Value.all, value_method: :id, label_method: :name, prompt: 'Select a Value'
+    #levels
+      = f.simple_fields_for :levels do |level|
+        = render 'level_fields', f: level
+        .links
+          = link_to_add_association 'add level', f, :levels
     .actions
       = f.submit 'Save', class: 'btn'
 
