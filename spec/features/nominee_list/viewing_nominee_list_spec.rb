@@ -12,8 +12,7 @@ feature 'checking a nomine list' do
   background { login_with_oauth }
 
   scenario 'viewing nominee list index' do
-    visit user_path(user1)
-    click_link 'Nominate list'
+    visit nominee_lists_path
     expect(page).to have_content 'Nominee lists'
     expect(page).to have_link 'Check list'
     expect(page).to have_content badge.name

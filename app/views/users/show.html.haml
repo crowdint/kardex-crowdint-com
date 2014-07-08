@@ -36,14 +36,6 @@
             %span.profile-ico-account
             Account
         .profile-footer-icon
-    .span3.user-links
-      |
-      = link_to 'Nominate a user', new_nominee_user_path
-      |
-      = link_to 'Nominate list', nominee_lists_path
-      |
-      = link_to 'Propose a badge', new_propose_badge_path
-      |
   %section.badges.col-md-9
     .row
       %header.badges-header-container
@@ -51,8 +43,12 @@
           %span.badges-header-image
           %span.badges-title My Badges
         %ul.badges-menu
-          %li= link_to 'Check all my badges', '#', class: 'badges-first-link'
-          %li= link_to 'Check all badges', badges_path, class: 'badges-last-link'
+          %li
+            = link_to 'Check all my badges', badges_user_path(@user),
+              class: 'badges-first-link'
+          %li.last
+            = link_to 'Check all badges', badges_path,
+              class: 'badges-last-link'
         .badges-header-decorator
     .row
       .badges-all
