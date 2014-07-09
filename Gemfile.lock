@@ -18,8 +18,9 @@ GIT
   specs:
     slack-notifier (0.5.0)
 
-PATH
-  remote: ../badges_engine
+GIT
+  remote: git://github.com/zalapeach/badges_engine.git
+  revision: bc0d6a5849d5123e4050610e54b7bfca084da1b9
   specs:
     badges_engine (0.0.1)
       carrierwave
@@ -28,6 +29,7 @@ PATH
       jquery-rails
       mini_magick
       rails (~> 4.0.4)
+      simple_form
 
 GEM
   remote: https://rubygems.org/
