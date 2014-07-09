@@ -35,3 +35,23 @@
   .col-md-3
     %aside.span3.badge-sidebar
       = render partial: 'badge', collection: @badges
+  .col-md-9
+    .span9.badge-sidebar
+      .row
+        .col-md-12
+          .badge-presenter-image
+            = image_tag 'no-image.svg'
+          .badge-presenter
+            %h1.badge-presenter-title= @badge.name
+            %strong Description:
+            %p= @badge.description
+            %hr.badge-presenter-separator
+            %strong Values:
+            %p= show_value(@badge.value)
+            %hr.badge-presenter-separator
+            %strong Path:
+    .span9
+      %h3 Who else has it?
+      %p
+        = pluralize(@badge.users.count, 'Crowdie')
+        have earn this badge

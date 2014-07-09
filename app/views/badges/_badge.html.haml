@@ -4,5 +4,5 @@
       = image_tag 'no-image.svg'
   .col-md-9.badge-sidebar-name
     .span9
-      = badge.name
+      = link_to badge.name, badge_path(badge), class: 'badge-sidebar-link'
       %span{ class: owned_badge?(badge) }
