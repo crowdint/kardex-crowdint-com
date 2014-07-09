@@ -14,4 +14,8 @@ module BadgesHelper
   def owned_badge?(badge)
     'search-earned-ico' if current_user.badges.include?(badge)
   end
+
+  def show_value(value)
+    value.name unless value.nil?
+  end
 end

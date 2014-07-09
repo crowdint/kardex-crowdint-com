@@ -37,4 +37,14 @@ describe BadgesHelper do
       expect(helper.owned_badge? badge_1).to eq nil
     end
   end
+
+  describe '#show_value' do
+    it 'returns the value \'s name if value is not nil' do
+      value = Fabricate.build(:value)
+      expect(helper.show_value(value)).to eq value.name
+    end
+    it 'returns nil if value is nil' do
+      expect(helper.show_value(nil)).to eq nil
+    end
+  end
 end
