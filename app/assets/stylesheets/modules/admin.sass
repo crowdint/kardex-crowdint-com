@@ -171,8 +171,10 @@
     margin-right: 0
   .action-show-details
     margin-top: 35px
-    a:last-child
-      float: right
+    a
+      color: $pink-50
+      &:last-child
+        float: right
   section
     .value-side
       width: 50%
@@ -211,3 +213,61 @@
       display: block
       &:last-child
         border-left: none
+.form-badge
+  background: #fff
+  margin-top: -19px
+  a
+    color: $pink-50
+  .field
+    margin-top: 10px
+    border-bottom: 1px dashed $gray
+    &:first-child
+      border-bottom: 1px solid $pink-50
+    &:last-child
+      border-bottom: none
+    .nested-fields
+      height: 30px
+      width: 712px
+      ul
+        width: 400px
+        li
+          width: 190px
+          float: left
+          a
+            float: right
+            position: relative
+            bottom: 41px
+    .links
+      width: 150px
+  .span4
+    margin: 0px 0px 0px -30px
+    border-right: 1px dashed $gray
+    section
+      margin-left: 20px
+      width: 75%
+  .actions
+    float: right
+
+  form
+    input
+      background: rgb(239, 238, 238)
+      border-radius: 0
+      color: $gray-dark
+      font-family: roboto
+      width: 175px
+    select
+      @extend input
+      width: 175px
+    textarea
+      @extend input
+      width: 100%
+    button
+      background: transparent
+      border: 0
+    .search-glass
+      background: image_url('sprite-badges.png') -30px -174px
+      height: 28px
+      position: relative
+      right: 34px
+      top: 2px
+      width: 28px
