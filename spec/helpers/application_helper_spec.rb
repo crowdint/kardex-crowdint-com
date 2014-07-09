@@ -25,4 +25,12 @@ describe ApplicationHelper do
       expect(helper.define_badge_column).to eq 'badge-info-6-col'
     end
   end
+
+  describe '#image_badge' do
+    it 'returns a default image tag' do
+      badge = Fabricate.build(:badge)
+      expect(helper.image_badge(badge)).
+        to eq "<img alt=\"No image\" src=\"/assets/no-image.svg\" />"
+    end
+  end
 end
