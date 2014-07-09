@@ -10,7 +10,7 @@
           .col-md-8
             .action-show-details
               = link_to 'Edit badge', badges_engine.edit_badge_path(badge)
-              = link_to 'Show Less', '#',class: 'js-show-less'
+              = link_to 'Show Less', 'javascript:void(0)',class: 'js-show-less'
         %section
           %h5 Description:
           = badge.description
