@@ -1,0 +1,46 @@
+= content_for :user_details do
+  = render partial: 'shared/user_details'
+= content_for :actions do
+  = render partial: 'shared/actions'
+
+.admin-users-list
+  %header
+    %h1 Manage Badges
+    = render partial: 'search', locals: { badges: @badges }
+    = link_to  'Create a Badge', badges_engine.new_badge_path
+  %table.table
+    %tbody
+      %tr
+        %th Badge    
+        %th Description
+        %th Award
+        %th Value
+        %th Actions
+      %tr.badge-details
+        %td{ colspan: 5}
+          .row
+            .col-md-4
+              .span4= image_badge(@badge)
+            .col-md-8
+              .span8
+                .row
+                  .col-md-4
+                    %h2= @badge.name
+                  .col-md-8
+                    .action-show-details
+                      = link_to 'Edit badge', badges_engine.edit_badge_path(@badge)
+                      = link_to 'Back to badges', badges_engine.badges_path
+                %section
+                  %h5 Description:
+                  = @badge.description
+                %section
+                  .value-side
+                    %h5 Values:
+                    = @badge.value.name unless @badge.value.nil?
+                  .award-side
+                    %h5 Award:
+                    = @badge.award.title unless @badge.award.nil?
+                %section
+                  %h5 Path:
+                  %ul
+                    = render @badge.levels unless @badge.levels.nil?

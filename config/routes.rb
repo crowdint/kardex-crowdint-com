@@ -20,14 +20,16 @@ KardexCrowdintCom::Application.routes.draw do
 
   match 'badges/query', to: 'badges#query', via: :get
 
-  mount BadgesEngine::Engine, at: '/admin'
-
   namespace :admin do
     root "main#index"
     resource :users do
       get :index
     end
-
     resources :nominee_lists, only: [:create, :new]
   end
+
+  scope 'admin' do 
+    mount BadgesEngine::Engine , at: '/'
+  end
+
 end
