@@ -1,35 +1,24 @@
-%h1 Edit user
-= form_for @user do |f|
-  .row
-    .col-sm-2
-      = f.label :name
-    .col-sm-10
-      = f.text_field :name
-  .row
-    .col-sm-2
-      = f.label :bio
-    .col-sm-10
-      = f.text_area :bio
-  .row
-    .col-sm-2
-      = f.label :position
-    .col-sm-10
-      = f.collection_select :position_id, Position.all, :id, :name,
-        prompt: 'Select a position'
-  .row
-    .col-sm-2
-      = f.label :skills
-    .col-sm-10
-      = f.collection_check_boxes :skill_ids, Skill.all, :id, :name
-  - if current_user.is_admin?
-    .row
-      .col-sm-2
-        = f.label :badges
+.container.user-container
+  .edit-user-info
+    %h1 Edit user info
+    = simple_form_for @user do |f|
       .col-sm-10
-        = f.collection_check_boxes :badge_ids, BadgesEngine::Badge.all, :id, :name
-  .row
-    .col-sm-12
-      = f.submit
-.row
-  .col-sm-12
-    = link_to 'Check user', user_path(@user)
+        = f.input :name
+      .col-sm-10
+        = f.input :bio
+      .col-sm-10
+        = f.input :position_id, collection: Position.all, value_method: :id, label_method: :name, prompt: 'Select a position'
+      .col-sm-10
+        .panel.panel-default
+          .panel-body
+            = f.association :skills, as: :check_boxes
+      - if current_user.is_admin?
+        .col-sm-10
+          .panel.panel-default
+            .panel-body
+              =f.association :badges, as: :check_boxes
+      .col-sm-12
+        = f.submit
+        = link_to 'Back to Dashboard', user_path(@user)
+        |
+        = link_to 'Back to Admin', user_path(@user) if current_user.is_admin?
