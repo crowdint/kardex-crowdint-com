@@ -1,9 +1,9 @@
 module BadgesHelper
-  def award_title(award)
-    badge.award.title unless badge.award.nil?
-  end
-
-  def value_name(value)
-    badge.value.name unless badge.value.nil?
+  def image_badge(badge)
+    if badge.image_url
+      image_tag badge.image_url
+    else
+      image_tag 'no-image.svg'
+    end
   end
 end
