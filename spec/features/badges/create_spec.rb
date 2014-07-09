@@ -8,7 +8,7 @@ feature 'badges' do
   end
 
   scenario 'creating a badge' do
-    visit admin_badges_path
+    visit badges_engine.badges_path
     click_link 'Create a Badge'
     fill_in 'Name', with: Faker::Lorem.word
     fill_in 'Description', with: Faker::Lorem.paragraph
