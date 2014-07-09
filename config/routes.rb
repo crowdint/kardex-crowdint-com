@@ -1,5 +1,5 @@
 KardexCrowdintCom::Application.routes.draw do
-  root to: "home#index"
+  root 'home#index'
 
   devise_scope :user do
     get 'google_apps_sign_in',
@@ -9,10 +9,16 @@ KardexCrowdintCom::Application.routes.draw do
   devise_for :users,
       controllers: { omniauth_callbacks: 'crowdint_auth/omniauth_callbacks' }
 
-  resources :users, except: [:new, :create, :destroy, :index]
+  resources :users, except: [:new, :create, :destroy, :index] do
+    member { get 'my-badges', to: 'users#my_badges', as: 'badges' }
+  end
+
   resources :nominee_users, only: [:new, :create]
   resources :nominee_lists, only: [:index, :show]
   resources :propose_badges, only: [:new, :create]
+  resources :badges, only: :index
+
+  match 'badges/query', to: 'badges#query', via: :get
 
   namespace :admin do
     root "main#index"

@@ -3,14 +3,6 @@ class UsersController < ApplicationController
   respond_to :html
   layout 'dashboards'
 
-  def index
-    @users = User.order(:name)
-    respond_to do |format|
-      format.html
-      format.json { render json: @users }
-    end
-  end
-
   def show
     @badges = @user.badges.last(10)
     @position = @user.position
@@ -27,6 +19,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def my_badges
+    @badges = @user.badges
   end
 
   private

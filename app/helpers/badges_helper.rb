@@ -6,4 +6,8 @@ module BadgesHelper
       image_tag 'no-image.svg'
     end
   end
+
+  def badge_totals(user)
+    "#{ user.badges.size }/#{ @badges.size }"
+  end
 end
