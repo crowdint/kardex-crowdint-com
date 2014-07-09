@@ -21,6 +21,12 @@
       = f.label :skills
     .col-sm-10
       = f.collection_check_boxes :skill_ids, Skill.all, :id, :name
+  - if current_user.is_admin?
+    .row
+      .col-sm-2
+        = f.label :badges
+      .col-sm-10
+        = f.collection_check_boxes :badge_ids, BadgesEngine::Badge.all, :id, :name
   .row
     .col-sm-12
       = f.submit
