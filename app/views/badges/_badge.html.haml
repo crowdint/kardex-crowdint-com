@@ -1,0 +1,8 @@
+%div{ class: current_badge(badge) }
+  .col-md-3.badge-sidebar-image
+    .span3
+      = image_tag 'no-image.svg'
+  .col-md-9.badge-sidebar-name
+    .span9
+      = link_to badge.name, badge_path(badge), class: 'badge-sidebar-link'
+      %span{ class: owned_badge?(badge) }
