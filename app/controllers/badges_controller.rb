@@ -3,6 +3,8 @@ class BadgesController < ApplicationController
   layout 'dashboards'
 
   def index
+    @nominee_user = NomineeUser.new
+    @propose_badge = ProposeBadge.new
   end
 
   def show
