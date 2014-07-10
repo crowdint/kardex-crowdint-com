@@ -5,9 +5,10 @@ class ProposeBadgesController < ApplicationController
       ProposeBadgeMailer.badge_proposal_notification(
         @propose_badge, current_user, admin_emails
       ).deliver
-      redirect_to user_path(current_user), notice: 'Badge proposal sent successfully'
+      redirect_to user_path(current_user),
+        notice: 'Badge proposal sent successfully'
     else
-      render :new
+      redirect_to :back, notice: 'There is a problem creating your peticion'
     end
   end
 

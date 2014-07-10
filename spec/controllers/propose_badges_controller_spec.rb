@@ -7,13 +7,6 @@ describe ProposeBadgesController do
 
   login_user
 
-  describe '#new' do
-    before { get :new }
-
-    it { expect(response).to be_success }
-    it { expect(response).to render_template :new }
-  end
-
   describe '#create' do
     context 'valid data' do
       before { post :create, propose_badge: propose_badge }
@@ -25,10 +18,11 @@ describe ProposeBadgesController do
       before do
         invalid_propose_badge = propose_badge
         invalid_propose_badge[:name] = ''
+        request.env['HTTP_REFERER'] = root_url
         post :create, propose_badge: invalid_propose_badge
       end
 
-      it { expect(response).to render_template :new }
+      it { expect(response).to redirect_to :back }
     end
   end
 end
