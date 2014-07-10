@@ -1,10 +1,8 @@
 class BadgesController < ApplicationController
-  before_action :get_badges, except: :query
+  before_action :get_instance_variables, except: :query
   layout 'dashboards'
 
   def index
-    @nominee_user = NomineeUser.new
-    @propose_badge = ProposeBadge.new
   end
 
   def show
@@ -23,7 +21,9 @@ class BadgesController < ApplicationController
 
   private
 
-  def get_badges
+  def get_instance_variables
     @badges = BadgesEngine::Badge.all
+    @nominee_user = NomineeUser.new
+    @propose_badge = ProposeBadge.new
   end
 end

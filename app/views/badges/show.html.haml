@@ -31,6 +31,8 @@
               class: 'search-proposals-nominate'
             = link_to 'Propose a badge', new_propose_badge_path,
               class: 'search-proposals-propose'
+      = render partial: 'shared/nominee_user'
+      = render partial: 'shared/propose_badge'
 .row
   .col-md-3
     %aside.span3.badge-sidebar
