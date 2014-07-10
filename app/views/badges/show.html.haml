@@ -27,9 +27,9 @@
             = text_field_tag :sort, params[:search],
               class: 'search-form-control'
           %p.search-proposals
-            = link_to 'Nominate someone', new_nominee_user_path,
+            = link_to 'Nominate someone', '#',
               class: 'search-proposals-nominate'
-            = link_to 'Propose a badge', new_propose_badge_path,
+            = link_to 'Propose a badge', '#',
               class: 'search-proposals-propose'
       = render partial: 'shared/nominee_user'
       = render partial: 'shared/propose_badge'
