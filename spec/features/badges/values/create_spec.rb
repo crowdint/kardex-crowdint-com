@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'value' do
   background { login_with_oauth }
 
-  xscenario 'creating a value' do
+  scenario 'creating a value' do
     visit badges_engine.values_path
     click_link 'New Value'
     fill_in 'Name', with: Faker::Lorem.word

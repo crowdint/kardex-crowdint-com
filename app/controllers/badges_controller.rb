@@ -3,6 +3,12 @@ class BadgesController < ApplicationController
   layout 'dashboards'
 
   def index
+    @badges = if params[:search]
+              BadgesEngine::Badge.where("name ILIKE ?",
+                                  "%#{params[:search]}%")
+            else
+              BadgesEngine::Badge.all
+    end
   end
 
   def show
@@ -15,7 +21,7 @@ class BadgesController < ApplicationController
         'name ILIKE ? OR email ILIKE',
         '%#{ params[:search] }', '%#{ params[:search] }')
     else
-      @user + BadgesEngine::Badges.all
+      @user + BadgesEngine::Badge.all
     end
   end
 
