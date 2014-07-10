@@ -40,7 +40,7 @@
       .row
         .col-md-12
           .badge-presenter-image
-            = image_badge(@badge)
+            = image_tag @badge.image_url
           .badge-presenter-info
             %h1.badge-presenter-title= @badge.name
             %strong Description:

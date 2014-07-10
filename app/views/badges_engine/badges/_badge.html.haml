@@ -1,6 +1,6 @@
 %tr
   %td
-    = image_badge(badge)
+    = image_tag badge.image_url
     = badge.name
   %td= badge.description
   %td= badge.award.title unless badge.award.nil?
