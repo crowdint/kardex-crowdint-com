@@ -1,12 +1,4 @@
 module ApplicationHelper
-  def image_badge(badge)
-    if badge.image_url
-      image_tag badge.image_url
-    else
-      image_tag 'no-image.svg'
-    end
-  end
-
   def show_badges
     if @badges.empty?
       'You don\'t have badges... yet!'
