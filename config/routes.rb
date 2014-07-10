@@ -13,9 +13,9 @@ KardexCrowdintCom::Application.routes.draw do
     member { get 'my-badges', to: 'users#my_badges', as: 'badges' }
   end
 
-  resources :nominee_users, only: [:new, :create]
+  resources :propose_badges, only: :create
+  resources :nominee_users, only: :create
   resources :nominee_lists, only: [:index, :show]
-  resources :propose_badges, only: [:new, :create]
   resources :badges, only: [:index, :show]
 
   match 'badges/query', to: 'badges#query', via: :get
@@ -28,7 +28,7 @@ KardexCrowdintCom::Application.routes.draw do
     resources :nominee_lists, only: [:create, :new]
   end
 
-  scope 'admin' do 
+  scope 'admin' do
     mount BadgesEngine::Engine , at: '/'
   end
 

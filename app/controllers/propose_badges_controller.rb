@@ -1,8 +1,4 @@
 class ProposeBadgesController < ApplicationController
-  def new
-    @propose_badge = ProposeBadge.new
-  end
-
   def create
     @propose_badge = ProposeBadge.new(propose_badge_params)
     if @propose_badge.save

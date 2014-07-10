@@ -1,8 +1,4 @@
 class NomineeUsersController < ApplicationController
-  def new
-    @nominee_user = NomineeUser.new
-  end
-
   def create
     @nominee_user = NomineeUser.new(nominee_user_params)
     if @nominee_user.save
