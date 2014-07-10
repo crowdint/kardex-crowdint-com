@@ -1,24 +1,41 @@
 require 'spec_helper'
 
-feature "Edit user profile information" do
-  background do
-    visit root_path
-    login_with_oauth
-    click_link 'Sign in'
-    click_link 'Account'
+feature "Edit profile information" do
+  context 'User path' do
+    background do
+      visit root_path
+      login_with_oauth
+      click_link 'Sign in'
+      click_link 'Account'
+    end
+
+    scenario "Users can edit profile information" do
+      expect(page).to have_content 'Edit user info'
+      fill_in 'Bio', with: 'Lorem ipsum arkham city'
+      click_button 'Update User'
+      expect(page).to have_content 'Summary'
+      expect(page).to have_content 'Lorem ipsum arkham city'
+    end
+
+
+    scenario "Users can back to Users show from edit profile section" do
+      click_link 'Back to Dashboard'
+      expect(page).to have_content 'Account'
+    end
   end
 
-  scenario "Users can edit profile information" do
-    expect(page).to have_content 'Name'
-    fill_in 'Bio', with: 'Lorem ipsum arkham city'
-    click_button 'Update User'
-    expect(page).to have_content 'Summary'
-    expect(page).to have_content 'Lorem ipsum arkham city'
-  end
+  context 'Admin path' do
+    background do
+      login_with_oauth
+      User.first.update_attributes(is_admin: true)
+      click_link 'Sign in'
+      click_link 'Account'
+    end
 
-
-  scenario "Users can back to Users show from edit profile section" do
-    click_link 'Check user'
-    expect(page).to have_content 'Account'
+    scenario "User admin can back to Admin section" do
+      User.first.update_attributes(is_admin: true)
+      click_link 'Back to Admin'
+      expect(page).to have_content 'Manage Users'
+    end
   end
 end
