@@ -21,4 +21,4 @@
         = f.submit
         = link_to 'Back to Dashboard', user_path(@user)
         |
-        = link_to 'Back to Admin', user_path(@user) if current_user.is_admin?
+        = link_to 'Back to Admin', admin_users_path if current_user.is_admin?
