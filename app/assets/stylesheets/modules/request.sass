@@ -1,0 +1,66 @@
+= request-btn
+  border: none
+  color: white
+  display: inline-block
+  font-weight: 300
+  float: right
+  padding: 5px 30px
+  text-align: center
+  margin-left: 10px
+
+= request-title
+  font-family: 'Roboto'
+  font-size: 1.3em
+  font-weight: 400
+  padding: 20px
+
+.request-nominee
+  background: $orange-light
+  display: none
+
+.request-form-nominee
+  background: $gray-lighter
+  padding: 25px 15px
+  display: none
+
+.request-propose
+  background: $pink-25
+  display: none
+
+.request-form-propose
+  background: $gray-lighter
+  padding: 25px 15px
+  display: none
+
+.request-nominee-title
+  +request-title
+  color: $orange-dark
+
+.request-propose-title
+  +request-title
+  color: $orange-dark
+
+.request-form-label
+  display: block
+  font-weight: 100
+  font-size: 12px
+
+.request-form-input
+  display: block
+  height: 32px
+  width: 100%
+  padding-left: 5px
+
+.request-form-options
+  margin-top: 15px
+
+.request-link
+  color: $orange
+
+.request-btn-cancel
+  +request-btn
+  background: $gray-25
+
+.request-btn-submit
+  +request-btn
+  background: $orange

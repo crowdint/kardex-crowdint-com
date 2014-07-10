@@ -22,6 +22,8 @@ class UsersController < ApplicationController
   end
 
   def my_badges
+    @nominee_user = NomineeUser.new
+    @propose_badge = ProposeBadge.new
     @badges = @user.badges
   end
 

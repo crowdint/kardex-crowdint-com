@@ -7,19 +7,6 @@ describe NomineeUsersController do
 
   login_admin
 
-   describe '#new' do
-    before { get :new }
-
-    it 'responds successfully with an HTTP 200 status code' do
-      expect(response).to be_success
-      expect(response.status).to eq(200)
-    end
-
-    it 'renders the new template' do
-      expect(response).to render_template :new
-    end
-  end
-
   describe '#create' do
     context 'when success' do
       before{ post :create, nominee_user: valid_attributes }
@@ -29,9 +16,11 @@ describe NomineeUsersController do
 
     context 'when is invalid' do
       it 'should not redirect to badges to new' do
-        post :create, { nominee_user: { badge_id: ''} }
-
-        expect(response).to render_template 'new'
+        invalid_attributes = valid_attributes
+        invalid_attributes[:why] =''
+        request.env['HTTP_REFERER'] = root_url
+        post :create, nominee_user: invalid_attributes
+        expect(response).to redirect_to :back
       end
     end
   end
