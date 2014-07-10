@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Awards' do
   background { login_with_oauth }
 
-  xscenario 'Creating a award' do
+  scenario 'Creating a award' do
     visit badges_engine.awards_path
     click_link 'New Award'
     fill_in 'Title', with: Faker::Lorem.word

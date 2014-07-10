@@ -4,18 +4,21 @@ feature 'badges' do
   background do
     login_with_oauth
     User.first.update_attributes(is_admin: true)
-    login_with_oauth
+    click_link 'Sign in'
+    click_link 'Admin Power'
   end
 
-  xscenario 'edit a badge' do
-    visit admin_badges_path
+  scenario 'edit a badge' do
+    expect(page).to have_content 'Manage Users'
+    click_link 'Badge'
+    expect(page).to have_content 'Manage Badges'
     click_link 'Create a Badge'
     fill_in 'Name', with: Faker::Lorem.word
     fill_in 'Description', with: Faker::Lorem.paragraph
     click_button 'Save'
-    expect(page).to have_content 'Badge was successfully created.'
+    expect(page).to have_content 'Manage Badges'
     click_link 'Edit'
     fill_in 'Description', with: Faker::Lorem.paragraph
-    click_button 'Update Badge'
+    click_button 'Save'
   end
 end
