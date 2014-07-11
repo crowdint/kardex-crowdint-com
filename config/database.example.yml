@@ -12,6 +12,10 @@ test:
   database: kardex_test
   <<: *defaults
 
+integration:
+  database: kardex_integration
+  <<: *defaults
+
 production:
   database: kardex
   <<: *defaults

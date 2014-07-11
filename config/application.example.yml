@@ -1,3 +1,22 @@
+defaults: &defaults
+  AWS_ACCESS_KEY_ID: 'your_aws_access_key_id'
+  AWS_SECRET_ACCESS_KEY: 'your_aws_secret_access_key'
+  BAMBOO_API_KEY: 'your_bamboo_api_key'
+  BAMBOO_SUBDOMAIN: 'your_bamboo_subdomain'
+  PROVIDER: 'your_provider'
+
 development:
-  BAMBOO_API_KEY=""
-  BAMBOO_SUBDOMAIN=""
+  <<: *defaults
+  FOG_DIRECTORY: 'your_fog_directory'
+
+test:
+  BAMBOO_API_KEY: 'your_bamboo_api_key'
+  BAMBOO_SUBDOMAIN: 'your_bamboo_subdomain'
+
+integration:
+  <<: *defaults
+  FOG_DIRECTORY: 'your_fog_directory'
+
+production:
+  <<: *defaults
+  FOG_DIRECTORY: 'your_fog_directory'
