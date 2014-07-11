@@ -4,7 +4,7 @@
     = render 'layouts/head'
   %body
     .header-default
-      .circle
+      =link_to '', admin_users_path, class: 'circle'
       .header-vertical-line
       .container
         = yield :user_details
