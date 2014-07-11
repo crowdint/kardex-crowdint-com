@@ -30,6 +30,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'annotate', ">=2.6.0"
   gem 'capybara', '~> 2.2.1'
