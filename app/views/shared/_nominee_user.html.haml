@@ -1,7 +1,7 @@
 %section.request-nominee
   %h3.request-nominee-title Nominating someone
 %section.request-form-nominee
-  = form_for @nominee_user do |f|
+  = simple_form_for @nominee_user do |f|
     .row
       - if @nominee_user.errors.any?
         %h2
@@ -15,16 +15,15 @@
         .span4
           = f.label :badge_id, 'Choose a Badge',
             class: 'request-form-label'
-          = f.collection_select :badge_id,
-            BadgesEngine::Badge.all, :id, :name,
-            { prompt: 'Badgename' },
-            { class: 'request-form-input' }
+          = f.input :badge_id, collection: BadgesEngine::Badge.all,
+            value_method: :id, label_method: :name, promt: 'Badgename',
+            class: 'request-form-input', label: false
       .col-sm-3
         .span3
           = f.label :user_id, 'Who deserves it', class: 'request-form-label'
-          = f.collection_select :user_id, User.all, :id,
-            :name, { prompt: 'Username' },
-            { class: 'request-form-input' }
+          = f.input :user_id, collection: User.all,
+            value_method: :id, label_method: :name, promt: 'User name',
+            class: 'request-form-input', label: false
       .col-sm-5
         .span5
           = f.label :why, 'Why?', class: 'request-form-label'
