@@ -54,30 +54,56 @@
 .badges-first-link
   +badges_links($orange-dark)
 
+// ==================================
+
 .badges-all
   border-top: 1px solid $white
-  overflow: auto
 
 .badge-info
   border-bottom: 1px solid $white
   border-right: 1px solid $white
   float: left
+  height: 210px
+  overflow: hidden
   text-align: center
   width: 20%
-  &:nth-of-type(5)
-    border-right: none
+  //&:last
+    //border-right: none
 
-.badge-info-6-col
-  border-bottom: 1px solid $white
-  border-right: 1px solid $white
-  float: left
-  text-align: center
-  width: 16.66%
-  &:nth-of-type(6)
-    border-right: none
+.badge-info-inside
+  cursor: pointer
+  margin-top: 0px
+  transition: margin-top 0.5s linear
+  &:hover
+    margin-top: -175px
+    .badge-description
+      opacity: 1
+
+.badge-description
+  height: 140px
+  opacity: 0
+  overflow: hidden
+  transition: opacity 1s
+
+.badge-details-link
+  color: $orange
+  display: block
+  text-decoration: underline
+  padding: 8px
+
+//.badge-info-6-col
+  //border-bottom: 1px solid $white
+  //border-right: 1px solid $white
+  //float: left
+  //text-align: center
+  //width: 16.66%
+  //&:nth-of-type(6)
+    //border-right: none
 
 .badge-name
-  padding: 5px 0
+  margin: 10px 0
+
+// ==================================
 
 .badges-footer
   background: image_url('sprite-badges.png') -15px -650px no-repeat

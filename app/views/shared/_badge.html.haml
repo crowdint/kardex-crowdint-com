@@ -1,4 +1,9 @@
 %div{ class: define_badge_column }
-  = image_tag badge.image_url
-  .badge-name
-    = link_to badge.name, badge_path(badge)
+  .badge-info-inside
+    = image_tag badge.image_url
+    %h5.badge-name
+      = badge.name
+    -#.badge-hover-section
+    %p.badge-description
+      = badge.description
+    = link_to 'Details', badge_path(badge), class: 'badge-details-link'
