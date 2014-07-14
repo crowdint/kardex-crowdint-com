@@ -24,7 +24,11 @@ class UsersController < ApplicationController
   def my_badges
     @nominee_user = NomineeUser.new
     @propose_badge = ProposeBadge.new
-    @badges = @user.badges
+    if params[:search]
+              @badges = @user.badges.where("name ILIKE ?", "%#{params[:search]}%")
+            else
+              @badges = @user.badges
+    end
   end
 
   private

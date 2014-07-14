@@ -19,7 +19,7 @@ class BadgesController < ApplicationController
     if params[:search]
       @user = BadgesEngine::Badge.where(
         'name ILIKE ? OR email ILIKE',
-        '%#{ params[:search] }', '%#{ params[:search] }')
+        "%#{ params[:search] }", "%#{ params[:search] }%")
     else
       @user + BadgesEngine::Badge.all
     end

@@ -15,10 +15,11 @@
           .badges-header-decorator
       %section
         .search
-          = form_tag(badges_query_path, method: :get, class: 'search-form') do
+          = form_tag(badges_user_path, method: :get, class: 'search-form') do
             = label_tag :search, 'Search', class: 'search-form-label'
             = text_field_tag :search, params[:search],
               class: 'search-form-control'
+            = button_tag "Search", :name => nil, class: 'hide'
             = label_tag :sort, 'Sort by:', class: 'search-form-label'
             = text_field_tag :sort, params[:search],
               class: 'search-form-control'
