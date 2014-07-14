@@ -9,7 +9,6 @@ describe User do
     it { expect(user).to have_and_belong_to_many(:nominee_lists) }
     it { expect(user).to have_and_belong_to_many(:propose_badges) }
     it { expect(user).to have_and_belong_to_many(:badges) }
-    it { expect(user).to belong_to(:position) }
     it { expect(user).to have_and_belong_to_many(:skills) }
     it { expect(user).to have_many(:nominee_users) }
   end
@@ -19,19 +18,5 @@ describe User do
     it { expect(user).not_to validate_presence_of(:email) }
     it { expect(user).not_to validate_presence_of(:password) }
     it { expect(user).not_to validate_presence_of(:department) }
-  end
-
-  describe 'position name' do
-    context 'When data is valid' do
-      before do
-       user.create_position(name: 'Intern')
-      end
-
-      it{ expect(user.position_name).to eq "Intern" }
-    end
-
-    context 'When data is not valid' do
-      it{ expect(user.position_name).to be_nil }
-    end
   end
 end
