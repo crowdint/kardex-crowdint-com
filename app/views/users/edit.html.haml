@@ -7,8 +7,6 @@
       .col-sm-10
         = f.input :bio
       .col-sm-10
-        = f.input :position_id, collection: Position.all, value_method: :id, label_method: :name, prompt: 'Select a position'
-      .col-sm-10
         .panel.panel-default
           .panel-body
             = f.association :skills, as: :check_boxes
