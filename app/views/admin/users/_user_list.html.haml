@@ -1,12 +1,12 @@
 .admin-users-list
   %header
     %h1 Manage Users
-    = render partial: 'search', locals: {users: @users }
+    = render partial: 'actions', locals: {users: @users }
 
   %table.table
     %tbody
       %tr
-        %th Name    
+        %th Name   
         %th Role
         %th Manage Module
       = render partial: 'shared/user', collection: @users
