@@ -2,8 +2,7 @@
   %td
     = image_tag user.picture_url
     = link_to user_path(user) do
-      = sortable(user.name)
-
-  %td= user.position_name
+      = user.name
+  %td= user.position
   %td
     = link_to 'Edit', edit_user_path(user)
