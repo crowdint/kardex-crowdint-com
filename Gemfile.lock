@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git://github.com/zalapeach/badges_engine.git
-  revision: a8e3b742f5ea5ab9bb8fc6b00177cb48ebe6ac5d
+  revision: 87e3930204184a934e96af6628b5fa58b6dbc41a
   specs:
     badges_engine (0.0.1)
       carrierwave
