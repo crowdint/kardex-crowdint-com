@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 feature "Edit profile information" do
+  before { Fabricate.times(3, :skill_type) }
+
   context 'User path' do
     background do
       visit root_path

@@ -10,6 +10,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @skills = case @user.department
+              when 'Development'
+                Skill.where(skill_type: SkillType.first)
+              when 'Design'
+                Skill.where(skill_type: SkillType.all[1])
+              else
+                Skill.where(skill_type: SkillType.last)
+              end
   end
 
   def update

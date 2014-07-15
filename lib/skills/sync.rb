@@ -28,11 +28,11 @@ module Skills
     def self.get_type(skill, type)
       case type
       when 'developer'
-        skill.skill_type = SkillType.find(1)
-      when 'design'
-        skill.skill_type = SkillType.find(2)
-      else
-        skill.skill_type = SkillType.find(3)
+        skill.skill_type = SkillType.first
+      when 'designer'
+        skill.skill_type = SkillType.all[1]
+      when 'other'
+        skill.skill_type = SkillType.last
       end
     end
 

@@ -4,6 +4,8 @@ feature 'User profile information' do
   let(:user) { User.first }
   let(:badge) { Fabricate :badge }
 
+  before { Fabricate.times(3, :skill_type) }
+
   background do
     visit root_path
     login_with_oauth
