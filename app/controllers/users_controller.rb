@@ -26,8 +26,9 @@ class UsersController < ApplicationController
     @propose_badge = ProposeBadge.new
     if params[:search]
               @badges = @user.badges.where("name ILIKE ?", "%#{params[:search]}%")
+                                    .order(sort_column + " " + sort_direction)
             else
-              @badges = @user.badges
+              @badges = @user.badges.order(sort_column + " " + sort_direction)
     end
   end
 
@@ -39,5 +40,13 @@ class UsersController < ApplicationController
 
   def get_user
     @user = User.find(params[:id])
+  end
+
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
