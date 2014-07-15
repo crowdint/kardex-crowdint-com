@@ -9,5 +9,6 @@ namespace :skills do
   desc 'Destroy all skills'
   task destroy: :environment do
     Skill.destroy_all
+    SkillType.destroy_all
   end
 end

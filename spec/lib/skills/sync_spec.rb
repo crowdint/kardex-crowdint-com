@@ -15,7 +15,25 @@ describe Skills::Sync do
     end
   end
 
+  describe '.create_skill_types' do
+    before { Skills::Sync.create_skill_types }
+
+    it 'Creates 3 SkillType objects' do
+      expect(SkillType.count).to eq 3
+    end
+    it 'Creates a Skilltype with \'developer\' name' do
+      expect(SkillType.find_by name: 'developer').to eq SkillType.first
+    end
+    it 'Creates a Skilltype with \'design\' name' do
+      expect(SkillType.find_by name: 'design').to eq SkillType.all[1]
+    end
+    it 'Creates a Skilltype with \'admin\' name' do
+      expect(SkillType.find_by name: 'admin').to eq SkillType.last
+    end
+  end
+
   describe '.create_skill' do
+    let!(:skill_type) { Fabricate :skill_type, id: 1 }
     let!(:data) { CSV::Row.new(
       ['name', 'type'], ['Pascal', 'developer'], header_row: false) }
 
@@ -26,6 +44,16 @@ describe Skills::Sync do
       Skills::Sync.create_skill(data)
       skill = Skill.last
       expect(skill.name).to eq 'Pascal'
+    end
+  end
+
+  describe '.get_type' do
+    let!(:skill_type) { Fabricate :skill_type, id: 1 }
+    let(:skill) { Fabricate.build :skill }
+
+    it 'assigns the correct skill_type to skill' do
+      Skills::Sync.get_type(skill, 'developer')
+      expect(skill.skill_type).to eq skill_type
     end
   end
 end
