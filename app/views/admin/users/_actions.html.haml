@@ -3,3 +3,5 @@
   = text_field_tag :search, params[:search], class: "form-control"
   = button_tag "Search", :name => nil do
     .search-glass
+  -#%p Sort by
+  -#= select_tag :sort, "<option>Name</option><option>2</option><option>5</option>".html_safe, class: "form-control"

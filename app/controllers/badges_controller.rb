@@ -1,4 +1,5 @@
 class BadgesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :get_instance_variables, except: :query
   layout 'dashboards'
 
@@ -6,8 +7,9 @@ class BadgesController < ApplicationController
     @badges = if params[:search]
               BadgesEngine::Badge.where("name ILIKE ?",
                                   "%#{params[:search]}%")
+              .order(sort_column + " " + sort_direction)
             else
-              BadgesEngine::Badge.all
+              BadgesEngine::Badge.order(sort_column + " " + sort_direction)
     end
   end
 
@@ -31,5 +33,13 @@ class BadgesController < ApplicationController
     @badges = BadgesEngine::Badge.all
     @nominee_user = NomineeUser.new
     @propose_badge = ProposeBadge.new
+  end
+
+  def sort_column
+    BadgesEngine::Badge.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
