@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :skills,
       join_table: 'skills_users'
 
-  belongs_to :position
-
   has_and_belongs_to_many :nominee_lists
 
   has_and_belongs_to_many :propose_badges
@@ -17,10 +15,8 @@ class User < ActiveRecord::Base
     association_foreign_key: 'badge_id'
 
   has_many :nominee_users
-  
-  scope :admins, -> { where(is_admin: true) }
 
-  delegate :name, to: :position, prefix:true, allow_nil: true
+  scope :admins, -> { where(is_admin: true) }
 
   scope :admins, ->{ where(is_admin: true) }
 

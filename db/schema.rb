@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707031543) do
+ActiveRecord::Schema.define(version: 20140714172313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,11 @@ ActiveRecord::Schema.define(version: 20140707031543) do
   add_index "badges_engine_badges", ["value_id"], name: "index_badges_engine_badges_on_value_id", using: :btree
 
   create_table "badges_engine_levels", force: true do |t|
+    t.string   "tier"
+    t.text     "description"
     t.integer  "badge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tier"
     t.string   "badge_alias"
   end
 
@@ -85,12 +86,6 @@ ActiveRecord::Schema.define(version: 20140707031543) do
 
   add_index "nominee_users", ["badge_id"], name: "index_nominee_users_on_badge_id", using: :btree
   add_index "nominee_users", ["user_id"], name: "index_nominee_users_on_user_id", using: :btree
-
-  create_table "positions", force: true do |t|
-    t.string "name"
-    t.string "description"
-    t.string "image_url"
-  end
 
   create_table "propose_badges", force: true do |t|
     t.string   "name"
@@ -145,6 +140,7 @@ ActiveRecord::Schema.define(version: 20140707031543) do
     t.string   "picture_url"
     t.text     "bio"
     t.integer  "position_id"
+    t.string   "position"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
