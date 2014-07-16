@@ -11,6 +11,7 @@ describe User do
     it { expect(user).to have_and_belong_to_many(:badges) }
     it { expect(user).to have_and_belong_to_many(:skills) }
     it { expect(user).to have_many(:nominee_users) }
+    it { expect(user).to have_many(:badge_users) }
   end
 
   describe 'validations' do
