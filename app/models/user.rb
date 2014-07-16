@@ -20,7 +20,15 @@ class User < ActiveRecord::Base
 
   scope :admins, ->{ where(is_admin: true) }
 
+  validate :check_skills_size
+
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+
+  def check_skills_size
+    if self.skills.size > 3
+      errors.add(:skills, 'You can\'t have more than 3 skills... Sorry')
+    end
   end
 end
