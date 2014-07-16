@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :propose_badges
 
-  has_and_belongs_to_many :badges,
-    class_name: 'BadgesEngine::Badge',
-    join_table: 'badges_users',
-    foreign_key: 'user_id',
-    association_foreign_key: 'badge_id'
+  has_many :badge_users
+
+  has_many :badges,
+    through: :badge_users,
+    class_name: 'BadgesEngine::Badge'
 
   has_many :nominee_users
 
