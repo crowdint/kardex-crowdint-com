@@ -11,7 +11,7 @@
           .panel-body
             = f.association :skills,
               as: :check_boxes,
-              collection: get_skills
+              collection: get_skills(@user.department)
       - if current_user.is_admin?
         .col-sm-10
           .panel.panel-default

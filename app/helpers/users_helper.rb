@@ -25,14 +25,14 @@ module UsersHelper
     end
   end
 
-  def get_skills
-    @skills = case @user.department
-              when 'Development'
-                Skill.where(skill_type: SkillType.first)
-              when 'Design'
-                Skill.where(skill_type: SkillType.all[1])
-              else
-                Skill.where(skill_type: SkillType.last)
-              end
+  def get_skills(name)
+    case name
+    when 'Development'
+      Skill.filter_by_name('developer')
+    when 'Design'
+      Skill.filter_by_name('design')
+    else
+      Skill.filter_by_name('admin')
+    end
   end
 end
