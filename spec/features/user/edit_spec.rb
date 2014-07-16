@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 feature "Edit profile information" do
+  before do
+    %w(admin design developer).each do
+      |name| Fabricate(:skill_type, name: name)
+    end
+  end
+
   context 'User path' do
     background do
       visit root_path

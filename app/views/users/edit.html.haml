@@ -9,12 +9,14 @@
       .col-sm-10
         .panel.panel-default
           .panel-body
-            = f.association :skills, as: :check_boxes
+            = f.association :skills,
+              as: :check_boxes,
+              collection: get_skills(@user.department)
       - if current_user.is_admin?
         .col-sm-10
           .panel.panel-default
             .panel-body
-              =f.association :badges, as: :check_boxes
+              = f.association :badges, as: :check_boxes
       .col-sm-12
         = f.submit
         = link_to 'Back to Dashboard', user_path(@user)

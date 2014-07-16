@@ -1,21 +1,12 @@
-# == Schema Information
-#
-# Table name: skills
-#
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#
-
 require 'spec_helper'
 
 describe Skill do
-  before do 
-    subject { Fabricate(:skill) }
+  let(:skill) { Fabricate.build :skill }
+
+  describe 'relationships' do
+    it { expect(skill).to have_and_belong_to_many(:users) }
+    it { expect(skill).to belong_to(:skill_type) }
   end
 
-  it { should have_and_belong_to_many(:users) }
-
-  it { expect(subject).not_to validate_presence_of(:name) }
+  it { expect(skill).not_to validate_presence_of(:name) }
 end
