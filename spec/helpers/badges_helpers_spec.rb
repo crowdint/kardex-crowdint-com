@@ -47,4 +47,20 @@ describe BadgesHelper do
       expect(helper.show_value(nil)).to eq nil
     end
   end
+
+  describe '#render_partial?' do
+    let(:user) { Fabricate :user, name: 'Jose' }
+    let(:users) { Fabricate.times(3, :user) }
+
+    it 'returns the partial to render' do
+      allow(helper).to receive(:current_user).and_return(user)
+      expect(helper.render_partial?(User.all, 'earned')).
+        to render_template 'badges/_earned'
+    end
+    it 'returns nothing to render' do
+      allow(helper).to receive(:current_user).and_return(user)
+      expect(helper.render_partial?(users, 'earned')).
+        to render_template nil
+    end
+  end
 end

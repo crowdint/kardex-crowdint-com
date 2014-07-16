@@ -18,4 +18,8 @@ module BadgesHelper
   def show_value(value)
     value.name unless value.nil?
   end
+
+  def render_partial?(users, partial)
+    render partial if users.include?(current_user)
+  end
 end
