@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715181730) do
+ActiveRecord::Schema.define(version: 20140716223957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "badge_users", force: true do |t|
+    t.integer  "badge_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "badges_engine_awards", force: true do |t|
     t.string   "title"
@@ -37,10 +44,11 @@ ActiveRecord::Schema.define(version: 20140715181730) do
   add_index "badges_engine_badges", ["value_id"], name: "index_badges_engine_badges_on_value_id", using: :btree
 
   create_table "badges_engine_levels", force: true do |t|
+    t.string   "tier"
+    t.text     "description"
     t.integer  "badge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tier"
     t.string   "badge_alias"
   end
 
@@ -50,14 +58,6 @@ ActiveRecord::Schema.define(version: 20140715181730) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "badges_users", id: false, force: true do |t|
-    t.integer "badge_id", null: false
-    t.integer "user_id",  null: false
-  end
-
-  add_index "badges_users", ["badge_id", "user_id"], name: "index_badges_users_on_badge_id_and_user_id", using: :btree
-  add_index "badges_users", ["user_id", "badge_id"], name: "index_badges_users_on_user_id_and_badge_id", using: :btree
 
   create_table "nominee_lists", force: true do |t|
     t.integer  "badge_id"
