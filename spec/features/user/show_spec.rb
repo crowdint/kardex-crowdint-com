@@ -4,7 +4,11 @@ feature 'User profile information' do
   let(:user) { User.first }
   let(:badge) { Fabricate :badge }
 
-  before { Fabricate.times(3, :skill_type) }
+  before do
+    %w(admin design developer).each do
+      |name| Fabricate(:skill_type, name: name)
+    end
+  end
 
   background do
     visit root_path
