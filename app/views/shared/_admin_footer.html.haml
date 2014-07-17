@@ -1,0 +1,9 @@
+%footer.admin-footer.badges-footer-separator
+  %p
+    Total
+    - if @users
+      = pluralize(@users.size, 'user')
+      .users-footer-icon
+    - else
+      = pluralize(@badges.size, 'badge')
+      .badges-footer-icon
