@@ -77,27 +77,6 @@
   margin-top: -19px
   a
     color: $pink-50
-  .field
-    border-bottom: 1px dashed $gray
-    margin-top: 10px
-    &:first-child
-      border-bottom: 1px solid $pink-50
-    &:last-child
-      border-bottom: none
-    .nested-fields
-      height: 30px
-      width: 712px
-      ul
-        width: 400px
-        li
-          float: left
-          width: 190px
-          a
-            bottom: 41px
-            float: right
-            position: relative
-    .links
-      width: 150px
   .span4
     border-right: 1px dashed $gray
     margin: 0px 0px 0px -30px
@@ -113,6 +92,30 @@
     width: 100px
   .btn-disabled
     opacity: 0.65
+
+.field
+  border-bottom: 1px dashed $gray
+  margin-top: 10px
+  &:first-child
+    border-bottom: 1px solid $pink-50
+  &:last-child
+    border-bottom: none
+  .nested-fields
+    height: 30px
+    width: 712px
+    ul
+      width: 400px
+      li
+        float: left
+        width: 190px
+        a
+          bottom: 41px
+          float: right
+          position: relative
+  .links
+    width: 150px
+
+.form-badge
   form
     input
       background: rgb(239, 238, 238)
