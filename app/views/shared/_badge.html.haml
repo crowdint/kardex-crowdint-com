@@ -1,5 +1,5 @@
 %div{ class: define_badge_column }
-  = image_tag badge.image_url
+  = image_tag badge.image_url, {class: unknown_image?(badge) }
   .badge-info-inside
     %h5.badge-name
       = badge.name
