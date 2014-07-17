@@ -2,47 +2,59 @@
   background: #fff
   border-bottom: 1px solid $pink-50
   height: 70px
-  .left-side
-    float: left
-    width: 50%
-    .admin-settings-logo
-      background: image_url('sprite-badges.png') -82px -577px
-      float: left
-      height: 70px
-      margin: 0 5px 0 0
-      width: 70px
-    h1
-      color: #aa392d
-      font-family: roboto
-      font-size: 20px
-      font-style: normal
-      font-weight: 100
-      margin-left: 50px
-      margin-top: 22px
-    p
-      color: $gray-25
-      font-size: 85%
-      left: 142px
-      position: relative
-      top: -15px
-  .right-side
-    float: right
-    width: 50%
-    a
-      color: #aa392d
-      float: right
-      font-family: roboto
-      font-weight: bold
-      margin-right: 50px
-      margin-top: 22px
-  .mid-flag-corner
-    background: image_url('sprite-badges.png') -51px -796px
-    float: right
-    height: 67px
-    left: 20px
+
+.left-side
+  float: left
+  width: 50%
+  h1
+    color: #aa392d
+    font-family: roboto
+    font-size: 20px
+    font-style: normal
+    font-weight: 100
+    margin-left: 50px
+    margin-top: 22px
+  p
+    color: $gray-25
+    font-size: 85%
+    left: 142px
     position: relative
-    top: -40px
-    width: 50px
+    top: -15px
+
+.right-side
+  float: right
+  width: 50%
+  a
+    color: #aa392d
+    float: right
+    font-family: roboto
+    font-weight: bold
+    margin-right: 50px
+    margin-top: 22px
+
+.admin-settings-logo
+  background: image_url('sprite-badges.png') -82px -577px
+  float: left
+  height: 70px
+  margin: 0 5px 0 0
+  width: 70px
+
+.mid-flag-corner
+  background: image_url('sprite-badges.png') -51px -796px
+  float: right
+  height: 67px
+  left: 20px
+  position: relative
+  top: -40px
+  width: 50px
+
+.search-glass
+  background: image_url('sprite-badges.png') -30px -174px
+  height: 28px
+  position: relative
+  right: 34px
+  top: 2px
+  width: 28px
 
 .admin-settings-control
   nav .container-fluid
@@ -51,10 +63,10 @@
   nav .nav
     border-bottom: 1px solid $gray
     a
+      color: #000
       float: left
       height: 68px
       width: 150px
-      color: #000
       &:active, &:hover
         background: #fff
         .carpet-down
@@ -69,22 +81,8 @@
       p
         margin-top: 14px
         text-align: center
-    .user-admin-icon
-      background: image_url('sprite-badges.png') -11px -1128px
-      bottom: 28px
-      height: 35px
-      left: 0px
-      position: relative
-      width: 35px
-    .badge-admin-icon
-      background: image_url('sprite-badges.png') -11px -1168px
-      bottom: 28px
-      height: 35px
-      left: 0px
-      position: relative
-      width: 35px
 
-.admin-users-list
+.admin-list
   margin-top: -20px
   header
     background: #f8f8f8
@@ -115,27 +113,20 @@
       button
         background: transparent
         border: 0
-      .search-glass
-        background: image_url('sprite-badges.png') -30px -174px
-        height: 28px
-        position: relative
-        right: 34px
-        top: 2px
-        width: 28px
     p
       float: left
       font-family: roboto
       margin-top: 8px
       width: 58px
     a
-      float: right
-      position: relative
-      text-align: center
-      left: 389px
-      padding: 7px 20px
       background: $pink-50
       bottom: 0px
       color: #fff
+      float: right
+      left: 389px
+      padding: 7px 20px
+      position: relative
+      text-align: center
   table
     tbody > tr > th
       background: #f8f8f8
@@ -149,133 +140,4 @@
     img
       border-radius: 80px
       width: 40px
-.badge-details
-  h5
-    font-weight: bold
-  h2
-    font-size: 40px
-    color: #000
-    font-weight: 200
-    text-transform: capitalize
-    margin-top: 25px
-  .col-md-4
-    margin: -8px
-  .span4 img
-    border-radius: 0
-    width: 100%
-    position: relative
-    right: 15px
-  .row
-    height: 80px
-    border-bottom: 1px solid $pink-50
-    margin-left: 0
-    margin-right: 0
-  .action-show-details
-    margin-top: 35px
-    a
-      color: $pink-50
-      &:last-child
-        float: right
-  section
-    .value-side
-      width: 50%
-      float: left
-    .award-side
-      width: 50%
-      float: right
-    height: 70px
-    border-bottom: 1px dashed $gray
-    &:last-child
-      height: 40px
-      border-bottom: none
-    li
-      list-style: none
-      text-align: center
-      width: 25px
-      height: 18px
-      p
-        width: 23px
-        color: black
-      p:first-child
-        color: #fff
-        background: pink
-        border-radius: 80px
-        margin-bottom: 2px
-      p:last-child
-        position: relative
-        left: 34px
-        bottom: 22px
-    span
-      border-left: 1px solid pink
-      width: 3px
-      height: 7px
-      position: relative
-      left: 11px
-      display: block
-      &:last-child
-        border-left: none
-.form-badge
-  background: #fff
-  margin-top: -19px
-  a
-    color: $pink-50
-  .field
-    margin-top: 10px
-    border-bottom: 1px dashed $gray
-    &:first-child
-      border-bottom: 1px solid $pink-50
-    &:last-child
-      border-bottom: none
-    .nested-fields
-      height: 30px
-      width: 712px
-      ul
-        width: 400px
-        li
-          width: 190px
-          float: left
-          a
-            float: right
-            position: relative
-            bottom: 41px
-    .links
-      width: 150px
-  .span4
-    margin: 0px 0px 0px -30px
-    border-right: 1px dashed $gray
-    section
-      margin-left: 20px
-      width: 75%
-  .actions
-    float: right
-  .btn
-    background: $pink-25
-    border: 0
-    width: 100px
-    color: #fff
-  .btn-disabled
-    opacity: 0.65
-  form
-    input
-      background: rgb(239, 238, 238)
-      border-radius: 0
-      color: $gray-dark
-      font-family: roboto
-      width: 175px
-      border: 1px solid #535553
-    select
-      @extend input
-      width: 175px
-    textarea
-      @extend input
-      width: 100%
-    button
-      background: transparent
-      border: 0
-    .search-glass
-      background: image_url('sprite-badges.png') -30px -174px
-      height: 28px
-      position: relative
-      right: 34px
-      top: 2px
-      width: 28px
+
