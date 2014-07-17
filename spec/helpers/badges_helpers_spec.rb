@@ -54,13 +54,24 @@ describe BadgesHelper do
 
     it 'returns the partial to render' do
       allow(helper).to receive(:current_user).and_return(user)
-      expect(helper.render_partial?(User.all, 'earned')).
-        to render_template 'badges/_earned'
+      expect(helper.render_partial?(User.all, 'social_media')).
+        to render_template 'badges/_social_media'
     end
     it 'returns nothing to render' do
       allow(helper).to receive(:current_user).and_return(user)
-      expect(helper.render_partial?(users, 'earned')).
+      expect(helper.render_partial?(users, 'social_media')).
         to render_template nil
+    end
+  end
+
+  describe '#show_earned_date' do
+    it 'shows the appropiate format date' do
+      allow(helper).to receive(:current_user).and_return(current_user)
+      badge_user = Fabricate :badge_user,
+        created_at: '2014-06-16 22:22:22',
+        user: current_user,
+        badge: badge_1
+      expect(helper.show_earned_date(badge_1)).to eq 'June 2014'
     end
   end
 end
