@@ -1,7 +1,7 @@
 %div{ class: current_badge(badge) }
   .col-md-3.badge-sidebar-image
     .span3
-      = image_tag badge.image_url
+      = image_tag badge.image_url, { class: unknown_image?(badge) }
   .col-md-9.badge-sidebar-name
     .span9
       = link_to badge.name, badge_path(badge), class: 'badge-sidebar-link'
