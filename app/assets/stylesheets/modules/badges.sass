@@ -16,6 +16,20 @@
   img
     position: relative
 
+= filter($pixels)
+  -moz-filter: blur($pixels)
+  -ms-filter: blur($pixels)
+  -o-filter: blur($pixels)
+  -webkit-filter: blur($pixels)
+  filter: blur($pixels)
+
+= transition($transition)
+  -moz-transition: $transition
+  -ms-transition: $transition
+  -o-transition: $transition
+  -webkit-transition: $transition
+  transition: $transition
+
 .badges
   background-color: $white
 
@@ -144,3 +158,8 @@
   color: $gray-light
   margin-left: -25px
   vertical-align: 17px
+
+.unknown-image
+  +filter(5px)
+  +transition(all 1s ease)
+  opacity: 0.3

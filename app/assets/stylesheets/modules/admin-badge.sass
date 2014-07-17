@@ -1,0 +1,144 @@
+.badge-admin-icon
+  background: image_url('sprite-badges.png') -11px -1168px
+  bottom: 28px
+  height: 35px
+  left: 0px
+  position: relative
+  width: 35px
+
+.badge-details
+  h5
+    font-weight: bold
+  h2
+    color: $black
+    font-size: 40px
+    font-weight: 200
+    margin-top: 25px
+    text-transform: capitalize
+  .col-md-4
+    margin: -8px
+  .span4 img
+    border-radius: 0
+    position: relative
+    right: 15px
+    width: 100%
+  .row
+    border-bottom: 1px solid $pink-50
+    height: 80px
+    margin-left: 0
+    margin-right: 0
+  .action-show-details
+    margin-top: 35px
+    a
+      color: $pink-50
+      &:last-child
+        float: right
+  section
+    border-bottom: 1px dashed $gray
+    height: 70px
+    .value-side
+      float: left
+      width: 50%
+    .award-side
+      float: right
+      width: 50%
+    &:last-child
+      border-bottom: none
+      height: 40px
+    li
+      height: 18px
+      list-style: none
+      text-align: center
+      width: 25px
+      p
+        color: $black
+        width: 23px
+      p:first-child
+        background: $pink-100
+        border-radius: 80px
+        color: $white
+        margin-bottom: 2px
+      p:last-child
+        bottom: 22px
+        left: 34px
+        position: relative
+    span
+      border-left: 1px solid $pink-100
+      display: block
+      height: 7px
+      left: 11px
+      position: relative
+      width: 3px
+      &:last-child
+        border-left: none
+
+.form-badge
+  background: $white
+  margin-top: -19px
+  a
+    color: $pink-50
+  .span4
+    border-right: 1px dashed $gray
+    margin: 0px 0px 0px -30px
+    section
+      margin-left: 20px
+      width: 75%
+  .actions
+    float: right
+  .btn
+    background: $pink-25
+    border: 0
+    color: $white
+    width: 100px
+  .btn-disabled
+    opacity: 0.65
+
+.field
+  border-bottom: 1px dashed $gray
+  margin-top: 10px
+  &:first-child
+    border-bottom: 1px solid $pink-50
+  &:last-child
+    border-bottom: none
+  .nested-fields
+    height: 30px
+    width: 712px
+    ul
+      width: 400px
+      li
+        float: left
+        width: 190px
+        a
+          bottom: 41px
+          float: right
+          position: relative
+  .links
+    width: 150px
+
+.form-badge
+  form
+    input
+      background: rgb(239, 238, 238)
+      border-radius: 0
+      border: 1px solid $gray-50
+      color: $gray-dark
+      font-family: roboto
+      width: 175px
+    select
+      @extend input
+      width: 175px
+    textarea
+      @extend input
+      width: 100%
+    button
+      background: transparent
+      border: 0
+
+.mid-flag-badge-corner
+  background: image_url('sprite-badges.png') -12px -796px
+  float: right
+  height: 67px
+  left: 20px
+  position: relative
+  top: -40px
+  width: 50px

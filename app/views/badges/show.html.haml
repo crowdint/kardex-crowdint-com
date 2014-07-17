@@ -42,7 +42,7 @@
       .row
         .col-md-12
           .badge-presenter-image
-            = image_tag @badge.image_url
+            = image_tag @badge.image_url, { class: unknown_image?(@badge) }
             = render_partial?(@badge.users, 'earned')
           .badge-presenter-info
             %h1.badge-presenter-title= @badge.name
