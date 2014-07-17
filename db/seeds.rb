@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+data = YAML.load_file('config/dataseeds/awards.yml')
+
+data.each do |info|
+  award = BadgesEngine::Award.find_or_initialize_by(title: info['title'])
+  award.description = info['description']
+  award.save
+end
+
+data = YAML.load_file('config/dataseeds/values.yml')
+
+data.each do |info|
+  value = BadgesEngine::Value.find_or_initialize_by(name: info['name'])
+  value.description = info['description']
+  value.save
+end
