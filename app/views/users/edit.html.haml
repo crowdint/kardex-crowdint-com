@@ -2,6 +2,7 @@
   .edit-user-info
     %header
       .head-title
+        %span.badges-header-image
         %h1 Edit user info
       .header-actions
         = link_to 'Back to Dashboard', user_path(@user)
@@ -28,7 +29,7 @@
               = f.association :badges, as: :check_boxes, label: false
       .col-sm-12
         .edit-user-actions
-          = link_to 'Cancel', '#', class: 'btn btn-disabled'
+          = link_to 'Cancel', edit_user_path(@user), class: 'btn btn-disabled'
           = f.submit 'Save', class: 'btn'
 
 %footer.user-footer
