@@ -18,8 +18,4 @@ module BadgesHelper
   def show_value(value)
     value.name unless value.nil?
   end
-
-  def unknown_image?(badge)
-    'unknown-image' unless current_user.badges.include?(badge)
-  end
 end
