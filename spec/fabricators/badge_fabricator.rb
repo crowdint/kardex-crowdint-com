@@ -1,4 +1,4 @@
 Fabricator :badge, from: 'BadgesEngine::Badge' do
-  name 'Dummy'
+  name Faker::Name.name
   description Faker::Lorem.paragraph
 end
