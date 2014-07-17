@@ -19,7 +19,7 @@ module Skills
     end
 
     def self.create_skill(data)
-      skill = Skill.new
+      skill = Skill.find_by(name: data['name']) || Skill.new
       skill.name = data['name']
       get_type(skill, data['type'])
       skill.save
