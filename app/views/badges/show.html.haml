@@ -23,9 +23,9 @@
             = label_tag :search, 'Search', class: 'search-form-label'
             = text_field_tag :search, params[:search],
               class: 'search-form-control'
-            -#= label_tag :sort, 'Sort by:', class: 'search-form-label'
-            -#= text_field_tag :sort, params[:search],
-              -#class: 'search-form-control'
+            = label_tag :sort, 'Sort by:', class: 'search-form-label'
+            = text_field_tag :sort, params[:search],
+              class: 'search-form-control'
           %p.search-proposals
             = link_to 'Nominate someone', '#',
               class: 'search-proposals-nominate'
@@ -43,6 +43,7 @@
         .col-md-12
           .badge-presenter-image
             = image_tag @badge.image_url, { class: unknown_image?(@badge) }
+            = render_partial?(@badge.users, 'earned')
           .badge-presenter-info
             %h1.badge-presenter-title= @badge.name
             %strong Description:
@@ -52,6 +53,7 @@
             %p= show_value(@badge.value)
             %hr.badge-presenter-separator
             %strong Path:
+            = render_partial?(@badge.users, 'social_media')
     .span9.badge-winners
       %header.badge-winners-header
         %h3.badge-winners-title Who else has it?

@@ -11,6 +11,7 @@ describe User do
     it { expect(user).to have_and_belong_to_many(:badges) }
     it { expect(user).to have_and_belong_to_many(:skills) }
     it { expect(user).to have_many(:nominee_users) }
+    it { expect(user).to have_many(:badge_users) }
   end
 
   describe 'validations' do
@@ -37,6 +38,21 @@ describe User do
         expect(user.errors.full_messages).
           to include('Skills You can\'t have more than 3 skills... Sorry')
       end
+    end
+  end
+
+  describe '#find_badge_assignment' do
+    let!(:current_user) { Fabricate :user }
+    let!(:badge) { Fabricate :badge }
+
+    it 'returns a badge_user record that match with badge and user' do
+      badge_user = Fabricate :badge_user, user: user, badge: badge
+      expect(user.find_badge_assignment(badge)).to eq badge_user
+    end
+
+    it 'returns nil if badge_user does not match with badge and user' do
+      badge_user = Fabricate :badge_user, user: user
+      expect(user.find_badge_assignment(badge)).to eq nil
     end
   end
 end

@@ -18,4 +18,12 @@ module BadgesHelper
   def show_value(value)
     value.name unless value.nil?
   end
+
+  def render_partial?(users, partial)
+    render partial if users.include?(current_user)
+  end
+
+  def show_earned_date(badge)
+    current_user.find_badge_assignment(badge).created_at.strftime('%B %Y')
+  end
 end
