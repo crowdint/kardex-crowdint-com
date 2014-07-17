@@ -18,12 +18,14 @@ class User < ActiveRecord::Base
 
   scope :admins, -> { where(is_admin: true) }
 
-  scope :admins, ->{ where(is_admin: true) }
-
   validate :check_skills_size
 
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+
+  def find_badge_assignment(badge)
+    self.badge_users.find_by(user: self, badge: badge)
   end
 
   def check_skills_size
