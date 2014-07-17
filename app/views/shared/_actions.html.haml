@@ -5,18 +5,18 @@
     %p Choose a module to continue
   .right-side
     = link_to 'Back to my profile Dasboard', logo_redirect_url
-  .mid-flag-corner
+  .mid-flag-user-corner
 .admin-settings-control
   %nav.navbar.navbar-default
     .container-fluid
       %ul.nav
         %li
-          = link_to admin_users_path do
+          = link_to admin_users_path, id: 'admin-user-link' do
             %p Users
             .user-admin-icon
             .carpet-down
         %li
-          = link_to badges_engine.badges_path do
+          = link_to badges_engine.badges_path, id: 'admin-badge-link'do
             %p Badges
             .badge-admin-icon
             .carpet-down
