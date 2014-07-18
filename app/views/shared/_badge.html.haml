@@ -1,6 +1,7 @@
 %div{ class: define_badge_column }
   = image_tag badge.image_url, { class: unknown_image?(badge) }
   .badge-info-inside
+    = badge_earn_icon(badge)
     %h5.badge-name
       = badge.name
     %p.badge-description
