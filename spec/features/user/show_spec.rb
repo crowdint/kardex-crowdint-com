@@ -27,7 +27,7 @@ feature 'User profile information' do
     click_link 'Account'
     expect(page).to have_content 'Edit user'
     fill_in 'Bio', with: 'Lorem ipsum arkham city'
-    click_button 'Update User'
+    click_button 'Save'
     expect(page).to have_content 'Summary'
     expect(page).to have_content user.bio
   end

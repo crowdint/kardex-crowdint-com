@@ -1,0 +1,93 @@
+.user-container
+  background: $white
+
+.panel
+  label
+    margin-left: 27px
+    margin-bottom: 10px
+
+.edit-user-info
+  background: $white
+  margin-left: 10px
+  h1
+    font-family: 'Roboto'
+    color: $orange
+    font-size: 24px
+    text-align: left
+    float: right
+    margin-top: 40px
+    margin-right: 84px
+  input
+    background: $gray-input
+    border-radius: 0
+    color: $gray-dark
+    float: left
+    font-family: 'Roboto'
+    position: relative
+  textarea
+    @extend input
+  select
+    @extend input
+  header
+    height: 100px
+    border-bottom: 1px solid $pink-50
+    color: $orange-dark
+    font-family: 'Roboto'
+    font-size: 1.3em
+    font-weight: 400
+  h4
+    color: $orange-dark
+    font-family: 'Roboto'
+
+.head-title
+  width: 290px
+  float: left
+  .badges-header-image
+    background: url(/assets/sprite-badges.png) -95px -585px no-repeat
+    position: relative
+    top: 28px
+    float: left
+
+.header-actions
+  width: 290px
+  float: right
+  font-size: 16px
+  margin-top: 40px
+  a
+    color: $orange-dark
+
+.edit-user-actions
+  width: 400px
+  float: right
+  a
+    color: $white
+  .btn
+    background: $pink-50
+    padding: 16px 65px
+    margin-bottom: 5px
+    color: $white
+    &:hover
+      background-color: $pink-darker
+      transition: background-color 300ms ease-out
+  .btn-disabled
+    opacity: 0.5
+    float: left
+    margin-right: 5px
+
+.user-footer
+  height: 50px
+  width: 1170px
+  background: $white
+  margin-bottom: 15px
+  border-top: 1px solid $pink-50
+
+  .users-footer-icon
+    background: url(/assets/sprite-badges.png) -89px -720px no-repeat
+    display: inline-block
+    position: relative
+    width: 55px
+    height: 60px
+    bottom: 3px
+    left: 10px
+    float: right
+
