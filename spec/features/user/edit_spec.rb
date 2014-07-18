@@ -18,7 +18,7 @@ feature "Edit profile information" do
     scenario "Users can edit profile information" do
       expect(page).to have_content 'Edit user info'
       fill_in 'Bio', with: 'Lorem ipsum arkham city'
-      click_button 'Update User'
+      click_button 'Save'
       expect(page).to have_content 'Summary'
       expect(page).to have_content 'Lorem ipsum arkham city'
     end
