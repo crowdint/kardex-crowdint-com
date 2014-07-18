@@ -32,9 +32,10 @@
       %hr.profile-separator.light
       .profile-info
         %h3.profile-account
-          = link_to edit_user_path(@user) do
-            %span.profile-ico-account
-            Account
+          - if current_user.is_admin || current_user == @user
+            = link_to edit_user_path(@user) do
+              %span.profile-ico-account
+              Account
         .profile-footer-icon
   %section.badges.col-md-9
     .row

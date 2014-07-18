@@ -18,4 +18,10 @@ module ApplicationHelper
   def unknown_image?(badge)
     'unknown-image' unless current_user.badges.include?(badge)
   end
+
+  def badge_earn_icon(badge)
+    if params[:controller] == 'badges' and badge.users.include? current_user
+      content_tag :div, nil, class: 'badge-earned-icon'
+    end
+  end
 end
