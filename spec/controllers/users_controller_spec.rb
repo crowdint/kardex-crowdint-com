@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe UsersController do
-  let(:user) { Fabricate :user }
-  let(:user_params) { Fabricate.attributes_for :user, name: 'Luigi' }
-
   login_user
+
+  let(:user) { User.first }
+  let(:user_params) { Fabricate.attributes_for :user, name: 'Luigi' }
 
   describe '#show' do
     let(:action) { :show }

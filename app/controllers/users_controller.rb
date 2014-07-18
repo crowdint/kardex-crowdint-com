@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :get_user, except: [:index, :user_names]
+  before_action :get_user, except: :index
+  before_action :validate_user, only: [:edit, :update]
+
   respond_to :html
   layout 'dashboards'
 
@@ -33,6 +35,14 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def validate_user
+    redirect_to @user, notice: 'You can\'t edit info of another user' unless can_edit?
+  end
+
+  def can_edit?
+    current_user.is_admin || current_user == @user
+  end
 
   def user_params
     params.require(:user).permit(:name, :bio, :position_id, skill_ids: [], badge_ids: [])
