@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def define_badge_column
     if params[:controller] == 'users' && params[:action] == 'show'
-      'badge'
+      'badge-5-col'
     else
       'badge-6-col'
     end

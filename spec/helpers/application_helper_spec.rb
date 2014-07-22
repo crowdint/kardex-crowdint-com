@@ -17,10 +17,10 @@ describe ApplicationHelper do
   end
 
   describe '#define_badge_column' do
-    it 'returns badge if the controller and action match' do
+    it 'returns badge 5 col if the controller and action match' do
       params = { action: 'show', controller: 'users' }
       allow(helper).to receive(:params).and_return(params)
-      expect(helper.define_badge_column).to eq 'badge'
+      expect(helper.define_badge_column).to eq 'badge-5-col'
     end
     it 'returns badge 6 col if the controller and action does not match' do
       params = { action: 'index', controller: 'users' }
