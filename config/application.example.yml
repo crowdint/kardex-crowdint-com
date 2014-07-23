@@ -1,4 +1,7 @@
 defaults: &defaults
+  AMAZON_ACCESS_KEY: 'your_amazon_access_key'
+  AMAZON_BUCKET: 'your_amazon_bucket'
+  AMAZON_SECRET: 'your_amazon_secret'
   AWS_ACCESS_KEY_ID: 'your_aws_access_key_id'
   AWS_SECRET_ACCESS_KEY: 'your_aws_secret_access_key'
   BAMBOO_API_KEY: 'your_bamboo_api_key'
@@ -10,13 +13,17 @@ development:
   FOG_DIRECTORY: 'your_fog_directory'
 
 test:
-  BAMBOO_API_KEY: 'your_bamboo_api_key'
-  BAMBOO_SUBDOMAIN: 'your_bamboo_subdomain'
+  BAMBOO_API_KEY: 'API_TOKEN'
+  BAMBOO_SUBDOMAIN: 'crowdint'
 
 integration:
   <<: *defaults
+  MANDRILL_APIKEY:      'your_mandrill_api_key'
+  MANDRILL_USERNAME:    'yoooour_mandrill_user_name'
   FOG_DIRECTORY: 'your_fog_directory'
 
 production:
   <<: *defaults
+  MANDRILL_APIKEY:      'your_mandrill_api_key'
+  MANDRILL_USERNAME:    'yoooour_mandrill_user_name'
   FOG_DIRECTORY: 'your_fog_directory'
