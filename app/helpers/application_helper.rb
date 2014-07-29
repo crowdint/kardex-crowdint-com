@@ -1,7 +1,7 @@
 module ApplicationHelper
   def show_badges
     if @badges.empty?
-      'You don\'t have badges... yet!'
+      render 'shared/default_badge_message'
     else
       render partial: 'shared/badge', collection: @badges
     end
