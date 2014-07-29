@@ -1,4 +1,19 @@
 module ApplicationHelper
+  def bootstrap_class_for(flash_type)
+    case flash_type
+      when :notice
+        "alert-success"   # Green
+      when :error
+        "alert-danger"    # Red
+      when :alert
+        "alert-warning"   # Yellow
+      when :success
+        "alert-info"      # Blue
+      else
+        flash_type.to_s
+    end
+  end
+
   def show_badges
     if @badges.empty?
       render 'shared/default_badge_message'

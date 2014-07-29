@@ -8,7 +8,7 @@
       .header-vertical-line
       .container
         = yield :user_details
-    = notice
+    = render 'shared/flash_message'
     #content
       .container
         = yield :actions

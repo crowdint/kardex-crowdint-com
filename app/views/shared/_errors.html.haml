@@ -1,8 +1,9 @@
-- if resource.errors.any?
-  #error_explanation
-    %h2
-      = pluralize(resource.errors.count, "error")
-      prohibited from being saved:
-    %ul
-      - resource.errors.full_messages.each do |message|
-        %li= message
+%p#notice
+  - if resource.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(resource.errors.count, "error")
+        prohibited from being saved:
+      %ul
+        - resource.errors.full_messages.each do |message|
+          %li= message
