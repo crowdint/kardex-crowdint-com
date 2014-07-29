@@ -1,0 +1,37 @@
+.span3.profile
+  = image_tag user.picture_url, class: 'profile-image'
+  .profile-info-main
+    %h3.profile-name= user.name
+    .profile-position= user.position
+  %hr.profile-separator
+  = link_to_admin
+  .profile-info
+    %h3.profile-title
+      %span.profile-ico-summary
+      Summary
+    %p.profile-summary= user.bio
+    %hr.profile-separator
+  .profile-info
+    %h3.profile-title
+      %span.profile-ico-skills
+      Skills
+    %ul.profile-summary
+      - user.skills.each do |skill|
+        %li.profile-skill= skill.name
+    %hr.profile-separator.light
+  .profile-info
+    %h3.profile-title
+      %span.profile-ico-position
+      Position
+    %p.profile-summary
+      %strong= user.department
+      %br
+      = user.position
+  %hr.profile-separator.light
+  .profile-info
+    %h3.profile-account
+      - if current_user.is_admin || current_user == user
+        = link_to edit_user_path(user) do
+          %span.profile-ico-account
+          Account
+    .profile-footer-icon

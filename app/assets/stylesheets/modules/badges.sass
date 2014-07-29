@@ -3,33 +3,6 @@
   font-size: 1em
   font-weight: 400
 
-= badges_container($width, $columns)
-  border-bottom: 1px solid $white
-  border-right: 1px solid $white
-  float: left
-  height: 175px
-  overflow: hidden
-  text-align: center
-  width: $width
-  &:nth-of-type("#{ $columns }n")
-    border-right: none
-  img
-    position: relative
-
-= filter($pixels)
-  -moz-filter: blur($pixels)
-  -ms-filter: blur($pixels)
-  -o-filter: blur($pixels)
-  -webkit-filter: blur($pixels)
-  filter: blur($pixels)
-
-= transition($transition)
-  -moz-transition: $transition
-  -ms-transition: $transition
-  -o-transition: $transition
-  -webkit-transition: $transition
-  transition: $transition
-
 .badges
   background-color: $white
 
@@ -85,58 +58,6 @@
   border-top: 1px solid $white
   overflow: auto
 
-.badge-info
-  +badges_container(20%, 5)
-
-.badge-info-6-col
-  +badges_container(16.66%, 6)
-  .badge-info-inside
-    top: -14px
-    &:hover
-      top: -152px
-
-.badge-info-inside
-  cursor: pointer
-  position: relative
-  top: 0
-  transition: top 0.5s linear
-  &:hover
-    top: -138px
-    .badge-earned-icon
-      display: none
-    .badge-description, .badge-details-link
-      opacity: 1
-
-.badge-earned-icon
-  background: image_url('sprite-badges.png') -45px -1425px no-repeat
-  height: 30px
-  margin-right: -15px
-  position: absolute
-  top: -25px
-  width: 30px
-  right: 50%
-
-.badge-description
-  background-color: rgba(255, 255, 255, 0.9)
-  height: 100px
-  opacity: 0
-  overflow: hidden
-  transition: opacity 1s
-
-.badge-details-link
-  background-color: rgba(255, 255, 255, 0.9)
-  color: $orange
-  display: block
-  padding: 13px 0 5px
-  text-decoration: underline
-  transition: opacity 1s
-  opacity: 0
-
-.badge-name
-  background-color: rgba(255, 255, 255, 0.5)
-  margin: -36px 0 0
-  padding: 10px 0
-
 .badges-footer
   background: image_url('sprite-badges.png') -15px -650px no-repeat
   border-top: 1px solid $pink-50
@@ -169,8 +90,3 @@
   color: $gray-light
   margin-left: -25px
   vertical-align: 17px
-
-.unknown-image
-  +filter(5px)
-  +transition(all 1s ease)
-  opacity: 0.3

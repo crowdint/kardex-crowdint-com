@@ -17,15 +17,15 @@ describe ApplicationHelper do
   end
 
   describe '#define_badge_column' do
-    it 'returns badge-info if the controller and action match' do
+    it 'returns badge 5 col if the controller and action match' do
       params = { action: 'show', controller: 'users' }
       allow(helper).to receive(:params).and_return(params)
-      expect(helper.define_badge_column).to eq 'badge-info'
+      expect(helper.define_badge_column).to eq 'badge-5-col'
     end
-    it 'returns badge-info if the controller and action does not match' do
+    it 'returns badge 6 col if the controller and action does not match' do
       params = { action: 'index', controller: 'users' }
       allow(helper).to receive(:params).and_return(params)
-      expect(helper.define_badge_column).to eq 'badge-info-6-col'
+      expect(helper.define_badge_column).to eq 'badge-6-col'
     end
   end
 
@@ -38,7 +38,7 @@ describe ApplicationHelper do
 
     it 'returns the class name unless the badge belongs to the user' do
       allow(helper).to receive(:current_user).and_return(current_user)
-      expect(helper.unknown_image? badge).to eq 'unknown-image'
+      expect(helper.unknown_image? badge).to eq 'badge-unknown'
     end
   end
 

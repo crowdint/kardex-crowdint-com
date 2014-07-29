@@ -9,14 +9,14 @@ module ApplicationHelper
 
   def define_badge_column
     if params[:controller] == 'users' && params[:action] == 'show'
-      'badge-info'
+      'badge-5-col'
     else
-      'badge-info-6-col'
+      'badge-6-col'
     end
   end
 
   def unknown_image?(badge)
-    'unknown-image' unless current_user.badges.include?(badge)
+    'badge-unknown' unless current_user.badges.include?(badge)
   end
 
   def badge_earn_icon(badge)
