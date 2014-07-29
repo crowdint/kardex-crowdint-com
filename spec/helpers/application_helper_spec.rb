@@ -7,7 +7,7 @@ describe ApplicationHelper do
   describe '#show_badges' do
     it 'returns a message if badges array is empty' do
       @badges = []
-      expect(helper.show_badges).to eq 'You don\'t have badges... yet!'
+      expect(helper.show_badges).eql? '<p>You don\'t have badges... yet!</p>'
     end
     it 'renders a partial if badges array is not empty' do
       allow(helper).to receive(:current_user).and_return(current_user)
