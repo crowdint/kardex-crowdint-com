@@ -5,28 +5,27 @@ $(document).ready ->
     $('.request-nominee').toggle('slide')
     $('.request-form-nominee').toggle('slide')
 
-  $('.propose-proposal').click (e) ->
-    e.preventDefault()
-    $('.request-propose').toggle('slide')
-    $('.request-form-propose').toggle('slide')
-
-  $('.propose-nomination').click (e) ->
-    e.preventDefault()
-    $('.request-nominee').toggle('slide')
-    $('.request-form-nominee').toggle('slide')
-
   $('.search-proposals-propose').click (e) ->
     e.preventDefault()
     $('.request-propose').toggle('slide')
     $('.request-form-propose').toggle('slide')
 
+  $('.js-propose-proposal').click (e) ->
+    e.preventDefault()
+    $('.request-propose').slideDown('slide')
+    $('.request-form-propose').slideDown('slide')
 
-  $('.cancel-proposal').click (e) ->
+  $('.js-propose-nomination').click (e) ->
+    e.preventDefault()
+    $('.request-nominee').slideDown('slide')
+    $('.request-form-nominee').slideDown('slide')
+
+  $('.js-cancel-proposal').click (e) ->
     e.preventDefault()
     $('.request-propose').hide('slide')
     $('.request-form-propose').hide('slide')
 
-  $('.cancel-nomination').click (e) ->
+  $('.js-cancel-nomination').click (e) ->
     e.preventDefault()
     $('.request-nominee').hide('slide')
     $('.request-form-nominee').hide('slide')
