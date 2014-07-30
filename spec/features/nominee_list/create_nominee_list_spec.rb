@@ -9,10 +9,9 @@ feature 'Create a nominee list' do
     login_with_oauth
   end
 
-  xscenario 'creating a nominee list' do
+  scenario 'creating a nominee list' do
     user = User.first
-    visit admin_root_path
-    click_link 'Create nominee list'
+    visit  new_admin_nominee_list_path
     select badge.name, from: 'Badge'
     check user.name
     click_button 'Create Nominee list'
