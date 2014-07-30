@@ -6,14 +6,12 @@ feature 'Propose a badge' do
 
   background { login_with_oauth }
 
-  xscenario 'proposing a new badge' do
-    visit users_path
-    click_link 'Show', match: :first
-    click_link 'Propose a badge'
+  scenario 'proposing a new badge' do
+    visit badges_path
+    click_link('Propose a badge', match: :first)
     fill_in 'Name', with: 'new badge'
     fill_in 'Description', with: 'This is a new badge'
-    check user.name
-    click_button 'Create Propose badge'
+    click_button 'Create'
     expect(page).to have_content 'Badge proposal sent successfully'
   end
 end
