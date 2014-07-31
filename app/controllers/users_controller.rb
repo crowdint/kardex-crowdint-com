@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     if @user.save
       respond_with @user
     else
+      flash.now[:notice] = 'There is a problem updating your data, please check the form'
       render :edit
     end
   end

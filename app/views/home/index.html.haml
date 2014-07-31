@@ -2,10 +2,10 @@
   Welcome to
   .welcome-image
 .google-sign-in
-  .google-sign-in-image
-  %p.google-sign-in-info
-    = link_to redirect_url do
+  = link_to redirect_url, class: 'google-sign-in-info' do
+    .google-sign-in-image
+    %p
       Sign in with your
       %strong crowdint account
-  .google-sign-in-decorator
+    .google-sign-in-decorator
 = link_to '', 'http://www.crowdint.com', class: 'crowdint-logo'

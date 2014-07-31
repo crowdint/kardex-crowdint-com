@@ -9,6 +9,7 @@
         - if current_user.is_admin?
           |
           = link_to 'Back to Admin', admin_users_path
+    %p= notice     
     = simple_form_for @user do |f|
       .col-sm-12
         %h4= f.input :name
