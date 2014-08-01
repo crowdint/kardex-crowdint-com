@@ -28,28 +28,32 @@
 .badge-5-col
   +badges_container(20%, 5)
   &:hover
-    .badge-info 
-      top: -138px
+    .badge-info  
+      top: -152px
     .badge-earned-icon
       display: none
     .badge-description, .badge-details-link
-      opacity: 1 
+      opacity: 1   
 
 .badge-6-col
   +badges_container(16.66%, 6)
+  .badge-info
+    top: -14px
   &:hover
-    .badge-info 
-      top: -138px
+    .badge-info  
+      top: -152px
     .badge-earned-icon
       display: none
     .badge-description, .badge-details-link
-      opacity: 1
+      opacity: 1    
 
 .badge-info
   cursor: pointer
   position: relative
   top: 0
   transition: top 0.5s linear
+  
+
   
 .badge-earned-icon
   background: image_url('sprite-badges.png') -45px -1425px no-repeat
