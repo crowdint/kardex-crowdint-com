@@ -4,5 +4,5 @@ class Skill < ActiveRecord::Base
   belongs_to :skill_type
 
   scope :filter_by_name,
-    ->(name) { where(skill_type: SkillType.find_by(name: name)) }
+    ->(name) { joins(:skill_type).where('skill_types.name' => name) }
 end
