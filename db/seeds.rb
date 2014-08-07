@@ -1,3 +1,5 @@
+require 'rake'
+
 data = YAML.load_file('config/dataseeds/awards.yml')
 
 data.each do |info|
@@ -13,3 +15,6 @@ data.each do |info|
   value.description = info['description']
   value.save
 end
+
+Rake::Task['bamboo:sync_users'].invoke
+
