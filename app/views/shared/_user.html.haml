@@ -7,4 +7,6 @@
   %td
     = link_to 'Edit', edit_user_path(user), class: 'action-control-section'
     |
-    = link_to 'Delete', user_path(user), :method => :delete, :confirm => "Are you sure?", class: 'action-control-section'
+    = link_to 'Delete', user_path(user), method: :delete,
+                                         confirm: "Are you sure?",
+                                         class: 'action-control-section'

@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to admin_users_path, :notice => "User was succesfully deleted"
+    redirect_to admin_users_path, notice: "User was succesfully deleted"
   end
 
   private
