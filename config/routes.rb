@@ -9,7 +9,7 @@ KardexCrowdintCom::Application.routes.draw do
   devise_for :users,
       controllers: { omniauth_callbacks: 'crowdint_auth/omniauth_callbacks' }
 
-  resources :users, except: [:new, :create, :destroy, :index] do
+  resources :users, except: [:new, :create, :index] do
     member { get 'my-badges', to: 'users#my_badges', as: 'badges' }
   end
 
