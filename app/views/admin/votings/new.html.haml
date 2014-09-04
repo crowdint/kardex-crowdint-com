@@ -1,0 +1,19 @@
+= content_for :user_details do
+  = render partial: 'shared/user_details'
+= content_for :actions do
+  = render partial: 'shared/actions'
+= form_for [:admin, @voting] do |f|
+  = if @voting.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@voting.errors.count, 'error')
+        prohibited this voting from being saved:
+      %ul
+        - @voting.errors.full_messages.each do |msg|
+          %li= msg
+  = f.label :badge_id
+  = f.collection_select :badge_id, BadgesEngine::Badge.all,
+    :id, :name, prompt: 'Select a badge'
+  = f.hidden_field :created_at, value: Date.today
+  %br
+  = f.submit

@@ -1,0 +1,21 @@
+= content_for :user_details do
+  = render partial: 'shared/user_details'
+= content_for :actions do
+  = render partial: 'shared/actions'
+.admin-list
+  %header
+    %h1 MVP section (current votations for #{ Date.today.strftime('%B %Y') })
+    = link_to 'create a new MVP votation', new_admin_voting_path
+  %table.table
+    %tbody
+      %tr
+        %th Badge
+        %th Manage module
+    %tbody
+      - @votings.each do |voting|
+        %tr
+          %td= voting.badge.name
+          %td
+            = link_to 'Delete', '#', class: 'action-control-section'
+            |
+            = link_to 'Check votations', '#', class: 'action-control-section'
