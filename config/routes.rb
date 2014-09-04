@@ -24,6 +24,7 @@ KardexCrowdintCom::Application.routes.draw do
     root "main#index"
     resources :users, only: :index
     resources :nominee_lists, only: [:create, :new]
+    resources :votings
   end
 
   scope 'admin' do
