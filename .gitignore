@@ -28,3 +28,6 @@ coverage/.last_run.json
 # ignore personal configuration files
 .ruby-version
 .ruby-gemset
+
+# ignore personal files
+/app/assets/images/badges/*
