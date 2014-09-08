@@ -155,13 +155,13 @@ ActiveRecord::Schema.define(version: 20140904173523) do
   add_index "users", ["position_id"], name: "index_users_on_position_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "votings", force: true do |t|
+  create_table "votations", force: true do |t|
     t.integer  "badge_id"
     t.boolean  "is_open"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "votings", ["badge_id"], name: "index_votings_on_badge_id", using: :btree
+  add_index "votations", ["badge_id"], name: "index_votations_on_badge_id", using: :btree
 
 end

@@ -1,6 +1,7 @@
-class Voting < ActiveRecord::Base
+class Votation < ActiveRecord::Base
   belongs_to :badge, class_name: 'BadgesEngine::Badge'
 
+  validates :badge_id, presence: true
   validate :current_month?
 
   before_create :set_is_open

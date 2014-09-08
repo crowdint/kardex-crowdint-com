@@ -1,6 +1,6 @@
-class CreateVotings < ActiveRecord::Migration
+class CreateVotations < ActiveRecord::Migration
   def change
-    create_table :votings do |t|
+    create_table :votations do |t|
       t.references :badge, index: true
       t.boolean :is_open
 
