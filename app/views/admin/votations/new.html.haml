@@ -6,14 +6,14 @@
   %header
     %h1 MVP section (current votations for #{ Date.today.strftime('%B %Y') })
 .col-sm-12.form-badge
-  = simple_form_for [:admin, @voting] do |f|
-    = if @voting.errors.any?
+  = simple_form_for [:admin, @votation] do |f|
+    = if @votation.errors.any?
       #error_explanation
         %h2
-          = pluralize(@voting.errors.count, 'error')
+          = pluralize(@votation.errors.count, 'error')
           prohibited this voting from being saved:
         %ul
-          - @voting.errors.full_messages.each do |msg|
+          - @votation.errors.full_messages.each do |msg|
             %li= msg
     .span12
       .field
