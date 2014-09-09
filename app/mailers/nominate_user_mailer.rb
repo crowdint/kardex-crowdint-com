@@ -7,7 +7,7 @@ class NominateUserMailer < ActionMailer::Base
     mail(
       from: @user.email,
       to: admin_emails,
-      subject: 'A user was nominated!'
+      subject: 'Kardex: A user was nominated!'
     )
   end
 end
