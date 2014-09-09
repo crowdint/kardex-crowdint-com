@@ -22,3 +22,6 @@
     %ul
       - @badge_proposal.users.each do |user|
         %li= user.name
+    %p
+      You can check more information
+      = link_to 'here!', admin_root_url

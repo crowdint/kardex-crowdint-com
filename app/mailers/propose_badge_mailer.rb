@@ -7,7 +7,7 @@ class ProposeBadgeMailer < ActionMailer::Base
     mail(
       from: @user.email,
       to: admin_emails,
-      subject: 'A new badge was proposed!'
+      subject: 'Kardex: A new badge was proposed!'
     )
   end
 end
