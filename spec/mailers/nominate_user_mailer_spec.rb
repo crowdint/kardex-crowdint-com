@@ -13,6 +13,6 @@ describe NominateUserMailer do
 
     it { expect(email.from).to eq [user.email] }
     it { expect(email.to).to eq admin_emails }
-    it { expect(email.subject).to eq 'A user was nominated!' }
+    it { expect(email.subject).to eq 'Kardex: A user was nominated!' }
   end
 end
