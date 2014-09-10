@@ -13,7 +13,7 @@ class Votation < ActiveRecord::Base
   end
 
   def current_votation?
-    if Votation.where(created_at: self.created_at, badge_id: self.badge_id).any?
+    if Votation.where(created_at: created_at, badge_id: badge_id).any?
       errors.add(:created_at, 'You already create this votation')
     end
   end
