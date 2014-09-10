@@ -1,0 +1,29 @@
+= content_for :user_details do
+  = render partial: 'shared/user_details'
+= content_for :actions do
+  = render partial: 'shared/actions'
+.admin-list
+  %header
+    %h1 MVP section (current votations for #{ Date.today.strftime('%B %Y') })
+.col-sm-12.form-badge
+  = simple_form_for [:admin, @votation] do |f|
+    = if @votation.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@votation.errors.count, 'error')
+          prohibited this voting from being saved:
+        %ul
+          - @votation.errors.full_messages.each do |msg|
+            %li= msg
+    .span12
+      .field
+        = f.hidden_field :created_at, value: Date.today
+      .field
+        = f.input :badge_id,
+          collection: BadgesEngine::Badge.all,
+          value_method: :id,
+          label_method: :name,
+          prompt: 'Select a badge'
+      .actions
+        = f.submit 'Save', class: 'btn'
+.clearfix
