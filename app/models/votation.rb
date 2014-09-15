@@ -1,5 +1,7 @@
 class Votation < ActiveRecord::Base
   belongs_to :badge, class_name: 'BadgesEngine::Badge'
+  has_many :votes
+  has_many :users, through: :votes
 
   validates :badge_id, presence: true
   validate :current_votation?
