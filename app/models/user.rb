@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
   end
 
   def admin_module?(current_module)
-    self.roles.pluck(:name).include? "admin_#{current_module}"
+    roles.pluck(:name).include? "admin_#{current_module}"
   end
-
 end

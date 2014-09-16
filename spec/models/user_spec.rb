@@ -60,11 +60,12 @@ describe User do
   describe '#admin_module?' do
     let!(:current_user) { Fabricate :user }
     let!(:role) { Fabricate :role }
-    let!(:role2) {Fabricate :role}
+    let!(:role2) { Fabricate :role }
 
     it 'returns true if the user is admin of the given module' do
       current_user.roles << role
-      expect(current_user.admin_module?(role.name.sub!('admin_', ''))).to eq true
+      expect(current_user.admin_module?(role.name.sub!('admin_', ''))
+            ).to eq true
     end
 
     it 'returns true if the user is admin of the given module' do
