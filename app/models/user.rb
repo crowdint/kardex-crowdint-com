@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :propose_badges
 
+  has_and_belongs_to_many :roles
+
   has_many :badge_users
 
   has_many :badges,
@@ -33,4 +35,9 @@ class User < ActiveRecord::Base
       errors.add(:skills, 'You can\'t have more than 3 skills... Sorry')
     end
   end
+
+  def admin_module?(current_module)
+    self.roles.pluck(:name).include? "admin_#{current_module}"
+  end
+
 end
