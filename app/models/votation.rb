@@ -8,6 +8,8 @@ class Votation < ActiveRecord::Base
 
   before_create :open_votation_process
 
+  scope :current, -> { where(is_open: true) }
+
   private
 
   def open_votation_process

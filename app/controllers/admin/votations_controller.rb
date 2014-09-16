@@ -10,7 +10,7 @@ class Admin::VotationsController  < Admin::BaseController
   def create
     @votation = Votation.new(votation_params)
     if @votation.save
-      redirect_to admin_root_path, notice: 'Votation created successfully'
+      redirect_to admin_votations_path, notice: 'Votation created successfully'
     else
       render :new
     end
