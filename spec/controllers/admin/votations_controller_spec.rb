@@ -25,7 +25,7 @@ describe Admin::VotationsController do
     context 'valid params' do
       before { post :create, votation: votation_params }
 
-      it { expect(response).to redirect_to admin_root_path }
+      it { expect(response).to redirect_to admin_votations_path }
       it 'returns an error flash message' do
         expect(response.request.flash[:notice]).
           to eq 'Votation created successfully'

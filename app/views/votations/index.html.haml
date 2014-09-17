@@ -1,0 +1,38 @@
+%section.request-propose{ style: 'display: block;' }
+  %h3.request-propose-title Current votations
+.request-form-propose{ style: 'display: block;' }
+  - @votations.each do |votation|
+    - if !votation.users.include?(current_user)
+      = simple_form_for @vote do |f|
+        .row
+          %h4 Votation for #{ votation.badge.name }
+          - if @vote.errors.any?
+            %h2
+              = pluralize(@propose_badge.errors.count , 'error')
+              prohibted this field to be saved
+            %ul
+              - @propose_badge.errors.full_messages.each do |message|
+                %li= message
+        .row
+          = f.hidden_field :user_id, value: current_user.id
+          = f.hidden_field :votation_id, value: votation.id
+          .col-sm-6
+            .span6
+              = f.label :voted_user_id
+              = f.input :voted_user_id, collection: User.all,
+                value_method: :id, label_method: :name,
+                prompt: 'Select a user', class: 'request-form-input',
+                label: false
+          .col-sm-6
+            .span6
+              = f.label :reason
+              = f.text_area :reason, class: 'request-form-input'
+        .row.request-form-options
+          .col-sm-8
+            .span8
+              &nbsp;
+          .col-sm-4
+            .span4
+              = f.submit 'Create', class: 'request-btn-submit'
+              = link_to 'Cancel', '#', class: 'request-btn-cancel js-cancel-proposal'
+  %h3 Thanks for your voto!

@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
     class_name: 'BadgesEngine::Badge'
 
   has_many :nominee_users
+  has_many :votes
 
   scope :admins, -> { where(is_admin: true) }
 

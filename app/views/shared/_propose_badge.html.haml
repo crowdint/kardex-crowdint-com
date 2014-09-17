@@ -1,6 +1,6 @@
 %section.request-propose
   %h3.request-propose-title Proposing a new Badge
-%section.request-form-propose
+.request-form-propose
   = simple_form_for @propose_badge do |f|
     .row
       - if @propose_badge.errors.any?
@@ -21,7 +21,7 @@
           = f.label :value_id, 'Tag to a Value',
             class: 'request-form-label'
           = f.input :value_id, collection: BadgesEngine::Value.all,
-            value_method: :id, label_method: :name, promt: 'Select a Value',
+            value_method: :id, label_method: :name, prompt: 'Select a Value',
             class: 'request-form-input', label: false
       .col-sm-5
         .span5

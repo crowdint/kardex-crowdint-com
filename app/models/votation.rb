@@ -1,10 +1,14 @@
 class Votation < ActiveRecord::Base
   belongs_to :badge, class_name: 'BadgesEngine::Badge'
+  has_many :votes
+  has_many :users, through: :votes
 
   validates :badge_id, presence: true
   validate :current_votation?
 
   before_create :open_votation_process
+
+  scope :current, -> { where(is_open: true) }
 
   private
 
