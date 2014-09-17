@@ -3,14 +3,16 @@
   %head
     = render 'layouts/head'
   %body
-    .header-dashboards
-      .header-vertical-line
-      =link_to '', user_path(current_user), class: 'circle'
-      .welcome-image
-    = notice
-    #content
-      .container
-        = yield
+    #wrapper
+      .header-dashboards
+        .header-vertical-line
+        =link_to '', user_path(current_user), class: 'circle'
+        .welcome-image
+      = notice
+      #content
+        .container
+          = yield
+      .push
     %footer#footer
       .container
         %ul
