@@ -3,16 +3,18 @@
   %head
     = render 'layouts/head'
   %body
-    .header-default
-      = link_to '', admin_users_path, class: 'circle'
-      .header-vertical-line
-      .container
-        = yield :user_details
-    = render 'shared/flash_message'
-    #content
-      .container
-        = yield :actions
-        = yield
+    #wrapper
+      .header-default
+        = link_to '', admin_users_path, class: 'circle'
+        .header-vertical-line
+        .container
+          = yield :user_details
+      = render 'shared/flash_message'
+      #content
+        .container
+          = yield :actions
+          = yield
+      .push
     %footer#footer
       .container
         %ul
