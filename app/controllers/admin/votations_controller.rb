@@ -1,6 +1,12 @@
 class Admin::VotationsController  < Admin::BaseController
+  before_action :find_votation, only: [:destroy, :show]
+
   def index
-    @votations = Votation.where(created_at: Date.today)
+    @votations = Votation.active?
+  end
+
+  def previous
+    @votations = Votation.active?(false)
   end
 
   def new
@@ -16,9 +22,23 @@ class Admin::VotationsController  < Admin::BaseController
     end
   end
 
+  def destroy
+    @votation.destroy
+    redirect_to admin_votations_path, notice: 'Votation deleted'
+  end
+
+  def show
+    @votes = @votation.votes.select(:voted_user_id).group(:voted_user_id).count(:voted_user_id)
+    @nominated = User.find(@votes.keys)
+  end
+
   private
 
+  def find_votation
+    @votation = Votation.find(params[:id])
+  end
+
   def votation_params
-    params.require(:votation).permit(:badge_id, :created_at)
+    params.require(:votation).permit(:badge_id, :date)
   end
 end
