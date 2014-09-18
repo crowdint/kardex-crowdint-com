@@ -4,18 +4,24 @@
   = render partial: 'shared/actions'
 .admin-list
   %header
-    %h1 MVP section (current votations for #{ Date.today.strftime('%B %Y') })
-    = link_to 'create a new MVP votation', new_admin_votation_path, class: 'mvp'
+    %h1 Current votations for #{ Date.today.strftime('%B %Y') }
+    = link_to 'Create a new MVP votation', new_admin_votation_path, class: 'mvp'
+    = link_to 'Check past votations', previous_admin_votations_path, class: 'mvp'
   %table.table
     %tbody
       %tr
         %th Badge
+        %th Active
         %th Manage module
     %tbody
       - @votations.each do |votation|
         %tr
           %td= votation.badge.name
+          %td= votation.is_open
           %td
-            = link_to 'Delete', '#', class: 'action-control-section'
+            = link_to 'Delete', admin_votation_path(votation),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: 'action-control-section'
             |
-            = link_to 'Check votations', '#', class: 'action-control-section'
+            = link_to 'Check votation info', admin_votation_path(votation), class: 'action-control-section'
