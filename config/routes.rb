@@ -26,7 +26,7 @@ KardexCrowdintCom::Application.routes.draw do
     root "main#index"
     resources :users, only: :index
     resources :nominee_lists, only: [:create, :new]
-    resources :votations, except: [:edit, :update] do
+    resources :votations, except: :edit do
       get 'previous', on: :collection
     end
   end
