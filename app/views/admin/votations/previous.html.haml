@@ -12,12 +12,14 @@
       %tr
         %th Badge
         %th Active
+        %th Date
         %th Manage module
     %tbody
       - @votations.each do |votation|
         %tr
           %td= votation.badge.name
           %td= votation.is_open
+          %td= votation.date
           %td
             = link_to 'Delete', admin_votation_path(votation),
               method: :delete,

@@ -25,3 +25,8 @@
               class: 'action-control-section'
             |
             = link_to 'Check votation info', admin_votation_path(votation), class: 'action-control-section'
+            |
+            = link_to 'Archive votation', admin_votation_path(votation),
+              method: :patch,
+              data: { confirm: 'Are you sure?' },
+              class: 'action-control-section'

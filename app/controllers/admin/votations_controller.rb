@@ -1,5 +1,5 @@
 class Admin::VotationsController  < Admin::BaseController
-  before_action :find_votation, only: [:destroy, :show]
+  before_action :find_votation, only: [:destroy, :show, :update]
 
   def index
     @votations = Votation.active?
@@ -28,8 +28,17 @@ class Admin::VotationsController  < Admin::BaseController
   end
 
   def show
-    @votes = @votation.votes.select(:voted_user_id).group(:voted_user_id).count(:voted_user_id)
+    @votes = @votation.votes.select(:voted_user_id).
+      group(:voted_user_id).count(:voted_user_id)
     @nominated = User.find(@votes.keys)
+  end
+
+  def update
+    if @votation.update_column(:is_open, false)
+      redirect_to admin_votations_path, notice: 'Votation archived!'
+    else
+      flash[:error] = 'There was an error, please try again'
+    end
   end
 
   private
