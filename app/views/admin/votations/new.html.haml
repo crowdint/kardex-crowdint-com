@@ -4,7 +4,7 @@
   = render partial: 'shared/actions'
 .admin-list
   %header
-    %h1 MVP section (current votations for #{ Date.today.strftime('%B %Y') })
+    %h1 Current votations for #{ Date.today.strftime('%B %Y') }
 .col-sm-12.form-badge
   = simple_form_for [:admin, @votation] do |f|
     - if @votation.errors.any?

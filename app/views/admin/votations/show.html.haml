@@ -7,17 +7,20 @@
     %h1 Votation for #{ @votation.badge.name }, #{ @votation.date }
     = link_to 'Create a new MVP votation', new_admin_votation_path, class: 'mvp'
     = link_to 'Check current votations', admin_votations_path, class: 'mvp'
-  %table.table
-    %tbody
-      %tr
-        %th User
-        %th Position
-        %th Votes
-    %tbody
-      - @nominated.each do |user|
+  - if @nominated.any?
+    %table.table
+      %tbody
         %tr
-          %td
-            = image_tag user.picture_url
-            = link_to user.name, user_path(user)
-          %td= user.position
-          %td= @votes[user.id]
+          %th User
+          %th Position
+          %th Votes
+      %tbody
+        - @nominated.each do |user|
+          %tr
+            %td
+              = image_tag user.picture_url
+              = link_to user.name, user_path(user)
+            %td= user.position
+            %td= @votes[user.id]
+  - else
+    %p Keep calm... We don't have votes yet.
