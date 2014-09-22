@@ -5,7 +5,7 @@
 .admin-list
   %header
     %h1 Current votations for #{ Date.today.strftime('%B %Y') }
-    = link_to 'Create a new Votation', new_admin_votation_path, class: 'mvp'
+    = link_to 'Create a new Votation', new_admin_votation_path, class: 'mvp-orange'
     = link_to 'Check past votations', previous_admin_votations_path, class: 'mvp'
   - if @votations.any?
     %table.table
