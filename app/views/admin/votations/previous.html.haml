@@ -5,7 +5,7 @@
 .admin-list
   %header
     %h1 All previous votations
-    = link_to 'Create a new MVP votation', new_admin_votation_path, class: 'mvp'
+    = link_to 'Create a new votation', new_admin_votation_path, class: 'mvp'
     = link_to 'Check current votations', admin_votations_path, class: 'mvp'
   - if @votations.any?
     %table.table
