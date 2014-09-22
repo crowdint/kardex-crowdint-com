@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :propose_badges
 
+  has_and_belongs_to_many :roles
+
   has_many :badge_users
 
   has_many :badges,
@@ -15,10 +17,9 @@ class User < ActiveRecord::Base
     class_name: 'BadgesEngine::Badge'
 
   has_many :nominee_users
+  has_many :votes
 
   scope :admins, -> { where(is_admin: true) }
-
-  validate :check_skills_size
 
   def to_param
     "#{id}-#{name.parameterize}"
@@ -28,9 +29,7 @@ class User < ActiveRecord::Base
     self.badge_users.find_by(user: self, badge: badge)
   end
 
-  def check_skills_size
-    if self.skills.size > 3
-      errors.add(:skills, 'You can\'t have more than 3 skills... Sorry')
-    end
+  def admin_module?(current_module)
+    roles.pluck(:name).include? "admin_#{current_module}"
   end
 end

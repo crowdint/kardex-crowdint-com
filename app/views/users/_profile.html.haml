@@ -16,7 +16,7 @@
       %span.profile-ico-skills
       Skills
     %ul.profile-summary
-      - user.skills.each do |skill|
+      - user.skills.limit(3).each do |skill|
         %li.profile-skill= skill.name
     %hr.profile-separator.light
   .profile-info
