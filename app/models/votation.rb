@@ -4,6 +4,7 @@ class Votation < ActiveRecord::Base
   has_many :users, through: :votes
 
   validates :badge_id, presence: true
+
   validate :current_votation?
 
   before_create :open_votation_process
