@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 20140910234906) do
   create_table "votations", force: true do |t|
     t.integer  "badge_id"
     t.boolean  "is_open"
+    t.string   "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

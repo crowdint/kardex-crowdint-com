@@ -4,7 +4,7 @@
   = render partial: 'shared/actions'
 .admin-list
   %header
-    %h1 MVP section (current votations for #{ Date.today.strftime('%B %Y') })
+    %h1 Current votations for #{ Date.today.strftime('%B %Y') }
 .col-sm-12.form-badge
   = simple_form_for [:admin, @votation] do |f|
     - if @votation.errors.any?
@@ -17,7 +17,7 @@
             %li= msg
     .span12
       .field
-        = f.hidden_field :created_at, value: Date.today
+        = f.hidden_field :date, value: Date.today.strftime('%B %Y')
       .field
         = f.input :badge_id,
           collection: BadgesEngine::Badge.all,
@@ -25,5 +25,6 @@
           label_method: :name,
           prompt: 'Select a badge'
       .actions
+        = link_to 'Return to votation index', admin_votations_path
         = f.submit 'Save', class: 'btn'
 .clearfix

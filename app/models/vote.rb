@@ -6,4 +6,14 @@ class Vote < ActiveRecord::Base
   validates :user_id, presence: true, numericality: true
   validates :voted_user_id, presence: true, numericality: true
   validates :votation_id, presence: true, numericality: true
+
+  validate :voted?
+
+  private
+
+  def voted?
+    if votation.users.include? user
+      errors.add(:user, 'You already vote for one')
+    end
+  end
 end

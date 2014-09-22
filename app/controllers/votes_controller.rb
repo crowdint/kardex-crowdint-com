@@ -4,7 +4,7 @@ class VotesController < ApplicationController
     if @vote.save
       redirect_to user_path(current_user), notice: 'Thanks for your voto! :)'
     else
-      redirect_to votations_path, notice: 'Select an user for vote.'
+      redirect_to votations_path, notice: @vote.errors.full_messages.first
     end
   end
 

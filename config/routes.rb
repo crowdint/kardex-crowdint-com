@@ -18,7 +18,7 @@ KardexCrowdintCom::Application.routes.draw do
   resources :nominee_lists, only: [:index, :show]
   resources :badges, only: [:index, :show]
   resources :votations, only: :index
-  resources :votes
+  resources :votes, only: :create
 
   match 'badges/query', to: 'badges#query', via: :get
 
@@ -26,7 +26,9 @@ KardexCrowdintCom::Application.routes.draw do
     root "main#index"
     resources :users, only: :index
     resources :nominee_lists, only: [:create, :new]
-    resources :votations
+    resources :votations, except: :edit do
+      get 'previous', on: :collection
+    end
   end
 
   scope 'admin' do
