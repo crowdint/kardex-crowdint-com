@@ -8,7 +8,14 @@ require 'capybara/poltergeist'
 require 'simplecov'
 require 'database_cleaner'
 
-SimpleCov.start
+SimpleCov.start do
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Helpers', 'app/helpers'
+  add_group 'Mailers', 'app/mailers'
+  add_group 'Models', 'app/models'
+  add_filter 'spec/'
+  add_filter 'config/'
+end
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 

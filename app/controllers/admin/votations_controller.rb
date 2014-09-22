@@ -34,11 +34,8 @@ class Admin::VotationsController  < Admin::BaseController
   end
 
   def update
-    if @votation.update_column(:is_open, false)
-      redirect_to admin_votations_path, notice: 'Votation archived!'
-    else
-      flash[:error] = 'There was an error, please try again'
-    end
+    @votation.update_column(:is_open, false)
+    redirect_to admin_votations_path, notice: 'Votation archived!'
   end
 
   private
