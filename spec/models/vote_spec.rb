@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Vote do
-  let!(:vote) { Fabricate.build(:vote) }
+  let!(:votation) { Fabricate :votation }
+  let!(:vote) { Fabricate :vote, votation_id: votation.id }
 
   it { expect(vote).to be_valid }
 

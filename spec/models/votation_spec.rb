@@ -7,8 +7,8 @@ describe Votation do
 
   describe 'relationships' do
     it { expect(votation).to belong_to(:badge) }
-    it { expect(votation).to has_many(:votes).dependent(:destroy) }
-    it { expect(votation).to has_many(:users).through(:votes) }
+    it { expect(votation).to have_many(:votes).dependent(:destroy) }
+    it { expect(votation).to have_many(:users).through(:votes) }
   end
 
   describe 'validations' do
