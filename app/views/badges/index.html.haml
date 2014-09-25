@@ -39,9 +39,10 @@
               class: 'search-proposals-propose'
       = render partial: 'shared/nominee_user'
       = render partial: 'shared/propose_badge'
-      %section
-        .badges-all
-          = show_badges
+      - cache do
+        %section
+          .badges-all
+            = show_badges
       %footer.badges-footer-separator
         %p
           Total

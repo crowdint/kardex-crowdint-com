@@ -16,11 +16,13 @@
               class: 'badges-last-link'
         .badges-header-decorator
     .row
-      .badges-all
-        = show_badges
+      - cache do
+        .badges-all
+          = show_badges
     .row
       %footer.badges-footer
         %p
-          Displaying my last
-          = pluralize(@badges.size, 'badge')
+          - cache do
+            Displaying my last
+            = pluralize(@badges.size, 'badge')
         .badges-footer-icon
