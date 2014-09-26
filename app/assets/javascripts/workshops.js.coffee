@@ -5,7 +5,7 @@
     defaults =
       class: "hide"
 
-    plugin = @
+    plugin = this
 
     $element = $(element)
     element = element
