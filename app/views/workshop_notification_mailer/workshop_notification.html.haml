@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+    %title A new workshop was published!
+  %body
+    %p
+      The user
+      = @user.name
+      has publish a new workshop
+    %p
+      You can check more information
+      = link_to 'here!', root_path
