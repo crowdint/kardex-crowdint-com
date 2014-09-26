@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :votes
 
   has_many :workshops,
-    class_name: 'WorkshopsEngine::Workshop'
+           class_name: 'WorkshopsEngine::Workshop'
 
   scope :admins, -> { where(is_admin: true) }
 
