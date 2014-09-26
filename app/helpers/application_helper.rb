@@ -33,7 +33,7 @@ module ApplicationHelper
   def show_last_workshop
     if WorkshopsEngine::Workshop.all.where(is_published: true).last
       render partial: 'shared/workshop', locals: { workshop:
-        WorkshopsEngine::Workshop.all.where(is_published: true).last }   
+        WorkshopsEngine::Workshop.all.where(is_published: true).last }
     else
       render 'shared/default_workshop_message'
     end
