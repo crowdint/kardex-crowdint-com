@@ -8,11 +8,10 @@ class WorkshopsController < ApplicationController
 
   def show
   end
-    
+
   private
 
   def find_workshop
     @workshop = Workshop.find(params[:id])
   end
-
 end
