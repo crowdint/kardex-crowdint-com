@@ -62,7 +62,7 @@
         # pass the DOM element and the user-provided options as arguments
         plugin = new $.workshopDetails(this, options)
 
-        $(@).data "workshops", plugin
+        $(@).data("workshops", plugin)
       return plugin
 
 ) jQuery
