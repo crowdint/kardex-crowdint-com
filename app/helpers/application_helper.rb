@@ -31,17 +31,17 @@ module ApplicationHelper
   end
 
   def show_last_workshop
-    if WorkshopsEngine::Workshop.all.empty?
-      render 'shared/default_badge_message'
-    else
+    if WorkshopsEngine::Workshop.all.where(is_published: true).last
       render partial: 'shared/workshop', locals: { workshop:
-        WorkshopsEngine::Workshop.all.where(is_published: true).last }
+        WorkshopsEngine::Workshop.all.where(is_published: true).last }   
+    else
+      render 'shared/default_workshop_message'
     end
   end
 
   def show_workshops
     if @workshops.empty?
-      render 'shared/default_badge_message'
+      render 'shared/default_workshop_message'
     else
       render partial: 'workshops_list', locals: { workshops:
         @workshops.where(is_published: true) }
@@ -50,7 +50,7 @@ module ApplicationHelper
 
   def show_published_workshops
     if @workshops.empty?
-      render 'shared/default_badge_message'
+      render 'shared/default_workshop_message'
     else
       render partial: 'workshops_list', locals: { workshops: @workshops }
     end
