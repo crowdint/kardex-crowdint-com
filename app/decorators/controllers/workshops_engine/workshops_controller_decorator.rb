@@ -5,7 +5,7 @@ WorkshopsEngine::WorkshopsController.class_eval do
         WorkshopNotificationMailer.workshop_notification(
           current_user, all_emails
         ).deliver
-      end  
+      end
       redirect_to workshops_url, notice: 'Workshop was successfully updated.'
     else
       render :edit
