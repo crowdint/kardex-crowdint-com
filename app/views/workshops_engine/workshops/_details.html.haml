@@ -24,6 +24,6 @@
           %section.workshop-published-form
             = simple_form_for(workshop) do |f|
               = f.hidden_field :is_published, value: true
-              = f.submit 'Publish', class: 'btn'  
+              = f.submit 'Publish', class: 'btn workshop-published-btn'
     .col-md-1
       .span1        

@@ -6,6 +6,13 @@ GIT
       httparty (~> 0.13.0)
 
 GIT
+  remote: git://github.com/jmoralesc/workshops_engine.git
+  revision: 1f2eeed066c6fc924062b4ad5948ce6c93a42064
+  specs:
+    workshops_engine (0.0.1)
+      rails (~> 4.0.4)
+
+GIT
   remote: git://github.com/laserlemon/figaro.git
   revision: ae200e44e8f2770ce1037753865985b02ee0048f
   specs:
@@ -315,7 +322,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.40)
+    tzinfo (0.3.41)
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -378,3 +385,4 @@ DEPENDENCIES
   unicorn
   vcr
   webmock
+  workshops_engine!

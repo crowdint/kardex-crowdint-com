@@ -1,7 +1,7 @@
 .row
   %aside.col-md-3
     = render partial: 'profile', locals: { user: @user }
-  %section.badges.col-md-9
+  %section.badges.col-md-9.module-separation
     .row
       %header.badges-header-container
         %h3.badges-header
@@ -24,3 +24,23 @@
           Displaying my last
           = pluralize(@badges.size, 'badge')
         .badges-footer-icon
+  %section.workshops.col-md-9.module-separation
+    .row
+      %header.workshops-header-container
+        %h3.workshop-header
+          %span.workshop-header-image
+          %span.workshops-title Available Workshops
+        %ul.workshops-menu
+          %li.last
+            = link_to 'All workshops', workshops_path,
+              class: 'workshops-last-link'
+        .workshops-header-decorator
+    .row
+      .workshops-all
+        = show_last_workshop
+    .row
+      %footer.workshops-footer
+        %p
+          Workshops from
+          = show_workshop_month
+        .workshops-footer-icon

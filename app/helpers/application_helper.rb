@@ -22,6 +22,39 @@ module ApplicationHelper
     end
   end
 
+  def show_workshop_month
+    unless WorkshopsEngine::Workshop.all.empty?
+      if WorkshopsEngine::Workshop.all.last.date_and_time
+        WorkshopsEngine::Workshop.all.last.date_and_time.strftime("%B")
+      end
+    end
+  end
+
+   def show_last_workshop
+    if WorkshopsEngine::Workshop.all.empty?
+      render 'shared/default_badge_message'
+    else
+      render partial: 'shared/workshop', locals: {workshop:
+        WorkshopsEngine::Workshop.all.where(is_published: true).last}
+    end
+  end
+
+  def show_workshops
+    if @workshops.empty?
+      render 'shared/default_badge_message'
+    else
+      render partial: 'workshops_list', locals: {workshops: @workshops.where(is_published: true)}
+    end
+  end
+
+  def show_published_workshops
+    if @workshops.empty?
+      render 'shared/default_badge_message'
+    else
+      render partial: 'workshops_list', locals: {workshops: @workshops}
+    end
+  end
+
   def define_badge_column
     if params[:controller] == 'users' && params[:action] == 'show'
       'badge-5-col'

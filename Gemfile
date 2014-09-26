@@ -24,6 +24,7 @@ gem 'simple_form'
 gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
+gem 'workshops_engine', github: 'jmoralesc/workshops_engine'
 
 group :doc do
   gem 'sdoc', require: false

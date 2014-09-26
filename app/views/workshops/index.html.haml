@@ -1,22 +1,20 @@
 .row
   .col-md-12
-    .span12.badges
-      %header.badges-header-container
-        %h3.badges-header
-          %span.badges-header-image
-          %span.badges-title All workshops
-        %span.badges-count
-
-        %ul.badges-menu
+    .span12.workshops
+      %header.workshops-header-container
+        %h3.workshop-header
+          %span.workshop-header-image
+          %span.workshops-title All workshops
+        %ul.workshops-menu
           %li.last
             = link_to 'Back to my Dashboard', user_path(current_user),
-              class: 'badges-last-link'
-          .badges-header-decorator
+              class: 'workshops-last-link'
+          .workshops-header-decorator
       %section
-        .badges-all
+        .workshops-all
           = show_workshops
-      %footer.badges-footer-separator
+      %footer.workshops-footer-separator
         %p
           Total
           = pluralize(@workshops.size, 'workshop')
-        .badges-footer-icon
+        .workshops-footer-icon
