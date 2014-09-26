@@ -1,0 +1,31 @@
+= simple_form_for(@workshop, html: { multipart: true }) do |f|
+  = render partial: 'shared/errors', locals: { resource: @workshop }
+  .col-md-3
+    .span3
+  .col-md-6
+    .span6
+      .field
+        = f.input :title
+      .field
+        = f.input :user_id,
+                  collection: User.all,
+                  value_method: :id,
+                  label_method: :name,
+                  prompt: 'Select a Facilitator',
+                  label: 'Facilitator'
+      .field
+        = f.input :description
+      .field
+        = f.label :date_and_time, 
+                  'Date and Time'
+        %br          
+        = f.datetime_select :date_and_time, 
+                            {prompt: true},
+                            {class: 'full-width'}
+      .actions
+        = link_to 'Cancel', workshops_path, class: 'btn btn-disabled'
+        = f.submit 'Save', class: 'btn'
+  .col-md-3
+    .span3
+  
+.clearfix
