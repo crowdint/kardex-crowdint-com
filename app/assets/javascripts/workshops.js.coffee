@@ -56,13 +56,13 @@
     @each ->
 
       # if plugin has not already been attached to the element
-      if undefined is $(@).data("workshops")
+      if undefined is $(this).data("workshops")
 
         # create a new instance of the plugin
         # pass the DOM element and the user-provided options as arguments
         plugin = new $.workshopDetails(this, options)
 
-        $(@).data("workshops", plugin)
+        $(this).data("workshops", plugin)
       return plugin
 
 ) jQuery
