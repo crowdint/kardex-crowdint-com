@@ -43,7 +43,8 @@ module ApplicationHelper
     if @workshops.empty?
       render 'shared/default_badge_message'
     else
-      render partial: 'workshops_list', locals: { workshops: @workshops.where(is_published: true) }
+      render partial: 'workshops_list', locals: { workshops:
+        @workshops.where(is_published: true) }
     end
   end
 
