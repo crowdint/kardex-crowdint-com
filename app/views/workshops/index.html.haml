@@ -12,9 +12,12 @@
           .workshops-header-decorator
       %section
         .workshops-all
-          = show_workshops
+          = show_public_workshops(params[:active])
       %footer.workshops-footer-separator
         %p
           Total
-          = pluralize(@workshops.size, 'workshop')
+          - if params[:active]
+            = pluralize(@workshops.active.published.size, 'workshop')
+          - else
+            = pluralize(@workshops.published.size, 'workshop')              
         .workshops-footer-icon

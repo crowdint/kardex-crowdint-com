@@ -6,7 +6,8 @@
 .col-md-6.workshop-other-attrs
   %p
     Facilitator
-  = workshop.user.name
+  -if workshop.user
+    = workshop.user.name
 .col-md-6.workshop-other-attrs 
   %p
     Date

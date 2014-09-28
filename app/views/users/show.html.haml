@@ -31,16 +31,20 @@
           %span.workshop-header-image
           %span.workshops-title Available Workshops
         %ul.workshops-menu
+          %li
+            = link_to 'Active workshops', workshops_path(active: true),
+              class: 'badges-first-link'
           %li.last
             = link_to 'All workshops', workshops_path,
               class: 'workshops-last-link'
         .workshops-header-decorator
     .row
       .workshops-all
-        = show_last_workshop
+        = show_last_active_published__workshop
     .row
-      %footer.workshops-footer
-        %p
-          Workshops from
-          = show_workshop_month
-        .workshops-footer-icon
+      - if show_workshop_month
+        %footer.workshops-footer
+          %p
+            Workshops from
+            = show_workshop_month
+          .workshops-footer-icon

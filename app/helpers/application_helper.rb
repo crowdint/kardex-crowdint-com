@@ -22,23 +22,6 @@ module ApplicationHelper
     end
   end
 
-  def show_workshop_month
-    unless WorkshopsEngine::Workshop.all.empty?
-      if WorkshopsEngine::Workshop.all.last.date_and_time
-        WorkshopsEngine::Workshop.all.last.date_and_time.strftime("%B")
-      end
-    end
-  end
-
-  def show_last_workshop
-    if WorkshopsEngine::Workshop.all.where(is_published: true).last
-      render partial: 'shared/workshop', locals: { workshop:
-        WorkshopsEngine::Workshop.all.where(is_published: true).last }
-    else
-      render 'shared/default_workshop_message'
-    end
-  end
-
   def show_workshops
     if @workshops.empty?
       render 'shared/default_workshop_message'
@@ -48,11 +31,45 @@ module ApplicationHelper
     end
   end
 
-  def show_published_workshops
-    if @workshops.empty?
-      render 'shared/default_workshop_message'
+  def show_public_workshops(active)
+    if active
+      show_active_published_workshops
     else
-      render partial: 'workshops_list', locals: { workshops: @workshops }
+      show_published_workshops
+    end
+  end
+
+  def show_active_published_workshops
+    if @workshops.active.published
+      render partial: 'workshops_list', locals: { workshops: @workshops.active }
+    else
+      render 'shared/default_workshop_message'
+    end
+  end
+
+  def show_published_workshops
+    if @workshops.published
+      render partial: 'workshops_list', locals: { workshops: @workshops.published }
+    else
+      render 'shared/default_workshop_message'
+    end
+  end
+
+  def show_last_active_published__workshop
+    if WorkshopsEngine::Workshop.active.published.last
+      render partial: 'shared/workshop', locals: { workshop:
+        WorkshopsEngine::Workshop.active.published.last }
+    else
+      render 'shared/default_workshop_message'
+    end
+  end
+
+  def show_workshop_month
+    if WorkshopsEngine::Workshop.all.active.published.last
+      if WorkshopsEngine::Workshop.all.active.published.last.date_and_time
+        WorkshopsEngine::Workshop.all.active.published.
+          last.date_and_time.strftime("%B")
+      end
     end
   end
 
