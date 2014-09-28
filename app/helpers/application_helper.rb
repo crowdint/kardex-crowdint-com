@@ -41,7 +41,8 @@ module ApplicationHelper
 
   def show_active_published_workshops
     if @workshops.active.published
-      render partial: 'workshops_list', locals: { workshops: @workshops.active }
+      render partial: 'workshops_list', locals:
+        { workshops: @workshops.active }
     else
       render 'shared/default_workshop_message'
     end
@@ -49,7 +50,8 @@ module ApplicationHelper
 
   def show_published_workshops
     if @workshops.published
-      render partial: 'workshops_list', locals: { workshops: @workshops.published }
+      render partial: 'workshops_list', locals:
+        { workshops: @workshops.published }
     else
       render 'shared/default_workshop_message'
     end
