@@ -31,3 +31,6 @@ coverage/.last_run.json
 
 # ignore personal files
 /app/assets/images/badges/*
+
+# ignore annoying DS_Store file
+.DS_Store
