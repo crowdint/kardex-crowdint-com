@@ -4,6 +4,9 @@
     - if @users
       = pluralize(@users.size, 'user')
       .users-footer-icon
-    - else
+    - elsif @badges
       = pluralize(@badges.size, 'badge')
       .badges-footer-icon
+    - else
+      = pluralize(@workshops.size, 'workshop')
+      .workshops-footer-icon

@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   has_many :nominee_users
   has_many :votes
 
+  has_many :workshops,
+           class_name: 'WorkshopsEngine::Workshop'
+
   scope :admins, -> { where(is_admin: true) }
 
   def to_param
