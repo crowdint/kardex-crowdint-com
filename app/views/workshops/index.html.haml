@@ -1,0 +1,23 @@
+.row
+  .col-md-12
+    .span12.workshops
+      %header.workshops-header-container
+        %h3.workshop-header
+          %span.workshop-header-image
+          %span.workshops-title All workshops
+        %ul.workshops-menu
+          %li.last
+            = link_to 'Back to my Dashboard', user_path(current_user),
+              class: 'workshops-last-link'
+          .workshops-header-decorator
+      %section
+        .workshops-all
+          = show_public_workshops(params[:active])
+      %footer.workshops-footer-separator
+        %p
+          Total
+          - if params[:active]
+            = pluralize(@workshops.active.published.size, 'workshop')
+          - else
+            = pluralize(@workshops.published.size, 'workshop')              
+        .workshops-footer-icon

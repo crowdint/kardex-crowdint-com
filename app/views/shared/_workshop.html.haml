@@ -1,0 +1,14 @@
+.workshop-container  
+  .workshop-title
+    = workshop.title
+  .workshop-description
+    = workshop.description
+.col-md-6.workshop-other-attrs
+  %p
+    Facilitator
+  -if workshop.user
+    = workshop.user.name
+.col-md-6.workshop-other-attrs 
+  %p
+    Date
+  = workshop.date_and_time.to_formatted_s(:long)

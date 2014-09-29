@@ -1,0 +1,8 @@
+= content_for :user_details do
+  = render partial: 'shared/user_details'
+= content_for :actions do
+  = render partial: 'shared/actions'
+
+= render partial: 'workshops_list', locals: { workshops: @workshops }
+.col-sm-12.form-workshop
+  = render 'form'
