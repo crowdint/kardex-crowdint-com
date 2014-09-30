@@ -22,15 +22,6 @@ module ApplicationHelper
     end
   end
 
-  def show_workshops
-    if @workshops.empty?
-      render 'shared/default_workshop_message'
-    else
-      render partial: 'workshops_list', locals: { workshops:
-        @workshops.where(is_published: true) }
-    end
-  end
-
   def show_public_workshops(active)
     if active
       show_active_published_workshops
@@ -57,7 +48,7 @@ module ApplicationHelper
     end
   end
 
-  def show_last_active_published__workshop
+  def show_last_active_published_workshop
     if WorkshopsEngine::Workshop.active.published.last
       render partial: 'shared/workshop', locals: { workshop:
         WorkshopsEngine::Workshop.active.published.last }
@@ -75,6 +66,44 @@ module ApplicationHelper
     end
   end
 
+  def show_show_dont_tell(active)
+    if active
+      show_active_show_dont_tells
+    else
+      show_all_show_dont_tells
+    end   
+  end   
+
+  def show_all_show_dont_tells
+    if @show_dont_tells.empty?
+      render 'shared/default_show_dont_tell_message'
+    else
+      render partial: 'show_dont_tells_list' 
+    end
+  end
+
+  def show_active_show_dont_tells
+    if @show_dont_tells.active.empty?
+      render 'shared/default_show_dont_tell_message'
+    else
+      render partial: 'show_dont_tells_list'
+    end
+  end
+  
+  def show_last_active_show_dont_tell
+   if ShowDontTellsEngine::ShowDontTell.active.last
+      render partial: 'shared/show_dont_tell', locals: { show_dont_tell:
+        ShowDontTellsEngine::ShowDontTell.active.last }
+    else
+      render 'shared/default_show_dont_tell_message'
+    end
+  end
+
+  def show_presentation(presentation)
+    render partial: 'presentations/presentation',
+      locals: { presentation: presentation }
+  end    
+  
   def define_badge_column
     if params[:controller] == 'users' && params[:action] == 'show'
       'badge-5-col'

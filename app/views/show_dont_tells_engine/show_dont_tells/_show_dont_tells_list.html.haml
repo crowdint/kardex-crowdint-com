@@ -1,0 +1,12 @@
+.admin-list
+  %header
+    %h1 Manage Show don't tells
+    = link_to 'Create a Show don\'t tell', show_dont_tells_engine.new_show_dont_tell_path,
+      class: 'workshop'
+
+  %table.table
+    %tbody
+      %tr
+        %th Date
+        %th
+      = render partial: 'show_dont_tell', collection: @show_dont_tells

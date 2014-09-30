@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :propose_badges
 
+   has_many :presentations,
+           class_name: 'ShowDontTellsEngine::Presentation'
+
   has_and_belongs_to_many :roles
 
   has_many :badge_users

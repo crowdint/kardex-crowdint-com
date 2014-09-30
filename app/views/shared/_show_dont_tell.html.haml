@@ -1,0 +1,9 @@
+.show-dont-tell-container  
+  .show-dont-tell-title
+    = show_dont_tell.date.to_date.to_formatted_s(:long)
+  %section
+    %p
+      Presentations:
+    - unless show_dont_tell.presentations.nil?
+      - show_dont_tell.presentations.each do |presentation|
+        = show_presentation(presentation)

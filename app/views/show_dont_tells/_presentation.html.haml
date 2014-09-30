@@ -1,0 +1,12 @@
+.show-dont-tell-nested-fields
+  .field
+    = f.input :title
+  .field
+    = f.input :user_id,
+              collection: User.all,
+              value_method: :id,
+              label_method: :name,
+              prompt: 'Select a Facilitator',
+              label: 'Facilitator'
+  .field
+    = f.input :description  

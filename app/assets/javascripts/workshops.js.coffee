@@ -70,3 +70,5 @@
 $(document).ready ->
   if $('.workshop-details').length
     $('.workshop-details').workshopDetails()
+  if $('.show-dont-tell-details').length
+    $('.show-dont-tell-details').workshopDetails()

@@ -38,6 +38,12 @@ GIT
       rails (~> 4.0.4)
       simple_form
 
+PATH
+  remote: ../show_dont_tells_engine
+  specs:
+    show_dont_tells_engine (0.0.1)
+      rails (~> 4.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -378,6 +384,7 @@ DEPENDENCIES
   sdoc
   selenium-webdriver
   shoulda-matchers
+  show_dont_tells_engine!
   simple_form
   simplecov
   slack-notifier!
