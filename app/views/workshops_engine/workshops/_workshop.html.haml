@@ -3,7 +3,7 @@
   %td= workshop.user.name if workshop.user
   %td= workshop.date_and_time.to_formatted_s(:long) if workshop.date_and_time
   %td
-    = link_to 'More',  'javascript:void(0)', class: 'js-show-workshop-details'
+    = link_to 'More',  'javascript:void(0)', class: 'js-show-details'
   %td.workshop-published  
     - if workshop.is_published
       %p
