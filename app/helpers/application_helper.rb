@@ -71,8 +71,8 @@ module ApplicationHelper
       show_active_show_dont_tells
     else
       show_all_show_dont_tells
-    end   
-  end   
+    end
+  end
 
   def show_all_show_dont_tells
     if @show_dont_tells.empty?
@@ -89,9 +89,9 @@ module ApplicationHelper
       render partial: 'show_dont_tells_list'
     end
   end
-  
+
   def show_last_active_show_dont_tell
-   if ShowDontTellsEngine::ShowDontTell.active.last
+    if ShowDontTellsEngine::ShowDontTell.active.last
       render partial: 'shared/show_dont_tell', locals: { show_dont_tell:
         ShowDontTellsEngine::ShowDontTell.active.last }
     else
@@ -102,8 +102,8 @@ module ApplicationHelper
   def show_presentation(presentation)
     render partial: 'presentations/presentation',
       locals: { presentation: presentation }
-  end    
-  
+  end
+
   def define_badge_column
     if params[:controller] == 'users' && params[:action] == 'show'
       'badge-5-col'
