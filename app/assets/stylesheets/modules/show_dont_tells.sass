@@ -1,0 +1,91 @@
+= show_dont_tells_links($color)
+  color: $color
+  font-size: 1em
+  font-weight: 400
+
+.show-dont-tells-table-headers
+  margin-top: -1px
+
+.show-dont-tells
+  background-color: $white
+  position: initial
+
+.show-dont-tell-header
+  color: #aa392d
+  display: inline-block
+  font-family: 'Roboto'
+  font-size: 1.3em
+  font-weight: 400
+  margin: 15px
+
+.show-dont-tells-header-container
+  border-bottom: 1px solid $pink-50
+  position: relative
+
+.show-dont-tells-header-decorator
+  background: image_url('sprite-badges.png') -105px -805px no-repeat
+  height: 45px
+  position: absolute
+  top: 15px
+  right: -9px
+  width: 25px
+
+.show-dont-tell-header-image
+  background: image_url('sprite-badges.png') -96px -517px 
+  no-repeat
+  display: inline-block
+  height: 50px
+  width: 50px
+
+.show-dont-tells-title
+  padding: 15px
+  vertical-align: 16px
+  font-size: 1em
+
+.show-dont-tells-menu
+  float: right
+  margin: 30px
+  li
+    border-right: 1px solid $gray-light
+    float: left
+    padding: 0 15px
+    &.last
+      border: none
+      padding-right: 0px
+
+.show-dont-tell-last-link
+  +show_dont_tells_links($blue-light)
+
+.show-dont-tell-all
+  border-top: 1px solid $white
+  overflow: auto
+
+.show-dont-tell-default-message
+  margin-left: 14px
+
+.show-dont-tells-footer
+  border-top: 1px solid $pink-50
+  color: $gray-light
+  font-size: 0.9em
+  padding: 16px
+  position: relative
+  text-align: center
+
+.show-dont-tells-footer-show-dont-tell
+  @extend .show-dont-tells-footer
+  background-color: $white
+  margin-bottom: 15px
+  padding: 25px
+
+.show-dont-tells-footer-separator
+  @extend .show-dont-tells-footer
+  margin-bottom: 30px
+
+.show-dont-tells-footer-icon
+  background: image_url('sprite-badges.png') -149px -720px no-repeat
+  display: inline-block
+  position: absolute
+  width: 55px
+  height: 60px
+  top: -4px
+  right: -9px

@@ -1,23 +1,23 @@
 .row
   .col-md-12
-    .span12.workshops
-      %header.workshops-header-container
-        %h3.workshop-header
-          %span.workshop-header-image
-          %span.workshops-title All Show don't tells
-        %ul.workshops-menu
+    .span12.show-dont-tells
+      %header.show-dont-tells-header-container
+        %h3.show-dont-tell-header
+          %span.show-dont-tell-header-image
+          %span.show-dont-tells-title All Show don't tells
+        %ul.show-dont-tells-menu
           %li.last
             = link_to 'Back to my Dashboard', user_path(current_user),
               class: 'workshops-last-link'
-          .workshops-header-decorator
+          .show-dont-tells-header-decorator
       %section
         .workshops-all
           = show_show_dont_tell(params[:active])
-      %footer.workshops-footer-separator
+      %footer.show-dont-tells-footer-separator
         %p
           Total
           - if params[:active]
             = pluralize(@show_dont_tells.active.size, 'show don\'t tell')
           - else
             = pluralize(@show_dont_tells.size, 'show don\'t tell')              
-        .workshops-footer-icon
+        .show-dont-tells-footer-icon
