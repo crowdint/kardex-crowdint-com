@@ -6,6 +6,13 @@ GIT
       httparty (~> 0.13.0)
 
 GIT
+  remote: git://github.com/jmoralesc/show_dont_tells_engine.git
+  revision: 1d89fbab5948b5f16c184caf43efd0b9fe7afb27
+  specs:
+    show_dont_tells_engine (0.0.1)
+      rails (~> 4.0.4)
+
+GIT
   remote: git://github.com/jmoralesc/workshops_engine.git
   revision: 1f2eeed066c6fc924062b4ad5948ce6c93a42064
   specs:
@@ -37,12 +44,6 @@ GIT
       mini_magick
       rails (~> 4.0.4)
       simple_form
-
-PATH
-  remote: ../show_dont_tells_engine
-  specs:
-    show_dont_tells_engine (0.0.1)
-      rails (~> 4.0.4)
 
 GEM
   remote: https://rubygems.org/
