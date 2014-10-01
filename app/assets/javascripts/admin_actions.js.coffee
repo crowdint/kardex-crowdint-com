@@ -27,7 +27,7 @@ $ ->
       $('#admin-badge-link').removeClass('active')
       $('#admin-workshop-link').removeClass('active')
       $('#admin-show-dont-tell-link').addClass('active')
-      $('.right-side').after("<div class ='mid-flag-workshop-corner'></div>")  
+      $('.right-side').after("<div class ='mid-flag-show-dont-tell-corner'></div>")  
     else
       $('#admin-user-link').removeClass('active')
       $('#admin-badge-link').removeClass('active')
