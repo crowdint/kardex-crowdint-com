@@ -78,7 +78,7 @@ module ApplicationHelper
     if @show_dont_tells.empty?
       render 'shared/default_show_dont_tell_message'
     else
-      render partial: 'show_dont_tells_list' 
+      render partial: 'show_dont_tells_list'
     end
   end
 
@@ -101,7 +101,7 @@ module ApplicationHelper
 
   def show_presentation(presentation)
     render partial: 'presentations/presentation',
-      locals: { presentation: presentation }
+                    locals: { presentation: presentation }
   end
 
   def define_badge_column
