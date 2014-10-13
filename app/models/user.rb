@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
            class_name: 'WorkshopsEngine::Workshop'
 
   scope :admins, -> { where(is_admin: true) }
-
+  scope :ordered, -> { order('name ASC') }
   def to_param
     "#{id}-#{name.parameterize}"
   end

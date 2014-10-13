@@ -1,5 +1,5 @@
 %tr
-  %td= show_dont_tell.date.to_date.to_formatted_s(:long) if show_dont_tell.date
+  %td= show_dont_tell.formated_date if show_dont_tell.date
   %td
     = link_to 'More',  'javascript:void(0)', class: 'js-show-details'
 %tr.show-dont-tell-details

@@ -3,7 +3,7 @@
     = f.input :title
   .field
     = f.input :user_id,
-              collection: User.all,
+              collection: User.ordered,
               value_method: :id,
               label_method: :name,
               prompt: 'Select a Facilitator',
