@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/jmoralesc/show_dont_tells_engine.git
-  revision: 1d89fbab5948b5f16c184caf43efd0b9fe7afb27
+  revision: cf227fba21e2e724544e190bd56e0a0e01c39789
   specs:
     show_dont_tells_engine (0.0.1)
       rails (~> 4.0.4)
