@@ -29,22 +29,21 @@
     width: 100px
   .btn-disabled
     opacity: 0.65
-  form
-    input
-      background: rgb(239, 238, 238)
-      border-radius: 0
-      border: 1px solid $gray-50
-      color: $gray-dark
-      font-family: roboto
-    select
-      @extend input
-      width: 175px
-    textarea
-      @extend input
-      width: 100%
-    button
-      background: transparent
-      border: 0
+  .input-show-dont-tell
+    background: rgb(239, 238, 238)
+    border-radius: 0
+    border: 1px solid $gray-50
+    color: $gray-dark
+    font-family: roboto
+  .select-show-dont-tell
+    @extend .input-show-dont-tell
+    width: 175px
+  .textarea-show-dont-tell
+    @extend .input-show-dont-tell
+    width: 100%
+  .button-show-dont-tell
+    background: transparent
+    border: 0
   .show-dont-tell-full-width
     margin-bottom: 15px
     width: 172px
