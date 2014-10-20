@@ -103,7 +103,7 @@ module ApplicationHelper
 
   def show_presentation(presentation)
     render partial: 'presentations/presentation',
-                    locals: { presentation: presentation }
+      locals: { presentation: presentation }
   end
 
   def define_badge_column
