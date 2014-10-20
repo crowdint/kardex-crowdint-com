@@ -33,7 +33,7 @@ module ApplicationHelper
   def show_active_published_workshops
     if @workshops.active.published
       render partial: 'workshops_list', locals:
-        { workshops: @workshops.active }
+        { workshops: @workshops.published.active }
     else
       render 'shared/default_workshop_message'
     end
@@ -78,7 +78,8 @@ module ApplicationHelper
     if @show_dont_tells.empty?
       render 'shared/default_show_dont_tell_message'
     else
-      render partial: 'show_dont_tells_list'
+      render partial: 'show_dont_tells_list', locals: { show_dont_tells:
+        @show_dont_tells }
     end
   end
 
@@ -86,7 +87,8 @@ module ApplicationHelper
     if @show_dont_tells.active.empty?
       render 'shared/default_show_dont_tell_message'
     else
-      render partial: 'show_dont_tells_list'
+      render partial: 'show_dont_tells_list', locals: { show_dont_tells:
+        @show_dont_tells.active }
     end
   end
 
