@@ -66,45 +66,40 @@ module ApplicationHelper
     end
   end
 
-  def show_show_dont_tell(active)
+  def show_presentations(active)
     if active
-      show_active_show_dont_tells
+      show_active_presentations
     else
-      show_all_show_dont_tells
+      show_all_presentations
     end
   end
 
-  def show_all_show_dont_tells
-    if @show_dont_tells.empty?
+  def show_all_presentations
+    if @presentations.empty?
       render 'shared/default_show_dont_tell_message'
     else
-      render partial: 'show_dont_tells_list', locals: { show_dont_tells:
-        @show_dont_tells }
+      render partial: 'presentations_list', locals: { presentations:
+        @presentations }
     end
   end
 
-  def show_active_show_dont_tells
-    if @show_dont_tells.active.empty?
+  def show_active_presentations
+    if @presentations.active.empty?
       render 'shared/default_show_dont_tell_message'
     else
-      render partial: 'show_dont_tells_list', locals: { show_dont_tells:
-        @show_dont_tells.active }
+      render partial: 'presentations_list', locals: { presentations:
+        @presentations.active }
     end
   end
 
-  def show_last_active_show_dont_tell
-    if ShowDontTellsEngine::ShowDontTell.active.last
-      render partial: 'shared/show_dont_tell', locals: { show_dont_tell:
-        ShowDontTellsEngine::ShowDontTell.active.last }
-    else
+  def show_next_wednesday_presentations
+    if PresentationsEngine::Presentation.next_wednesday.empty?
       render 'shared/default_show_dont_tell_message'
+    else
+      render partial: 'shared/presentation',
+        collection: PresentationsEngine::Presentation.next_wednesday
     end
-  end
-
-  def show_presentation(presentation)
-    render partial: 'presentations/presentation',
-      locals: { presentation: presentation }
-  end
+  end 
 
   def define_badge_column
     if params[:controller] == 'users' && params[:action] == 'show'
