@@ -97,9 +97,9 @@ module ApplicationHelper
       render 'shared/default_show_dont_tell_message'
     else
       render partial: 'shared/presentation',
-        collection: PresentationsEngine::Presentation.next_wednesday
+      collection: PresentationsEngine::Presentation.next_wednesday
     end
-  end 
+  end
 
   def define_badge_column
     if params[:controller] == 'users' && params[:action] == 'show'
