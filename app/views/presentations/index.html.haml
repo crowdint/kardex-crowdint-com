@@ -1,0 +1,25 @@
+.row
+  .col-md-12
+    .span12.show-dont-tells
+      %header.show-dont-tells-header-container
+        %h3.show-dont-tell-header
+          %span.show-dont-tell-header-image
+          %span.show-dont-tells-title All Show don't tells
+        %ul.show-dont-tells-menu
+          %li.last
+            = link_to 'Back to my Dashboard', user_path(current_user),
+              class: 'workshops-last-link'
+          .show-dont-tells-header-decorator
+        = render partial: 'search', locals: { presentations: @presentations }
+        = render partial: 'filter', locals: { presentations: @presentations }
+      %section
+        .workshops-all
+          = show_presentations(params[:active])
+      %footer.show-dont-tells-footer-separator
+        %p
+          Total
+          - if params[:active]
+            = pluralize(@presentations.active.size, 'presentation')
+          - else
+            = pluralize(@presentations.size, 'presentation')
+        .show-dont-tells-footer-icon

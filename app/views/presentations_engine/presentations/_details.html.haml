@@ -1,0 +1,25 @@
+%td{ colspan: 5}
+  .row
+    .col-md-1
+      .span1
+    .col-md-10
+      .span10
+        .row
+          .col-md-8
+            %h2= presentation.title
+          .col-md-4
+            .action-show-details
+              = link_to 'Edit Presentation',
+                presentations_engine.edit_presentation_path(presentation)
+              = link_to 'Show Less', 'javascript:void(0)',class: 'js-show-less'
+        %section
+          %h5 Facilitator:
+          = presentation.user.name if presentation.user
+        %section
+          %h5 Description:
+          = presentation.description   
+        %section
+          %h5 Date:
+          = presentation.date.to_formatted_s(:long) if presentation.date     
+    .col-md-1
+      .span1

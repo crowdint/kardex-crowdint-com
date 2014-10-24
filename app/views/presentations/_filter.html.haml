@@ -1,0 +1,5 @@
+= form_tag(presentations_path, :method => "get", id: "filter-form", class: "search-form-presentations") do
+  = text_field_tag :filter, params[:filter], class: "form-control filter-input",
+    id: "filter-date-users", :autocomplete => :off, placeholder: "Filter"
+  = button_tag "Filter by", :date => nil do
+    .filter-arrow

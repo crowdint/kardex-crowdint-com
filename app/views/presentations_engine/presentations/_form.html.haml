@@ -1,0 +1,32 @@
+= simple_form_for(@presentation, html: { multipart: true }) do |f|
+  = render partial: 'shared/errors', locals: { resource: @presentation }
+  .col-md-3
+    .span3
+  .col-md-6
+    .span6
+      .field
+        = f.label :date, 
+                  'Date'
+        %br          
+        = f.text_field :date, class: 'input-show-dont-tell show-dont-tell-full-width', id: 'select-date'
+
+      .field
+        = f.input :title, input_html: { class: 'input-show-dont-tell' }
+      .field
+        = f.input :user_id,
+          input_html: { class: 'input-show-dont-tell' },
+          collection: User.ordered,
+          value_method: :id,
+          label_method: :name,
+          prompt: 'Select a Facilitator',
+          label: 'Facilitator',
+          class: 'input-show-dont-tell'
+      .field
+        = f.input :description,  input_html: { class: 'textarea-show-dont-tell' }                         
+      .actions
+        = link_to 'Cancel', presentations_path, class: 'btn btn-disabled'
+        = f.submit 'Save', class: 'btn'
+  .col-md-3
+    .span3
+  
+.clearfix

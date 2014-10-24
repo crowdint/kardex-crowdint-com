@@ -53,18 +53,19 @@
       %header.show-dont-tells-header-container
         %h3.show-dont-tell-header
           %span.show-dont-tell-header-image
-          %span.show-dont-tells-title Available Show don't tells
+          %span.show-dont-tells-title On next Show don't tell
         %ul.show-dont-tells-menu
           %li
-            = link_to 'Active show don\'t tells', show_dont_tells_path(active: true),
+            = link_to 'Active show don\'t tell presentations', presentations_path(active: true),
               class: 'badges-first-link'
           %li.last
-            = link_to 'All show don\'t tells', show_dont_tells_path,
+            = link_to 'All show don\'t tell presentations', presentations_path,
               class: 'workshops-last-link'
         .show-dont-tells-header-decorator
     .row
       .show-dont-tells-all
-        = show_last_active_show_dont_tell
+        = show_next_wednesday_presentations
+
     .row
       %footer.show-dont-tells-footer
         %p
