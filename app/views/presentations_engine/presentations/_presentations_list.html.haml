@@ -3,7 +3,8 @@
     .col-md-4
       %h1.show-dont-tell Manage Show don't tell presentations
     .col-md-8
-
+      = render partial: 'search', locals: { presentations: @presentations }
+      = render partial: 'filter', locals: { presentations: @presentations }
       = link_to 'Create Presentation', presentations_engine.new_presentation_path, class: 'a-presentations'
 
   %table.table
