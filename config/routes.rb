@@ -20,7 +20,7 @@ KardexCrowdintCom::Application.routes.draw do
   resources :votations, only: :index
   resources :votes, only: :create
   resources :workshops, only: [:index]
-  resources :show_dont_tells, only: [:index]
+  resources :presentations, only: [:index]
 
   match 'badges/query', to: 'badges#query', via: :get
 
@@ -36,7 +36,7 @@ KardexCrowdintCom::Application.routes.draw do
   scope 'admin' do
     mount BadgesEngine::Engine , at: '/'
     mount WorkshopsEngine::Engine, at: '/'
-    mount ShowDontTellsEngine::Engine, at: '/'
+    mount PresentationsEngine::Engine, at: '/'
   end
 
 end
