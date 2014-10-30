@@ -10,24 +10,34 @@
           |
           = link_to 'Back to Admin', admin_users_path
     = simple_form_for @user do |f|
-      .col-sm-12
-        %h4= f.input :name
-      .col-sm-12
-        %h4= f.input :bio
-      .col-sm-6
-        %h4 Skills
-        .panel.panel-default
-          .panel-body
-            = f.association :skills,
-              as: :check_boxes,
-              collection: get_skills(@user.department),
-              label: false
-      - if current_user.is_admin?
+      - if can_edit_all?
+        .col-sm-12
+          %h4= f.input :name
+        .col-sm-12
+          %h4= f.input :bio
+        .col-sm-6
+          %h4 Skills
+          .panel.panel-default
+            .panel-body
+              = f.association :skills,
+                as: :check_boxes,
+                collection: get_skills(@user.department),
+                label: false
+      - if can_edit_badges?
+        - if needs_extra_name_field?
+          .col-sm-12
+            %h4= f.input :name, disabled: true
         .col-sm-6
           %h4 Badges
           .panel.panel-default
             .panel-body
               = f.association :badges, as: :check_boxes, label: false
+      - if current_user.is_admin?
+        .col-sm-12
+          %h4 Privileges
+          .panel.panel-default
+            .panel-body
+              = f.association :roles, as: :check_boxes, label: false
       .col-sm-12
         .edit-user-actions
           = link_to 'Cancel', edit_user_path(@user), class: 'btn btn-disabled'
