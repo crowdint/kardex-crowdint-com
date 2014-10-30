@@ -118,4 +118,30 @@ module ApplicationHelper
       content_tag :div, nil, class: 'badge-earned-icon'
     end
   end
+
+  def badges_admin
+    Role.find_by_name('badges admin')
+  end
+
+  def presentations_admin
+    Role.find_by_name('presentations admin')
+  end
+
+  def workshops_admin
+    Role.find_by_name('workshops admin')
+  end
+
+  def can_edit_all?
+    current_user.is_admin ||
+      current_user == @user
+  end
+
+  def can_edit_badges?
+    current_user.is_admin ||
+      current_user.roles.include?(badges_admin)
+  end
+
+  def needs_extra_name_field?
+    current_user.roles.include?(badges_admin) && !can_edit_all?
+  end
 end
