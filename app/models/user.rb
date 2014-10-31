@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :trackable, :omniauthable
+  devise :database_authenticatable, :trackable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
   has_and_belongs_to_many :skills,
       join_table: 'skills_users'
