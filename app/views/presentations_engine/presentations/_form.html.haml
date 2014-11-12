@@ -5,11 +5,9 @@
   .col-md-6
     .span6
       .field
-        = f.label :date, 
-                  'Date'
+        = f.label :date,'Date'
         %br          
         = f.text_field :date, class: 'input-show-dont-tell show-dont-tell-full-width', id: 'select-date'
-
       .field
         = f.input :title, input_html: { class: 'input-show-dont-tell' }
       .field

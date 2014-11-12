@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :propose_badges
 
   has_many :presentations,
-    class_name: 'PresentationsEngine::Presentation'
+           class_name: 'PresentationsEngine::Presentation'
 
   has_and_belongs_to_many :roles
 
@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_many :votes
 
   has_many :workshops,
-    class_name: 'WorkshopsEngine::Workshop'
+           class_name: 'WorkshopsEngine::Workshop'
 
   scope :admins, -> { where(is_admin: true) }
   scope :ordered, -> { order('name ASC') }
