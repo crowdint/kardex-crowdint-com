@@ -1,0 +1,5 @@
+= form_tag(presentations_path, :method => "get", id: "search-form", class: "search-form-presentations") do
+  = text_field_tag :search, params[:search], class: "form-control",
+    placeholder: "Search"
+  = button_tag "Search", :date => nil do
+    .search-glass

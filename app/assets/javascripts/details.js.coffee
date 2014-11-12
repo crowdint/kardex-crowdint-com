@@ -1,6 +1,6 @@
 (($) ->
 
-  $.workshopDetails = (element, options) ->
+  $.lineDetails = (element, options) ->
 
     defaults =
       class: "hide"
@@ -18,7 +18,7 @@
 
     plugin.bind = ->
       @tr = @el().prev()
-      @tr.find('a.js-show-workshop-details').on('click', ->
+      @tr.find('a.js-show-details').on('click', ->
         plugin.showDetails()
       )
       @el().find('a.js-show-less').on('click', ->
@@ -50,23 +50,25 @@
     plugin.init()
 
 
-  $.fn.workshopDetails = (options) ->
+  $.fn.lineDetails = (options) ->
 
     # iterate through the DOM elements we are attaching the plugin to
     @each ->
 
       # if plugin has not already been attached to the element
-      if undefined is $(this).data("workshops")
+      if undefined is $(this).data("module")
 
         # create a new instance of the plugin
         # pass the DOM element and the user-provided options as arguments
-        plugin = new $.workshopDetails(this, options)
+        plugin = new $.lineDetails(this, options)
 
-        $(this).data("workshops", plugin)
+        $(this).data("module", plugin)
       return plugin
 
 ) jQuery
 
 $(document).ready ->
   if $('.workshop-details').length
-    $('.workshop-details').workshopDetails()
+    $('.workshop-details').lineDetails()
+  if $('.show-dont-tell-details').length
+    $('.show-dont-tell-details').lineDetails()

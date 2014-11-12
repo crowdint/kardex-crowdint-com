@@ -1,17 +1,13 @@
-= workshops_links($color)
+= show_dont_tells_links($color)
   color: $color
   font-size: 1em
   font-weight: 400
 
-.module-separation
-  margin-bottom: 20px
-  float: right
-
-.workshops
+.show-dont-tells
   background-color: $white
   position: initial
 
-.workshop-header
+.show-dont-tell-header
   color: $carmin
   display: inline-block
   font-family: $roboto
@@ -19,32 +15,31 @@
   font-weight: 400
   margin: 15px
 
-.workshops-header-container
-  border-bottom: 1px solid $pink-50
+.show-dont-tells-header-container
   margin-bottom: 19px
+  border-bottom: 1px solid $pink-50
   position: relative
 
-.workshops-header-decorator
-  background: image_url('sprite-badges.png') -105px -805px no-repeat
+.show-dont-tells-header-decorator
+  background: image_url('sprite-badges.png') -165px -805px no-repeat
   height: 45px
   position: absolute
-  top: 15px
   right: -9px
+  top: 15px
   width: 25px
 
-.workshop-header-image
-  background: image_url('sprite-badges.png') -96px -517px 
-  no-repeat
+.show-dont-tell-header-image
+  background: image_url('sprite-badges.png') -96px -517px no-repeat
   display: inline-block
   height: 50px
   width: 50px
 
-.workshops-title
+.show-dont-tells-title
+  font-size: 1em
   padding: 15px
   vertical-align: 16px
-  font-size: 1em
 
-.workshops-menu
+.show-dont-tells-menu
   float: right
   margin: 30px
   li
@@ -55,17 +50,17 @@
       border: none
       padding-right: 0px
 
-.workshop-last-link
-  +workshops_links($blue-light)
+.show-dont-tell-last-link
+  +show_dont_tells_links($blue-light)
 
-.workshop-all
+.show-dont-tell-all
   border-top: 1px solid $white
   overflow: auto
 
-.workshop-default-message
+.show-dont-tell-default-message
   margin-left: 14px
 
-.workshops-footer
+.show-dont-tells-footer
   border-top: 1px solid $pink-50
   color: $gray-light
   font-size: 0.9em
@@ -73,21 +68,21 @@
   position: relative
   text-align: center
 
-.workshops-footer-workshop
-  @extend .workshops-footer
+.show-dont-tells-footer-show-dont-tell
+  @extend .show-dont-tells-footer
   background-color: $white
   margin-bottom: 15px
   padding: 25px
 
-.workshops-footer-separator
-  @extend .workshops-footer
+.show-dont-tells-footer-separator
+  @extend .show-dont-tells-footer
   margin-bottom: 30px
 
-.workshops-footer-icon
-  background: image_url('sprite-badges.png') -149px -720px no-repeat
+.show-dont-tells-footer-icon
+  background: image_url('sprite-badges.png') -209px -720px no-repeat
   display: inline-block
-  position: absolute
-  width: 55px
   height: 60px
-  top: -4px
+  position: absolute
   right: -9px
+  top: -4px
+  width: 55px

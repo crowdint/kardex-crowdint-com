@@ -47,6 +47,14 @@
   top: 2px
   width: 28px
 
+.filter-arrow
+  background: image_url('sprite-badges.png') -30px -206px
+  height: 28px
+  position: relative
+  right: 34px
+  top: 2px
+  width: 28px
+
 .admin-settings-control
   nav .container-fluid
     padding-left: 0
@@ -127,7 +135,19 @@
       text-align: center
     .workshop
       left: 0px
+    .show-dont-tell
+      width: auto
+    .a-presentations
+      left: 0
+      margin-top: 20px
+    .inline-forms
+      float: left
+      margin: 20px 0 0 0
+      width: auto
+      .filter-input
+        width: 115px
   table
+    margin-bottom: 0
     tbody > tr > th
       background: $gray-lighter
       padding: 15px
@@ -143,7 +163,6 @@
 
 .admin-footer.badges-footer-separator
   background: $white
-  margin-top: -20px
   .users-footer-icon
     background: image_url('sprite-badges.png') -89px -720px no-repeat
     display: inline-block

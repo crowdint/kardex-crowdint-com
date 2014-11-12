@@ -22,15 +22,6 @@ module ApplicationHelper
     end
   end
 
-  def show_workshops
-    if @workshops.empty?
-      render 'shared/default_workshop_message'
-    else
-      render partial: 'workshops_list', locals: { workshops:
-        @workshops.where(is_published: true) }
-    end
-  end
-
   def show_public_workshops(active)
     if active
       show_active_published_workshops
@@ -42,7 +33,7 @@ module ApplicationHelper
   def show_active_published_workshops
     if @workshops.active.published
       render partial: 'workshops_list', locals:
-        { workshops: @workshops.active }
+        { workshops: @workshops.published.active }
     else
       render 'shared/default_workshop_message'
     end
@@ -57,7 +48,7 @@ module ApplicationHelper
     end
   end
 
-  def show_last_active_published__workshop
+  def show_last_active_published_workshop
     if WorkshopsEngine::Workshop.active.published.last
       render partial: 'shared/workshop', locals: { workshop:
         WorkshopsEngine::Workshop.active.published.last }
@@ -72,6 +63,47 @@ module ApplicationHelper
         WorkshopsEngine::Workshop.all.active.published.
           last.date_and_time.strftime("%B")
       end
+    end
+  end
+
+  def show_presentations(active)
+    if active
+      show_active_presentations
+    else
+      show_all_presentations
+    end
+  end
+
+  def show_all_presentations
+    if @presentations.empty?
+      render 'shared/default_show_dont_tell_message'
+    else
+      render partial: 'presentations_list', locals: { presentations:
+        @presentations }
+    end
+  end
+
+  def show_active_presentations
+    if @presentations.active.empty?
+      render 'shared/default_show_dont_tell_message'
+    else
+      render partial: 'presentations_list', locals: { presentations:
+        @presentations.active }
+    end
+  end
+
+  def show_next_wednesday_presentations
+    if PresentationsEngine::Presentation.next_wednesday.empty?
+      render 'shared/default_show_dont_tell_message'
+    else
+      render partial: 'shared/presentation',
+      collection: PresentationsEngine::Presentation.next_wednesday
+    end
+  end
+
+  def show_presentation_date(date)
+    if date
+      date.to_formatted_s(:long)
     end
   end
 

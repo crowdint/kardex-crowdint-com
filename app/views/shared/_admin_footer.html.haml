@@ -7,6 +7,9 @@
     - elsif @badges
       = pluralize(@badges.size, 'badge')
       .badges-footer-icon
-    - else
+    - elsif @workshops
       = pluralize(@workshops.size, 'workshop')
       .workshops-footer-icon
+    - elsif @presentations
+      = pluralize(@presentations.size, 'show don\'t tell presentation')
+      .show-dont-tells-footer-icon  

@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :propose_badges
 
+  has_many :presentations,
+    class_name: 'PresentationsEngine::Presentation'
+
   has_and_belongs_to_many :roles
 
   has_many :badge_users
@@ -23,7 +26,7 @@ class User < ActiveRecord::Base
            class_name: 'WorkshopsEngine::Workshop'
 
   scope :admins, -> { where(is_admin: true) }
-
+  scope :ordered, -> { order('name ASC') }
   def to_param
     "#{id}-#{name.parameterize}"
   end

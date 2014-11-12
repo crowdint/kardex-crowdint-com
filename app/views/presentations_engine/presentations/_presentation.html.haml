@@ -1,0 +1,9 @@
+%tr
+  %td= presentation.date.to_formatted_s(:long) if presentation.date
+  %td= presentation.title
+  %td= presentation.user.name if presentation.user
+  %td
+    = link_to 'More',  'javascript:void(0)', class: 'js-show-details'
+%tr.show-dont-tell-details
+  = render partial: 'details', locals: { presentation: presentation }
+
