@@ -6,9 +6,9 @@ PresentationsEngine::PresentationsController.class_eval do
           where("date = ?", params[:filter].to_date).order('date')
       elsif params[:search]
         PresentationsEngine::Presentation.joins(:user).
-          where("presentations_engine_presentations.title ILIKE ? OR
-          users.name ILIKE ?", "%#{params[:search]}%",
-          "%#{params[:search]}%")
+          where("presentations_engine_presentations.title ILIKE ? OR users.name ILIKE ?",
+                "%#{params[:search]}%",
+                "%#{params[:search]}%")
       else
         PresentationsEngine::Presentation.all
       end
