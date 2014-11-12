@@ -101,6 +101,12 @@ module ApplicationHelper
     end
   end
 
+  def show_presentation_date(date)
+    if date
+      date.to_formatted_s(:long)
+    end   
+  end
+
   def define_badge_column
     if params[:controller] == 'users' && params[:action] == 'show'
       'badge-5-col'
