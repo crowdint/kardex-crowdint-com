@@ -1,11 +1,11 @@
 PresentationsEngine::ApplicationController.class_eval do
- before_filter :restrict_access, :get_last_module
+  before_filter :restrict_access, :get_last_module
 
   private
 
   def restrict_access
-  	redirect_to session[:last_moudle] unless current_user.roles.include?(presentations_admin) or
-  	  current_user.is_admin
+    redirect_to session[:last_moudle] unless current_user.
+      roles.include?(presentations_admin) || current_user.is_admin
   end
 
   def get_last_module

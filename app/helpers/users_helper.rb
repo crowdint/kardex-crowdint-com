@@ -20,7 +20,7 @@ module UsersHelper
   end
 
   def link_to_admin
-    if current_user.is_admin? or current_user.roles.any?
+    if current_user.is_admin? || current_user.roles.any?
       link_to 'Admin Power', admin_users_path, class: 'profile-admin'
     end
   end
