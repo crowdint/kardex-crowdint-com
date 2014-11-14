@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+    %title You have new privileges!
+  %body
+    %p
+      You have been added as
+      = @module.name
+    %p
+      You can check your new privileges
+      = link_to 'here!', root_url
