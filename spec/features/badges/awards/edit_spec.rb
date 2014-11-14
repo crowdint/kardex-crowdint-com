@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 feature 'Awards edit' do
-  background { login_with_oauth }
+  background do
+    login_with_oauth
+    User.first.update_attributes(is_admin: true)
+    login_with_oauth
+  end
 
   scenario 'edit a badge' do
     visit badges_engine.awards_path

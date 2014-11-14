@@ -46,11 +46,13 @@ class UsersController < ApplicationController
   end
 
   def can_edit?
-    current_user.is_admin || current_user == @user
+    current_user.is_admin || current_user.roles.include?(badges_admin) ||
+      current_user == @user
   end
 
   def user_params
-    params.require(:user).permit(:name, :bio, :position_id, skill_ids: [], badge_ids: [])
+    params.require(:user).permit(:name, :bio, :position_id, skill_ids: [],
+                                 badge_ids: [], role_ids: [])
   end
 
   def get_user
@@ -63,5 +65,9 @@ class UsersController < ApplicationController
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
+  def badges_admin
+    Role.find_by_name('badges admin')
   end
 end

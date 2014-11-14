@@ -9,24 +9,28 @@
   %nav.navbar.navbar-default
     .container-fluid
       %ul.nav
-        %li
-          = link_to admin_users_path, id: 'admin-user-link' do
-            %p Users
-            .user-admin-icon
-            .carpet-down
-        %li
-          = link_to badges_engine.badges_path, id: 'admin-badge-link' do
-            %p Badges
-            .badge-admin-icon
-            .carpet-down
-        %li
-          = link_to workshops_engine.workshops_path, id: 'admin-workshop-link' do
-            %p.admin-workshop-link Workshops
-            .workshop-admin-icon
-            .carpet-down
-        %li
-          = link_to presentations_engine.presentations_path,
-            id: 'admin-show-dont-tell-link', class: 'show-dont-tell-link' do
-            %p.admin-show-dont-tell-link Show don't tells
-            .workshop-admin-icon
-            .carpet-down    
+        - if current_user.roles.include?(badges_admin) or current_user.is_admin
+          %li
+            = link_to admin_users_path, id: 'admin-user-link' do
+              %p Users
+              .user-admin-icon
+              .carpet-down
+        - if current_user.roles.include?(badges_admin) or current_user.is_admin
+          %li
+            = link_to badges_engine.badges_path, id: 'admin-badge-link' do
+              %p Badges
+              .badge-admin-icon
+              .carpet-down
+        - if current_user.roles.include?(workshops_admin) or current_user.is_admin
+          %li
+            = link_to workshops_engine.workshops_path, id: 'admin-workshop-link' do
+              %p.admin-workshop-link Workshops
+              .workshop-admin-icon
+              .carpet-down
+        - if current_user.roles.include?(presentations_admin) or current_user.is_admin
+          %li
+            = link_to presentations_engine.presentations_path,
+              id: 'admin-show-dont-tell-link', class: 'show-dont-tell-link' do
+              %p.admin-show-dont-tell-link Show don't tells
+              .workshop-admin-icon
+              .carpet-down
