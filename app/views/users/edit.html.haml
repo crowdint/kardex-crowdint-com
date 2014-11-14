@@ -23,6 +23,11 @@
                 as: :check_boxes,
                 collection: get_skills(@user.department),
                 label: false
+          - if current_user.is_admin?
+            %h4 Privileges
+            .panel.panel-default
+              .panel-body
+                = f.association :roles, as: :check_boxes, label: false
       - if can_edit_badges?
         - if needs_extra_name_field?
           .col-sm-12
@@ -32,12 +37,6 @@
           .panel.panel-default
             .panel-body
               = f.association :badges, as: :check_boxes, label: false
-      - if current_user.is_admin?
-        .col-sm-12
-          %h4 Privileges
-          .panel.panel-default
-            .panel-body
-              = f.association :roles, as: :check_boxes, label: false
       .col-sm-12
         .edit-user-actions
           = link_to 'Cancel', edit_user_path(@user), class: 'btn btn-disabled'
