@@ -4,8 +4,8 @@ WorkshopsEngine::ApplicationController.class_eval do
   private
 
   def restrict_access
-    redirect_to session[:last_moudle] unless current_user.
-      roles.include?(workshops_admin) || current_user.is_admin
+    redirect_to session[:last_moudle] unless 
+      current_user.roles.include?(workshops_admin) || current_user.is_admin
   end
 
   def get_last_module
