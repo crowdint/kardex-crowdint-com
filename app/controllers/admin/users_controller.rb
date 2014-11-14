@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   helper_method :sort_column, :sort_direction
-  before_filter :restrict_access, :get_last_module
+  before_action :restrict_access, :get_last_module
 
   def index
     @users = if params[:search]

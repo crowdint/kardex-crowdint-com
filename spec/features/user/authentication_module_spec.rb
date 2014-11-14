@@ -3,8 +3,8 @@ require 'spec_helper'
 feature "User Module Authentication" do
   background do
     login_with_oauth
-    Role.create!(:name => 'badges admin')
-    User.first.roles << Role.first 
+    Role.create!(name: 'badges admin')
+    User.first.roles << Role.first
     login_with_oauth
   end
 
