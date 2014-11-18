@@ -6,6 +6,5 @@ PresentationsEngine::Presentation.class_eval do
              Date.today.wday == 3 ? Date.today : Date.
              today + 1 + ( 2 - (Date.today.wday)) % 7)
         }
-
   scope :active, -> { where('date >= ?', Date.today) }
 end
