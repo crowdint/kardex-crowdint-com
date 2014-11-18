@@ -15,8 +15,14 @@ class UsersController < ApplicationController
   end
 
   def update
+    old_roles_length = @user.roles.length
     @user.update_attributes(user_params)
     if @user.save
+      if @user.roles.length > old_roles_length
+        AdminModuleMailer.admin_module(
+          current_user, @user, @user.roles.last
+        ).deliver
+      end
       respond_with @user
     else
       render :edit
@@ -51,7 +57,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :bio, :position_id, skill_ids: [], badge_ids: [], role_ids: [])
+    params.require(:user).permit(:name, :bio, :position_id, skill_ids: [],
+                                 badge_ids: [], role_ids: [])
   end
 
   def get_user

@@ -16,7 +16,6 @@
   margin: 15px
 
 .show-dont-tells-header-container
-  margin-bottom: 19px
   border-bottom: 1px solid $pink-50
   position: relative
 
@@ -24,21 +23,20 @@
   background: image_url('sprite-badges.png') -165px -805px no-repeat
   height: 45px
   position: absolute
-  top: 15px
   right: -9px
+  top: 15px
   width: 25px
 
 .show-dont-tell-header-image
-  background: image_url('sprite-badges.png') -96px -517px 
-  no-repeat
+  background: image_url('sprite-badges.png') -96px -517px no-repeat
   display: inline-block
   height: 50px
   width: 50px
 
 .show-dont-tells-title
+  font-size: 1em
   padding: 15px
   vertical-align: 16px
-  font-size: 1em
 
 .show-dont-tells-menu
   float: right
@@ -54,12 +52,16 @@
 .show-dont-tell-last-link
   +show_dont_tells_links($blue-light)
 
-.show-dont-tell-all
+.show-dont-tells-all
   border-top: 1px solid $white
+  min-height: 50px
   overflow: auto
 
 .show-dont-tell-default-message
+  color: $gray-light
+  font-weight: bold
   margin-left: 14px
+  margin-top: 14px
 
 .show-dont-tells-footer
   border-top: 1px solid $pink-50
@@ -82,8 +84,8 @@
 .show-dont-tells-footer-icon
   background: image_url('sprite-badges.png') -209px -720px no-repeat
   display: inline-block
-  position: absolute
-  width: 55px
   height: 60px
-  top: -4px
+  position: absolute
   right: -9px
+  top: -4px
+  width: 55px

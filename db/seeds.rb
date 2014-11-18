@@ -17,4 +17,4 @@ data.each do |info|
 end
 
 Rake::Task['bamboo:sync_users'].invoke
-
+Rake::Task['skills:create'].invoke

@@ -18,6 +18,6 @@
           = presentation.description   
         %section
           %h5 Date:
-          = presentation.date.to_formatted_s(:long) if presentation.date     
+          = show_presentation_date(presentation.date)     
     .col-md-1
       .span1
