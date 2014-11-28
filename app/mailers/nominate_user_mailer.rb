@@ -5,7 +5,7 @@ class NominateUserMailer < ActionMailer::Base
     @user = user
     @nominated_user = nominated_user
     mail(
-      from: @user.email,
+      from: 'kardex@crowdint.com',
       to: admin_emails,
       subject: 'Kardex: A user was nominated!'
     )
