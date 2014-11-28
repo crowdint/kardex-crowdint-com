@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       if @user.roles.length > old_roles_length
         AdminModuleMailer.admin_module(
-          current_user, @user, @user.roles.last
+          @user, @user.roles.last
         ).deliver
       end
       respond_with @user

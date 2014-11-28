@@ -5,7 +5,7 @@ class ProposeBadgeMailer < ActionMailer::Base
     @user = user
     @badge_proposal = propose_badge
     mail(
-      from: @user.email,
+      from: 'kardex@crowdint.com',
       to: admin_emails,
       subject: 'Kardex: A new badge was proposed!'
     )
