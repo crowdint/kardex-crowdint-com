@@ -23,7 +23,7 @@
   name: 'Altruism'
   description: ''
 -
-  name: 'Personal challenge?'
+  name: 'Personal challenge'
   description: ''
 -
   name: 'Mentorship'
@@ -78,4 +78,34 @@
   description: ''
 -
   name: 'Leadership'
+  description: ''
+-
+  name: 'Merit'
+  description: ''
+-
+  name: 'Authorship'
+  description: ''
+-
+  name: 'Excellence'
+  description: ''
+-
+  name: 'Passion'
+  description: ''
+-
+  name: 'Belonging'
+  description: ''
+-
+  name: 'Effectivity'
+  description: ''
+-
+  name: 'Asertivity'
+  description: ''
+-
+  name: 'Availability'
+  description: ''
+-
+  name: 'Camaraderie'
+  description: ''
+-
+  name: 'Self improvement'
   description: ''
