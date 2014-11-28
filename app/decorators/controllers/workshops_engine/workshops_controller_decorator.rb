@@ -3,7 +3,7 @@ WorkshopsEngine::WorkshopsController.class_eval do
     if @workshop.update(workshop_params)
       if workshop_params[:is_published]
         WorkshopNotificationMailer.workshop_notification(
-          current_user, all_emails
+          @workshop, all_emails
         ).deliver
       end
       redirect_to workshops_url, notice: 'Workshop was successfully updated.'

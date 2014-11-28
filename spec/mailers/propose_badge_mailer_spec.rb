@@ -11,7 +11,7 @@ describe ProposeBadgeMailer do
       )
     end
 
-    it { expect(email.from).to eq [user.email] }
+    it { expect(email.from).to eq ['kardex@crowdint.com'] }
     it { expect(email.to).to eq admin_emails }
     it { expect(email.subject).to eq 'Kardex: A new badge was proposed!' }
   end
