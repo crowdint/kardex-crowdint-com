@@ -1,0 +1,17 @@
+= simple_form_for(@presentation, html: { multipart: true }) do |f|
+  = render partial: 'shared/errors', locals: { resource: @presentation }
+  .col-md-3
+    .span3
+  .col-md-6
+    .span12
+      .field
+        = f.input :title
+      .field
+        = f.input :description
+      .actions
+        = link_to 'Cancel', presentations_path, class: 'btn btn-disabled'
+        = f.submit 'Save', class: 'btn'
+  .col-md-3
+    .span3
+  
+.clearfix

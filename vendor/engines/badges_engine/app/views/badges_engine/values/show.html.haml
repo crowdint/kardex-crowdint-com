@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @value.name
+%p
+  %strong Description:
+  = @value.description
+= link_to 'Edit', edit_value_path(@value)
+|
+= link_to 'Back', values_path

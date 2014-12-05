@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @badge.name
+%p
+  %strong Image:
+  = image_tag(@badge.image_url)
+%p
+  %strong Description:
+  = @badge.description
+%p
+  %strong Award:
+  = show_award(@badge.award)
+%p
+  %strong Value:
+  = show_value(@badge.value)
+= link_to 'Edit', edit_badge_path(@badge)
+|
+= link_to 'Back', badges_path

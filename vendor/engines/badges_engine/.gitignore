@@ -1,0 +1,17 @@
+.bundle/
+log/*.log
+pkg/
+
+# personal config files
+
+.ruby-version
+.ruby-gemset
+
+# Ignore files from dummy app
+
+spec/dummy/log/
+spec/dummy/config/secrets.yml
+spec/dummy/tmp/
+spec/dummy/db/*.sqlite3
+spec/dummy/db/*.sqlite3-journal
+spec/dummy/config/application.yml

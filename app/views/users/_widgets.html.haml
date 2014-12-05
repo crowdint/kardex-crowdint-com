@@ -1,0 +1,2 @@
+- Rails.application.config.engines_list.uniq.each do |engine|
+  = render partial: "#{engine.underscore}/users/#{engine.underscore}_widget"# rescue nil

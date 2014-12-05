@@ -6,20 +6,6 @@ GIT
       httparty (~> 0.13.0)
 
 GIT
-  remote: git://github.com/jmoralesc/presentations_engine.git
-  revision: ab29b48a3ab130c8d34bfa220401391c8457cadf
-  specs:
-    presentations_engine (0.0.1)
-      rails (~> 4.0.4)
-
-GIT
-  remote: git://github.com/jmoralesc/workshops_engine.git
-  revision: 1f2eeed066c6fc924062b4ad5948ce6c93a42064
-  specs:
-    workshops_engine (0.0.1)
-      rails (~> 4.0.4)
-
-GIT
   remote: git://github.com/laserlemon/figaro.git
   revision: ae200e44e8f2770ce1037753865985b02ee0048f
   specs:
@@ -32,9 +18,8 @@ GIT
   specs:
     slack-notifier (0.5.0)
 
-GIT
-  remote: git://github.com/zalapeach/badges_engine.git
-  revision: ad1fc0dd68f11bd1068713c98a8a0c1d0db0fb9b
+PATH
+  remote: vendor/engines/badges_engine
   specs:
     badges_engine (0.0.1)
       carrierwave
@@ -44,6 +29,18 @@ GIT
       mini_magick
       rails (~> 4.0.4)
       simple_form
+
+PATH
+  remote: vendor/engines/presentations_engine
+  specs:
+    presentations_engine (0.0.1)
+      rails (~> 4.0.4)
+
+PATH
+  remote: vendor/engines/workshops_engine
+  specs:
+    workshops_engine (0.0.1)
+      rails (~> 4.0.4)
 
 GEM
   remote: https://rubygems.org/

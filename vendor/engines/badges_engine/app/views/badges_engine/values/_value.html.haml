@@ -1,0 +1,8 @@
+%tr
+  %td= value.name
+  %td= value.description
+  %td= link_to 'Show', value
+  %td= link_to 'Edit', edit_value_path(value)
+  %td
+    = link_to 'Destroy', value, method: :delete,
+      data: { confirm: 'Are you sure?' }

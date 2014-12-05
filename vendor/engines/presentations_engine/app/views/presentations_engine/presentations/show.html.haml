@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @presentation.title
+%p
+  %strong Description:
+  = @presentation.description
+= link_to 'Edit', edit_presentation_path(@presentation)
+|
+= link_to 'Back', show_presentation_path
