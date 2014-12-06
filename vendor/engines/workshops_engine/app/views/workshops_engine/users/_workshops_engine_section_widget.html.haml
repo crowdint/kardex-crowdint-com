@@ -9,11 +9,10 @@
           = link_to 'Active workshops', workshops_path(active: true),
             class: 'badges-first-link'
         %li.last
-          = link_to 'All workshops', workshops_path,
-            class: 'workshops-last-link'
+          = link_to 'All workshops', workshops_path
       .workshops-header-decorator
   .row
-    .workshops-all
+    .section-content-wrapper
       = show_last_active_published_workshop
   .row
     - if show_workshop_month

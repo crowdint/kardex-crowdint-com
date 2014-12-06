@@ -4,7 +4,7 @@ module WorkshopsEngine
 
     initializer "workshops_engine.assets.precompile" do |app|
       app.config.assets.precompile += %w( workshops_engine/workshop.css workshops_engine/workshops.css
-                                          workshops_engine/admin/admin-workshops.css
+                                          workshops_engine/admin/admin-workshop.css
                                         )
     end
 

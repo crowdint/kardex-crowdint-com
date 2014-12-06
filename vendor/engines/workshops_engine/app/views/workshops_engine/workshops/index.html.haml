@@ -7,11 +7,10 @@
           %span.workshops-title All workshops
         %ul.workshops-menu
           %li.last
-            = link_to 'Back to my Dashboard', user_path(current_user),
-              class: 'workshops-last-link'
+            = link_to 'Back to my Dashboard', user_path(current_user)
           .workshops-header-decorator
       %section
-        .workshops-all
+        .section-content-wrapper
           = show_public_workshops(params[:active])
       %footer.workshops-footer-separator
         %p
