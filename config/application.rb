@@ -5,7 +5,6 @@ require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
-# require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -15,6 +14,10 @@ module KardexCrowdintCom
   class Application < Rails::Application
     # Store the list of engines used on kardex
     config.engines_list = []
+
+    # Store the list of paths when run spec task
+    # Ex. be rake spec
+    config.rspec_paths = []
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

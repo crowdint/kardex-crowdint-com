@@ -24,6 +24,7 @@ module WorkshopsEngine
 
     config.to_prepare do
       Rails.application.config.engines_list << "WorkshopsEngine"
+      Rails.application.config.rspec_paths << WorkshopsEngine::Engine.root
 
       Dir.glob(Rails.root + 'vendor/engines/workshops_engine/app/decorators/**/*_decorator.rb').each do |c|
         require_dependency(c)
