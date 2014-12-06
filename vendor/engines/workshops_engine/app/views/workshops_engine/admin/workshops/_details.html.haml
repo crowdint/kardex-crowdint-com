@@ -9,21 +9,21 @@
             %h2= workshop.title
           .col-md-4
             .action-show-details
-              = link_to 'Edit workshop', workshops_engine.edit_workshop_path(workshop)
+              = link_to 'Edit workshop', edit_workshop_path(workshop)
               = link_to 'Show Less', 'javascript:void(0)',class: 'js-show-less'
         %section
           %h5 Facilitator:
           = workshop.user.name if workshop.user
         %section
           %h5 Description:
-          = workshop.description   
+          = workshop.description
         %section
           %h5 Date and time:
           = workshop.date_and_time.to_formatted_s(:long) if workshop.date_and_time
-        - unless workshop.is_published 
+        - unless workshop.is_published
           %section.workshop-published-form
             = simple_form_for(workshop) do |f|
               = f.hidden_field :is_published, value: true
               = f.submit 'Publish', class: 'btn workshop-published-btn'
     .col-md-1
-      .span1        
+      .span1

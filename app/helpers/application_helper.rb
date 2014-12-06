@@ -89,10 +89,6 @@ module ApplicationHelper
     Role.find_by_name('presentations admin')
   end
 
-  def workshops_admin
-    Role.find_by_name('workshops admin')
-  end
-
   def can_edit_all?
     current_user.is_admin ||
       current_user == @user

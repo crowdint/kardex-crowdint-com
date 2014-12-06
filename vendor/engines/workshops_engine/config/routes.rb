@@ -1,5 +1,6 @@
-[WorkshopsEngine::Engine, KardexCrowdintCom::Application].each do |app|
-  app.routes.draw do
+#WorkshopsEngine::Engine.routes.draw do
+Rails.application.routes.draw do
+  scope module: 'workshops_engine' do
     resources :workshops
     namespace :admin do
       resources :workshops

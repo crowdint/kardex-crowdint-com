@@ -16,10 +16,10 @@
       .field
         = f.input :description
       .field
-        = f.label :date_and_time, 
+        = f.label :date_and_time,
                   'Date and Time'
-        %br          
-        = f.datetime_select :date_and_time, 
+        %br
+        = f.datetime_select :date_and_time,
                             {prompt: true},
                             {class: 'full-width'}
       .actions
@@ -27,5 +27,5 @@
         = f.submit 'Save', class: 'btn'
   .col-md-3
     .span3
-  
+
 .clearfix

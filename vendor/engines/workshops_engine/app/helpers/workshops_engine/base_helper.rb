@@ -1,5 +1,5 @@
 module WorkshopsEngine
-  module ApplicationHelper
+  module BaseHelper
     def method_missing method, *args, &block
       puts "LOOKING FOR ROUTES #{method}"
       if method.to_s.end_with?('_path') or method.to_s.end_with?('_url')
@@ -23,6 +23,10 @@ module WorkshopsEngine
       else
         super
       end
+    end
+
+    def workshops_admin
+      Role.find_by_name('workshops admin')
     end
 
     def show_public_workshops(active)

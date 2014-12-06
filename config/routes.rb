@@ -38,5 +38,4 @@ KardexCrowdintCom::Application.routes.draw do
   end
 
   mount WorkshopsEngine::Engine, at: '/'
-
 end
