@@ -1,4 +1,4 @@
-require "workshops_engine/engine"
+require 'workshops_engine/engine'
 
 module WorkshopsEngine
 end

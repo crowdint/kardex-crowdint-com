@@ -43,7 +43,7 @@ module WorkshopsEngine
       if WorkshopsEngine::Workshop.all.active.published.last
         if WorkshopsEngine::Workshop.all.active.published.last.date_and_time
           WorkshopsEngine::Workshop.all.active.published.
-            last.date_and_time.strftime("%B")
+            last.date_and_time.strftime('%B')
         end
       end
     end

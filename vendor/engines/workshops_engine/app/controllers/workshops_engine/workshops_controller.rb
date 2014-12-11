@@ -1,4 +1,4 @@
-require_dependency "workshops_engine/application_controller"
+require_dependency 'workshops_engine/application_controller'
 
 module WorkshopsEngine
   class WorkshopsController < ApplicationController
