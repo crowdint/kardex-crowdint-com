@@ -15,4 +15,3 @@ describe WorkshopsEngine::Workshop do
     it { expect(workshop).to belong_to(:user) }
   end
 end
-

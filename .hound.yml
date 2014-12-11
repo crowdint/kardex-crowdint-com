@@ -1,2 +1,4 @@
 CoffeeScript:
   Enabled: true
+StringLiterals:
+  EnforcedStyle: single_quotes

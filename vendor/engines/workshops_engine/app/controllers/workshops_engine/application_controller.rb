@@ -7,7 +7,7 @@ module WorkshopsEngine
     private
 
     def restrict_access
-      redirect_to session[:last_moudle] unless 
+      redirect_to session[:last_moudle] unless
         current_user.roles.include?(workshops_admin) || current_user.is_admin
     end
 

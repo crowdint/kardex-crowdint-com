@@ -1,4 +1,3 @@
-#WorkshopsEngine::Engine.routes.draw do
 Rails.application.routes.draw do
   scope module: 'workshops_engine' do
     resources :workshops

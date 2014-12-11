@@ -47,6 +47,5 @@ module WorkshopsEngine
         end
       end
     end
-
   end
 end
