@@ -47,7 +47,7 @@ module BadgesEngine
     end
 
     def level_params
-      params.require(:level).permit(:badge_id , :tier, :badge_alias)
+      params.require(:level).permit(:badge_id, :tier, :badge_alias)
     end
   end
 end
