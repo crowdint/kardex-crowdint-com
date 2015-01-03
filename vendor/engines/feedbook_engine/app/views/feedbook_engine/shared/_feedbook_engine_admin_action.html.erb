@@ -1,0 +1,9 @@
+<% if current_user.is_admin %>
+  <li>
+    <%= link_to feedbook_engine.admin_feedbook_index_path, id: 'admin-feedbook-link' do %>
+      <p class="admin-feedbook-link ">Feedbook</p>
+      <div class="feedbook-admin-icon"></div>
+      <div class="carpet-down"></div>
+    <% end %>
+  </li>
+<% end %>

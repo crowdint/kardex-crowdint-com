@@ -37,5 +37,6 @@ KardexCrowdintCom::Application.routes.draw do
     mount PresentationsEngine::Engine, at: '/'
   end
 
+  mount FeedbookEngine::Engine , at: '/'
   mount WorkshopsEngine::Engine, at: '/'
 end

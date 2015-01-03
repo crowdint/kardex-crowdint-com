@@ -1,6 +1,9 @@
+- resource = params[:controller].split('/').last
+- resource_name = "@#{resource}"
+
 %footer.admin-footer.badges-footer-separator
   %p
-    Total
-    - resource = params[:controller].split('/').last
-    = pluralize(instance_variable_get("@#{resource}").size, resource)
-    %div{ :class => "#{resource}-footer-icon" }
+    = if instance_variable_defined? resource_name
+      Total
+      = pluralize(instance_variable_get(resource_name).size, resource)
+      %div{ class: "#{resource}-footer-icon" }

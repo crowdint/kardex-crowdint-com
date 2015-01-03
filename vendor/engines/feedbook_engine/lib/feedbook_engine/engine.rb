@@ -3,7 +3,7 @@ module FeedbookEngine
     isolate_namespace FeedbookEngine
 
     initializer 'workshops_engine.assets.precompile' do |app|
-      app.config.assets.precompile += %w()
+      app.config.assets.precompile += %w(workshops_engine/admin/admin-feedbook.css)
     end
 
     initializer :action_controller do

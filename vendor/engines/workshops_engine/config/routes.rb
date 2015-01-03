@@ -1,8 +1,6 @@
-Rails.application.routes.draw do
-  scope module: 'workshops_engine' do
+WorkshopsEngine::Engine.routes.draw do
+  resources :workshops
+  namespace :admin do
     resources :workshops
-    namespace :admin do
-      resources :workshops
-    end
   end
 end

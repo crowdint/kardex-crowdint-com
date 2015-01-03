@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022162833) do
+ActiveRecord::Schema.define(version: 20141231014747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,81 @@ ActiveRecord::Schema.define(version: 20141022162833) do
 
   create_table "badges_engine_values", force: true do |t|
     t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbook_answers", force: true do |t|
+    t.integer  "question_id"
+    t.string   "uuid"
+    t.string   "text"
+    t.string   "state"
+    t.boolean  "is_valid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbook_question_reclaims", force: true do |t|
+    t.integer  "question_id"
+    t.string   "description"
+    t.string   "category"
+    t.string   "state"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbook_question_user_answers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "quiz_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.text     "answer_text"
+    t.string   "points_cache"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbook_questions", force: true do |t|
+    t.string   "name"
+    t.time     "duration"
+    t.string   "state"
+    t.string   "type_question"
+    t.string   "uuid"
+    t.string   "tags"
+    t.integer  "level_id"
+    t.integer  "skill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbook_quiz_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "quiz_id"
+    t.text     "questions_pool"
+    t.text     "feedback"
+    t.string   "state"
+    t.time     "time_limit"
+    t.time     "time_used"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbook_quizzes", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.time     "duration"
+    t.string   "state"
+    t.text     "distribution_rule"
+    t.text     "distribution_skills"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbook_skills", force: true do |t|
+    t.string   "name"
+    t.string   "category"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
