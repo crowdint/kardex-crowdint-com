@@ -1,4 +1,4 @@
-require "badges_engine/engine"
+require 'badges_engine/engine'
 
 module BadgesEngine
 end
