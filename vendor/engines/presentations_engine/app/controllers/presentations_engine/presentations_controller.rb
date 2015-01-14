@@ -6,8 +6,7 @@ module PresentationsEngine
 
     def index
       @presentations = if params[:filter]
-                         Presentation.where('date = ?', params[:filter].to_date)
-                           .order('date')
+                         Presentation.where('date = ?', params[:filter].to_date).order('date')
                        elsif params[:search]
                          Presentation.where('title ILIKE ?', "%#{params[:search]}%")
                        else
