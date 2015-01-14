@@ -15,7 +15,7 @@ module BadgesEngine
     end
 
     context 'after initialize' do
-      it "generates a 1 tier level on initialize" do
+      it 'generates a 1 tier level on initialize' do
         level = BadgesEngine::Level.new
         expect(level.tier).not_to be_nil
       end
