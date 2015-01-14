@@ -1,4 +1,4 @@
-require_dependency "badges_engine/application_controller"
+require_dependency 'badges_engine/application_controller'
 
 module BadgesEngine
   class ValuesController < ApplicationController
