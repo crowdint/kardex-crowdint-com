@@ -7,6 +7,8 @@ defaults: &defaults
   BAMBOO_API_KEY: 'your_bamboo_api_key'
   BAMBOO_SUBDOMAIN: 'your_bamboo_subdomain'
   PROVIDER: 'your_provider'
+  GOOGLE_ID: 'your_google_id'
+  GOOGLE_SECRET: 'your_google_secret'
 
 development:
   <<: *defaults
