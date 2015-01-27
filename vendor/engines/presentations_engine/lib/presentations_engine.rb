@@ -1,4 +1,4 @@
-require "presentations_engine/engine"
+require 'presentations_engine/engine'
 
 module PresentationsEngine
 end

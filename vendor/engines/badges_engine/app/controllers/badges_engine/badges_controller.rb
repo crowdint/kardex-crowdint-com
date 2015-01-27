@@ -1,4 +1,4 @@
-require_dependency "badges_engine/application_controller"
+require_dependency 'badges_engine/application_controller'
 
 module BadgesEngine
   class BadgesController < ApplicationController
@@ -7,10 +7,10 @@ module BadgesEngine
 
     def index
       @badges = if params[:search]
-          Badge.where("name ILIKE ?", "%#{params[:search]}%").order(sort_column + " " + sort_direction)
-        else
-          Badge.order(sort_column + " " + sort_direction)
-        end
+                  Badge.where("name ILIKE ?", "%#{params[:search]}%").order(sort_column + ' ' + sort_direction)
+                else
+                  Badge.order(sort_column + ' ' + sort_direction)
+                end
     end
 
     def show
@@ -53,17 +53,22 @@ module BadgesEngine
     end
 
     def badge_params
-      params.require(:badge).permit( :name, :image, :description, :award_id, :value_id,
+      params.require(:badge).permit(
+        :name,
+        :image,
+        :description,
+        :award_id,
+        :value_id,
         levels_attributes: [:id, :tier, :badge_alias, :badge_id, :_destroy]
       )
     end
 
     def sort_column
-      Badge.column_names.include?(params[:sort]) ? params[:sort] : "name"
+      Badge.column_names.include?(params[:sort]) ? params[:sort] : 'name'
     end
 
     def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
     end
   end
 end

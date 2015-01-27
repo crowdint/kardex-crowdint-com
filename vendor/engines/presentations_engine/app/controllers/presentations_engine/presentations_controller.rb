@@ -1,4 +1,4 @@
-require_dependency "presentations_engine/application_controller"
+require_dependency 'presentations_engine/application_controller'
 
 module PresentationsEngine
   class PresentationsController < ApplicationController
@@ -6,13 +6,12 @@ module PresentationsEngine
 
     def index
       @presentations = if params[:filter]
-        Presentation.where("date = ?", params[:filter].to_date)
-        .order('date')
-      elsif params[:search]
-        Presentation.where("title ILIKE ?", "%#{params[:search]}%")
-      else
-        Presentation.all
-      end
+                         Presentation.where('date = ?', params[:filter].to_date).order('date')
+                       elsif params[:search]
+                         Presentation.where('title ILIKE ?', "%#{params[:search]}%")
+                       else
+                         Presentation.all
+                       end
     end
 
     def show
@@ -55,8 +54,11 @@ module PresentationsEngine
     end
 
     def presentation_params
-      params.require(:presentation).permit(:title, :description,
-        :user_id, :date)
+      params.require(:presentation).permit(
+        :title,
+        :description,
+        :user_id,
+        :date)
     end
   end
 end

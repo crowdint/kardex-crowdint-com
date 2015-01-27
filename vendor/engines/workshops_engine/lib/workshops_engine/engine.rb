@@ -3,10 +3,9 @@ module WorkshopsEngine
     isolate_namespace WorkshopsEngine
 
     initializer 'workshops_engine.assets.precompile' do |app|
-      app.config.assets.precompile += %w( workshops_engine/workshop.css
-                                          workshops_engine/workshops.css
-                                          workshops_engine/admin/admin-workshop.css
-                                        )
+      app.config.assets.precompile += %w(workshops_engine/workshop.css
+                                         workshops_engine/workshops.css
+                                         workshops_engine/admin/admin-workshop.css)
     end
 
     initializer :action_controller do

@@ -62,7 +62,7 @@ Fabrication.configure do |config|
   fabricator_paths = ['spec/fabricators']
   Rails.application.config.engines_list.uniq.each do |engine|
     engine_path = "#{engine}::Engine".constantize
-    fabricator_paths << engine_path.root.join('spec/fabricators').to_s.gsub("#{Rails.root.to_s}/", '')
+    fabricator_paths << engine_path.root.join('spec/fabricators').to_s.gsub("#{ Rails.root }/", '')
   end
   config.fabricator_path = fabricator_paths
 end
