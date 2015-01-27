@@ -18,6 +18,7 @@
 # Ignore application configuration
 /config/application.yml
 public/uploads
+public/assets/
 config/database.yml
 
 # ignore coverage from simplecov

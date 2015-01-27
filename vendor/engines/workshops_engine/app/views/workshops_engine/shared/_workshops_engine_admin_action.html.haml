@@ -1,6 +1,6 @@
 - if current_user.roles.include?(workshops_admin) or current_user.is_admin
   %li
-    = link_to admin_workshops_path, id: 'admin-workshop-link' do
+    = link_to workshops_engine.admin_workshops_path, id: 'admin-workshop-link' do
       %p.admin-workshop-link Workshops
       .workshop-admin-icon
       .carpet-down

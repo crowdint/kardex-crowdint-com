@@ -11,7 +11,7 @@
       %ul.nav
         - if current_user.roles.include?(badges_admin) or current_user.is_admin
           %li
-            = link_to admin_users_path, id: 'admin-user-link' do
+            = link_to main_app.admin_users_path, id: 'admin-user-link' do
               %p Users
               .user-admin-icon
               .carpet-down

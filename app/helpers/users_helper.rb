@@ -12,10 +12,10 @@ module UsersHelper
   end
 
   def logo_redirect_url
-    if root_path and user_signed_in?
-      user_path(current_user)
+    if main_app.root_path and user_signed_in?
+      main_app.user_path(current_user)
     else
-      root_path
+      main_app.root_path
     end
   end
 
