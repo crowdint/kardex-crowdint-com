@@ -6,10 +6,11 @@
         %span.workshops-title Available Workshops
       %ul.workshops-menu
         %li
-          = link_to 'Active workshops', workshops_path(active: true),
+          = link_to 'Active workshops',
+            workshops_engine.workshops_path(active: true),
             class: 'badges-first-link'
         %li.last
-          = link_to 'All workshops', workshops_path
+          = link_to 'All workshops', workshops_engine.workshops_path
       .workshops-header-decorator
   .row
     .section-content-wrapper
