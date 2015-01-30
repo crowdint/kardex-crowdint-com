@@ -1,7 +1,7 @@
 FeedbookEngine::Engine.routes.draw do
   namespace :admin do
     resources :feedbook, only: [:index]
-    namespace :feedbook do
+    scope :feedbook do
       resources :questions
       resources :quizes
     end

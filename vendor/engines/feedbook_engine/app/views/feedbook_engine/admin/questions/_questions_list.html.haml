@@ -1,0 +1,19 @@
+.admin-list.questions
+  %header
+    .col-md-4
+      %h1.show-dont-tell Manage Questions
+    .col-md-8
+      = render partial: 'search', locals: { questions: @questions }
+      = render partial: 'filter', locals: { questions: @questions }
+      .header-links
+        = link_to '< Back', feedbook_engine.admin_feedbook_index_path, class: "orange"
+        = link_to 'Create question', feedbook_engine.new_admin_question_path
+  %table.table
+    %tbody
+      %tr
+        %th Name
+        %th Category
+        %th Answers
+        %th Actions
+
+      = render partial: 'question', collection: @questions

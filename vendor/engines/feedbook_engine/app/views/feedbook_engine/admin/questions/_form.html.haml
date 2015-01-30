@@ -1,0 +1,24 @@
+= simple_form_for [:admin, @question] do |f|
+  = render partial: 'shared/errors', locals: { resource: @question }
+  .col-md-3
+    .span3
+  .col-md-6
+    .span6
+      .field
+        = f.input :name
+      .field
+        = f.input :duration
+      .field
+        %span Answers:
+        %br
+        = f.simple_fields_for :answers do |answer_form|
+          = render 'answer_fields', :f => answer_form
+        .links.clearfix
+          = link_to_add_association 'add answer', f, :answers
+      .actions.clearfix
+        = link_to 'Cancel', admin_questions_path, class: 'btn btn-disabled'
+        = f.submit 'Save', class: 'btn'
+  .col-md-3
+    .span3
+
+.clearfix

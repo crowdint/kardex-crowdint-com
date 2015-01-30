@@ -5,7 +5,7 @@ module FeedbookEngine
     before_action :find_question, only: [:show, :edit, :update, :destroy]
 
     def index
-      @question = Question.all
+      @questions = Question.all
     end
 
     def new
@@ -19,7 +19,7 @@ module FeedbookEngine
     def create
       @question = Question.new(question_params)
       if @question.save
-        redirect_to questions_url, notice: 'Question was successfully created.'
+        redirect_to feedbook_engine.admin_questions_url, notice: 'Question was successfully created.'
       else
         render :new
       end
@@ -50,7 +50,7 @@ module FeedbookEngine
     end
 
     def question_params
-      params.require(:question).permit()
+      params.require(:question).permit(:name, :duration, :tags, answers_attributes: [:id, :text, :_destroy])
     end
   end
 end

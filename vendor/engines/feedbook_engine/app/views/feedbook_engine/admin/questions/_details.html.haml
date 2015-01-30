@@ -6,18 +6,18 @@
       .span10
         .row
           .col-md-8
-            %h2= presentation.title
+            %h2= question.name
           .col-md-4
             .action-show-details
               = link_to 'Show Less', 'javascript:void(0)',class: 'js-show-less'
         %section
-          %h5 Facilitator:
-          = presentation.user.name if presentation.user
+          %h5 Time:
+          = question.name
         %section
           %h5 Description:
-          = presentation.description
+          = question.name
         %section
           %h5 Date:
-          = show_presentation_date(presentation.date)
+          = question.name
     .col-md-1
       .span1

@@ -6,7 +6,7 @@
     .span6
       .field
         = f.label :date,'Date'
-        %br          
+        %br
         = f.text_field :date, class: 'input-show-dont-tell show-dont-tell-full-width', id: 'select-date'
       .field
         = f.input :title, input_html: { class: 'input-show-dont-tell' }
@@ -20,11 +20,11 @@
           label: 'Facilitator',
           class: 'input-show-dont-tell'
       .field
-        = f.input :description,  input_html: { class: 'textarea-show-dont-tell' }                         
+        = f.input :description,  input_html: { class: 'textarea-show-dont-tell' }
       .actions
         = link_to 'Cancel', presentations_path, class: 'btn btn-disabled'
         = f.submit 'Save', class: 'btn'
   .col-md-3
     .span3
-  
+
 .clearfix

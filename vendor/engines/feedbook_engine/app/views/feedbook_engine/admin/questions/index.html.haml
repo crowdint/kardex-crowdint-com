@@ -1,0 +1,8 @@
+= content_for :user_details do
+  = render partial: 'shared/user_details'
+= content_for :actions do
+  = render partial: 'shared/actions'
+
+= render partial: 'questions_list', locals: { questions: @questions }
+
+= render 'shared/admin_footer'

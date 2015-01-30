@@ -1,0 +1,5 @@
+= form_tag(feedbook_engine.admin_questions_path, :method => "get", id: "search-form", class: "inline-forms") do
+  %p Search
+  = text_field_tag :search, params[:search], class: "form-control"
+  = button_tag "Search", :date => nil do
+    .search-glass
