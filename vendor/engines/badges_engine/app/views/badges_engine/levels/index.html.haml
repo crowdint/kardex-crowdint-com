@@ -1,0 +1,13 @@
+%h1 Listing levels
+%table
+  %thead
+    %tr
+      %th Badge
+      %th Tier
+      %th Alias
+      %th
+      %th
+  %tbody
+    = render @levels
+%br
+= link_to 'New level', new_level_path

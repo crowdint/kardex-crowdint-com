@@ -1,0 +1,8 @@
+%tr
+  %td= award.title
+  %td= award.description
+  %td= link_to 'Show', award
+  %td= link_to 'Edit', edit_award_path(award)
+  %td
+    = link_to 'Destroy', award, method: :delete,
+      data: { confirm: 'Are you sure?' }

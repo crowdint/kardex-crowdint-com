@@ -1,2 +1,7 @@
 CoffeeScript:
   Enabled: true
+StringLiterals:
+  EnforcedStyle: single_quotes
+LineLength:
+  Enabled: true
+  Max: 120

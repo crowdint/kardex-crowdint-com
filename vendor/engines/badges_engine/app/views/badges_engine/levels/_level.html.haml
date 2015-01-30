@@ -1,0 +1,9 @@
+%tr
+  %td= show_badge(level.badge)
+  %td= level.tier
+  %td= level.badge_alias
+  %td= link_to 'Show', level
+  %td= link_to 'Edit', edit_level_path(level)
+  %td
+    = link_to 'Destroy', level, method: :delete,
+      data: { confirm: 'Are you sure?' }

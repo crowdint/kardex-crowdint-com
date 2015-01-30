@@ -9,5 +9,5 @@
     - if current_user.is_admin?
       |
       = link_to 'Delete', user_path(user), method: :delete,
-                                           confirm: "Are you sure?",
+                                           data: { confirm: 'Are you sure?' },
                                            class: 'action-control-section'

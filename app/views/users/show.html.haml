@@ -24,30 +24,9 @@
           Displaying my last
           = pluralize(@badges.size, 'badge')
         .badges-footer-icon
-  %section.workshops.col-md-9.module-separation
-    .row
-      %header.workshops-header-container
-        %h3.workshop-header
-          %span.workshop-header-image
-          %span.workshops-title Available Workshops
-        %ul.workshops-menu
-          %li
-            = link_to 'Active workshops', workshops_path(active: true),
-              class: 'badges-first-link'
-          %li.last
-            = link_to 'All workshops', workshops_path,
-              class: 'workshops-last-link'
-        .workshops-header-decorator
-    .row
-      .workshops-all
-        = show_last_active_published_workshop
-    .row
-      - if show_workshop_month
-        %footer.workshops-footer
-          %p
-            Workshops from
-            = show_workshop_month
-          .workshops-footer-icon
+
+  = render partial: 'widgets'
+
   %section.show-dont-tells.col-md-9.module-separation
     .row
       %header.show-dont-tells-header-container
@@ -59,8 +38,7 @@
             = link_to 'Active show don\'t tell presentations', presentations_path(active: true),
               class: 'badges-first-link'
           %li.last
-            = link_to 'All show don\'t tell presentations', presentations_path,
-              class: 'workshops-last-link'
+            = link_to 'All show don\'t tell presentations', presentations_path
         .show-dont-tells-header-decorator
     .row
       .show-dont-tells-all

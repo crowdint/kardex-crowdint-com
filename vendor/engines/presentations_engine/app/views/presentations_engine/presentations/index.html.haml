@@ -1,0 +1,11 @@
+%h1 Listing Presentations
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th{ colspan: 3 }
+    %tbody
+      = render @presentation
+%br
+= link_to 'New presentation', new_presentation_path

@@ -1,0 +1,6 @@
+%tr
+  %td= presentation.title
+  %td= presentation.description
+  %td= link_to 'Edit', edit_presentation_path(presentation)
+  %td= link_to 'Destroy', presentation, method: :delete,
+    data: { confirm: 'Are you sure?' }

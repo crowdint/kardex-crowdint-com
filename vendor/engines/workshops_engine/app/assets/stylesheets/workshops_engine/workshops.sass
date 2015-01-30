@@ -1,0 +1,94 @@
+@import 'colors'
+@import 'fonts'
+
+= workshops_links($color)
+  color: $color
+  font-size: 1em
+  font-weight: 400
+
+.module-separation
+  margin-bottom: 20px
+  float: right
+
+.workshops
+  background-color: $white
+  position: initial
+
+.workshop-header
+  color: $carmin
+  display: inline-block
+  font-family: $roboto
+  font-size: 1.3em
+  font-weight: 400
+  margin: 15px
+
+.workshops-header-container
+  border-bottom: 1px solid $pink-50
+  position: relative
+
+.workshops-header-decorator
+  background: image_url('sprite-badges.png') -105px -805px no-repeat
+  height: 45px
+  position: absolute
+  top: 15px
+  right: -9px
+  width: 25px
+
+.workshop-header-image
+  background: image_url('sprite-badges.png') -96px -517px
+  no-repeat
+  display: inline-block
+  height: 50px
+  width: 50px
+
+.workshops-title
+  padding: 15px
+  vertical-align: 16px
+  font-size: 1em
+
+.workshops-menu
+  float: right
+  margin: 30px
+  li
+    border-right: 1px solid $gray-light
+    float: left
+    padding: 0 15px
+    &.last
+      border: none
+      padding-right: 0px
+
+.workshop-last-link
+  +workshops_links($blue-light)
+
+.workshops-default-message
+  color: $gray-light
+  font-weight: bold
+  margin-left: 14px
+  margin-top: 14px
+
+.workshops-footer
+  border-top: 1px solid $pink-50
+  color: $gray-light
+  font-size: 0.9em
+  padding: 16px
+  position: relative
+  text-align: center
+
+.workshops-footer-workshop
+  @extend .workshops-footer
+  background-color: $white
+  margin-bottom: 15px
+  padding: 25px
+
+.workshops-footer-separator
+  @extend .workshops-footer
+  margin-bottom: 30px
+
+.workshops-footer-icon
+  background: image_url('sprite-badges.png') -149px -720px no-repeat
+  display: inline-block
+  position: absolute
+  width: 55px
+  height: 60px
+  top: -4px
+  right: -9px

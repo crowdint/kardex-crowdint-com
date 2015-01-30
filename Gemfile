@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '2.1.2'
 gem 'rails', '4.0.4'
 
-gem 'badges_engine', github: 'zalapeach/badges_engine'
 gem 'bamboohr', github: 'crowdint/bamboohr'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass'
@@ -20,13 +19,16 @@ gem 'jquery-rails'
 gem 'lol_dba'
 gem 'mini_magick'
 gem 'pg'
-gem 'presentations_engine', github: 'jmoralesc/presentations_engine'
 gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form'
 gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
-gem 'workshops_engine', github: 'jmoralesc/workshops_engine'
+
+# Engines
+gem 'badges_engine',        path: 'vendor/engines/badges_engine'
+gem 'presentations_engine', path: 'vendor/engines/presentations_engine'
+gem 'workshops_engine',     path: 'vendor/engines/workshops_engine'
 
 group :doc do
   gem 'sdoc', require: false
