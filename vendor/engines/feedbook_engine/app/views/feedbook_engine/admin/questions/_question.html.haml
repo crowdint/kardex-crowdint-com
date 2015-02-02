@@ -1,10 +1,11 @@
 %tr
   %td= question.name
-  %td= question.name
-  %td= question.name
+  %td= question.skill.name
+  %td= question.tags
   %td
     = link_to 'More',  'javascript:void(0)', class: 'js-show-details'
     = link_to 'Edit',  feedbook_engine.edit_admin_question_url(question)
+    = link_to 'Delete',  feedbook_engine.admin_question_url(question), method: 'delete'
 
 %tr.show-dont-tell-details
   = render partial: 'details', locals: { question: question }

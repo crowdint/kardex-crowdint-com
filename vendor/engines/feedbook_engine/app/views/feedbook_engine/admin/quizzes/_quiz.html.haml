@@ -1,0 +1,11 @@
+%tr
+  %td= quiz.name
+  %td= quiz.name
+  %td= quiz.name
+  %td
+    = link_to 'More',  'javascript:void(0)', class: 'js-show-details'
+    = link_to 'Edit',  feedbook_engine.edit_admin_quiz_url(quiz)
+    = link_to 'Delete',  feedbook_engine.admin_quiz_url(quiz), method: 'delete'
+
+%tr.show-dont-tell-details
+  = render partial: 'details', locals: { quiz: quiz }

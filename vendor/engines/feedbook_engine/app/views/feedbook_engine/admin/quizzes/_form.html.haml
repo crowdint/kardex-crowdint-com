@@ -1,0 +1,23 @@
+= simple_form_for [:admin, @quiz] do |f|
+  = render partial: 'shared/errors', locals: { resource: @quiz }
+  .col-md-3
+    .span3
+  .col-md-6
+    .span6
+      .field
+        = f.input :name
+      .field
+        = f.input :description
+      .field
+        = f.input :duration
+      .field
+        = f.input :distribution_rule
+      .field
+        = f.input :distribution_skills
+      .actions.clearfix
+        = link_to 'Cancel', admin_quizzes_path, class: 'btn btn-disabled'
+        = f.submit 'Save', class: 'btn'
+  .col-md-3
+    .span3
+
+.clearfix

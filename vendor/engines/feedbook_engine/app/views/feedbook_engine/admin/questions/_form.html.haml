@@ -9,6 +9,14 @@
       .field
         = f.input :duration
       .field
+        = f.input :skill_id, collection: FeedbookEngine::Skill.all.order(:name)
+      .field
+        = f.input :type_question, collection: FeedbookEngine::Question::TYPES
+      .field
+        = f.input :level_id, collection: FeedbookEngine::Question::LEVELS
+      .field
+        = f.input :tags
+      .field
         %span Answers:
         %br
         = f.simple_fields_for :answers do |answer_form|

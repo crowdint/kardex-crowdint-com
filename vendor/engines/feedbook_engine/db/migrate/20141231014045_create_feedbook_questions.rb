@@ -8,6 +8,7 @@ class CreateFeedbookQuestions < ActiveRecord::Migration
       t.string :uuid
       t.string :tags
       t.integer :level_id
+      t.integer :skill_id
       t.timestamps
     end
   end

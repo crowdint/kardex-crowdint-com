@@ -3,7 +3,7 @@ FeedbookEngine::Engine.routes.draw do
     resources :feedbook, only: [:index]
     scope :feedbook do
       resources :questions
-      resources :quizes
+      resources :quizzes
     end
   end
 end

@@ -19,6 +19,7 @@ module FeedbookEngine
     def create
       @question = Question.new(question_params)
       if @question.save
+        @question.waiting_to_review
         redirect_to feedbook_engine.admin_questions_url, notice: 'Question was successfully created.'
       else
         render :new
@@ -26,21 +27,16 @@ module FeedbookEngine
     end
 
     def update
-      # if @workshop.update(workshop_params)
-      #   if workshop_params[:is_published]
-      #     WorkshopNotificationMailer.workshop_notification(
-      #       @workshop, all_emails
-      #     ).deliver
-      #   end
-      #   redirect_to workshops_url, notice: 'Question was successfully updated.'
-      # else
-      #   render :edit
-      # end
+      if @question.update(question_params)
+        redirect_to feedbook_engine.admin_questions_url, notice: 'Question was successfully updated.'
+      else
+        render :edit
+      end
     end
 
     def destroy
-      # @workshop.destroy
-      # redirect_to workshops_url, notice: 'Workshop was successfully destroyed.'
+      @question.remove
+      redirect_to feedbook_engine.admin_questions_url, notice: 'Question was successfully destroyed.'
     end
 
     private
@@ -50,7 +46,7 @@ module FeedbookEngine
     end
 
     def question_params
-      params.require(:question).permit(:name, :duration, :tags, answers_attributes: [:id, :text, :_destroy])
+      params.require(:question).permit(:name, :duration, :level_id, :type_question, :tags, answers_attributes: [:id, :text, :_destroy])
     end
   end
 end

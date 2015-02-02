@@ -1,0 +1,6 @@
+= form_tag(feedbook_engine.admin_quizzes_path, :method => "get", id: "filter-form", class: "inline-forms") do
+  %p Filter by
+  = text_field_tag :filter, params[:filter], class: "form-control filter-input",
+    id: "filter-date", :autocomplete => :off, placeholder: "Date"
+  = button_tag "Filter by", :date => nil do
+    .filter-arrow

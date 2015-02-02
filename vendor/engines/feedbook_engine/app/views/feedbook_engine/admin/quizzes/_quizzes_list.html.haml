@@ -1,0 +1,19 @@
+.admin-list.quizzes
+  %header
+    .col-md-4
+      %h1.show-dont-tell Manage Quizzes
+    .col-md-8
+      = render partial: 'search', locals: { quizzes: @quizzes }
+      = render partial: 'filter', locals: { quizzes: @quizzes }
+      .header-links
+        = link_to '< Back', feedbook_engine.admin_quizzes_path, class: "orange"
+        = link_to 'Create quiz', feedbook_engine.new_admin_quiz_path
+  %table.table
+    %tbody
+      %tr
+        %th Name
+        %th Category
+        %th Tags
+        %th Actions
+
+      = render partial: 'quiz', collection: @quizzes

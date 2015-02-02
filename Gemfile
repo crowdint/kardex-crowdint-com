@@ -21,6 +21,7 @@ gem 'mini_magick'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form'
+gem 'state_machine'
 gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
@@ -29,7 +30,7 @@ gem 'unicorn'
 gem 'badges_engine',        path: 'vendor/engines/badges_engine'
 gem 'presentations_engine', path: 'vendor/engines/presentations_engine'
 gem 'workshops_engine',     path: 'vendor/engines/workshops_engine'
-gem 'feedbook_engine',     path: 'vendor/engines/feedbook_engine'
+gem 'feedbook_engine',      path: 'vendor/engines/feedbook_engine'
 
 group :doc do
   gem 'sdoc', require: false
