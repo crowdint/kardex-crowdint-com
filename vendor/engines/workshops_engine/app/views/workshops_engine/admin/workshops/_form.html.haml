@@ -1,4 +1,4 @@
-= simple_form_for(@workshop, html: { multipart: true }) do |f|
+= simple_form_for([:admin, @workshop], html: { multipart: true }) do |f|
   = render partial: 'shared/errors', locals: { resource: @workshop }
   .col-md-3
     .span3
@@ -23,7 +23,7 @@
                             {prompt: true},
                             {class: 'full-width'}
       .actions
-        = link_to 'Cancel', workshops_path, class: 'btn btn-disabled'
+        = link_to 'Cancel', admin_workshops_path, class: 'btn btn-disabled'
         = f.submit 'Save', class: 'btn'
   .col-md-3
     .span3

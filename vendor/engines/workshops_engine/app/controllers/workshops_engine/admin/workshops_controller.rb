@@ -21,7 +21,7 @@ module WorkshopsEngine
     def create
       @workshop = Workshop.new(workshop_params)
       if @workshop.save
-        redirect_to workshops_url, notice: 'Workshop was successfully created.'
+        redirect_to admin_workshops_url, notice: 'Workshop was successfully created.'
       else
         render :new
       end
@@ -34,7 +34,7 @@ module WorkshopsEngine
             @workshop, all_emails
           ).deliver
         end
-        redirect_to workshops_url, notice: 'Workshop was successfully updated.'
+        redirect_to admin_workshops_url, notice: 'Workshop was successfully updated.'
       else
         render :edit
       end
