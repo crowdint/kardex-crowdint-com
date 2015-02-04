@@ -9,14 +9,17 @@
       .field
         = f.input :description
       .field
-        = f.input :duration
+        = f.input :summary
       .field
-        = f.input :distribution_rule
-        #low-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
-        #mid-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
-        #high-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
+        = f.input :duration, placelholder: 'in seconds'
       .field
-        = f.input :distribution_skills
+        = f.input :distribution_rules
+        .sliders-wrapper{ style: 'margin: 0 auto; width: 100px;'}
+          #low-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
+          #mid-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
+          #high-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
+      .field
+        = f.input :distribution_skills, placeholder: 'skill names, comma separated'
       .actions.clearfix
         = link_to 'Cancel', admin_quizzes_path, class: 'btn btn-disabled'
         = f.submit 'Save', class: 'btn'
@@ -46,7 +49,7 @@
       $(ele).slider("value", value);
     });
 
-    $('#quiz_distribution_rule').text(values.join('-'));
+    $('#quiz_distribution_rules').val(values.join('-'));
   }
 
   function loadValues(values){
@@ -54,13 +57,14 @@
     $("#low-level").slider("value", values[0]);
     $("#mid-level").slider("value", values[1]);
     $("#high-level").slider("value", values[2]);
+    $('#quiz_distribution_rules').val(values.join('-'));
   }
 
   $(function() {
     $("#low-level, #mid-level, #high-level").slider({
       orientation: "vertical",
       range: "min",
-      min: 0,
+      min: 1,
       max: 100,
       value: 20,
       slide: function( event, ui ) {
@@ -71,5 +75,5 @@
     });
     $("#mid-level").slider("value", 60);
 
-    loadValues("#{ @quiz.distribution_rule.split('-').map{|item| item.to_i }.to_json }");
+    loadValues("#{ @quiz.distribution_params }");
   });

@@ -2,11 +2,11 @@ class CreateFeedbookQuestions < ActiveRecord::Migration
   def change
     create_table :feedbook_questions do |t|
       t.string :name
-      t.time :duration
-      t.string :state
+      t.string :description
       t.string :type_question
-      t.string :uuid
+      t.string :state
       t.string :tags
+      t.integer :duration
       t.integer :level_id
       t.integer :skill_id
       t.timestamps

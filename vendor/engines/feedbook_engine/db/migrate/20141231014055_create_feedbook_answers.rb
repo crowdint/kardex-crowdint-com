@@ -2,7 +2,6 @@ class CreateFeedbookAnswers < ActiveRecord::Migration
   def change
     create_table :feedbook_answers do |t|
       t.integer :question_id
-      t.string  :uuid
       t.string  :text
       t.string  :state
       t.boolean :is_valid

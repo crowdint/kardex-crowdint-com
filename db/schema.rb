@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20141231014747) do
 
   create_table "feedbook_answers", force: true do |t|
     t.integer  "question_id"
-    t.string   "uuid"
     t.string   "text"
     t.string   "state"
     t.boolean  "is_valid"
@@ -71,10 +70,10 @@ ActiveRecord::Schema.define(version: 20141231014747) do
 
   create_table "feedbook_question_reclaims", force: true do |t|
     t.integer  "question_id"
+    t.integer  "user_id"
     t.string   "description"
     t.string   "category"
     t.string   "state"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -85,6 +84,7 @@ ActiveRecord::Schema.define(version: 20141231014747) do
     t.integer  "question_id"
     t.integer  "answer_id"
     t.text     "answer_text"
+    t.string   "duration"
     t.string   "points_cache"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -92,11 +92,11 @@ ActiveRecord::Schema.define(version: 20141231014747) do
 
   create_table "feedbook_questions", force: true do |t|
     t.string   "name"
-    t.time     "duration"
-    t.string   "state"
+    t.string   "description"
     t.string   "type_question"
-    t.string   "uuid"
+    t.string   "state"
     t.string   "tags"
+    t.integer  "duration"
     t.integer  "level_id"
     t.integer  "skill_id"
     t.datetime "created_at"
@@ -106,11 +106,15 @@ ActiveRecord::Schema.define(version: 20141231014747) do
   create_table "feedbook_quiz_users", force: true do |t|
     t.integer  "user_id"
     t.integer  "quiz_id"
-    t.text     "questions_pool"
     t.text     "feedback"
     t.string   "state"
-    t.time     "time_limit"
-    t.time     "time_used"
+    t.string   "uuid"
+    t.integer  "attempt"
+    t.integer  "time_limit"
+    t.integer  "time_used"
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.text     "questions_pool"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -118,18 +122,21 @@ ActiveRecord::Schema.define(version: 20141231014747) do
   create_table "feedbook_quizzes", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.time     "duration"
+    t.text     "summary"
+    t.integer  "duration"
     t.string   "state"
-    t.text     "distribution_rule"
-    t.text     "distribution_skills"
+    t.string   "uuid"
+    t.string   "distribution_rules"
+    t.string   "distribution_skills"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "feedbook_skills", force: true do |t|
     t.string   "name"
+    t.string   "description"
+    t.text     "summary"
     t.string   "category"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

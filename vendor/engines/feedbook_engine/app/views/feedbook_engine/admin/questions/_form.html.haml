@@ -7,6 +7,8 @@
       .field
         = f.input :name
       .field
+        = f.input :description
+      .field
         = f.input :duration
       .field
         = f.input :skill_id, collection: FeedbookEngine::Skill.all.order(:name)

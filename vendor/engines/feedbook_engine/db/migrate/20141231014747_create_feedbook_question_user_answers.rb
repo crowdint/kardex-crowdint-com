@@ -6,6 +6,7 @@ class CreateFeedbookQuestionUserAnswers < ActiveRecord::Migration
       t.integer :question_id
       t.integer :answer_id
       t.text    :answer_text
+      t.string :duration
       t.string  :points_cache
       t.timestamps
     end

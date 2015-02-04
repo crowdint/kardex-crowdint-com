@@ -46,7 +46,7 @@ module FeedbookEngine
     end
 
     def question_params
-      params.require(:question).permit(:name, :duration, :level_id, :type_question, :tags, answers_attributes: [:id, :text, :_destroy])
+      params.require(:question).permit(:name, :description, :duration, :level_id, :type_question, :tags, answers_attributes: [:id, :text, :is_valid, :_destroy])
     end
   end
 end

@@ -3,10 +3,12 @@ class CreateFeedbookQuizzes < ActiveRecord::Migration
     create_table :feedbook_quizzes do |t|
       t.string  :name
       t.string  :description
-      t.time    :duration
+      t.text    :summary
+      t.integer :duration
       t.string  :state
-      t.text    :distribution_rule
-      t.text    :distribution_skills
+      t.string  :uuid
+      t.string  :distribution_rules
+      t.string  :distribution_skills
       t.timestamps
     end
   end
