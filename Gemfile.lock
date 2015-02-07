@@ -101,8 +101,11 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
     cliver (0.3.2)
     cocoon (1.2.6)
     code_analyzer (0.4.5)
@@ -116,6 +119,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     colored (1.2)
+    connection_pool (2.1.1)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.3.0)
@@ -169,6 +173,7 @@ GEM
       railties (>= 4.0.1)
     hashie (3.3.2)
     hike (1.2.3)
+    hitimes (1.2.2)
     httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -241,6 +246,8 @@ GEM
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     rack (1.5.2)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.4)
@@ -275,6 +282,9 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.2.0)
+    redis-namespace (1.5.1)
+      redis (~> 3.0, >= 3.0.4)
     require_all (1.3.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -312,6 +322,12 @@ GEM
     sexp_processor (4.4.3)
     shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
+    sidekiq (3.3.2)
+      celluloid (>= 0.16.0)
+      connection_pool (>= 2.1.1)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -320,6 +336,10 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
+    sinatra (1.4.5)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
     slop (3.5.0)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -334,6 +354,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timers (4.0.1)
+      hitimes
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -353,6 +375,8 @@ GEM
       crack (>= 0.3.2)
     websocket (1.0.7)
     websocket-driver (0.3.4)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -395,11 +419,14 @@ DEPENDENCIES
   sdoc
   selenium-webdriver
   shoulda-matchers
+  sidekiq
   simple_form
   simplecov
+  sinatra
   slack-notifier!
   uglifier (>= 1.3.0)
   unicorn
   vcr
   webmock
+  whenever
   workshops_engine!

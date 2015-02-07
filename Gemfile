@@ -20,10 +20,14 @@ gem 'lol_dba'
 gem 'mini_magick'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
+gem 'sidekiq'
 gem 'simple_form'
 gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
+gem 'sinatra', :require => nil
+gem 'whenever'
+
 
 # Engines
 gem 'badges_engine',        path: 'vendor/engines/badges_engine'

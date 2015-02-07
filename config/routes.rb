@@ -33,8 +33,10 @@ KardexCrowdintCom::Application.routes.draw do
   end
 
   scope 'admin' do
+    require 'sidekiq/web'
     mount BadgesEngine::Engine , at: '/'
     mount PresentationsEngine::Engine, at: '/'
+    mount Sidekiq::Web => '/sidekiq'
   end
 
   mount WorkshopsEngine::Engine, at: '/'
