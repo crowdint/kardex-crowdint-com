@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141231014747) do
+ActiveRecord::Schema.define(version: 20141231214747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,13 @@ ActiveRecord::Schema.define(version: 20141231014747) do
     t.string   "text"
     t.string   "state"
     t.boolean  "is_valid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbook_levels", force: true do |t|
+    t.string   "name"
+    t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -124,6 +131,7 @@ ActiveRecord::Schema.define(version: 20141231014747) do
     t.string   "description"
     t.text     "summary"
     t.integer  "duration"
+    t.integer  "level_id"
     t.string   "state"
     t.string   "uuid"
     t.string   "distribution_rules"
@@ -137,6 +145,8 @@ ActiveRecord::Schema.define(version: 20141231014747) do
     t.string   "description"
     t.text     "summary"
     t.string   "category"
+    t.integer  "weight"
+    t.string   "skill_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

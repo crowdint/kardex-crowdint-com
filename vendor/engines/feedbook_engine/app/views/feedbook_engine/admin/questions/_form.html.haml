@@ -9,13 +9,13 @@
       .field
         = f.input :description
       .field
-        = f.input :duration
+        = f.input :duration, collection: FeedbookEngine::Question::DURATIONS
       .field
         = f.input :skill_id, collection: FeedbookEngine::Skill.all.order(:name)
       .field
         = f.input :type_question, collection: FeedbookEngine::Question::TYPES
       .field
-        = f.input :level_id, collection: FeedbookEngine::Question::LEVELS
+        = f.input :level_id, collection: FeedbookEngine::Level.all.order(:name)
       .field
         = f.input :tags
       .field

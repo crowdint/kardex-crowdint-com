@@ -5,6 +5,8 @@ class CreateFeedbookSkills < ActiveRecord::Migration
       t.string  :description
       t.text    :summary
       t.string  :category
+      t.integer :weight
+      t.string  :skill_type
       t.timestamps
     end
   end

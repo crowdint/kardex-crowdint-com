@@ -44,7 +44,7 @@ module FeedbookEngine
     end
 
     def quiz_params
-      params.require(:quiz).permit(:name, :description, :summary, :duration, :distribution_skills, :distribution_rule)
+      params.require(:quiz).permit(:name, :description, :level_id, :summary, :duration, :distribution_skills, :distribution_rules)
     end
   end
 end

@@ -2,10 +2,12 @@ require_dependency 'feedbook_engine/application_controller'
 
 module FeedbookEngine
   class QuizzesController < ApplicationController
+
+    skip_before_action :restrict_access
     before_action :find_quiz, only: [:show, :update]
 
     def show
-      @quiz = Quiz.new
+      @user_quiz = QuizUser.build_question_pool(@quiz.id)
     end
 
     def update

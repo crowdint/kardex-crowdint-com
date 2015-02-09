@@ -5,6 +5,7 @@ class CreateFeedbookQuizzes < ActiveRecord::Migration
       t.string  :description
       t.text    :summary
       t.integer :duration
+      t.integer :level_id
       t.string  :state
       t.string  :uuid
       t.string  :distribution_rules

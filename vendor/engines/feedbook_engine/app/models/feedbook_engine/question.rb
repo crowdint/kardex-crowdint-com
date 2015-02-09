@@ -2,16 +2,18 @@ class FeedbookEngine::Question < ActiveRecord::Base
   self.table_name = 'feedbook_questions'
 
   belongs_to :skill
+  belongs_to :level
   has_many :answers
 
   accepts_nested_attributes_for :answers, :reject_if => :all_blank, :allow_destroy => true
 
-  LEVELS = [
-    ['None', 0],
-    ['Basic', 3],
-    ['Intermediate', 5],
-    ['Advance', 8],
-    ['Expert', 10]
+  DURATIONS = [
+    ['Half minute', '30'],
+    ['1 minute', '60'],
+    ['1 and half minute', '90'],
+    ['2 minutes', '120'],
+    ['3 minutes', '180'],
+    ['5 minutes', '300']
   ]
 
   TYPES = [

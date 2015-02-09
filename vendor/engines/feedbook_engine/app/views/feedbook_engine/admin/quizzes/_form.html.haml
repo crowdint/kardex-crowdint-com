@@ -11,13 +11,16 @@
       .field
         = f.input :summary
       .field
-        = f.input :duration, placelholder: 'in seconds'
+        = f.input :level_id, collection: FeedbookEngine::Level.all
+      .field
+        = f.input :duration, collection: FeedbookEngine::Quiz::DURATIONS
       .field
         = f.input :distribution_rules
-        .sliders-wrapper{ style: 'margin: 0 auto; width: 100px;'}
+        .sliders-wrapper{ style: 'margin: 0 auto; width: 150px;'}
           #low-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
           #mid-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
           #high-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
+          #expert-level{ style: "height: 100px; display: inline-block; margin-right: 20px;" }
       .field
         = f.input :distribution_skills, placeholder: 'skill names, comma separated'
       .actions.clearfix
@@ -32,16 +35,16 @@
   function keepAspectRatio(slider){
     var totalPoints = 0,
         values = [];
-    $.each(["#low-level", "#mid-level", "#high-level"], function(i, ele){
+    $.each(["#low-level", "#mid-level", "#high-level", "#expert-level"], function(i, ele){
       totalPoints += $(ele).slider("value");
     });
 
-    $.each(["#low-level", "#mid-level", "#high-level"], function(i, ele){
+    $.each(["#low-level", "#mid-level", "#high-level", "#expert-level"], function(i, ele){
       var value = Math.round(($(ele).slider("value") * 100) / totalPoints);
 
       // Ensure sum of distribution ranges are 100
       var isRoundedCorrectly = _.reduce(_.flatten([values, value]), function(memo, num){ return memo + num; }, 0) == 100;
-      if (i == 2 && !isRoundedCorrectly){
+      if (i == 3 && !isRoundedCorrectly){
         value = 100 - _.reduce(values, function(memo, num){ return memo + num; }, 0)
       }
 
@@ -57,11 +60,12 @@
     $("#low-level").slider("value", values[0]);
     $("#mid-level").slider("value", values[1]);
     $("#high-level").slider("value", values[2]);
+    $("#expert-level").slider("value", values[3]);
     $('#quiz_distribution_rules').val(values.join('-'));
   }
 
   $(function() {
-    $("#low-level, #mid-level, #high-level").slider({
+    $("#low-level, #mid-level, #high-level, #expert-level").slider({
       orientation: "vertical",
       range: "min",
       min: 1,
@@ -73,7 +77,6 @@
         }
       }
     });
-    $("#mid-level").slider("value", 60);
 
     loadValues("#{ @quiz.distribution_params }");
   });
