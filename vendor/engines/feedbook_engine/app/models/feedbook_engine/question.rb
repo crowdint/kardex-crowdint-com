@@ -46,7 +46,7 @@ class FeedbookEngine::Question < ActiveRecord::Base
   private
 
   def look_level_and_skill_names
-    self.level_id = FeedbookEngine::Level.find_by_name(level_name).id if level_name.present?
-    self.skill_id = FeedbookEngine::Skill.find_by_name(skill_name).id if skill_name.present?
+    self.level_id = FeedbookEngine::Level.find_by_name(level_name.downcase).id if level_name.present?
+    self.skill_id = FeedbookEngine::Skill.find_by_name(skill_name.downcase).id if skill_name.present?
   end
 end
