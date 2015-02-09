@@ -33,7 +33,7 @@ class FeedbookEngine::QuizUser < ActiveRecord::Base
 
     questions = user_quiz.send :questions_generator
 
-    binding.pry
+    #binding.pry
 
     # skills: rails(active_record, active_support, action_view, action_pack, railties)
     # skills_wighted: 3, 1, 2, 3, 1

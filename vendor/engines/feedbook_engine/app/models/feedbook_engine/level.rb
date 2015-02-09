@@ -3,7 +3,7 @@ class FeedbookEngine::Level < ActiveRecord::Base
 
   has_many :questions
 
-  before_create :lowercase_name
+  before_validation :lowercase_name
 
   scope :with_level, -> { where('feedbook_levels.value > 0') }
   scope :order_by_value, -> { order(:value) }

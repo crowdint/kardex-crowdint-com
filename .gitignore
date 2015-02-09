@@ -35,3 +35,7 @@ coverage/.last_run.json
 
 # ignore annoying DS_Store file
 .DS_Store
+
+
+# Seed files
+vendor/engines/feedbook_engine/db/seeds/
