@@ -26,9 +26,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
 #Sidekiq
+gem 'sinatra', require: false
 gem 'sidekiq'
 gem 'sidekiq-scheduler', '~> 1'
-gem 'sinatra', require: false
 
 # Engines
 gem 'badges_engine',        path: 'vendor/engines/badges_engine'
