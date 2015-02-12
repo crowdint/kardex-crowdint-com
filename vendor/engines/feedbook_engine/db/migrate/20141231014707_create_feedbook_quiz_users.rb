@@ -11,7 +11,6 @@ class CreateFeedbookQuizUsers < ActiveRecord::Migration
       t.integer :time_used
       t.datetime :started_at
       t.datetime :ended_at
-      t.text    :questions_pool
       t.timestamps
     end
   end

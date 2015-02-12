@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141231214747) do
+ActiveRecord::Schema.define(version: 20141231234716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,13 @@ ActiveRecord::Schema.define(version: 20141231214747) do
     t.datetime "updated_at"
   end
 
+  create_table "feedbook_questions_feedbook_quiz_users", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "quiz_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "feedbook_quiz_users", force: true do |t|
     t.integer  "user_id"
     t.integer  "quiz_id"
@@ -121,7 +128,13 @@ ActiveRecord::Schema.define(version: 20141231214747) do
     t.integer  "time_used"
     t.datetime "started_at"
     t.datetime "ended_at"
-    t.text     "questions_pool"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbook_quiz_users_questions", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "quiz_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

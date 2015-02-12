@@ -5,9 +5,22 @@ module FeedbookEngine
 
     skip_before_action :restrict_access
     before_action :find_quiz, only: [:show, :update]
+    before_action :find_user_quiz, only: [:start, :next, :finish]
 
     def show
-      @user_quiz = QuizUser.build_question_pool(@quiz.id)
+      @user_quiz = QuizUser.generate_user_quiz(current_user.id, @quiz.id) unless @user_quiz
+    end
+
+    def start
+      binding.pry
+      session[:current_quiz] = @user_quiz.id
+      session[:current_question] = @question.id
+    end
+
+    def next
+    end
+
+    def finish
     end
 
     def update
@@ -23,6 +36,11 @@ module FeedbookEngine
 
     def find_quiz
       @quiz = Quiz.find_by_uuid(params[:id])
+      @user_quiz = QuizUser.where( quiz_id: @quiz.id, user_id: current_user.id, state: 'active').first
+    end
+
+    def find_user_quiz
+      @user_quiz = QuizUser.find_by_uuid(params[:id])
     end
 
     def quiz_params

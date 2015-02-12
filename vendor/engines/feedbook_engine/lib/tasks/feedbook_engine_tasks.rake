@@ -17,10 +17,12 @@ namespace :feedbook_engine do
       FeedbookEngine::Skill.create(skill)
     end
 
-    questions = JSON.parse(File.read("#{Rails.root}/vendor/engines/feedbook_engine/db/seeds/questions/rails.json"))
-    puts 'Loading Feedbook sample questions...'
-    questions.each do |question|
-      FeedbookEngine::Question.create(question)
+    ['rails'].each do |skill_name|
+      questions = JSON.parse(File.read("#{Rails.root}/vendor/engines/feedbook_engine/db/seeds/questions/#{skill_name}.json"))
+      puts 'Loading Feedbook sample questions...'
+      questions.each do |question|
+        FeedbookEngine::Question.create(question)
+      end
     end
   end
 end

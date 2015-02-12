@@ -2,48 +2,23 @@ class FeedbookEngine::QuizUser < ActiveRecord::Base
   self.table_name = 'feedbook_quiz_users'
 
   belongs_to :quiz
+  belongs_to :user
+  has_many :quiz_users_questions
+  has_many :questions, through: :quiz_users_questions
+  has_many :answers, through: :questions
 
-  def self.generate_user_quiz user_id, quiz_id
-    quiz = self.new
-    quiz.user_id = user_id
-    quiz.quiz_id = quiz_id
-    quiz.uuid = SecureRandom.urlsafe_base64
-
-    # create_table "feedbook_quiz_users", force: true do |t|
-    #   t.integer  "user_id"
-    #   t.integer  "quiz_id"
-    #   t.text     "feedback"
-    #   t.string   "state"
-    #   t.string   "uuid"
-    #   t.integer  "attempt"
-    #   t.integer  "time_limit"
-    #   t.integer  "time_used"
-    #   t.datetime "started_at"
-    #   t.datetime "ended_at"
-    #   t.text     "questions_pool"
-    #   t.datetime "created_at"
-    #   t.datetime "updated_at"
-      # end
-  end
-
-  def self.build_question_pool(quiz_id)
+  def self.generate_user_quiz(user_id, quiz_id)
     user_quiz = self.new
     user_quiz.quiz_id = quiz_id
+    user_quiz.user_id = user_id
     user_quiz.uuid = SecureRandom.urlsafe_base64
+    user_quiz.state = 'active'
 
     questions = user_quiz.send :questions_generator
-
-    #binding.pry
-
-    # skills: rails(active_record, active_support, action_view, action_pack, railties)
-    # skills_wighted: 3, 1, 2, 3, 1
-    # distribution: 20-60-20-0
-    # duration: 1200   (20 minutes)
-
-    # 1. define time for each skill
-    # 2. define questions pool from distribution
-    # 3. use exact coing algorithm to choose questions
-    # 4. build quiz
+    user_quiz.question_ids = questions.map(&:id)
+    binding.pry
+    user_quiz.save
+    user_quiz
   end
 
   private
@@ -131,6 +106,4 @@ class FeedbookEngine::QuizUser < ActiveRecord::Base
     end
     questions
   end
-
-
 end
