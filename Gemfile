@@ -26,7 +26,7 @@ gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'sinatra', :require => nil
-gem 'whenever'
+gem 'sidekiq-scheduler', '~> 1'
 
 
 # Engines
