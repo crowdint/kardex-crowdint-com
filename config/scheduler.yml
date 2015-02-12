@@ -3,7 +3,7 @@ sync_users_from_bambo_api:
   cron: "0 6 * * *"
   class: SyncUsersJob
   queue: users
-  description: "This job will sync the users every 30 seconds after 120 seconds after start"
+  description: "This job will sync the users from bamboo API every day at 6am"
 
 # * * * * *  command to execute
 # │ │ │ │ │
