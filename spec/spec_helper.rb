@@ -7,6 +7,7 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require 'sidekiq/testing'
 
 require 'database_cleaner'
 require 'shoulda-matchers'
@@ -77,4 +78,16 @@ RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
   config.include FeatureHelpers, type: :feature
   config.include CarrierWave::Test::Matchers
+
+  config.before(:each) do
+    Sidekiq::Worker.clear_all
+  end
+
+end
+
+REDIS_URL = ENV['REDIS_URL'] || 'redis://localhost/15'
+REDIS = Sidekiq::RedisConnection.create(:url => REDIS_URL, :namespace => 'testy')
+
+Sidekiq.configure_client do |config|
+  config.redis = { :url => REDIS_URL, :namespace => 'testy' }
 end

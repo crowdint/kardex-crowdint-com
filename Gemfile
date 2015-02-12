@@ -58,6 +58,7 @@ group :test do
   gem 'faker'
   gem 'nyan-cat-formatter'
   gem 'poltergeist', '~> 1.5.0'
+  gem 'rspec-sidekiq'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'
