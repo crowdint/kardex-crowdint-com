@@ -38,4 +38,5 @@ KardexCrowdintCom::Application.routes.draw do
   end
 
   mount WorkshopsEngine::Engine, at: '/'
+  mount BonusEngine::Engine, at: '/'
 end

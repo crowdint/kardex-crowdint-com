@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 ruby '2.1.2'
 gem 'rails', '4.0.4'
@@ -29,6 +30,7 @@ gem 'unicorn'
 gem 'badges_engine',        path: 'vendor/engines/badges_engine'
 gem 'presentations_engine', path: 'vendor/engines/presentations_engine'
 gem 'workshops_engine',     path: 'vendor/engines/workshops_engine'
+gem 'bonus_engine', path: '../bonus_engine'
 
 group :doc do
   gem 'sdoc', require: false
