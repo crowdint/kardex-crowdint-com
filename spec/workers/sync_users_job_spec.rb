@@ -5,8 +5,8 @@ describe SyncUsersJob do
     Sidekiq::Testing.fake!
   end
 
-  it { expect(SyncUsersJob).to be_retryable 3 }
-  it { expect(SyncUsersJob).to be_processed_in :users }
+  specify { expect(SyncUsersJob).to be_retryable 3 }
+  specify { expect(SyncUsersJob).to be_processed_in :users }
 
   describe '.perform_async' do
     specify{
