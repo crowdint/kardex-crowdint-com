@@ -8,7 +8,7 @@ describe SyncUsersJob do
   it { expect(SyncUsersJob).to be_retryable 3 }
   it { expect(SyncUsersJob).to be_processed_in :users }
 
-  describe "#perform_async" do
+  describe '.perform_async' do
     specify{
       expect{ SyncUsersJob.perform_async }.to change(SyncUsersJob.jobs, :size).by(1)
     }
