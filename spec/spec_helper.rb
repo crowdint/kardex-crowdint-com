@@ -86,8 +86,8 @@ RSpec.configure do |config|
 end
 
 REDIS_URL = ENV['REDIS_URL'] || 'redis://localhost/15'
-REDIS = Sidekiq::RedisConnection.create(:url => REDIS_URL, :namespace => 'testy')
+REDIS = Sidekiq::RedisConnection.create(url: REDIS_URL, namespace: 'testy')
 
 Sidekiq.configure_client do |config|
-  config.redis = { :url => REDIS_URL, :namespace => 'testy' }
+  config.redis = { url: REDIS_URL, namespace: 'testy' }
 end
