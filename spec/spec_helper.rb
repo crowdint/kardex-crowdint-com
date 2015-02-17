@@ -14,6 +14,7 @@ require 'shoulda-matchers'
 require 'carrierwave'
 
 require 'pry'
+require 'codeclimate-test-reporter'
 
 SimpleCov.start do
   add_group 'Controllers', 'app/controllers'
@@ -32,6 +33,8 @@ Rails.application.config.engines_list.uniq.each do |engine|
 end
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+
+CodeClimate::TestReporter.start
 
 Capybara.default_host = 'http://localhost:3000'
 
