@@ -7,12 +7,14 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require 'sidekiq/testing'
 
 require 'database_cleaner'
 require 'shoulda-matchers'
 require 'carrierwave'
 
 require 'pry'
+require 'codeclimate-test-reporter'
 
 SimpleCov.start do
   add_group 'Controllers', 'app/controllers'
@@ -31,6 +33,8 @@ Rails.application.config.engines_list.uniq.each do |engine|
 end
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+
+CodeClimate::TestReporter.start
 
 Capybara.default_host = 'http://localhost:3000'
 
@@ -77,4 +81,16 @@ RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
   config.include FeatureHelpers, type: :feature
   config.include CarrierWave::Test::Matchers
+
+  config.before(:each) do
+    Sidekiq::Worker.clear_all
+  end
+
+end
+
+REDIS_URL = ENV['REDIS_URL'] || 'redis://localhost/15'
+REDIS = Sidekiq::RedisConnection.create(url: REDIS_URL, namespace: 'testy')
+
+Sidekiq.configure_client do |config|
+  config.redis = { url: REDIS_URL, namespace: 'testy' }
 end
