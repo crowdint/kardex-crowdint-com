@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe FeedbookEngine::FeedbookQuizUser do
+describe FeedbookEngine::QuizUser do
   pending "add some examples to (or delete) #{__FILE__}"
 end
