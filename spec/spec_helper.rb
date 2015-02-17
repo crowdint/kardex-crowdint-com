@@ -60,6 +60,7 @@ VCR.configure do |c|
   c.default_cassette_options =  { record: :none }
   c.configure_rspec_metadata!
   c.ignore_localhost = true
+  c.ignore_hosts 'codeclimate.com'
 end
 
 Fabrication.configure do |config|
