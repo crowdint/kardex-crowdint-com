@@ -1,0 +1,23 @@
+%section.badges.col-md-9.module-separation
+  .row
+    %header.badges-header-container
+      %h3.badges-header
+        %span.badges-header-image
+        %span.badges-title My Badges
+      %ul.badges-menu
+        %li
+          = link_to 'Check all my badges', badges_user_path(@user),
+            class: 'badges-first-link'
+        %li.last
+          = link_to 'Check all badges', badges_path,
+            class: 'badges-last-link'
+      .badges-header-decorator
+  .row
+    .badges-all
+      = show_badges
+  .row
+    %footer.badges-footer
+      %p
+        Displaying my last
+        = pluralize(@badges.size, 'badge')
+      .badges-footer-icon

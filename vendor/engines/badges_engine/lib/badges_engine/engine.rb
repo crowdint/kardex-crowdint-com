@@ -3,6 +3,9 @@ module BadgesEngine
     isolate_namespace BadgesEngine
 
     config.to_prepare do
+      Rails.application.config.engines_list << 'BadgesEngine'
+      Rails.application.config.rspec_paths << BadgesEngine::Engine.root
+
       Dir.glob(Rails.root + 'app/decorators/**/*_decorator').each do |c|
         require_dependency(c)
       end
