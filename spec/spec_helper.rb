@@ -14,7 +14,7 @@ require 'shoulda-matchers'
 require 'carrierwave'
 
 require 'pry'
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 
 SimpleCov.start do
   add_group 'Controllers', 'app/controllers'
