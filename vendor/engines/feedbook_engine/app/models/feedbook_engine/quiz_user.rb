@@ -5,7 +5,7 @@ class FeedbookEngine::QuizUser < ActiveRecord::Base
   belongs_to :user
   has_many :quiz_users_questions
   has_many :questions, through: :quiz_users_questions
-  has_many :answers, through: :questions
+  has_many :question_user_answers
 
   def self.generate_user_quiz(user_id, quiz_id)
     user_quiz = self.new
@@ -16,7 +16,6 @@ class FeedbookEngine::QuizUser < ActiveRecord::Base
 
     questions = user_quiz.send :questions_generator
     user_quiz.question_ids = questions.map(&:id)
-    binding.pry
     user_quiz.save
     user_quiz
   end

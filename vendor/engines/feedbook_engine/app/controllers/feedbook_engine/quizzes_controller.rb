@@ -4,20 +4,17 @@ module FeedbookEngine
   class QuizzesController < ApplicationController
 
     skip_before_action :restrict_access
-    before_action :find_quiz, only: [:show, :update]
-    before_action :find_user_quiz, only: [:start, :next, :finish]
+    before_action :find_quiz, only: [:start]
+    before_action :find_user_quiz, only: [:show, :finish]
+    before_action :find_user_question, only: [:show, :finish]
 
     def show
-      @user_quiz = QuizUser.generate_user_quiz(current_user.id, @quiz.id) unless @user_quiz
+      redirect_to start_quiz_url(params[:id]) unless session[:current_question]
+      next_question
     end
 
     def start
-      binding.pry
-      session[:current_quiz] = @user_quiz.id
-      session[:current_question] = @question.id
-    end
-
-    def next
+      @user_quiz = QuizUser.generate_user_quiz(current_user.id, @quiz.id) unless @user_quiz
     end
 
     def finish
@@ -43,8 +40,26 @@ module FeedbookEngine
       @user_quiz = QuizUser.find_by_uuid(params[:id])
     end
 
+    def find_user_question
+      @user_question = QuestionUserAnswer.find(session[:current_question]) if session[:current_question]
+    end
+
     def quiz_params
       params.require(:quiz).permit(:name, :description, :duration, :distribution_skills, :distribution_rule)
+    end
+
+    def get_question
+      questions_answered = @user_quiz.question_user_answers.pluck(:question_id) << 0
+      questions = @user_quiz.questions.where('feedbook_questions.id not in (?)', questions_answered).first
+      question_user_answer = @user_quiz.question_user_answers.build
+      question_user_answer.question_id = question.id
+      question_user_answer.save
+      question_user_answer
+    end
+
+    def next_question
+      @user_question = get_question unless @user_question
+      session[:current_question] = @user_question.id
     end
   end
 end

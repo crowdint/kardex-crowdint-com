@@ -1,10 +1,29 @@
 %br
 %br
 .row
+  .col-md-8
+    %h2
+      = @user_quiz.quiz.name
+      Test
+    %span
+      = "Question #{@user_quiz.question_user_answers.count} of #{@user_quiz.questions.count}"
+  .col-md-4
+    %span Time remaining 01:14
+
+.row
   .col-md-12
-    .jumbotron.quiz
-      %h1 Ruby on Rails Test
-      %p
-        This test is about 45 multiple choice questions and should take less than 45 minutes to complete
-      %p
-        = link_to 'Start test', feedbook_engine.start_quiz_url(@user_quiz.uuid), class: 'btn btn-primary btn-lg'
+    %p
+      = @user_question.question.name
+
+.row
+  .col-md-12
+    %ul
+      - @user_question.question.answers.each do |answer|
+        %li
+          = answer.text
+
+.row
+  .col-md-6
+    = link_to 'Continue', feedbook_engine.quiz_url(@user_quiz.uuid), class: 'btn btn-primary btn-lg'
+  .col-md-6
+    %span Can this question be improved? Let us know
