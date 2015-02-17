@@ -54,6 +54,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "codeclimate-test-reporter", require: nil
   gem 'fabrication'
   gem 'faker'
   gem 'nyan-cat-formatter'
