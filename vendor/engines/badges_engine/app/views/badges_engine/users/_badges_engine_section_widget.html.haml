@@ -6,7 +6,7 @@
         %span.badges-title My Badges
       %ul.badges-menu
         %li
-          = link_to 'Check all my badges', '#',
+          = link_to 'Check all my badges', badges_engine.user_badges_path(current_user),
             class: 'badges-first-link'
         %li.last
           = link_to 'Check all badges', badges_engine.badges_path,

@@ -8,14 +8,14 @@
         %span.badges-count
           = pluralize(@badges.size, 'Badge')
         %ul.badges-menu
-          %li= link_to 'Back to my Dashboard', user_path(@user), class: 'badges-first-link'
+          %li= link_to 'Back to my Dashboard', main_app.user_path(@user), class: 'badges-first-link'
           %li.last
             = link_to 'Check all badges', badges_path,
               class: 'badges-last-link'
           .badges-header-decorator
       %section
         .search
-          = form_tag(badges_user_path, method: :get, class: 'search-form') do
+          = form_tag(user_badges_path, method: :get, class: 'search-form') do
             = label_tag :search, 'Search', class: 'search-form-label'
             = text_field_tag :search, params[:search],
               class: 'search-form-control'

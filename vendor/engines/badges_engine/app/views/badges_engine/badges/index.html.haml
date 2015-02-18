@@ -10,7 +10,7 @@
           Badges earned
         %ul.badges-menu
           %li
-            = link_to 'Back to my Badges', '#',
+            = link_to 'Back to my Badges', user_badges_path(current_user),
               class: 'badges-first-link'
           %li.last
             = link_to 'Back to my Dashboard', main_app.user_path(current_user),
