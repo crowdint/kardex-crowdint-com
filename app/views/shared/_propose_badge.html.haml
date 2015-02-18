@@ -1,7 +1,7 @@
 %section.request-propose
   %h3.request-propose-title Proposing a new Badge
 .request-form-propose
-  = simple_form_for @propose_badge do |f|
+  = simple_form_for @propose_badge, url: main_app.propose_badges_path do |f|
     .row
       - if @propose_badge.errors.any?
         %h2

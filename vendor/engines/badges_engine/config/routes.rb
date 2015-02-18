@@ -1,3 +1,3 @@
 BadgesEngine::Engine.routes.draw do
-  resources :badges
+  resources :badges, only: [:index, :show]
 end

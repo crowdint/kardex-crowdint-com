@@ -10,10 +10,10 @@
           Badges earned
         %ul.badges-menu
           %li
-            = link_to 'Back to my Badges', badges_user_path(current_user),
+            = link_to 'Back to my Badges', '#',
               class: 'badges-first-link'
           %li.last
-            = link_to 'Back to my Dashboard', user_path(current_user),
+            = link_to 'Back to my Dashboard', main_app.user_path(current_user),
               class: 'badges-last-link'
           .badges-header-decorator
       %section
@@ -26,12 +26,12 @@
             = text_field_tag :search, params[:search],
               class: 'search-form-control'
             = button_tag "Search", :name => nil, class: 'hide'
-            = label_tag :sort, 'Sort by:', class: 'search-form-label'
-            = select_tag :sort, "<option>%#{params[:sort]}%</option><option>2</option><option>3</option><option>4</option>".html_safe,
-              class: 'search-form-control'
-            = text_field_tag :sort, params[:sort],
-              class: 'search-form-control'
-            = button_tag "Sort", :name => nil, class: 'hide'
+            -#= label_tag :sort, 'Sort by:', class: 'search-form-label'
+            -#= select_tag :sort, "<option>%#{params[:sort]}%</option><option>2</option><option>3</option><option>4</option>".html_safe,
+              -#class: 'search-form-control'
+            -#= text_field_tag :sort, params[:sort],
+              -#class: 'search-form-control'
+            -#= button_tag "Sort", :name => nil, class: 'hide'
           %p.search-proposals
             = link_to 'Nominate someone', '#',
               class: 'search-proposals-nominate'

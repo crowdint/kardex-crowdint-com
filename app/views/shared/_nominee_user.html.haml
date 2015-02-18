@@ -1,7 +1,7 @@
 %section.request-nominee
   %h3.request-nominee-title Nominating someone
 %section.request-form-nominee
-  = simple_form_for @nominee_user do |f|
+  = simple_form_for @nominee_user, url: main_app.nominee_users_path do |f|
     .row
       - if @nominee_user.errors.any?
         %h2

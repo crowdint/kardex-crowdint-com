@@ -2,6 +2,12 @@ module BadgesEngine
   class Engine < ::Rails::Engine
     isolate_namespace BadgesEngine
 
+    initializer :action_controller do
+      ActiveSupport.on_load :action_controller do
+        helper BadgesEngine::BaseHelper
+      end
+    end
+
     config.to_prepare do
       Rails.application.config.engines_list << 'BadgesEngine'
       Rails.application.config.rspec_paths << BadgesEngine::Engine.root
