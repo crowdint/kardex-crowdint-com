@@ -4,7 +4,7 @@ PresentationsEngine::ApplicationController.class_eval do
   private
 
   def restrict_access
-    redirect_to session[:last_moudle] unless 
+    redirect_to session[:last_module] unless
       current_user.roles.include?(presentations_admin) || current_user.is_admin
   end
 

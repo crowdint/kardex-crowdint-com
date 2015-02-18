@@ -25,7 +25,7 @@
             = label_tag :search, 'Search', class: 'search-form-label'
             = text_field_tag :search, params[:search],
               class: 'search-form-control'
-            = button_tag "Search", :name => nil, class: 'hide'
+            = button_tag "Search", name: nil, class: 'hide'
             -#= label_tag :sort, 'Sort by:', class: 'search-form-label'
             -#= select_tag :sort, "<option>%#{params[:sort]}%</option><option>2</option><option>3</option><option>4</option>".html_safe,
               -#class: 'search-form-control'
