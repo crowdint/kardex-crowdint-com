@@ -16,7 +16,6 @@ KardexCrowdintCom::Application.routes.draw do
   resources :propose_badges, only: :create
   resources :nominee_users, only: :create
   resources :nominee_lists, only: [:index, :show]
-  resources :badges, only: [:index, :show]
   resources :votations, only: :index
   resources :votes, only: :create
   resources :presentations, only: [:index]
@@ -33,10 +32,10 @@ KardexCrowdintCom::Application.routes.draw do
   end
 
   scope 'admin' do
-    mount BadgesEngine::Engine , at: '/'
     mount PresentationsEngine::Engine, at: '/'
     mount Sidekiq::Web => '/sidekiq'
   end
 
   mount WorkshopsEngine::Engine, at: '/'
+  mount BadgesEngine::Engine , at: '/'
 end
