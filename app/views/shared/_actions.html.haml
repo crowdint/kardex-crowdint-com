@@ -15,14 +15,8 @@
               %p Users
               .user-admin-icon
               .carpet-down
-        - if current_user.roles.include?(badges_admin) or current_user.is_admin
-          %li
-            = link_to badges_engine.badges_path, id: 'admin-badge-link' do
-              %p Badges
-              .badge-admin-icon
-              .carpet-down
         - Rails.application.config.engines_list.uniq.each do |engine|
-          = render partial: "#{engine.underscore}/shared/#{engine.underscore}_admin_action"# rescue nil
+          = render partial: "#{engine.underscore}/shared/#{engine.underscore}_admin_action" rescue nil
         - if current_user.roles.include?(presentations_admin) or current_user.is_admin
           %li
             = link_to presentations_engine.presentations_path,

@@ -1,0 +1,6 @@
+- if current_user.roles.include?(badges_admin) or current_user.is_admin
+  %li
+    = link_to badges_engine.admin_badges_path, id: 'admin-badge-link' do
+      %p Badges
+      .badge-admin-icon
+      .carpet-down

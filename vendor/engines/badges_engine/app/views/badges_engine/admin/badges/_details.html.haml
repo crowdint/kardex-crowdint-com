@@ -1,0 +1,27 @@
+%td{ colspan: 5}
+  .row
+    .col-md-4
+      .span4= image_tag badge.image_url
+    .col-md-8
+      .span8
+        .row
+          .col-md-4
+            %h2= badge.name
+          .col-md-8
+            .action-show-details
+              = link_to 'Edit badge', '#' #badges_engine.edit_badge_path(badge)
+              = link_to 'Show Less', 'javascript:void(0)',class: 'js-show-less'
+        %section
+          %h5 Description:
+          = badge.description
+        %section
+          .value-side
+            %h5 Values:
+            = badge.value.name unless badge.value.nil?
+          .award-side
+            %h5 Award:
+            = badge.award.title unless badge.award.nil?
+        %section
+          %h5 Path:
+          %ul
+            = render badge.levels unless badge.levels.nil?
