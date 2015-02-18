@@ -55,14 +55,6 @@ module ApplicationHelper
     end
   end
 
-  def define_badge_column
-    if params[:controller] == 'users' && params[:action] == 'show'
-      'badge-5-col'
-    else
-      'badge-6-col'
-    end
-  end
-
   def badges_admin
     Role.find_by_name('badges admin')
   end

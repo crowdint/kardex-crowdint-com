@@ -6,12 +6,16 @@ module BadgesEngine
     layout 'dashboards'
 
     def index
-      @badges = BadgesEngine::Badge.all
+    end
+
+    def show
+      @badge = BadgesEngine::Badge.find(params[:id])
     end
 
     private
 
     def get_instance_variables
+      @badges = BadgesEngine::Badge.all
       @nominee_user = NomineeUser.new
       @propose_badge = ProposeBadge.new
     end
