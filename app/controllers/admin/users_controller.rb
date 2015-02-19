@@ -1,18 +1,25 @@
 class Admin::UsersController < Admin::BaseController
-  helper_method :sort_column, :sort_direction
+  helper_method :search_user, :arrange_all_users
   before_action :restrict_access, :get_last_module
 
   def index
     @users = if params[:search]
-              User.where("name ILIKE ? OR email ILIKE ?",
-                         "%#{params[:search]}%", "%#{params[:search]}%")
-                  .order(sort_column + " " + sort_direction)
+              search_user
             else
-              User.order(sort_column + " " + sort_direction)
+              arrange_all_users
     end
   end
 
   private
+
+  def search_user
+    User.where("name ILIKE ? OR email ILIKE ?",
+               "%#{params[:search]}%", "%#{params[:search]}%").order(sort_column + " " + sort_direction)
+  end
+
+  def arrange_all_users
+    User.order(sort_column + " " + sort_direction)
+  end
 
   def sort_column
     User.column_names.include?(params[:sort]) ? params[:sort] : "name"
