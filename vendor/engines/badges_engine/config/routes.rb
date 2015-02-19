@@ -5,6 +5,6 @@ BadgesEngine::Engine.routes.draw do
   match 'users/:user_id/my-badges', to: 'badges#my_badges', via: :get, as: :user_badges
 
   namespace :admin do
-    resources :badges, only: :index
+    resources :badges, only: [:index, :new]
   end
 end

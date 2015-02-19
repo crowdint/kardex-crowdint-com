@@ -13,6 +13,11 @@ module BadgesEngine
                 end
     end
 
+    def new
+      @badge = Badge.new
+      @level = @badge.levels.build
+    end
+
     private
 
     def sort_column
