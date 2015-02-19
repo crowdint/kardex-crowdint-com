@@ -1,4 +1,4 @@
-= simple_form_for(@badge, html: { multipart: true }) do |f|
+= simple_form_for([:admin, @badge], html: { multipart: true }) do |f|
   = render partial: 'shared/errors', locals: { resource: @badge }
   .col-md-4
     .span4

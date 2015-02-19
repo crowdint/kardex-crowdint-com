@@ -18,7 +18,27 @@ module BadgesEngine
       @level = @badge.levels.build
     end
 
+    def create
+      @badge = Badge.new(badge_params)
+      if @badge.save
+        redirect_to admin_badges_url, notice: 'Badge was successfully created.'
+      else
+        render :new
+      end
+    end
+
     private
+
+    def badge_params
+      params.require(:badge).permit(
+        :name,
+        :image,
+        :description,
+        :award_id,
+        :value_id,
+        levels_attributes: [:id, :tier, :badge_alias, :badge_id, :_destroy]
+      )
+    end
 
     def sort_column
       Badge.column_names.include?(params[:sort]) ? params[:sort] : 'name'
