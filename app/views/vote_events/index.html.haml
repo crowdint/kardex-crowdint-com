@@ -1,11 +1,11 @@
 %section.request-propose{ style: 'display: block;' }
-  %h3.request-propose-title Current votations
+  %h3.request-propose-title Current vote event
 .request-form-propose{ style: 'display: block;' }
-  - @votations.each do |votation|
-    - if !votation.users.include?(current_user)
+  - @vote_events.each do |vote_event|
+    - if !vote_event.users.include?(current_user)
       = simple_form_for @vote do |f|
         .row
-          %h4 Votation for #{ votation.badge.name }
+          %h4 Vote event for #{ vote_event.badge.name }
           - if @vote.errors.any?
             %h2
               = pluralize(@propose_badge.errors.count , 'error')
@@ -15,7 +15,7 @@
                 %li= message
         .row
           = f.hidden_field :user_id, value: current_user.id
-          = f.hidden_field :votation_id, value: votation.id
+          = f.hidden_field :vote_event_id, value: vote_event.id
           .col-sm-6
             .span6
               = f.label :voted_user_id

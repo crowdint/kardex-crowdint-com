@@ -4,16 +4,16 @@
   = render partial: 'shared/actions'
 .admin-list
   %header
-    %h1 Current votations for #{ Date.today.strftime('%B %Y') }
+    %h1 Current vote event for #{ Date.today.strftime('%B %Y') }
 .col-sm-12.form-badge
-  = simple_form_for [:admin, @votation] do |f|
-    - if @votation.errors.any?
+  = simple_form_for [:admin, @vote_event] do |f|
+    - if @vote_event.errors.any?
       #error_explanation
         %h2
-          = pluralize(@votation.errors.count, 'error')
+          = pluralize(@vote_event.errors.count, 'error')
           prohibited this voting from being saved:
         %ul
-          - @votation.errors.full_messages.each do |msg|
+          - @vote_event.errors.full_messages.each do |msg|
             %li= msg
     .span12
       .field
@@ -25,6 +25,6 @@
           label_method: :name,
           prompt: 'Select a badge'
       .actions
-        = link_to 'Return to votation index', admin_votations_path
+        = link_to 'Return to vote event index', admin_vote_events_path
         = f.submit 'Save', class: 'btn'
 .clearfix
