@@ -2,6 +2,7 @@ require_dependency 'badges_engine/application_controller'
 
 module BadgesEngine
   class Admin::BadgesController < ApplicationController
+    before_action :set_badge, only: [:edit, :update, :destroy]
     helper_method :sort_column, :sort_direction
     layout 'admin'
 
@@ -27,6 +28,17 @@ module BadgesEngine
       end
     end
 
+    def edit
+    end
+
+    def update
+      if @badge.update(badge_params)
+        redirect_to admin_badges_url, notice: 'Badge was successfully updated.'
+      else
+        render :edit
+      end
+    end
+
     private
 
     def badge_params
@@ -38,6 +50,10 @@ module BadgesEngine
         :value_id,
         levels_attributes: [:id, :tier, :badge_alias, :badge_id, :_destroy]
       )
+    end
+
+    def set_badge
+      @badge = Badge.find(params[:id])
     end
 
     def sort_column
