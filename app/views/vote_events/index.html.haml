@@ -9,7 +9,7 @@
           - if @vote.errors.any?
             %h2
               = pluralize(@propose_badge.errors.count , 'error')
-              prohibted this field to be saved
+              prohibited this field to be saved
             %ul
               - @propose_badge.errors.full_messages.each do |message|
                 %li= message
@@ -19,10 +19,16 @@
           .col-sm-6
             .span6
               = f.label :voted_user_id
-              = f.input :voted_user_id, collection: User.all,
-                value_method: :id, label_method: :name,
-                prompt: 'Select a user', class: 'request-form-input',
-                label: false
+              - if vote_event.candidate
+                = f.input :voted_user_id, collection: vote_event.candidate.users,
+                  value_method: :id, label_method: :name,
+                  prompt: 'Select a user', class: 'request-form-input',
+                  label: false
+              - else
+                = f.input :voted_user_id, collection: User.all,
+                  value_method: :id, label_method: :name,
+                  prompt: 'Select a user', class: 'request-form-input',
+                  label: false
           .col-sm-6
             .span6
               = f.label :reason

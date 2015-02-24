@@ -2,6 +2,7 @@ class VoteEvent < ActiveRecord::Base
   belongs_to :badge, class_name: 'BadgesEngine::Badge'
   has_many :votes, dependent: :destroy
   has_many :users, through: :votes
+  has_one :candidate
 
   validates :badge_id, presence: true
 
