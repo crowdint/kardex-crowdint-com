@@ -17,7 +17,5 @@ describe Vote do
     it { expect(vote).to validate_numericality_of :user_id }
     it { expect(vote).to validate_presence_of :voted_user_id }
     it { expect(vote).to validate_numericality_of :voted_user_id }
-    xit { expect(vote).to validate_presence_of :vote_event_id }
-    xit { expect(vote).to validate_numericality_of :vote_event_id }
   end
 end
