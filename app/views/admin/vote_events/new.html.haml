@@ -24,6 +24,17 @@
           value_method: :id,
           label_method: :name,
           prompt: 'Select a badge'
+      .field
+        %input{name: "candidatesCheckbox",
+               type: "checkbox",
+               value: "true",
+               class: 'checkbox-candidate'}/
+        Choose candidates
+      .field.panel.panel-default.terna-select
+        .panel-body
+          = f.simple_fields_for :candidate do |candidate|
+            = candidate.association :users, include_blank: false, as: :check_boxes
+
       .actions
         = link_to 'Return to vote event index', admin_vote_events_path
         = f.submit 'Save', class: 'btn'

@@ -11,6 +11,7 @@ class Admin::VoteEventsController  < Admin::BaseController
 
   def new
     @vote_event = VoteEvent.new
+    @vote_event.build_candidate
   end
 
   def create
@@ -45,6 +46,12 @@ class Admin::VoteEventsController  < Admin::BaseController
   end
 
   def vote_event_params
-    params.require(:vote_event).permit(:badge_id, :date)
+    params.require(:vote_event).permit(
+      :badge_id, 
+      :date,
+      candidate_attributes: [
+        user_ids: []
+      ]
+    )
   end
 end
