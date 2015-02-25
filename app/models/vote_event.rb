@@ -4,6 +4,8 @@ class VoteEvent < ActiveRecord::Base
   has_many :users, through: :votes
   has_one :candidate
 
+  accepts_nested_attributes_for :candidate
+
   validates :badge_id, presence: true
 
   validate :current_vote_event?

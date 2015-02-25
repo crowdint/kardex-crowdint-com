@@ -15,6 +15,8 @@ describe VoteEvent do
     it { expect(vote_event).to validate_presence_of :badge_id }
   end
 
+  it { expect(vote_event).to accept_nested_attributes_for :candidate }
+
   context '#open_vote_event_process' do
     it 'opens the vote_event' do
       vote_event.save
