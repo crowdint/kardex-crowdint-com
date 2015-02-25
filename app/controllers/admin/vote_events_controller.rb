@@ -2,7 +2,7 @@ class Admin::VoteEventsController < Admin::BaseController
   before_action :find_vote_event, only: [:destroy, :show, :update]
 
   def index
-    @vote_events= VoteEvent.active?
+    @vote_events = VoteEvent.active?
   end
 
   def previous
