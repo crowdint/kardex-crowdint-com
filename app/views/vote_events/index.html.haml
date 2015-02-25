@@ -1,28 +1,34 @@
 %section.request-propose{ style: 'display: block;' }
-  %h3.request-propose-title Current votations
+  %h3.request-propose-title Current vote event
 .request-form-propose{ style: 'display: block;' }
-  - @votations.each do |votation|
-    - if !votation.users.include?(current_user)
+  - @vote_events.each do |vote_event|
+    - if !vote_event.users.include?(current_user)
       = simple_form_for @vote do |f|
         .row
-          %h4 Votation for #{ votation.badge.name }
+          %h4 Vote event for #{ vote_event.badge.name }
           - if @vote.errors.any?
             %h2
               = pluralize(@propose_badge.errors.count , 'error')
-              prohibted this field to be saved
+              prohibited this field to be saved
             %ul
               - @propose_badge.errors.full_messages.each do |message|
                 %li= message
         .row
           = f.hidden_field :user_id, value: current_user.id
-          = f.hidden_field :votation_id, value: votation.id
+          = f.hidden_field :vote_event_id, value: vote_event.id
           .col-sm-6
             .span6
               = f.label :voted_user_id
-              = f.input :voted_user_id, collection: User.all,
-                value_method: :id, label_method: :name,
-                prompt: 'Select a user', class: 'request-form-input',
-                label: false
+              - if vote_event.candidate
+                = f.input :voted_user_id, collection: vote_event.candidate.users,
+                  value_method: :id, label_method: :name,
+                  prompt: 'Select a user', class: 'request-form-input',
+                  label: false
+              - else
+                = f.input :voted_user_id, collection: User.all,
+                  value_method: :id, label_method: :name,
+                  prompt: 'Select a user', class: 'request-form-input',
+                  label: false
           .col-sm-6
             .span6
               = f.label :reason

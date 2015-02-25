@@ -4,9 +4,9 @@
   = render partial: 'shared/actions'
 .admin-list
   %header
-    %h1 Votation for #{ @votation.badge.name }, #{ @votation.date }
-    = link_to 'Create a new votation', new_admin_votation_path, class: 'mvp-orange'
-    = link_to 'Check current votations', admin_votations_path, class: 'mvp'
+    %h1 Votes for #{ @vote_event.badge.name }, #{ @vote_event.date }
+    = link_to 'Create a new vote event', new_admin_vote_event_path, class: 'mvp-orange'
+    = link_to 'Check current vote event', admin_vote_events_path, class: 'mvp'
   - if @nominated.any?
     %table.table
       %tbody

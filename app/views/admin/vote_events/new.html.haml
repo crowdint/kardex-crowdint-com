@@ -1,0 +1,41 @@
+= content_for :user_details do
+  = render partial: 'shared/user_details'
+= content_for :actions do
+  = render partial: 'shared/actions'
+.admin-list
+  %header
+    %h1 Current vote event for #{ Date.today.strftime('%B %Y') }
+.col-sm-12.form-badge
+  = simple_form_for [:admin, @vote_event] do |f|
+    - if @vote_event.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@vote_event.errors.count, 'error')
+          prohibited this voting from being saved:
+        %ul
+          - @vote_event.errors.full_messages.each do |msg|
+            %li= msg
+    .span12
+      .field
+        = f.hidden_field :date, value: Date.today.strftime('%B %Y')
+      .field
+        = f.input :badge_id,
+          collection: BadgesEngine::Badge.all,
+          value_method: :id,
+          label_method: :name,
+          prompt: 'Select a badge'
+      .field
+        %input{name: "candidatesCheckbox",
+               type: "checkbox",
+               value: "true",
+               class: 'checkbox-candidate'}/
+        Choose candidates
+      .field.panel.panel-default.terna-select
+        .panel-body
+          = f.simple_fields_for :candidate do |candidate|
+            = candidate.association :users, include_blank: false, as: :check_boxes
+
+      .actions
+        = link_to 'Return to vote event index', admin_vote_events_path
+        = f.submit 'Save', class: 'btn'
+.clearfix
