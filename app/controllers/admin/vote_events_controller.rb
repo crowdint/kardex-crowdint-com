@@ -47,7 +47,7 @@ class Admin::VoteEventsController < Admin::BaseController
 
   def vote_event_params
     params.require(:vote_event).permit(
-      :badge_id, 
+      :badge_id,
       :date,
       candidate_attributes: [
         user_ids: []
