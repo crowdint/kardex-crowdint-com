@@ -30,7 +30,7 @@ class Admin::VoteEventsController < Admin::BaseController
 
   def show
     @votes = @vote_event.votes.select(:voted_user_id).
-      group(:voted_user_id).count(:voted_user_id)
+             group(:voted_user_id).count(:voted_user_id)
     @nominated = User.find(@votes.keys)
   end
 
