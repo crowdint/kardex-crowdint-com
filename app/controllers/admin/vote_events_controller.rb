@@ -1,4 +1,4 @@
-class Admin::VoteEventsController  < Admin::BaseController
+class Admin::VoteEventsController < Admin::BaseController
   before_action :find_vote_event, only: [:destroy, :show, :update]
 
   def index
