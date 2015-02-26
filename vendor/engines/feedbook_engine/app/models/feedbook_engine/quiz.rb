@@ -1,6 +1,8 @@
 class FeedbookEngine::Quiz < ActiveRecord::Base
   self.table_name = 'feedbook_quizzes'
 
+  # TODO: Add relation for many skills
+
   before_create :generate_random_uuid
 
   DURATIONS = [

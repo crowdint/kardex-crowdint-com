@@ -86,8 +86,7 @@ ActiveRecord::Schema.define(version: 20141231234716) do
   end
 
   create_table "feedbook_question_user_answers", force: true do |t|
-    t.integer  "quiz_user_id"
-    t.integer  "question_id"
+    t.integer  "users_question_id"
     t.integer  "answer_id"
     t.text     "answer_text"
     t.string   "duration"
@@ -134,6 +133,8 @@ ActiveRecord::Schema.define(version: 20141231234716) do
   create_table "feedbook_quiz_users_questions", force: true do |t|
     t.integer  "question_id"
     t.integer  "quiz_user_id"
+    t.boolean  "answered",     default: false
+    t.integer  "points",       default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -300,5 +301,15 @@ ActiveRecord::Schema.define(version: 20141231234716) do
 
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
   add_index "votes", ["votation_id"], name: "index_votes_on_votation_id", using: :btree
+
+  create_table "workshops_engine_workshops", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "date_and_time"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_published",  default: false
+  end
 
 end

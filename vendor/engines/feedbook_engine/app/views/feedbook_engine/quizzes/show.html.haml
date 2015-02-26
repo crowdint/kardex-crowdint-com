@@ -1,29 +1,79 @@
 %br
 %br
-.row
+.row.quiz-header
   .col-md-8
     %h2
       = @user_quiz.quiz.name
       Test
     %span
-      = "Question #{@user_quiz.question_user_answers.count} of #{@user_quiz.questions.count}"
+      = "Question #{@user_quiz.users_questions.answered.count + 1} of #{@user_quiz.users_questions.count}"
   .col-md-4
-    %span Time remaining 01:14
+    %span.time
+      Time remaining
+      %span.timer 00:00
 
-.row
+.row.quiz-question
   .col-md-12
     %p
-      = @user_question.question.name
+      = find_and_preserve @user_question.question.name
 
-.row
+.row.quiz-answers
   .col-md-12
     %ul
       - @user_question.question.answers.each do |answer|
-        %li
+        %li{ data: { 'id' => answer.id } }
           = answer.text
 
-.row
+.row.quiz-footer
   .col-md-6
-    = link_to 'Continue', feedbook_engine.quiz_url(@user_quiz.uuid), class: 'btn btn-primary btn-lg'
+    = link_to 'Continue', '#', class: 'submit-action btn btn-success btn-lg'
   .col-md-6
-    %span Can this question be improved? Let us know
+    %span.feedback Can this question be improved? Let us know
+
+:javascript
+  // Question metadata
+  var questioMetadata = {
+    duration: 60,
+    multiple: false,
+    open: false
+  }
+
+  // Make timer works
+  var startTime = new Date().getTime();
+  setInterval(function(){
+    var time = new Date().getTime() - startTime;
+    time = new Date((questioMetadata.duration * 1000) - time);
+    timeString = ('0'+time.getMinutes()).slice(-2) + ':' + ('0'+time.getSeconds()).slice(-2);
+    $('.quiz-header .timer').text(timeString);
+  }, 1000);
+
+  // Handle active states on answers
+  $('.quiz-answers li').on('click', function(){
+    if (!questioMetadata.multiple){
+      $('.quiz-answers li').removeClass('active');
+    }
+    $(this).toggleClass('active');
+  });
+
+  // Handle on continue button is clicked
+  $('.submit-action').on('click', function(){
+    var answers = $('.quiz-answers li.active').map(function(i,ele){ return $(ele).data('id') }).get();
+
+    // TODO: Check one selection at least
+    $.ajax({
+      url: "#{quiz_url}",
+      type: "PUT",
+      data: { id : "#{@user_quiz.uuid}", question_id: "#{@user_question.id}", answers: answers },
+      dataType: "json",
+      success: function( msg ) {
+        // TODO: Add any visual effect/animation on success
+        window.location = msg.redirect;
+      },
+      error: function( jqXHR, textStatus ) {
+        // TODO: Send error messages to backend
+        console.log( "Request failed: " + textStatus );
+      }
+    });
+
+    return false;
+  });

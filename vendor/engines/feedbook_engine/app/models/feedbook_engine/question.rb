@@ -4,9 +4,9 @@ class FeedbookEngine::Question < ActiveRecord::Base
   belongs_to :skill
   belongs_to :level
   has_many :answers
-  has_many :quiz_users_questions
-  has_many :quiz_users, through: :quiz_users_questions
-  has_many :question_user_answers
+  has_many :users_questions
+  has_many :user_quizzes, through: :users_questions
+  has_many :user_answers
 
   validates_uniqueness_of :name, scope: [:skill_id]
   validates_presence_of :name, :skill_id, :level_id, :type_question, :duration

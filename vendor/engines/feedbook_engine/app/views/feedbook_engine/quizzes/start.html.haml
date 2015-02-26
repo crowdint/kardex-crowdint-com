@@ -3,11 +3,10 @@
 .row
   .col-md-12
     .jumbotron.quiz
-      - binding.pry
       %h1
         = @user_quiz.quiz.name
         Test
       %p
         = @user_quiz.quiz.description
       %p
-        = link_to 'Start test', feedbook_engine.quiz_url(@user_quiz.uuid), class: 'btn btn-primary btn-lg'
+        = link_to 'Start test', feedbook_engine.user_quiz_url(@user_quiz.uuid), class: 'btn btn-primary btn-lg'

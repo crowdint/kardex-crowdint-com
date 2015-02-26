@@ -1,10 +1,12 @@
 FeedbookEngine::Engine.routes.draw do
-  resources :quizzes, only: [:show, :update], path: 'quiz' do
+  resources :quizzes, only: [:update], path: 'quiz' do
     member do
       get :start
       get :finish
     end
   end
+
+  get 'user_quiz/:id', to: 'quizzes#show', as: 'user_quiz'
 
   namespace :admin do
     resources :feedbook, only: [:index]

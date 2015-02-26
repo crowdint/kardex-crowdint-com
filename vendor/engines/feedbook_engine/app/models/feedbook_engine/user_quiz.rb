@@ -1,11 +1,12 @@
-class FeedbookEngine::QuizUser < ActiveRecord::Base
+# User quiz, from a Quiz relation
+class FeedbookEngine::UserQuiz < ActiveRecord::Base
   self.table_name = 'feedbook_quiz_users'
 
   belongs_to :quiz
   belongs_to :user
-  has_many :quiz_users_questions
-  has_many :questions, through: :quiz_users_questions
-  has_many :question_user_answers
+  has_many :users_questions, foreign_key: :quiz_user_id
+  has_many :questions, through: :users_questions
+  has_many :user_answers
 
   def self.generate_user_quiz(user_id, quiz_id)
     user_quiz = self.new
