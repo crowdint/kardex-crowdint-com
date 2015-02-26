@@ -13,7 +13,6 @@ feature 'User profile information' do
   background do
     visit root_path
     login_with_oauth
-    click_link 'Sign in'
   end
 
   scenario 'Users can see profile information' do
