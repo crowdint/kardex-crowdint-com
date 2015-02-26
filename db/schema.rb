@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210193517) do
+ActiveRecord::Schema.define(version: 20150223192727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,17 +59,26 @@ ActiveRecord::Schema.define(version: 20150210193517) do
     t.datetime "updated_at"
   end
 
-  create_table "bonus_engine_cycles", force: true do |t|
-    t.string   "name"
+  create_table "bonus_engine_bonus_engine_users", force: true do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "bonus_engine_cycles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "budget",         default: 2000
+    t.integer  "maximum_points", default: 400
+    t.integer  "minimum_people", default: 5
+    t.boolean  "msg_required",   default: true
+    t.integer  "minimum_points", default: 1
+  end
+
   create_table "bonus_engine_cycles_users", force: true do |t|
-    t.integer  "cycle_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "cycle_id"
+    t.integer "bonus_engine_user_id"
   end
 
   create_table "bonus_engine_events", force: true do |t|
@@ -77,8 +86,13 @@ ActiveRecord::Schema.define(version: 20150210193517) do
     t.string   "name"
     t.datetime "opens_at"
     t.datetime "closes_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "budget"
+    t.integer  "maximum_points"
+    t.integer  "minimum_people"
+    t.boolean  "msg_required",   default: true
+    t.integer  "minimum_points", default: 1
   end
 
   add_index "bonus_engine_events", ["cycle_id"], name: "index_bonus_engine_events_on_cycle_id", using: :btree
