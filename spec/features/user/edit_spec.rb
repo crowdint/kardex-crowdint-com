@@ -11,7 +11,6 @@ feature "Edit profile information" do
     background do
       visit root_path
       login_with_oauth
-      click_link 'Sign in'
       click_link 'Account'
     end
 
@@ -34,7 +33,6 @@ feature "Edit profile information" do
     background do
       login_with_oauth
       User.first.update_attributes(is_admin: true)
-      click_link 'Sign in'
       click_link 'Account'
     end
 

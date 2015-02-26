@@ -3,6 +3,7 @@ require 'spec_helper'
 feature 'badges' do
   background do
     login_with_oauth
+    visit root_path
     User.first.update_attributes(is_admin: true)
     click_link 'Sign in'
     click_link 'Admin Power'
