@@ -6,5 +6,8 @@ BadgesEngine::Engine.routes.draw do
 
   namespace :admin do
     resources :badges, except: :show
+    resources :awards
+    resources :values
+    resources :levels
   end
 end
