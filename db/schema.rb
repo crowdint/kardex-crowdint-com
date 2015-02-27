@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022162833) do
+ActiveRecord::Schema.define(version: 20150224231404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20141022162833) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "badge_users", ["badge_id"], name: "index_badge_users_on_badge_id", using: :btree
+  add_index "badge_users", ["user_id"], name: "index_badge_users_on_user_id", using: :btree
 
   create_table "badges_engine_awards", force: true do |t|
     t.string   "title"
@@ -57,6 +60,19 @@ ActiveRecord::Schema.define(version: 20141022162833) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "candidates", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "vote_event_id"
+  end
+
+  add_index "candidates", ["vote_event_id"], name: "index_candidates_on_vote_event_id", using: :btree
+
+  create_table "candidates_users", id: false, force: true do |t|
+    t.integer "user_id",      null: false
+    t.integer "candidate_id", null: false
   end
 
   create_table "nominee_lists", force: true do |t|
@@ -95,6 +111,8 @@ ActiveRecord::Schema.define(version: 20141022162833) do
     t.datetime "updated_at"
   end
 
+  add_index "presentations_engine_presentations", ["user_id"], name: "index_presentations_engine_presentations_on_user_id", using: :btree
+
   create_table "propose_badges", force: true do |t|
     t.string   "name"
     t.integer  "value_id"
@@ -123,6 +141,9 @@ ActiveRecord::Schema.define(version: 20141022162833) do
     t.integer "role_id", null: false
     t.integer "user_id", null: false
   end
+
+  add_index "roles_users", ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id", using: :btree
+  add_index "roles_users", ["user_id", "role_id"], name: "index_roles_users_on_user_id_and_role_id", using: :btree
 
   create_table "skill_types", force: true do |t|
     t.string   "name"
@@ -175,7 +196,7 @@ ActiveRecord::Schema.define(version: 20141022162833) do
   add_index "users", ["position_id"], name: "index_users_on_position_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "votations", force: true do |t|
+  create_table "vote_events", force: true do |t|
     t.integer  "badge_id"
     t.boolean  "is_open"
     t.string   "date"
@@ -183,10 +204,10 @@ ActiveRecord::Schema.define(version: 20141022162833) do
     t.datetime "updated_at"
   end
 
-  add_index "votations", ["badge_id"], name: "index_votations_on_badge_id", using: :btree
+  add_index "vote_events", ["badge_id"], name: "index_vote_events_on_badge_id", using: :btree
 
   create_table "votes", force: true do |t|
-    t.integer  "votation_id"
+    t.integer  "vote_event_id"
     t.integer  "user_id"
     t.integer  "voted_user_id"
     t.string   "reason"
@@ -195,7 +216,18 @@ ActiveRecord::Schema.define(version: 20141022162833) do
   end
 
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
-  add_index "votes", ["votation_id"], name: "index_votes_on_votation_id", using: :btree
+  add_index "votes", ["vote_event_id"], name: "index_votes_on_vote_event_id", using: :btree
+  add_index "votes", ["voted_user_id"], name: "index_votes_on_voted_user_id", using: :btree
+
+  create_table "workshops_engine_workshops", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "date_and_time"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_published",  default: false
+  end
 
   create_table "workshops_engine_workshops", force: true do |t|
     t.string   "title"

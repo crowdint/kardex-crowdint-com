@@ -14,7 +14,7 @@ KardexCrowdintCom::Application.routes.draw do
   resources :propose_badges, only: :create
   resources :nominee_users, only: :create
   resources :nominee_lists, only: [:index, :show]
-  resources :votations, only: :index
+  resources :vote_events, only: :index
   resources :votes, only: :create
   resources :presentations, only: [:index]
 
@@ -22,7 +22,7 @@ KardexCrowdintCom::Application.routes.draw do
     root "main#index"
     resources :users, only: :index
     resources :nominee_lists, only: [:create, :new]
-    resources :votations, except: :edit do
+    resources :vote_events, except: :edit do
       get 'previous', on: :collection
     end
   end
