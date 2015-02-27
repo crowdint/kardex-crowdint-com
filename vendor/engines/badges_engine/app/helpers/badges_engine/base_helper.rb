@@ -49,5 +49,9 @@ module BadgesEngine
     def owned_badge?(badge)
       'search-earned-ico' if current_user.badges.include?(badge)
     end
+
+    def show_earned_date(badge)
+      current_user.find_badge_assignment(badge).created_at.strftime('%B %Y')
+    end
   end
 end

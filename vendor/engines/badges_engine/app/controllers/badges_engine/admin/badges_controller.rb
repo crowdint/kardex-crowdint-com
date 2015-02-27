@@ -39,6 +39,11 @@ module BadgesEngine
       end
     end
 
+    def destroy
+      @badge.destroy
+      redirect_to admin_badges_url, notice: 'Badge was successfully deleted.'
+    end
+
     private
 
     def badge_params

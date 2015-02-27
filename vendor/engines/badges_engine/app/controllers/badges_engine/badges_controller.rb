@@ -17,6 +17,7 @@ module BadgesEngine
 
     def my_badges
       @user = User.find(params[:user_id])
+      @badges = @user.badges
       if params[:search]
         @badges = @user.badges.where("name ILIKE ?", "%#{ params[:search] }%")
         .order(sort_column + " " + sort_direction)
