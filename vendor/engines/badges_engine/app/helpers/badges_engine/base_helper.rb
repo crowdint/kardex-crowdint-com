@@ -34,10 +34,6 @@ module BadgesEngine
       end
     end
 
-    def show_value(value)
-      value.name unless value.nil?
-    end
-
     def current_badge(badge)
       if badge == @badge
         'row badge-sidebar-current-badge'
@@ -52,6 +48,18 @@ module BadgesEngine
 
     def show_earned_date(badge)
       current_user.find_badge_assignment(badge).created_at.strftime('%B %Y')
+    end
+
+    def show_value(value)
+      value.name unless value.nil?
+    end
+
+    def show_award(award)
+      award.title unless award.nil?
+    end
+
+    def show_badge(badge)
+      badge.name unless badge.nil?
     end
   end
 end
