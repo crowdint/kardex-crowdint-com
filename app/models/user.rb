@@ -44,9 +44,9 @@ class User < ActiveRecord::Base
 
   def self.order_ids_by_votes(votes, order)
     if order == :desc
-      votes.sort_by{|_k,v| v}.reverse.to_h.keys
+      votes.sort_by { |_k, v| v }.reverse.to_h.keys
     else
-      votes.sort_by{|_k,v| v}.to_h.keys
+      votes.sort_by { |_k, v| v }.to_h.keys
     end
   end
 
