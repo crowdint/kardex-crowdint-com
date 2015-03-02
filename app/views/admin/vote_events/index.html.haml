@@ -1,0 +1,35 @@
+= content_for :user_details do
+  = render partial: 'shared/user_details'
+= content_for :actions do
+  = render partial: 'shared/actions'
+.admin-list
+  %header
+    %h1 Current vote event for #{ Date.today.strftime('%B %Y') }
+    = link_to 'Create a new vote event', new_admin_vote_event_path, class: 'mvp-orange'
+    = link_to 'Check past vote events', previous_admin_vote_events_path, class: 'mvp'
+  - if @vote_events.any?
+    %table.table
+      %tbody
+        %tr
+          %th Badge
+          %th Active
+          %th Manage module
+      %tbody
+        - @vote_events.each do |vote_event|
+          %tr
+            %td= vote_event.badge.name
+            %td= vote_event.is_open
+            %td
+              = link_to 'Delete', admin_vote_event_path(vote_event),
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                class: 'action-control-section'
+              |
+              = link_to 'Check vote event info', admin_vote_event_path(vote_event), class: 'action-control-section'
+              |
+              = link_to 'Archive vote event', admin_vote_event_path(vote_event),
+                method: :patch,
+                data: { confirm: 'Are you sure?' },
+                class: 'action-control-section'
+  - else
+    %h3 We don't have a vote event (╯°□°)╯︵ ┻━┻

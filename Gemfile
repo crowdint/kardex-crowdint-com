@@ -26,11 +26,17 @@ gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
+#Sidekiq
+gem 'sinatra', require: false
+gem 'sidekiq'
+gem 'sidekiq-scheduler', '~> 1'
+
 # Engines
 gem 'badges_engine',        path: 'vendor/engines/badges_engine'
 gem 'presentations_engine', path: 'vendor/engines/presentations_engine'
 gem 'workshops_engine',     path: 'vendor/engines/workshops_engine'
-gem 'bonus_engine', github: 'crowdint/bonus_engine'
+gem 'bonus_engine', git: 'https://9b64abd27f7e58d194584ef39252dffe0483f39b:x-oauth-basic@github.com/crowdint/bonus_engine',
+ branch: 'master'
 
 group :doc do
   gem 'sdoc', require: false
@@ -51,10 +57,12 @@ group :development, :test do
 end
 
 group :test do
+  gem "codeclimate-test-reporter", require: nil
   gem 'fabrication'
   gem 'faker'
   gem 'nyan-cat-formatter'
   gem 'poltergeist', '~> 1.5.0'
+  gem 'rspec-sidekiq'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'

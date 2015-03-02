@@ -2,7 +2,7 @@
   %header
     %h1 Manage Badges
     = render partial: 'search', locals: { badges: @badges }
-    = link_to 'Check votations', admin_votations_path, class: 'orange'
+    = link_to 'Check vote event', admin_vote_events_path, class: 'orange'
     = link_to 'Create a Badge', badges_engine.new_badge_path
 
   %table.table

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Admin::VotationsController do
-  let(:votation) { Fabricate :votation }
-  let(:votation_params) { Fabricate.attributes_for :votation }
+describe Admin::VoteEventsController do
+  let(:vote_event) { Fabricate :vote_event }
+  let(:vote_event_params) { Fabricate.attributes_for :vote_event }
 
   login_admin
 
@@ -33,49 +33,49 @@ describe Admin::VotationsController do
   describe '#show' do
     let(:action) { :show }
 
-    before { get action, id: votation.id }
+    before { get action, id: vote_event.id }
 
     it_should_behave_like 'success rendering'
   end
 
   describe '#update' do
-    before { patch :update, id: votation.id, votation: votation.id }
+    before { patch :update, id: vote_event.id, vote_event: vote_event.id }
 
-    it { expect(response).to redirect_to admin_votations_path }
+    it { expect(response).to redirect_to admin_vote_events_path }
     it 'returns an notice flash message' do
       expect(response.request.flash[:notice]).
-        to eq 'Votation archived!'
+        to eq 'Vote event archived!'
     end
   end
 
   describe '#destroy' do
-    before { delete :destroy, id: votation.id }
+    before { delete :destroy, id: vote_event.id }
 
-    it { expect(response).to redirect_to admin_votations_path }
+    it { expect(response).to redirect_to admin_vote_events_path }
     it 'returns an notice flash message' do
       expect(response.request.flash[:notice]).
-        to eq 'Votation deleted'
+        to eq 'Vote event deleted'
     end
   end
 
   describe '#create' do
     context 'valid params' do
-      before { post :create, votation: votation_params }
+      before { post :create, vote_event: vote_event_params }
 
-      it { expect(response).to redirect_to admin_votations_path }
+      it { expect(response).to redirect_to admin_vote_events_path }
       it 'returns an notice flash message' do
         expect(response.request.flash[:notice]).
-          to eq 'Votation created successfully'
+          to eq 'Vote event created successfully'
       end
     end
 
     context 'invalid params' do
       let(:invalid_params) do
-        Fabricate.attributes_for(:votation, badge_id: nil)
+        Fabricate.attributes_for(:vote_event, badge_id: nil)
       end
 
       it 'renders template new' do
-        post :create, votation: invalid_params
+        post :create, vote_event: invalid_params
         expect(response).to render_template :new
       end
     end
