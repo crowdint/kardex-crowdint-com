@@ -8,8 +8,6 @@
   width: $width
   &:nth-of-type("#{ $columns }n")
     border-right: none
-  img
-    position: relative
 
 = filter($pixels)
   -moz-filter: blur($pixels)
@@ -31,20 +29,19 @@
 .badge-6-col
   +badges_container(16.66%, 6)
   .badge-info
-    top: -14px
+    transform: translateY(-14px)
     &:hover
-      top: -152px
+      transform: translateY(-152px)
 
 .badge-info
   cursor: pointer
   position: relative
-  top: 0
-  transition: top 0.5s linear
+  transition: transform 0.5s linear
   &:hover
-    top: -138px
+    transform: translateY(-138px)
     .badge-earned-icon
-      display: none
-    .badge-description, .badge-details-link
+      opacity: 0
+    .badge-description
       opacity: 1
 
 .badge-earned-icon
@@ -62,6 +59,7 @@
   opacity: 0
   overflow: hidden
   transition: opacity 1s
+  transform: translateZ(0)
 
 .badge-details-link
   background-color: rgba(255, 255, 255, 0.9)
@@ -69,8 +67,6 @@
   display: block
   padding: 13px 0 5px
   text-decoration: underline
-  transition: opacity 1s
-  opacity: 0
 
 .badge-name
   background-color: rgba(255, 255, 255, 0.5)
@@ -79,5 +75,5 @@
 
 .badge-unknown
   +filter(5px)
-  +transition(all 1s ease)
   opacity: 0.3
+  transform: translateZ(0)
