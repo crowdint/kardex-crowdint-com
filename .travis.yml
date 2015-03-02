@@ -1,6 +1,10 @@
 language: ruby
 rvm:
   - 2.1.2
+
+env:
+  - CODECLIMATE_REPO_TOKEN=283f81ac3d8f8734b5994c8081020e937d8432f3425f0bf23262ace4b0406346 bundle exec rake
+
 before_script:
   - "export DISPLAY=:99.0"
   - 'sh -e /etc/init.d/xvfb start'
@@ -9,5 +13,6 @@ before_script:
   - 'RAILS_ENV=test bundle exec rake db:migrate'
   - "export BAMBOO_API_KEY=API_TOKEN RAILS_ENV=test"
   - "export BAMBOO_SUBDOMAIN=crowdint RAILS_ENV=test"
+
 script:
   - 'RAILS_ENV=test bundle exec rake'

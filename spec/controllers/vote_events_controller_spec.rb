@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe VotationsController do
+describe VoteEventsController do
   login_user
 
   describe '#index' do

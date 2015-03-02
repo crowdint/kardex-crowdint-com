@@ -26,6 +26,11 @@ gem 'slack-notifier', github: 'stevenosloan/slack-notifier'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
+#Sidekiq
+gem 'sinatra', require: false
+gem 'sidekiq'
+gem 'sidekiq-scheduler', '~> 1'
+
 # Engines
 gem 'badges_engine',        path: 'vendor/engines/badges_engine'
 gem 'presentations_engine', path: 'vendor/engines/presentations_engine'
@@ -51,10 +56,12 @@ group :development, :test do
 end
 
 group :test do
+  gem "codeclimate-test-reporter", require: nil
   gem 'fabrication'
   gem 'faker'
   gem 'nyan-cat-formatter'
   gem 'poltergeist', '~> 1.5.0'
+  gem 'rspec-sidekiq'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'
