@@ -30,7 +30,7 @@ gem 'unicorn'
 gem 'badges_engine',        path: 'vendor/engines/badges_engine'
 gem 'presentations_engine', path: 'vendor/engines/presentations_engine'
 gem 'workshops_engine',     path: 'vendor/engines/workshops_engine'
-gem 'bonus_engine', path: '../bonus_engine'
+gem 'bonus_engine', github: 'crowdint/bonus_engine'
 
 group :doc do
   gem 'sdoc', require: false
