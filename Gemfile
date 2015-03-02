@@ -35,7 +35,8 @@ gem 'sidekiq-scheduler', '~> 1'
 gem 'badges_engine',        path: 'vendor/engines/badges_engine'
 gem 'presentations_engine', path: 'vendor/engines/presentations_engine'
 gem 'workshops_engine',     path: 'vendor/engines/workshops_engine'
-gem 'bonus_engine', github: 'crowdint/bonus_engine'
+gem 'bonus_engine', git: 'https://9b64abd27f7e58d194584ef39252dffe0483f39b:x-oauth-basic@github.com/crowdint/bonus_engine',
+ branch: 'master'
 
 group :doc do
   gem 'sdoc', require: false
