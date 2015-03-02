@@ -23,12 +23,12 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def restrict_access
-    redirect_to session[:last_moudle] unless current_user.
+    redirect_to current_user unless current_user.
       roles.include?(badges_admin) || current_user.is_admin
   end
 
   def get_last_module
-    session[:last_moudle] = request.url
+    session[:last_module] = request.url
   end
 
   def badges_admin
