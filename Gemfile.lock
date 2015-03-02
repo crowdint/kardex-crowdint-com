@@ -6,19 +6,6 @@ GIT
       httparty (~> 0.13.0)
 
 GIT
-  remote: git://github.com/crowdint/bonus_engine.git
-  revision: e44818b05338bcdb4a7d6667d0b8ecb692b93413
-  specs:
-    bonus_engine (0.0.1)
-      angular-rails-templates
-      angular-ui-bootstrap-rails
-      angularjs-rails
-      bootstrap-multiselect-rails
-      ng-rails-csrf
-      rabl
-      rails (>= 4.0.0)
-
-GIT
   remote: git://github.com/jmoralesc/crowdint_auth_new.git
   revision: de3a54bf79dc0ceb18b1fb8fd6c08a19ab4d0c89
   specs:
@@ -39,6 +26,20 @@ GIT
   revision: c6428a85f15e64f4ecf2c3d567a45552413d70e8
   specs:
     slack-notifier (0.5.0)
+
+GIT
+  remote: https://9b64abd27f7e58d194584ef39252dffe0483f39b:x-oauth-basic@github.com/crowdint/bonus_engine
+  revision: e44818b05338bcdb4a7d6667d0b8ecb692b93413
+  branch: master
+  specs:
+    bonus_engine (0.0.1)
+      angular-rails-templates
+      angular-ui-bootstrap-rails
+      angularjs-rails
+      bootstrap-multiselect-rails
+      ng-rails-csrf
+      rabl
+      rails (>= 4.0.0)
 
 PATH
   remote: vendor/engines/badges_engine
