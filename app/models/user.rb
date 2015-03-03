@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
 
   scope :admins, -> { where(is_admin: true) }
   scope :ordered, -> { order('name ASC') }
+  scope :order_by_votes, -> (votes) {
+    order_ids = order_ids_by_votes(votes, :desc)
+    where(id: order_ids).order(build_sentence(order_ids))
+  }
 
   def to_param
     "#{id}-#{name.parameterize}"
@@ -36,5 +40,20 @@ class User < ActiveRecord::Base
 
   def admin_module?(current_module)
     roles.pluck(:name).include? "admin_#{current_module}"
+  end
+
+  def self.order_ids_by_votes(votes, order)
+    if order == :desc
+      votes.sort_by { |_k, v| v }.reverse.to_h.keys
+    else
+      votes.sort_by { |_k, v| v }.to_h.keys
+    end
+  end
+
+  def self.build_sentence(order_ids)
+    sentence = order_ids.each_with_index.map do |id, index|
+      "WHEN #{id} THEN #{index}"
+    end.join(' ')
+    "CASE id #{sentence} END"
   end
 end
