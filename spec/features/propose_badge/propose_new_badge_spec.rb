@@ -7,7 +7,7 @@ feature 'Propose a badge' do
   background { login_with_oauth }
 
   scenario 'proposing a new badge' do
-    visit badges_path
+    visit badges_engine.badges_path
     click_link('Propose a badge', match: :first)
     fill_in 'Name', with: 'new badge'
     fill_in 'Description', with: 'This is a new badge'

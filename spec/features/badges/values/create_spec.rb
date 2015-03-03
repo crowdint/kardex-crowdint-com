@@ -8,7 +8,7 @@ feature 'value' do
   end
 
   scenario 'creating a value' do
-    visit badges_engine.values_path
+    visit badges_engine.admin_values_path
     click_link 'New Value'
     fill_in 'Name', with: Faker::Lorem.word
     fill_in 'Description', with: Faker::Lorem.paragraph

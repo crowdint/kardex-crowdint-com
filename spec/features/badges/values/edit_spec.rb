@@ -10,7 +10,7 @@ feature 'values' do
   end
 
   scenario 'edit a value' do
-    visit badges_engine.values_path
+    visit badges_engine.admin_values_path
     click_link 'Edit'
     fill_in 'Name', with: Faker::Lorem.word
     click_button 'Update Value'

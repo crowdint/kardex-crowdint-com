@@ -8,7 +8,7 @@ feature 'Nominate user a badge' do
   background { login_with_oauth }
 
   scenario 'User proposing a badge to another user' do
-    visit badges_path
+    visit badges_engine.badges_path
     click_link('Nominate someone', match: :first)
     select badge.name, from: 'Choose a Badge'
     select user.name, from: 'Who deserves it'

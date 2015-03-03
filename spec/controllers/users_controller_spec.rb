@@ -22,14 +22,6 @@ describe UsersController do
     it_should_behave_like 'success rendering'
   end
 
-  describe '#my_badges' do
-    let(:action) { :my_badges }
-
-    before { get action, id: user.id }
-
-    it_should_behave_like 'success rendering'
-  end
-
   describe 'update' do
     before { patch :update, id: user.id, user: user_params }
 
