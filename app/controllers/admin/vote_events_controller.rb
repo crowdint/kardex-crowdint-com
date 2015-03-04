@@ -29,9 +29,8 @@ class Admin::VoteEventsController < Admin::BaseController
   end
 
   def show
-    @votes = @vote_event.votes.select(:voted_user_id).
-             group(:voted_user_id).count(:voted_user_id)
-    @nominated = User.find(@votes.keys)
+    @votes = get_votes
+    @nominated = User.order_by_votes(@votes)
   end
 
   def update
@@ -53,5 +52,11 @@ class Admin::VoteEventsController < Admin::BaseController
         user_ids: []
       ]
     )
+  end
+
+  def get_votes
+    @vote_event.votes.
+      select(:voted_user_id).
+      group(:voted_user_id).count(:voted_user_id)
   end
 end

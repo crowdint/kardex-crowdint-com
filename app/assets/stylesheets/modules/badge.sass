@@ -8,15 +8,13 @@
   width: $width
   &:nth-of-type("#{ $columns }n")
     border-right: none
-  img
-    position: relative
 
-= filter($pixels)
-  -moz-filter: blur($pixels)
-  -ms-filter: blur($pixels)
-  -o-filter: blur($pixels)
-  -webkit-filter: blur($pixels)
-  filter: blur($pixels)
+= grayscale_filter($pixels)
+  -moz-filter: grayscale($pixels)
+  -ms-filter: grayscale($pixels)
+  -o-filter: grayscale($pixels)
+  -webkit-filter: grayscale($pixels)
+  filter: grayscale($pixels)
 
 = transition($transition)
   -moz-transition: $transition
@@ -31,21 +29,22 @@
 .badge-6-col
   +badges_container(16.66%, 6)
   .badge-info
-    top: -14px
+    transform: translateY(-14px)
     &:hover
-      top: -152px
+      transform: translateY(-152px)
+
+.badge-box
+  cursor: pointer
+
+  &:hover
+    .badge-info
+      transform: translateY(-152px)
+    .badge-earned-icon
+      opacity: 0
 
 .badge-info
-  cursor: pointer
   position: relative
-  top: 0
-  transition: top 0.5s linear
-  &:hover
-    top: -138px
-    .badge-earned-icon
-      display: none
-    .badge-description, .badge-details-link
-      opacity: 1
+  transition: transform 0.4s linear
 
 .badge-earned-icon
   background: image_url('sprite-badges.png') -45px -1425px no-repeat
@@ -59,9 +58,8 @@
 .badge-description
   background-color: rgba(255, 255, 255, 0.9)
   height: 100px
-  opacity: 0
   overflow: hidden
-  transition: opacity 1s
+  transform: translateZ(0)
 
 .badge-details-link
   background-color: rgba(255, 255, 255, 0.9)
@@ -69,8 +67,6 @@
   display: block
   padding: 13px 0 5px
   text-decoration: underline
-  transition: opacity 1s
-  opacity: 0
 
 .badge-name
   background-color: rgba(255, 255, 255, 0.5)
@@ -78,6 +74,6 @@
   padding: 10px 0
 
 .badge-unknown
-  +filter(5px)
-  +transition(all 1s ease)
-  opacity: 0.3
+  +grayscale_filter(100%)
+  transform: translateZ(0)
+  opacity: 0.5
