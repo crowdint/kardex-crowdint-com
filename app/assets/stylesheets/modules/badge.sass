@@ -33,16 +33,18 @@
     &:hover
       transform: translateY(-152px)
 
-.badge-info
+.badge-box
   cursor: pointer
-  position: relative
-  transition: transform 0.5s linear
+
   &:hover
-    transform: translateY(-138px)
+    .badge-info
+      transform: translateY(-152px)
     .badge-earned-icon
       opacity: 0
-    .badge-description
-      opacity: 1
+
+.badge-info
+  position: relative
+  transition: transform 0.4s linear
 
 .badge-earned-icon
   background: image_url('sprite-badges.png') -45px -1425px no-repeat
@@ -56,9 +58,7 @@
 .badge-description
   background-color: rgba(255, 255, 255, 0.9)
   height: 100px
-  opacity: 0
   overflow: hidden
-  transition: opacity 1s
   transform: translateZ(0)
 
 .badge-details-link
