@@ -5,6 +5,12 @@ sync_users_from_bambo_api:
   queue: users
   description: "This job will sync the users from bamboo API every day at 6am"
 
+mail_bonus_engine_active_events:
+  cron: "0 7 * * *"
+  class: MailActiveEventsJob
+  queue: default
+  description: "Sends an email to active event users that has positive balance"
+
 # * * * * *  command to execute
 # │ │ │ │ │
 # │ │ │ │ │
