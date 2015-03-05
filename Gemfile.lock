@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://9b64abd27f7e58d194584ef39252dffe0483f39b:x-oauth-basic@github.com/crowdint/bonus_engine
-  revision: e44818b05338bcdb4a7d6667d0b8ecb692b93413
+  revision: a6eb984dbc411c23b0bd2bff562e6a331e740cee
   branch: master
   specs:
     bonus_engine (0.0.1)
@@ -226,7 +226,7 @@ GEM
       subexec (~> 0.2.1)
     mini_portile (0.6.0)
     minitest (4.7.5)
-    multi_json (1.10.1)
+    multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     net-scp (1.2.1)
@@ -275,7 +275,7 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
-    rack-test (0.6.2)
+    rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.0.4)
       actionmailer (= 4.0.4)
