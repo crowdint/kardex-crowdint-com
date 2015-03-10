@@ -1,7 +1,7 @@
 require_dependency 'badges_engine/application_controller'
 
 module BadgesEngine
-  class Admin::AwardsController < ApplicationController
+  class Admin::AwardsController < Admin::BaseController
     before_action :set_award, only: [:show, :edit, :update, :destroy]
 
     def index

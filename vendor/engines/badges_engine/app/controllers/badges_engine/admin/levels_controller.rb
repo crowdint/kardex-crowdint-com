@@ -1,7 +1,7 @@
 require_dependency 'badges_engine/application_controller'
 
 module BadgesEngine
-  class Admin::LevelsController < ApplicationController
+  class Admin::LevelsController < Admin::BaseController
     before_action :set_level, only: [:show, :edit, :update, :destroy]
 
     def index
