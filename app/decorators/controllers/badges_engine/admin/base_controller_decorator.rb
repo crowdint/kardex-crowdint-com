@@ -1,4 +1,4 @@
-BadgesEngine::ApplicationController.class_eval do
+BadgesEngine::Admin::BaseController.class_eval do
   before_action :restrict_access, :get_last_module
 
   private
