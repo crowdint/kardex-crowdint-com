@@ -7,12 +7,12 @@ module WorkshopsEngine
     private
 
     def restrict_access
-      redirect_to session[:last_moudle] unless
+      redirect_to main_app.user_path(current_user.id) unless
         current_user.roles.include?(workshops_admin) || current_user.is_admin
     end
 
     def get_last_module
-      session[:last_moudle] = request.url
+      session[:last_module] = request.url
     end
 
     def workshops_admin

@@ -28,17 +28,21 @@
 
 .badge-6-col
   +badges_container(16.66%, 6)
-  .badge-info
-    transform: translateY(-14px)
+
+  &.badge-box
+    .badge-info
+      transform: translateY(-14px)
+
     &:hover
-      transform: translateY(-152px)
+      .badge-info
+        transform: translateY(-152px)
 
 .badge-box
   cursor: pointer
 
   &:hover
     .badge-info
-      transform: translateY(-152px)
+      transform: translateY(-138px)
     .badge-earned-icon
       opacity: 0
 

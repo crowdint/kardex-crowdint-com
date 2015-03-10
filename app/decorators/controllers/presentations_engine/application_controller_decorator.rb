@@ -9,7 +9,7 @@ PresentationsEngine::ApplicationController.class_eval do
   end
 
   def get_last_module
-    session[:last_moudle] = request.url
+    session[:last_module] = request.url
   end
 
   def presentations_admin
