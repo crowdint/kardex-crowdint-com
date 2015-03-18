@@ -6,10 +6,13 @@ module BadgesEngine
     layout 'dashboards'
 
     def index
+      if params[:search]
+        @badges = Badge.search_badges(params[:search]).sort_by_column_direction
+      end
     end
 
     def show
-      @badge = BadgesEngine::Badge.find(params[:id])
+      @badge = Badge.find(params[:id])
     end
 
     def query
@@ -19,25 +22,17 @@ module BadgesEngine
       @user = User.find(params[:user_id])
       @badges = @user.badges
       if params[:search]
-        @badges = @user.badges.where("name ILIKE ?", "%#{ params[:search] }%")
-        .order(sort_column + " " + sort_direction)
+        @badges = Badge.search_user_badges(@user, params[:search]).
+          sort_by_column_direction
       end
     end
 
     private
 
     def get_instance_variables
-      @badges = BadgesEngine::Badge.all
+      @badges = Badge.all
       @nominee_user = NomineeUser.new
       @propose_badge = ProposeBadge.new
-    end
-
-    def sort_column
-      User.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
   end
 end

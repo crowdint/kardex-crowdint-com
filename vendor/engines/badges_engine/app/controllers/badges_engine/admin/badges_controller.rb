@@ -7,11 +7,12 @@ module BadgesEngine
     layout 'admin'
 
     def index
-      @badges = if params[:search]
-                  Badge.where("name ILIKE ?", "%#{params[:search]}%").order(sort_column + ' ' + sort_direction)
-                else
-                  Badge.order(sort_column + ' ' + sort_direction)
-                end
+      if params[:search]
+        @badges = Badge.search_badges(params[:search]).
+          sort_by_column_direction
+      else
+        @badges = Badge.sort_by_column_direction
+      end
     end
 
     def new
@@ -59,14 +60,6 @@ module BadgesEngine
 
     def set_badge
       @badge = Badge.find(params[:id])
-    end
-
-    def sort_column
-      Badge.column_names.include?(params[:sort]) ? params[:sort] : 'name'
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
     end
   end
 end

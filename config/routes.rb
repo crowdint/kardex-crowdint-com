@@ -32,6 +32,6 @@ KardexCrowdintCom::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  mount WorkshopsEngine::Engine, at: '/'
   mount BadgesEngine::Engine, at: '/'
+  mount WorkshopsEngine::Engine, at: '/'
 end
