@@ -45,7 +45,7 @@
         .col-md-12
           .badge-presenter-image
             = image_tag @badge.image_url, { class: unknown_image?(@badge) }
-            = render_partial?(@badge.users, 'earned')
+            = render 'earned' if @badge.users.include?(current_user)
           .badge-presenter-info
             %h1.badge-presenter-title= @badge.name
             %strong Description:
@@ -55,7 +55,7 @@
             %p= show_value(@badge.value)
             %hr.badge-presenter-separator
             %strong Path:
-            = render_partial?(@badge.users, 'social_media')
+            = render 'social_media' if @badge.users.include?(current_user)
     .span9.badge-winners
       %header.badge-winners-header
         %h3.badge-winners-title Who else has it?

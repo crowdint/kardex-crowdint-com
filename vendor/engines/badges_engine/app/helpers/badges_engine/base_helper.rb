@@ -22,10 +22,6 @@ module BadgesEngine
       "#{ user.badges.size }/#{ @badges.size }"
     end
 
-    def render_partial?(users, partial)
-      render partial if users.include?(current_user)
-    end
-
     def define_badge_column
       if params[:controller] == 'users' && params[:action] == 'show'
         'badge-5-col'
