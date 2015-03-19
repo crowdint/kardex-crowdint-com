@@ -1,0 +1,13 @@
+%h1 Listing values
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th
+      %th
+      %th
+  %tbody
+    = render partial: 'value', collection: @values
+%br
+= link_to 'New Value', new_admin_value_path

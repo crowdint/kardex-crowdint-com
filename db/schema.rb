@@ -229,4 +229,14 @@ ActiveRecord::Schema.define(version: 20150224231404) do
     t.boolean  "is_published",  default: false
   end
 
+  create_table "workshops_engine_workshops", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "date_and_time"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_published",  default: false
+  end
+
 end

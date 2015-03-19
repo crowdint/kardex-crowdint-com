@@ -5,17 +5,12 @@ describe NomineeListsController do
 
   login_user
 
-  shared_examples_for 'success response' do
-    it { expect(response).to be_success }
-    it { expect(response).to render_template action }
-  end
-
   describe '#index' do
     let(:action) { :index }
 
     before { get action }
 
-    it_should_behave_like 'success response'
+    it_should_behave_like 'success rendering'
   end
 
   describe '#show' do
@@ -23,6 +18,6 @@ describe NomineeListsController do
 
     before { get action, id: nominee_list.id }
 
-    it_should_behave_like 'success response'
+    it_should_behave_like 'success rendering'
   end
 end

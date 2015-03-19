@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module BadgesEngine
   describe Level do
-    let(:level) { build(:level) }
+    let(:level) { Fabricate.build :level }
 
     it { expect(level).to be_valid }
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module BadgesEngine
   describe Award do
-    let(:award) { build(:award) }
+    let(:award) { Fabricate.build :award }
 
     it { expect(award).to be_valid }
 

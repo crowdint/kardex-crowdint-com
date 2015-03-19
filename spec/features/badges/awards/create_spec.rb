@@ -8,7 +8,7 @@ feature 'Awards' do
   end
 
   scenario 'Creating a award' do
-    visit badges_engine.awards_path
+    visit badges_engine.admin_awards_path
     click_link 'New Award'
     fill_in 'Title', with: Faker::Lorem.word
     fill_in 'Description', with: Faker::Lorem.paragraph

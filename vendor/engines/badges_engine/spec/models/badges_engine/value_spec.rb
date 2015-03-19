@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module BadgesEngine
   describe Value do
-    let(:value) { build(:value) }
+    let(:value) { Fabricate.build :value }
 
     it { expect(value).to be_valid }
 

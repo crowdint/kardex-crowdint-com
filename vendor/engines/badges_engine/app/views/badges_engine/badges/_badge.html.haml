@@ -1,10 +1,8 @@
-%tr
-  %td= badge.name
-  %td= image_tag(badge.image_url)
-  %td= badge.description
-  %td= show_award(badge.award)
-  %td= show_value(badge.value)
-  %td= link_to 'Show', badge
-  %td= link_to 'Edit', edit_badge_path(badge)
-  %td= link_to 'Destroy', badge, method: :delete,
-    data: { confirm: 'Are you sure?' }
+%div{ class: current_badge(badge) }
+  .col-md-3.badge-sidebar-image
+    .span3
+      = image_tag badge.image_url, { class: unknown_image?(badge) }
+  .col-md-9.badge-sidebar-name
+    .span9
+      = link_to badge.name, badge_path(badge), class: 'badge-sidebar-link'
+      %span{ class: owned_badge?(badge) }

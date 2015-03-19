@@ -1,0 +1,9 @@
+%div.badge-box{ class: define_badge_column }
+  = image_tag badge.image_url, { class: unknown_image?(badge) }
+  .badge-info
+    = badge_earn_icon(badge)
+    %h5.badge-name
+      = badge.name
+    %p.badge-description
+      = badge.description
+    = link_to 'Details', badges_engine.badge_path(badge), class: 'badge-details-link'

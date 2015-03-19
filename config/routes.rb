@@ -9,19 +9,14 @@ KardexCrowdintCom::Application.routes.draw do
   devise_for :users,
       controllers: { omniauth_callbacks: 'crowdint_auth/omniauth_callbacks' }
 
-  resources :users, except: [:new, :create, :index] do
-    member { get 'my-badges', to: 'users#my_badges', as: 'badges' }
-  end
+  resources :users, except: [:new, :create, :index]
 
   resources :propose_badges, only: :create
   resources :nominee_users, only: :create
   resources :nominee_lists, only: [:index, :show]
-  resources :badges, only: [:index, :show]
   resources :vote_events, only: :index
   resources :votes, only: :create
   resources :presentations, only: [:index]
-
-  match 'badges/query', to: 'badges#query', via: :get
 
   namespace :admin do
     root "main#index"
@@ -33,10 +28,10 @@ KardexCrowdintCom::Application.routes.draw do
   end
 
   scope 'admin' do
-    mount BadgesEngine::Engine , at: '/'
     mount PresentationsEngine::Engine, at: '/'
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  mount BadgesEngine::Engine, at: '/'
   mount WorkshopsEngine::Engine, at: '/'
 end

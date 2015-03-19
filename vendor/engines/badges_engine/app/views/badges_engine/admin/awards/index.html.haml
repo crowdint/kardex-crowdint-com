@@ -1,0 +1,13 @@
+%h1 Listing awards
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th
+      %th
+      %th
+  %tbody
+    = render partial: 'award', collection: @awards
+%br
+= link_to 'New Award', new_admin_award_path

@@ -1,0 +1,14 @@
+%tr
+  %td
+    = image_tag badge.image_url
+    = badge.name
+  %td= badge.description
+  %td= badge.award.title unless badge.award.nil?
+  %td= badge.value.name unless badge.value.nil?
+  %td
+    = link_to 'More', 'javascript:void(0)', class: 'js-show-badge-details action-control-section'
+    |
+    = link_to 'Destroy', admin_badge_path(badge), method: :delete,
+      data: { confirm: 'Are you sure?' }, class: 'action-control-section'
+%tr.badge-details
+  = render partial: 'details', locals: { badge: badge }

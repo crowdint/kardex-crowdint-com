@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe BadgesEngine::Badge do
-  let(:badge) { build(:badge) }
+  let(:badge) { Fabricate.build :badge }
 
   it { expect(badge).to be_valid }
 

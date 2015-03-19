@@ -29,17 +29,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def my_badges
-    @nominee_user = NomineeUser.new
-    @propose_badge = ProposeBadge.new
-    if params[:search]
-              @badges = @user.badges.where("name ILIKE ?", "%#{params[:search]}%")
-                                    .order(sort_column + " " + sort_direction)
-            else
-              @badges = @user.badges.order(sort_column + " " + sort_direction)
-    end
-  end
-
   def destroy
     @user.destroy
     redirect_to admin_users_path, notice: "User was succesfully deleted"

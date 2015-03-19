@@ -1,0 +1,40 @@
+%section.request-nominee
+  %h3.request-nominee-title Nominating someone
+%section.request-form-nominee
+  = simple_form_for @nominee_user, url: main_app.nominee_users_path do |f|
+    .row
+      - if @nominee_user.errors.any?
+        %h2
+          = pluralize(@nominee_user.errors.count, 'error')
+          prohibited this field to be saved.
+        %ul
+          - @nominee_user.errors.full_messages.each do |message|
+            %li= message
+    .row
+      .col-sm-4
+        .span4
+          = f.label :badge_id, 'Choose a Badge',
+            class: 'request-form-label'
+          = f.input :badge_id, collection: BadgesEngine::Badge.all,
+            value_method: :id, label_method: :name, promt: 'Badgename',
+            class: 'request-form-input', label: false
+      .col-sm-3
+        .span3
+          = f.label :user_id, 'Who deserves it', class: 'request-form-label'
+          = f.input :user_id, collection: User.all,
+            value_method: :id, label_method: :name, promt: 'User name',
+            class: 'request-form-input', label: false
+      .col-sm-5
+        .span5
+          = f.label :why, 'Why?', class: 'request-form-label'
+          = f.text_field :why, class: 'request-form-input', placeholder: 'Reasons'
+    .row.request-form-options
+      .col-sm-8
+        .span8
+          %p
+            Can't find the badge?
+            = link_to 'Propose a new one', '#', class: 'request-link js-propose-proposal'
+      .col-sm-4
+        .span4
+          = f.submit 'Nominate', class: 'request-btn-submit'
+          = link_to 'Cancel', '#', class: 'request-btn-cancel js-cancel-nomination'
