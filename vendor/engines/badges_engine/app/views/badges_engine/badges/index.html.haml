@@ -34,6 +34,10 @@
       = render partial: 'badges_engine/shared/nominee_user'
       = render partial: 'badges_engine/shared/propose_badge'
       %section
+        .btn-group.btn-group-justified
+          - ('A'..'Z').each do |letter|
+            = link_to letter, badges_path(letter: letter), class: 'btn btn-default'
+      %section
         .badges-all
           = show_badges
       %footer.badges-footer-separator

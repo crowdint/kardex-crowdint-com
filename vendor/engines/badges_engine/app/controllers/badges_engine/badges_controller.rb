@@ -8,6 +8,8 @@ module BadgesEngine
     def index
       if params[:search]
         @badges = Badge.search_badges(params[:search]).sort_by_column_direction
+      elsif params[:letter]
+        @badges = Badge.by_letter(params[:letter])
       end
     end
 
