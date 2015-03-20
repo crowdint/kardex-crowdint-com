@@ -20,6 +20,10 @@ module BadgesEngine
       order("#{ Badge.get_column(column) } #{ Badge.get_direction(direction) }")
     end
 
+    scope :search_by_letter, ->(letter) do
+      where('name ILIKE ?', "#{ letter }%")
+    end
+
     def self.get_column(column)
       column_names.include?(column) ? column : 'name'
     end
