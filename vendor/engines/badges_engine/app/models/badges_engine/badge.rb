@@ -20,7 +20,7 @@ module BadgesEngine
       order("#{ Badge.get_column(column) } #{ Badge.get_direction(direction) }")
     end
 
-    scope :by_letter, ->(letter) do
+    scope :search_by_letter, ->(letter) do
       where('name ILIKE ?', "#{ letter }%")
     end
 

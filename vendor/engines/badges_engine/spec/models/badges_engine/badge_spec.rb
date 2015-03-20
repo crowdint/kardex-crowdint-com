@@ -25,7 +25,9 @@ describe BadgesEngine::Badge do
 
     %w(a b d y x p z).each do |letter|
       it "returns all badges with letter #{ letter }" do
-        expect(BadgesEngine::Badge.by_letter(letter).count).to eq 1
+        expect(
+          BadgesEngine::Badge.search_by_letter(letter).count
+        ).to eq 1
       end
     end
   end
